@@ -55,6 +55,7 @@ set spelllang=en,es
 set termguicolors
 set background=dark
 set clipboard+=unnamedplus
+set rnu 
 
 " kite
 let g:kite_suported_languages=['javascript', 'python'] 
@@ -62,10 +63,6 @@ let g:kite_suported_languages=['javascript', 'python']
 autocmd FileType python let b:coc_suggest_disable = 1
 autocmd FileType javascript let b:coc_suggest_disable = 1
 autocmd FileType scss setl iskeyword+=@-@
-
-
-
-
 
 "themes
 set t_Co=256

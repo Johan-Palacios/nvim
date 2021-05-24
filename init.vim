@@ -56,7 +56,10 @@ set termguicolors
 set background=dark
 set clipboard+=unnamedplus
 set rnu 
-
+"Paste comands
+nnoremap <F14> :set invpaste paste?<CR>
+set pastetoggle=<F14>
+set showmode
 " kite
 let g:kite_suported_languages=['javascript', 'python'] 
 "coc

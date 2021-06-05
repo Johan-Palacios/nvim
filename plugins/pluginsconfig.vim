@@ -13,15 +13,26 @@
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
 "                 I use :                  ﬏
 "
-"=============================================================
-"Plugins
-source $HOME/.config/nvim/plugins/plugins.vim
-"Themes
-source $HOME/.config/nvim/themes/onedark.vim
-"Maps
-source $HOME/.config/nvim/maps/maps.vim
-"Plugins Config
-source $HOME/.config/nvim/plugins/pluginsconfig.vim
+"AutoComplete Config 
 
-"=============================================================
+let g:coc_global_extensions = [
+  \ 'coc-omnisharp',
+  \ 'coc-go',
+  \ 'coc-tsserver',
+  \ 'coc-html', 
+  \ 'coc-css', 
+  \ 'coc-json',
+  \ 'coc-prettier'
+  \ ]
+
+
+"------------Airline------------------------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
 

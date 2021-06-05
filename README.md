@@ -44,9 +44,12 @@ In this file you install the plugins with this command
 
 `:PlugInstall`
 
+<a href="https://imgur.com/tfJNdUq"><img src="https://i.imgur.com/tfJNdUq.gif" title="source: imgur.com" /></a>
+
+
 Later of that you need to install the autocomplete dependences of coc
 
-	`:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python -coc-pyright coc-kite`
+`:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python -coc-pyright coc-kite`
 
 Later of that you can fun whit that configuration 😀
 

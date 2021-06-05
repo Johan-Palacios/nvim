@@ -1,4 +1,5 @@
-# Neovim Configuration  for Windows Subsystem Linux (WLS)                                [![Neovim](https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png)](https://neovim.io)
+# Neovim Configuration  for Windows Subsystem Linux (WLS)
+[![Neovim](https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png)](https://neovim.io)
 ------------
 
 ## Preview

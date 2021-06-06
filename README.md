@@ -17,7 +17,7 @@
 ![img](https://i.imgur.com/i4pZ1ps.png)
 
 ------------
-##English 🇺🇸
+## English 🇺🇸
 
 ### Starting 🚀
 This configuration have:

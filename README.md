@@ -82,7 +82,7 @@ In this part you can see all of the direction of the sources, first you need to 
 
 And later you open the file. In this flile you need to chage the direction of the file acording of your configuration
 
-	- `~{your-name-in-directory}/.config/nvim/autoload/plugged`
+	`~{your-name-in-directory}/.config/nvim/autoload/plugged`
 In this file you install the plugins with this command
 
 - `:PlugInstall`
@@ -93,7 +93,7 @@ In this file you install the plugins with this command
 Later of that you need to install the autocomplete dependences of coc
 
 ```vb
-`:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite`
+:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite
 ```
 
 Later of that you can fun with that configuration 😀
@@ -172,7 +172,7 @@ Ahora vamos a iniciar con los plugins
 
 Para eso muevete a la siguiente carpeta ` cd plugins/plugins.vim` abre el archivo y cambia el nombre que aparece como _johan_linux_ te adjunto el formato aquí:
 
-	- `~{your-name-in-directory}/.config/nvim/autoload/plugged`
+`~{your-name-in-directory}/.config/nvim/autoload/plugged`
 
 Luego corre el siguiente comando, te dejo un video donde muestro como hacerlo
 
@@ -184,7 +184,7 @@ Luego corre el siguiente comando, te dejo un video donde muestro como hacerlo
 Ahora vamos a instalar los servidores para el autocompletado de Coc
 
 ```vb
-`:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite`
+:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite
 ```
 
 Luego de esto puedes disfrutar de tu Neovim 😀

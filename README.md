@@ -44,7 +44,7 @@ This configuration have:
 - Cool Icons
 - Nerd Tree
 
-_This configurations only works in NVIM 0.5 > _
+_This configurations only works in NVIM 0.5 >_
 ## Instalation  🔧
 
 

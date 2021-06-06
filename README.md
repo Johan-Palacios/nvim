@@ -98,6 +98,11 @@ Later of that you need to install the autocomplete dependences of coc
 
 Later of that you can fun with that configuration 😀
 
+
+## Autor ✒️
+
+* **Johan Palacios** - *All Work* - [Johan-Palacios](https://github.com/Johan-Palacios)
+
 ## Español 🇪🇸
 ### Comenzando 🚀
 Esta configuración tiene :
@@ -183,3 +188,6 @@ Ahora vamos a instalar los servidores para el autocompletado de Coc
 ```
 
 Luego de esto puedes disfrutar de tu Neovim 😀
+## Autor ✒️
+
+* **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)

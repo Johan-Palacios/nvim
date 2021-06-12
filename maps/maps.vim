@@ -114,14 +114,23 @@ function! s:show_documentation()
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
     call CocActionAsync('doHover')
-  else
+ else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
 "Carbon
 vnoremap <F17> :CarbonNowSh
 let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =
 \ { 'ln': 'true',
   \ 'fm': 'Source Code Pro' }
+
+"Personal Comands
+nmap <C-s> :w<CR>
+nmap <C-m> :x<CR>
+nmap <C-w> :q!<CR>
+autocmd BufWritePre *.html :CocCommand prettier.formatFile
+autocmd BufWritePre *.js :CocCommand prettier.formatFile
+autocmd BufWritePre *.ts :CocCommand prettier.formatFile
+autocmd BufWritePre *.css :CocCommand prettier.formatFile
+autocmd BufWritePre *.scss :CocCommand prettier.formatFile

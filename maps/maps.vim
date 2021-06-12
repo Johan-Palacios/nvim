@@ -17,6 +17,10 @@
 "-------------Init set and let for NVIM-------------------------
 set encoding=utf-8
 set showtabline=2
+set nocompatible
+set autoindent
+set fdm=indent
+set foldlevelstart=99
 set cmdheight=2
 set number
 set title 
@@ -28,7 +32,7 @@ set pastetoggle=<F14>
 set showmode
 set colorcolumn=120
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=4
 set softtabstop=2
 set shiftround
 set expandtab
@@ -41,9 +45,12 @@ set background=dark
 set clipboard+=unnamedplus
 set rnu 
 let mapleader="\<Space>"
+let maplocalleader="//" 
 nnoremap <F14> :set invpaste paste?<CR>
-
-
+filetype on
+filetype plugin indent on
+set timeoutlen=1000
+set ttimeoutlen=0
 "-----------------NVIM 0.5V--------------
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")
@@ -52,6 +59,22 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+"--------------------Execute codes ---------
+augroup exe_code
+  autocmd!
+
+  "Python codes
+  autocmd FileType python nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term python3.9 %<CR> :startinsert<CR>
+  "Javascript
+  autocmd FileType javascript nnoremap <buffer> <localleader>r
+        \ :sp<CR> :term nodejs %<CR> :startinsert<CR>
+
+"-------------Compile Code -------------------
+autocmd filetype c nnoremap <F21> :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+autocmd filetype cpp nnoremap <F21> :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+
 "--------------------MOUSE------------------
 let g:is_mouse_enabled = 1
 noremap <silent> <Leader>m :call ToggleMouse()<CR>
@@ -67,20 +90,8 @@ function ToggleMouse()
     endif
 endfunction
 "--------------Themes---------------------------
-set t_Co=256
 let g:airline_theme='onedark'
-syntax on
-colorscheme onedark
-"colorscheme gruvbox
-let g:onedark_termcolors=256
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-filetype on
-filetype plugin indent on
 "Telescope ATJ
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -89,9 +100,14 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "COC maps
 nmap <silent> gd <Plug> (coc-definition)
 nmap <silent> gy <Plug> (coc-type-definition)
+"Autoformat
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 " Use K to show documentation in preview window.
 
-nnoremap <silent> KK :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

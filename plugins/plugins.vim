@@ -54,5 +54,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'
+    Plug 'sbdchd/neoformat'
     call plug#end()
 

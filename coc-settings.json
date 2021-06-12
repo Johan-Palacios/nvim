@@ -6,17 +6,10 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     },
-		"ccls": {
-    	"command": "ccls",
-    	"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-    	"rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-    	"initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
-  }
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+  }		
   }
 }
-
-

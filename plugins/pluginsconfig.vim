@@ -74,3 +74,10 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 "-------------------Tmux navigar-------------------
 let g:tmux_navigator_save_on_switch = 2
+
+"---------------------Neoformat-------------------
+nnoremap <leader>nf :Neoformat<CR>
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END

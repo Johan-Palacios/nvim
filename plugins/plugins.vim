@@ -55,5 +55,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'
     Plug 'sbdchd/neoformat'
+    Plug 'OmniSharp/omnisharp-vim'
     call plug#end()
 

@@ -71,10 +71,10 @@ augroup exe_code
   autocmd FileType javascript nnoremap <buffer> <localleader>r
         \ :sp<CR> :term nodejs %<CR> :startinsert<CR>
 
-"-------------Compile Code -------------------
+"-------------Compile Code and Run code -------------------
 autocmd filetype c nnoremap <F21> :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cpp nnoremap <F21> :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-
+autocmd filetype cs nnoremap <F21> :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 "--------------------MOUSE------------------
 let g:is_mouse_enabled = 1
 noremap <silent> <Leader>m :call ToggleMouse()<CR>
@@ -129,8 +129,12 @@ let g:carbon_now_sh_options =
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-o> :bnext<CR>
 autocmd BufWritePre *.html :CocCommand prettier.formatFile
 autocmd BufWritePre *.js :CocCommand prettier.formatFile
 autocmd BufWritePre *.ts :CocCommand prettier.formatFile
 autocmd BufWritePre *.css :CocCommand prettier.formatFile
 autocmd BufWritePre *.scss :CocCommand prettier.formatFile
+vnoremap <Tab> >gV
+vnoremap <S-Tab> <gV

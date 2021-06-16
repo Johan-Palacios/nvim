@@ -6,7 +6,7 @@
 "   |   This is for NVIM 0.5_V   |
 "   |                            |
 "   +----------------------------+
-"    _  ____ 
+"    _  ____
 "   / |/  __\     GitHub: https://github.com/Johan-Palacios
 "   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
@@ -23,7 +23,7 @@ set fdm=indent
 set foldlevelstart=99
 set cmdheight=2
 set number
-set title 
+set title
 set number
 set mouse=a
 set nowrap
@@ -43,9 +43,9 @@ set spelllang=en,es
 set termguicolors
 set background=dark
 set clipboard+=unnamedplus
-set rnu 
+set rnu
 let mapleader="\<Space>"
-let maplocalleader="//" 
+let maplocalleader="//"
 nnoremap <F14> :set invpaste paste?<CR>
 filetype on
 filetype plugin indent on
@@ -131,10 +131,5 @@ nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
 nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
-autocmd BufWritePre *.html :CocCommand prettier.formatFile
-autocmd BufWritePre *.js :CocCommand prettier.formatFile
-autocmd BufWritePre *.ts :CocCommand prettier.formatFile
-autocmd BufWritePre *.css :CocCommand prettier.formatFile
-autocmd BufWritePre *.scss :CocCommand prettier.formatFile
 vnoremap <Tab> >gV
 vnoremap <S-Tab> <gV

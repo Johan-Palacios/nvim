@@ -6,7 +6,7 @@
 "   |   This is for NVIM 0.5_V   |
 "   |                            |
 "   +----------------------------+
-"    _  ____ 
+"    _  ____
 "   / |/  __\     GitHub: https://github.com/Johan-Palacios
 "   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
@@ -56,5 +56,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'kristijanhusak/vim-carbon-now-sh'
     Plug 'sbdchd/neoformat'
     Plug 'OmniSharp/omnisharp-vim'
+    "Plug 'tell-k/vim-autopep8'
+    Plug 'dense-analysis/ale'
     call plug#end()
-

@@ -6,21 +6,21 @@
 "   |   This is for NVIM 0.5_V   |
 "   |                            |
 "   +----------------------------+
-"    _  ____ 
+"    _  ____
 "   / |/  __\     GitHub: https://github.com/Johan-Palacios
 "   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
 "                 I use :                  ﬏
 "
-"AutoComplete Config 
+"AutoComplete Config
 
 let g:coc_global_extensions = [
   \ 'coc-omnisharp',
   \ 'coc-go',
   \ 'coc-tsserver',
-  \ 'coc-html', 
-  \ 'coc-css', 
+  \ 'coc-html',
+  \ 'coc-css',
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-clangd',
@@ -76,8 +76,24 @@ let g:airline_right_sep = ''
 let g:tmux_navigator_save_on_switch = 2
 
 "---------------------Neoformat-------------------
-nnoremap <leader>nf :Neoformat<CR>
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+
+autocmd BufWritePre *.c :Neoformat
+autocmd BufWritePre *.cpp :Neoformat
+autocmd BufWritePre *.cs :Neoformat
+"---------------------ALE------------------------
+let g:ale_linters = {
+\   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort'],
+\}
+
+let g:ale_fix_on_save = 1
+"-----------------Prettier-----------------------
+autocmd BufWritePre *.html :CocCommand prettier.formatFile
+autocmd BufWritePre *.js :CocCommand prettier.formatFile
+autocmd BufWritePre *.ts :CocCommand prettier.formatFile
+autocmd BufWritePre *.css :CocCommand prettier.formatFile
+autocmd BufWritePre *.scss :CocCommand prettier.formatFile

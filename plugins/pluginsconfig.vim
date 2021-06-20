@@ -1,4 +1,5 @@
 "
+"
 "   +----------------------------+
 "   |                            |
 "   |Jᴏʜᴀɴ Pᴀʟᴀᴄɪᴏs /NVIM-Cᴏɴғɪɢ |
@@ -24,8 +25,9 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-clangd',
-  \ 'coc-python',
-  \ 'coc-pyright'
+  "\ 'coc-python',
+  \ 'coc-pyright',
+  \ 'coc-kite',
   \ ]
 
 
@@ -97,3 +99,42 @@ autocmd BufWritePre *.js :CocCommand prettier.formatFile
 autocmd BufWritePre *.ts :CocCommand prettier.formatFile
 autocmd BufWritePre *.css :CocCommand prettier.formatFile
 autocmd BufWritePre *.scss :CocCommand prettier.formatFile
+
+
+let g:lightline =
+  \ {
+  \   'colorscheme': 'onedark',
+  \   'tabline': {
+  \     'left': [ [ 'tabs', 'tablinesep', 'bufferline'] ],
+  \     'right': [ [ 'folder' ] ]
+  \   },
+  \   'tab': {
+  \     'active': [ 'tabnum' ],
+  \     'inactive': [ 'tabnum' ]
+  \   },
+  \   'component_expand': {
+  \     'bufferline': 'MyBufferline',
+  \     'tablinesep': 'MyTablineSep'
+  \   },
+  \   'component_type': {
+  \     'bufferline': 'bufsel',
+  \     'tablinesep': 'tabsep'
+  \   },
+  \   'tabline_subseparator': { 'left': '', 'right': '' },
+  \   'tabline_separator': { 'left': '', 'right': '' },
+  \ }
+
+function! MyTablineSep()
+  return tabpagenr('$') > 1 ? ['', '●', ''] : ''
+endfunction
+
+function! MyBufferline()
+  call bufferline#refresh_status()
+  let buffers = [
+    \   g:bufferline_status_info.before,
+    \   g:bufferline_status_info.current,
+    \   g:bufferline_status_info.after
+    \ ]
+  call map(buffers, 's:strip(v:val)')
+  return buffers
+endfunction

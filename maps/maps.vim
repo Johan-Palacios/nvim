@@ -90,13 +90,7 @@ function ToggleMouse()
     endif
 endfunction
 "--------------Themes---------------------------
-let g:airline_theme='onedark'
 
-"Telescope ATJ
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "COC maps
 nmap <silent> gd <Plug> (coc-definition)
 nmap <silent> gy <Plug> (coc-type-definition)

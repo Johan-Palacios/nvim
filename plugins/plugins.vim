@@ -48,9 +48,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
@@ -63,4 +60,9 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'nacro90/numb.nvim'
     Plug 'andymass/vim-matchup'
     Plug 'zivyangll/git-blame.vim'
+    "---------Telescope Comands
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-media-files.nvim'
     call plug#end()

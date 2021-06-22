@@ -91,9 +91,6 @@ function ToggleMouse()
 endfunction
 "--------------Themes---------------------------
 
-"COC maps
-nmap <silent> gd <Plug> (coc-definition)
-nmap <silent> gy <Plug> (coc-type-definition)
 "Autoformat
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)

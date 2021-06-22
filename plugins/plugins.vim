@@ -15,24 +15,18 @@
 "
 
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
+    "Autocomplete plugin
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'OmniSharp/omnisharp-vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'joshdick/onedark.vim'
-    "Plug 'morhetz/gruvbox'
-    Plug 'mhinz/vim-startify'
-    "Plug 'glepnir/dashboard-nvim'
     Plug 'preservim/nerdtree'
-    "Plug 'vim-airline/vim-airline'
     Plug 'jiangmiao/auto-pairs'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-unimpaired'
     Plug 'liuchengxu/vim-which-key'
     Plug 'ryanoasis/vim-devicons'
-    "Plug 'maximbaz/lightline-ale'
-    "Plug 'itchyny/lightline.vim'
-    "Plug 'shinchu/lightline-gruvbox.vim'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'alvan/vim-closetag'
     Plug 'tpope/vim-surround'
     Plug 'benmills/vimux'
@@ -53,8 +47,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'
     Plug 'sbdchd/neoformat'
-    Plug 'OmniSharp/omnisharp-vim'
-    "Plug 'tell-k/vim-autopep8'
     Plug 'dense-analysis/ale'
     Plug 'romgrk/barbar.nvim'
     Plug 'nacro90/numb.nvim'
@@ -64,5 +56,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-media-files.nvim'
+    Plug 'liuchengxu/vim-clap'
+    Plug 'glepnir/dashboard-nvim'
     call plug#end()

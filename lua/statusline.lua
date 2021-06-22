@@ -100,7 +100,7 @@ gls.left[9] = {
 gls.left[10] = {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",
-        icon = "  ",
+        icon = "   ",
         highlight = {colors.yellow, colors.statusline_bg}
     }
 }
@@ -122,7 +122,7 @@ gls.right[1] = {
 gls.right[2] = {
     GitIcon = {
         provider = function()
-            return " "
+            return "  "
         end,
         condition = require("galaxyline.provider_vcs").check_git_workspace,
         highlight = {colors.grey_fg2, colors.lightbg},

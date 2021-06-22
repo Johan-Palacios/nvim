@@ -1,4 +1,31 @@
 {
+"suggest.completionItemKindLabels": {
+    "method": " Method  ",
+    "function": " Function  ",
+    "variable": " Var []",
+    "field": " Field  ",
+    "typeParameter": " Type <>",
+    "constant": " Constant  ",
+    "class": " Class פּ ",
+    "interface": " Interface蘒",
+    "struct": " Struct  ",
+    "event": " Event  ",
+    "operator": " Operator  ",
+    "module": " Module  ",
+    "property": " Property  ",
+    "enum": " Enum 練",
+    "reference": " Reference  ",
+    "keyword": " Keyword  ",
+    "file": " File  ",
+    "folder": " Folder ﱮ ",
+    "color": " Color  ",
+    "unit": " Unit 塞 ",
+    "snippet": " Snippet  ",
+    "text": " Text  ",
+    "constructor": " Constructor  ",
+    "value": " Value  ",
+    "enumMember": " EnumMember  "
+},
 "languageserver": {
 }
 }

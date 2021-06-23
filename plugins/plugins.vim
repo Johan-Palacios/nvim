@@ -19,8 +19,10 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'joshdick/onedark.vim'
     Plug 'preservim/nerdtree'
+    "Themes
+    Plug 'romgrk/barbar.nvim'
+    Plug 'joshdick/onedark.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'mhinz/vim-signify'
@@ -48,8 +50,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'kristijanhusak/vim-carbon-now-sh'
     Plug 'sbdchd/neoformat'
     Plug 'dense-analysis/ale'
-    Plug 'romgrk/barbar.nvim'
-    Plug 'nacro90/numb.nvim'
     Plug 'andymass/vim-matchup'
     Plug 'zivyangll/git-blame.vim'
     "---------Telescope Comands
@@ -58,4 +58,5 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'liuchengxu/vim-clap'
     Plug 'glepnir/dashboard-nvim'
+    Plug 'preservim/tagbar'
     call plug#end()

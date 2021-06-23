@@ -42,15 +42,15 @@ require "nvim-web-devicons".setup {
             color = "colors.dark_purple",
             name = "jpeg"
         },
-        mp3 = {
+        mp2 = {
             icon = "",
             color = colors.white,
-            name = "mp3"
+            name = "mp2"
         },
-        mp4 = {
+        mp3 = {
             icon = "",
             color = colors.white,
-            name = "mp4"
+            name = "mp3"
         },
         out = {
             icon = "",

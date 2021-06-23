@@ -32,11 +32,11 @@ This configuration have:
 	- Coc-python
 	- Coc-tsserver
 	- Coc-css
-- One Dark theme for Neovim 
+- One Dark theme for Neovim
 - Syntax plugins
 - Airline plugin for One Dark
 - Fast Navigator
-- Telescope 
+- Telescope
 - Fzf
 - NerdCommenter
 - Carbon screen
@@ -55,7 +55,7 @@ You can create that with this command in $HOME
 `mkdir ~/.config/nvim/`
 
  Or clone the repo with this command
- 
+
 **HTTP**
 
 
@@ -76,7 +76,7 @@ And run this command `so %` for indicate the main file
 
 ![img](https://i.imgur.com/LBmN9BU.png)
 
-In this part you can see all of the direction of the sources, first you need to go in plugins 
+In this part you can see all of the direction of the sources, first you need to go in plugins
 
 - `cd plugins/plugins.vim`
 
@@ -117,17 +117,17 @@ Esta configuración tiene :
 	- Coc-python
 	- Coc-tsserver
 	- Coc-css
-- Tema One dark para Neovim 
+- Tema One dark para Neovim
 - Plugins de sintaxis
 - Airline plugin para One Dark
 - Navegador rápido de Tmux
-- Telescope 
+- Telescope
 - Fzf
 - NerdCommenter
 - Carbon screen
 	- Puedes configurar esto en los  `/plugins/pluginsconfig.vim` _Por defecto es F17_
 - Iconos web cool 😎
-- Nerd Tree 
+- Nerd Tree
 
 _Esta configuración solo funciona en  NVIM 0.5  o superior_
 ## Instalación  🔧
@@ -146,7 +146,7 @@ cd /.config/nvim/
 ```
 
  Luego de esto Clona el repositiorio en dicha carpeta
- 
+
 **HTTP**
 
 
@@ -168,7 +168,7 @@ Corre el comando de so para indicar que tu directorio raiz sea este `so %`
 
 ![img](https://i.imgur.com/LBmN9BU.png)
 
-Ahora vamos a iniciar con los plugins 
+Ahora vamos a iniciar con los plugins
 
 Para eso muevete a la siguiente carpeta ` cd plugins/plugins.vim` abre el archivo y cambia el nombre que aparece como _johan_linux_ te adjunto el formato aquí:
 

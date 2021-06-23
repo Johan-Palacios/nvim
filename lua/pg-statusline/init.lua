@@ -167,7 +167,7 @@ gls.right[5] = {
             if current_Mode == nil then
                 return "  Terminal "
             else
-                return "  " .. current_Mode .. " "
+               return "  " .. current_Mode .. " "
             end
         end,
         highlight = {colors.red, colors.lightbg}
@@ -202,3 +202,4 @@ gls.right[7] = {
         highlight = {colors.green, colors.lightbg}
     }
 }
+

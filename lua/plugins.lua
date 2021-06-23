@@ -12,14 +12,16 @@ return packer.startup(
         --Bar
         use "kyazdani42/nvim-web-devicons"
         use "akinsho/nvim-bufferline.lua"
+        use "onsails/lspkind-nvim"
         --Zen mode
         use "Pocco81/TrueZen.nvim"
         --Tressiter
         use "nvim-treesitter/nvim-treesitter"
-        use "onsails/lspkind-nvim"
         use 'neovim/nvim-lspconfig'
         use 'hrsh7th/nvim-compe'
         use 'nvim-lua/completion-nvim'
+        --Show numbers
+        use 'nacro90/numb.nvim'
 
 
     end

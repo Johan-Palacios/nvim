@@ -126,3 +126,5 @@ let bufferline.no_name_title = v:null
 
 "---------------------DashBoard-----------------
 luafile $HOME/.config/nvim/lua/pg-dash/init.lua
+"--------------------Tagbar Comd---------------
+nnoremap <F13> :TagbarToggle<CR>

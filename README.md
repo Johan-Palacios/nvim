@@ -14,7 +14,7 @@
 ## Preview / Pre-visualización 🕹️
 
 
-![img](https://i.imgur.com/i4pZ1ps.png)
+![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
 
 ------------
 ## English 🇺🇸
@@ -29,9 +29,9 @@ This configuration have:
 	- Coc-omnisharp
 	- Coc-prettier
 	- Coc-pyright
-	- Coc-python
 	- Coc-tsserver
 	- Coc-css
+	- Coc-emmet
 - One Dark theme for Neovim
 - Syntax plugins
 - Airline plugin for One Dark
@@ -43,6 +43,12 @@ This configuration have:
 	-You can configure this in `/plugins/pluginsconfig.vim` _default is F17_
 - Cool Icons
 - Nerd Tree
+- ToogleBar
+- Galaxy line
+- Barbar
+- Autoformat With Neoformat and Ale
+- Lua configurations
+- Dashbard
 
 _This configurations only works in NVIM 0.5 >_
 ## Instalation  🔧
@@ -52,7 +58,7 @@ First you need to the source of the nvim configurations
 
 You can create that with this command in $HOME
 
-`mkdir ~/.config/nvim/`
+`mkdir ~/.config/`
 
  Or clone the repo with this command
 
@@ -69,12 +75,13 @@ You can create that with this command in $HOME
 
 ```gh repo clone Johan-Palacios/Nvim-config```
 
+**Is veri important that you reneme the `Nvim-config` to `nvim`**
 
 Later you need to go to `init.vim`, that have this configuration:
 
 And run this command `so %` for indicate the main file
 
-![img](https://i.imgur.com/LBmN9BU.png)
+![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
 
 In this part you can see all of the direction of the sources, first you need to go in plugins
 
@@ -87,13 +94,18 @@ In this file you install the plugins with this command
 
 - `:PlugInstall`
 
-<a href="https://imgur.com/tfJNdUq"><img src="https://i.imgur.com/tfJNdUq.gif" title="source: imgur.com" /></a>
+![n1qPRp7bbp](https://user-images.githubusercontent.com/77251405/123716403-bbc54280-d837-11eb-85f6-ba03779965b3.gif)
+
+And for the lua plugins use 
+
+
+![ysRRGCQTeD](https://user-images.githubusercontent.com/77251405/123717153-81f53b80-d839-11eb-8762-4fac09b424d3.gif)
 
 
 Later of that you need to install the autocomplete dependences of coc
 
 ```vb
-:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite
+:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier  coc-pyright coc-kite coc-emmet coc-clangd
 ```
 
 Later of that you can fun with that configuration 😀
@@ -128,6 +140,12 @@ Esta configuración tiene :
 	- Puedes configurar esto en los  `/plugins/pluginsconfig.vim` _Por defecto es F17_
 - Iconos web cool 😎
 - Nerd Tree
+- ToogleBar
+- Galaxy line
+- Barbar
+- Autoformat With Neoformat and Ale
+- Lua configurations
+- Dashbard
 
 _Esta configuración solo funciona en  NVIM 0.5  o superior_
 ## Instalación  🔧
@@ -138,11 +156,11 @@ Primero en tu directorio raiz debes crear la carpeta para las configuraciones de
 Usa este comando para crear el directorio
 
 ```
-mkdir ~/.config/nvim/
+mkdir ~/.config/
 
 "Muevete al directorio con: "
 
-cd /.config/nvim/
+cd /.config/
 ```
 
  Luego de esto Clona el repositiorio en dicha carpeta
@@ -160,13 +178,11 @@ cd /.config/nvim/
 
 ```gh repo clone Johan-Palacios/Nvim-config```
 
-
-
-Luego muevete a  `init.vim` en donde tendras estas configuraciones:
+**Esto creara una carpeta llamada  `Nvim-config` pero esta tendras que renombrarla como `nvim`** despues de esto muevete dentro de la carpeta nvim y muevete a  `init.vim` en donde tendras estas configuraciones:
 
 Corre el comando de so para indicar que tu directorio raiz sea este `so %`
 
-![img](https://i.imgur.com/LBmN9BU.png)
+![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
 
 Ahora vamos a iniciar con los plugins
 
@@ -178,16 +194,21 @@ Luego corre el siguiente comando, te dejo un video donde muestro como hacerlo
 
 - `:PlugInstall`
 
-<a href="https://imgur.com/tfJNdUq"><img src="https://i.imgur.com/tfJNdUq.gif" title="source: imgur.com" /></a>
+![n1qPRp7bbp](https://user-images.githubusercontent.com/77251405/123716403-bbc54280-d837-11eb-85f6-ba03779965b3.gif)
 
+
+Y para los plugins de lua usa :
+
+![ysRRGCQTeD](https://user-images.githubusercontent.com/77251405/123717153-81f53b80-d839-11eb-8762-4fac09b424d3.gif)
 
 Ahora vamos a instalar los servidores para el autocompletado de Coc
 
 ```vb
-:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier coc-python coc-pyright coc-kite
+:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier  coc-pyright coc-kite coc-emmet coc-clangd
 ```
 
 Luego de esto puedes disfrutar de tu Neovim 😀
 ## Autor ✒️
 
 * **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)
+

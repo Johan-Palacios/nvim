@@ -45,7 +45,7 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.bashls.setup{}
-require'lspconfig'.html.setup{}
+--require'lspconfig'.html.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.cssls.setup{}

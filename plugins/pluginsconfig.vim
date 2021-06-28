@@ -20,14 +20,14 @@ let g:coc_global_extensions = [
   \ 'coc-omnisharp',
   \ 'coc-go',
   \ 'coc-tsserver',
-  \ 'coc-html',
   \ 'coc-css',
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-clangd',
-  "\ 'coc-python',
   \ 'coc-pyright',
   \ 'coc-kite',
+  \ 'coc-emmet',
+  \ 'coc-html',
   \ ]
 
 
@@ -55,7 +55,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "------------Config NERD TREE----------------
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
@@ -75,8 +74,10 @@ let g:ale_linters = {
 \   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy'],
 \}
 
+
+"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black', 'isort'],
 \}
 

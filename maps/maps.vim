@@ -42,6 +42,10 @@ set smartcase
 set spelllang=en,es
 set termguicolors
 set background=dark
+set noma
+set write
+set ma
+set modifiable
 set clipboard+=unnamedplus
 set rnu
 let mapleader="\<Space>"
@@ -66,15 +70,23 @@ augroup exe_code
 
   "Python codes
   autocmd FileType python nnoremap <buffer> <localleader>r
-        \ :sp<CR> :term python3.9 %<CR> :startinsert<CR>
+        \ :vsp<CR> :term python3 %<CR> :startinsert<CR>
   "Javascript
   autocmd FileType javascript nnoremap <buffer> <localleader>r
-        \ :sp<CR> :term nodejs %<CR> :startinsert<CR>
+        \ :vsp<CR> :term nodejs %<CR> :startinsert<CR>
 
 "-------------Compile Code and Run code -------------------
 autocmd filetype c nnoremap <F21> :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cpp nnoremap <F21> :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cs nnoremap <F21> :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+
+map <localleader>r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+exec "w"
+exec "vsp"
+exec "term ./%<"
+endfunc
+
 "--------------------MOUSE------------------
 let g:is_mouse_enabled = 1
 noremap <silent> <Leader>m :call ToggleMouse()<CR>

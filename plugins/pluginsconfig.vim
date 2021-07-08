@@ -14,66 +14,24 @@
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
 "                 I use :                  ﬏
 "
-"AutoComplete Config
 
-let g:coc_global_extensions = [
-  \ 'coc-omnisharp',
-  \ 'coc-go',
-  \ 'coc-tsserver',
-  \ 'coc-css',
-  \ 'coc-json',
-  \ 'coc-prettier',
-  \ 'coc-clangd',
-  \ 'coc-pyright',
-  \ 'coc-kite',
-  \ 'coc-emmet',
-  \ 'coc-html',
-  \ ]
-
-
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-"------------Config NERD TREE----------------
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen = 1
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 "-------------------Tmux navigar-------------------
 let g:tmux_navigator_save_on_switch = 2
 "---------------------Neoformat-------------------
-
+autocmd BufWritePre *.js :Neoformat
+autocmd BufWritePre *.json :Neoformat
+autocmd BufWritePre *.html :Neoformat
+autocmd BufWritePre *.css :Neoformat
+autocmd BufWritePre *.ts :Neoformat
+autocmd BufWritePre *.scss :Neoformat
 autocmd BufWritePre *.c :Neoformat
 autocmd BufWritePre *.cpp :Neoformat
 autocmd BufWritePre *.cs :Neoformat
+autocmd BufWritePre *.lua :Neoformat
 "---------------------ALE------------------------
 let g:ale_linters = {
 \   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy'],
 \}
-
 
 "\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 
@@ -82,13 +40,6 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
-"-----------------Prettier-----------------------
-autocmd BufWritePre *.html :CocCommand prettier.formatFile
-autocmd BufWritePre *.js :CocCommand prettier.formatFile
-autocmd BufWritePre *.ts :CocCommand prettier.formatFile
-autocmd BufWritePre *.css :CocCommand prettier.formatFile
-autocmd BufWritePre *.scss :CocCommand prettier.formatFile
-
 "---------------Telescope---------------------------
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -129,3 +80,19 @@ let bufferline.no_name_title = v:null
 luafile $HOME/.config/nvim/lua/pg-dash/init.lua
 "--------------------Tagbar Comd---------------
 nnoremap <F13> :TagbarToggle<CR>
+"-------------- Nvimtree ----------------------
+let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_quit_on_open = 1
+
+"---------------------NERDCOMMNETER----------
+let g:NERDCreateDefaultMappings = 1
+"--------------------LSP------------------
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>

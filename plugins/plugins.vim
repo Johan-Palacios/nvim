@@ -16,11 +16,11 @@
 
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     "Autocomplete plugin
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'mattn/emmet-vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'preservim/nerdtree'
+    "Plug 'preservim/nerdtree'
     "Themes
     Plug 'romgrk/barbar.nvim'
     Plug 'joshdick/onedark.vim'
@@ -41,11 +41,11 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'easymotion/vim-easymotion'
-    Plug 'yggdroot/indentline'
-    Plug 'scrooloose/nerdcommenter'
+    " Plug 'yggdroot/indentline'
+    Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
-    Plug 'kyazdani42/nvim-web-devicons'
+    "Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'

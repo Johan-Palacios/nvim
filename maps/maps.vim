@@ -24,6 +24,8 @@ set foldlevelstart=99
 set cmdheight=2
 set number
 set title
+set splitright
+set splitbelow
 set number
 set mouse=a
 set nowrap
@@ -52,6 +54,7 @@ let mapleader="\<Space>"
 let maplocalleader="//"
 nnoremap <F14> :set invpaste paste?<CR>
 filetype on
+filetype plugin on
 filetype plugin indent on
 set timeoutlen=1000
 set ttimeoutlen=0
@@ -101,26 +104,14 @@ function ToggleMouse()
         let g:is_mouse_enabled = 1
     endif
 endfunction
-"--------------Themes---------------------------
 
-"Autoformat
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Use K to show documentation in preview window.
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
- else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
+"--------------------Terminal------------------
+"vnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
+"nnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
+"tnoremap <Esc> <C-\><C-n>:q!<CR>
+"Tab trigger 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "Carbon
 vnoremap <F17> :CarbonNowSh
 let g:carbon_now_sh_browser = ''
@@ -129,6 +120,7 @@ let g:carbon_now_sh_options =
   \ 'fm': 'Source Code Pro' }
 
 "Personal Comands
+map <C-t> :NvimTreeOpen<CR>
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
@@ -136,3 +128,13 @@ nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
 vnoremap <Tab> >gV
 vnoremap <S-Tab> <gV
+"-------------------NERDTREE-------------------------
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1

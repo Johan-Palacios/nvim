@@ -1,8 +1,10 @@
 vim.o.completeopt = "menuone,noselect"
+local lspconfig = require'lspconfig'
+local configs = require'lspconfig/configs'
 
 require'compe'.setup {
-  enabled = false;
-  autocomplete = false;
+  enabled = enable;
+  autocomplete = enable;
   debug = false;
   min_length = 1;
   preselect = 'enable';
@@ -39,9 +41,27 @@ _G.s_tab_complete = function()
     return t "<S-Tab>"
   end
 end
+
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+--Emmet function
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not lspconfig.emmet_ls then    
+  configs.emmet_ls = {    
+    default_config = {    
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function(fname)    
+        return vim.loop.cwd()
+      end;    
+      settings = {};    
+    };    
+  }    
+end
 
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.bashls.setup{}
@@ -54,3 +74,5 @@ require'lspconfig'.sumneko_lua.setup{}
 require'lspconfig'.omnisharp.setup{}
 require'lspconfig'.intelephense.setup{}
 require'lspconfig'.java_language_server.setup{}
+require'lspconfig'.emmet_ls.setup{ capabilities = capabilities; }
+

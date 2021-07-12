@@ -4,6 +4,7 @@ local configs = require "lspconfig/configs"
 require "lspinstall".setup()
 require "lspinstall".installed_servers()
 
+
 require "compe".setup {
     enabled = true,
     autocomplete = true,
@@ -63,15 +64,8 @@ if not lspconfig.emmet_ls then
         }
     }
 end
--- omnisharp fc
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/path/to/omnisharp-repo/run"
 
---Require Funcctions
-require "lspconfig".omnisharp.setup {
-    cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)},
-    ...
-}
+require "lspconfig".omnisharp.setup {}
 require "lspconfig".pyright.setup {}
 require "lspconfig".bashls.setup {}
 -- require'lspconfig'.html.setup{}

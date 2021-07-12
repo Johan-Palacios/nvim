@@ -19,7 +19,6 @@ return packer.startup(
         use "Pocco81/TrueZen.nvim"
         --Tressiter
         use "nvim-treesitter/nvim-treesitter"
-        --Autocomplete
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
         use "nvim-lua/completion-nvim"
@@ -33,10 +32,5 @@ return packer.startup(
         use "Pocco81/AutoSave.nvim"
         -- Install languages server
         use "kabouzeid/nvim-lspinstall"
-        use "hrsh7th/vim-vsnip"
-        use "hrsh7th/vim-vsnip-integ"
-        use "SirVer/ultisnips"
-        use "prabirshrestha/vim-lsp"
-        use "mattn/vim-lsp-settings"
     end
 )

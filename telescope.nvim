@@ -2,7 +2,7 @@ require('telescope').setup{
   defaults = {
     mappings = {
         i = {
-            ["<C-a>"] = actions.select_vertical,
+            ["<C-a>"] = actions.select_vertical
         },
     },
     vimgrep_arguments = {

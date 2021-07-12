@@ -106,19 +106,12 @@ function ToggleMouse()
 endfunction
 
 "--------------------Terminal------------------
-"vnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
-"nnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
-"tnoremap <Esc> <C-\><C-n>:q!<CR>
+vnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
+nnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
+tnoremap <Esc> <C-\><C-n>:q!<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"Carbon
-vnoremap <F17> :CarbonNowSh
-let g:carbon_now_sh_browser = ''
-let g:carbon_now_sh_options =
-\ { 'ln': 'true',
-  \ 'fm': 'Source Code Pro' }
-
 "Personal Comands
 map <C-t> :NvimTreeOpen<CR>
 nmap <C-s> :w<CR>
@@ -128,13 +121,12 @@ nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
 vnoremap <Tab> >gV
 vnoremap <S-Tab> <gV
-"-------------------NERDTREE-------------------------
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDAltDelims_java = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
+"------------------ resize --------------------
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <silent> <right> :vertical resize +5<CR>
+nnoremap <silent> <left> :vertical resize -5<CR>
+nnoremap <silent> <up> :vertical resize +5<CR>
+nnoremap <silent> <down> :vertical resize -5<CR>

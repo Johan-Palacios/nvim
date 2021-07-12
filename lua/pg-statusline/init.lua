@@ -1,58 +1,156 @@
-local gl = require("galaxyline")
+local status_ok, gl = pcall(require, "galaxyline")
+if not status_ok then
+    return
+end
+
+local colors = {
+    white = "#abb2bf",
+    bg = "#2E2E2E",
+    -- bg = '#292D38',
+    yellow = "#DCDCAA",
+    dark_yellow = "#D7BA7D",
+    cyan = "#4EC9B0",
+    green = "#608B4E",
+    light_green = "#B5CEA8",
+    string_orange = "#CE9178",
+    orange = "#FF8800",
+    purple = "#C586C0",
+    magenta = "#D16D9E",
+    grey = "#858585",
+    blue = "#569CD6",
+    vivid_blue = "#4FC1FF",
+    light_blue = "#9CDCFE",
+    red = "#D16969",
+    error_red = "#F44747",
+    info_yellow = "#FFCC66",
+    nord_blue = "#81A1C1",
+    statusline_bg = "#22262e",
+    lightbg = "#2d3139",
+    lightbg2 = "#262a32"
+}
+
+local condition = require "galaxyline.condition"
 local gls = gl.section
-local condition = require("galaxyline.condition")
+gl.short_line_list = {"NvimTree", "vista", "dbui", "packer"}
 
-gl.short_line_list = {" "}
-
-local colors = require "themes/onedark"
-
-gls.left[1] = {
-  FirstElement = {
-    provider = function() return '▋' end,
-    highlight = { colors.nord_blue, colors.nord_blue }
-  },
-}
-
-gls.left[2] = {
-    statusIcon = {
-        provider = function()
-            return "  "
-        end,
-        highlight = {colors.statusline_bg, colors.nord_blue},
-        separator = "  ",
-        separator_highlight = {colors.nord_blue, colors.lightbg}
+--1
+table.insert(
+    gls.left,
+    {
+        ViMode = {
+            provider = function()
+                -- auto change color according the vim mode
+                local mode_color = {
+                    n = colors.blue,
+                    i = colors.green,
+                    v = colors.purple,
+                    [""] = colors.purple,
+                    V = colors.purple,
+                    c = colors.magenta,
+                    no = colors.blue,
+                    s = colors.orange,
+                    S = colors.orange,
+                    [""] = colors.orange,
+                    ic = colors.yellow,
+                    R = colors.red,
+                    Rv = colors.red,
+                    cv = colors.blue,
+                    ce = colors.blue,
+                    r = colors.cyan,
+                    rm = colors.cyan,
+                    ["r?"] = colors.cyan,
+                    ["!"] = colors.blue,
+                    t = colors.blue
+                }
+                vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
+                return "▊"
+            end,
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
     }
-}
-
-gls.left[3] = {
-    FileIcon = {
-        provider = "FileIcon",
-        condition = condition.buffer_not_empty,
-        highlight = {colors.white, colors.lightbg}
+)
+-- print(vim.fn.getbufvar(0, 'ts'))
+vim.fn.getbufvar(0, "ts")
+--2
+table.insert(
+    gls.left,
+    {
+        GitIcon = {
+            provider = function()
+                return "  "
+            end,
+            condition = condition.check_git_workspace,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = {colors.orange, colors.statusline_bg}
+        }
     }
-}
-
-gls.left[4] = {
-    FileName = {
-        provider = {"FileName"},
-        condition = condition.buffer_not_empty,
-        highlight = {colors.white, colors.lightbg},
-        separator = " ",
-        separator_highlight = {colors.lightbg, colors.lightbg2}
+)
+--3
+table.insert(
+    gls.left,
+    {
+        GitBranch = {
+            provider = "GitBranch",
+            condition = condition.check_git_workspace,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
     }
-}
+)
 
-gls.left[5] = {
-    current_dir = {
-        provider = function()
-            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "  " .. dir_name .. " "
-        end,
-        highlight = {colors.grey_fg2, colors.lightbg2},
-        separator = " ",
-        separator_highlight = {colors.lightbg2, colors.statusline_bg}
+table.insert(
+    gls.left,
+    {
+        FirstElement = {
+            provider = function()
+                return "█"
+            end,
+            highlight = {colors.lightbg, colors.lightbg2}
+        }
     }
-}
+)
+--4
+table.insert(
+    gls.left,
+    {
+        FileIcon = {
+            provider = "FileIcon",
+            condition = condition.buffer_not_empty,
+            highlight = {colors.white, colors.lightbg}
+        }
+    }
+)
+
+table.insert(
+    gls.left,
+    {
+        FileName = {
+            provider = {"FileName"},
+            condition = condition.buffer_not_empty,
+            highlight = {colors.white, colors.lightbg},
+            separator = "  ",
+            separator_highlight = {colors.lightbg, colors.lightbg2}
+        }
+    }
+)
+
+table.insert(
+    gls.left,
+    {
+        current_dir = {
+            provider = function()
+                local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                return "   " .. dir_name .. " "
+            end,
+            highlight = {colors.grey_fg2, colors.lightbg2},
+            separator = " ",
+            separator_highlight = {colors.lightbg2, colors.statusline_bg}
+        }
+    }
+)
 
 local checkwidth = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
@@ -61,145 +159,306 @@ local checkwidth = function()
     end
     return false
 end
-
-gls.left[6] = {
-    DiffAdd = {
-        provider = "DiffAdd",
-        condition = checkwidth,
-        icon = "  ",
-        highlight = {colors.white, colors.statusline_bg}
+table.insert(
+    gls.left,
+    {
+        DiffAdd = {
+            provider = "DiffAdd",
+            condition = condition.hide_in_width,
+            icon = "  ",
+            highlight = "StatusLineGitAdd"
+        }
     }
-}
+)
 
-gls.left[7] = {
-    DiffModified = {
-        provider = "DiffModified",
-        condition = checkwidth,
-        icon = "   ",
-        highlight = {colors.grey_fg2, colors.statusline_bg}
+table.insert(
+    gls.left,
+    {
+        DiffModified = {
+            provider = "DiffModified",
+            condition = condition.hide_in_width,
+            icon = " 柳",
+            highlight = "StatusLineGitChange"
+        }
     }
-}
+)
 
-gls.left[8] = {
-    DiffRemove = {
-        provider = "DiffRemove",
-        condition = checkwidth,
-        icon = "  ",
-        highlight = {colors.grey_fg2, colors.statusline_bg}
+table.insert(
+    gls.left,
+    {
+        DiffRemove = {
+            provider = "DiffRemove",
+            condition = condition.hide_in_width,
+            icon = "  ",
+            highlight = "StatusLineGitDelete"
+        }
     }
-}
+)
 
-gls.left[9] = {
-    DiagnosticError = {
-        provider = "DiagnosticError",
-        icon = "  ",
-        highlight = {colors.red, colors.statusline_bg}
+table.insert(
+    gls.left,
+    {
+        Filler = {
+            provider = function()
+                return " "
+            end,
+            highlight = "StatusLineGitDelete"
+        }
     }
-}
+)
 
-gls.left[10] = {
-    DiagnosticWarn = {
-        provider = "DiagnosticWarn",
-        icon = "   ",
-        highlight = {colors.yellow, colors.statusline_bg}
+function os.capture(cmd, raw)
+    local f = assert(io.popen(cmd, "r"))
+    local s = assert(f:read "*a")
+    f:close()
+    if raw then
+        return s
+    end
+    s = string.gsub(s, "^%s+", "")
+    s = string.gsub(s, "%s+$", "")
+    s = string.gsub(s, "[\n\r]+", " ")
+    return s
+end
+-- cleanup virtual env
+local function env_cleanup(venv)
+    if string.find(venv, "/") then
+        local final_venv = venv
+        for w in venv:gmatch "([^/]+)" do
+            final_venv = w
+        end
+        venv = final_venv
+    end
+    return venv
+end
+local PythonEnv = function()
+    if vim.bo.filetype == "python" then
+        local venv = os.getenv "CONDA_DEFAULT_ENV"
+        if venv ~= nil then
+            return "🅒  (" .. env_cleanup(venv) .. ")"
+        end
+        venv = os.getenv "VIRTUAL_ENV"
+        if venv ~= nil then
+            return "  (" .. env_cleanup(venv) .. ")"
+        end
+        return ""
+    end
+    return ""
+end
+table.insert(
+    gls.left,
+    {
+        VirtualEnv = {
+            provider = PythonEnv,
+            highlight = "StatusLineTreeSitter",
+            event = "BufEnter"
+        }
     }
-}
+)
 
-gls.right[1] = {
-    lsp_status = {
-        provider = function()
-            local clients = vim.lsp.get_active_clients()
-            if next(clients) ~= nil then
-                return " " .. "  " .. " LSP "
-            else
+table.insert(
+    gls.right,
+    {
+        DiagnosticError = {
+            provider = "DiagnosticError",
+            icon = "  ",
+            highlight = {colors.red, colors.statusline_bg}
+        }
+    }
+)
+table.insert(
+    gls.right,
+    {
+        DiagnosticWarn = {
+            provider = "DiagnosticWarn",
+            icon = "  ",
+            highlight = {colors.yellow, colors.statusline_bg}
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        DiagnosticInfo = {
+            provider = "DiagnosticInfo",
+            icon = "  ",
+            highlight = {colors.green, colors.statusline_bg}
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        DiagnosticHint = {
+            provider = "DiagnosticHint",
+            icon = "  ",
+            highlight = {colors.yellow, colors.statusline_bg}
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        TreesitterIcon = {
+            provider = function()
+                if next(vim.treesitter.highlighter.active) ~= nil then
+                    return "   "
+                end
                 return ""
-            end
-        end,
-        highlight = {colors.grey_fg2, colors.statusline_bg}
+            end,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineTreeSitter"
+        }
     }
-}
+)
 
-gls.right[2] = {
-    GitIcon = {
-        provider = function()
-            return "  "
-        end,
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.grey_fg2, colors.lightbg},
-        separator = "",
-        separator_highlight = {colors.lightbg, colors.statusline_bg}
-    }
-}
-
-gls.right[3] = {
-    GitBranch = {
-        provider = "GitBranch",
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.grey_fg2, colors.lightbg}
-    }
-}
-
-gls.right[4] = {
-    viMode_icon = {
-        provider = function()
-            return " "
-        end,
-        highlight = {colors.statusline_bg, colors.red},
-        separator = " ",
-        separator_highlight = {colors.red, colors.lightbg}
-    }
-}
-
-gls.right[5] = {
-    ViMode = {
-        provider = function()
-            local alias = {
-                n = "Normal",
-                i = "Insert",
-                c = "Command",
-                V = "Visual",
-                [""] = "Visual",
-                v = "Visual",
-                R = "Replace"
-            }
-            local current_Mode = alias[vim.fn.mode()]
-
-            if current_Mode == nil then
-                return "  Terminal "
+local get_lsp_client = function(msg)
+    msg = msg or "LSP Inactive"
+    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+        return msg
+    end
+    local lsps = ""
+    for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= 1 then
+            -- print(client.name)
+            if lsps == "" then
+                -- print("first", lsps)
+                lsps = client.name
             else
-               return "  " .. current_Mode .. " "
+                -- print("more", lsps)
+                lsps = lsps .. ", " .. client.name
             end
-        end,
-        highlight = {colors.red, colors.lightbg}
+        end
+    end
+    if lsps == "" then
+        return msg
+    else
+        return lsps
+    end
+end
+
+table.insert(
+    gls.right,
+    {
+        ShowLspClient = {
+            provider = get_lsp_client,
+            condition = function()
+                local tbl = {["dashboard"] = true, [" "] = true}
+                if tbl[vim.bo.filetype] then
+                    return false
+                end
+                return true
+            end,
+            icon = "  ",
+            highlight = "StatusLineNC"
+        }
     }
-}
+)
 
-gls.right[6] = {
-    some_icon = {
-        provider = function()
-            return " "
-        end,
-        separator = "",
-        separator_highlight = {colors.green, colors.lightbg},
-        highlight = {colors.lightbg, colors.green}
+table.insert(
+    gls.right,
+    {
+        LineInfo = {
+            provider = "LineColumn",
+            separator = "  ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
     }
-}
+)
 
-gls.right[7] = {
-    line_percentage = {
-        provider = function()
-            local current_line = vim.fn.line(".")
-            local total_line = vim.fn.line("$")
-
-            if current_line == 1 then
-                return "  Top "
-            elseif current_line == vim.fn.line("$") then
-                return "  Bot "
-            end
-            local result, _ = math.modf((current_line / total_line) * 100)
-            return "  " .. result .. "% "
-        end,
-        highlight = {colors.green, colors.lightbg}
+table.insert(
+    gls.right,
+    {
+        PerCent = {
+            provider = "LinePercent",
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
     }
-}
+)
 
+table.insert(
+    gls.right,
+    {
+        Tabstop = {
+            provider = function()
+                return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
+            end,
+            condition = condition.hide_in_width,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        BufferType = {
+            provider = "FileTypeName",
+            condition = condition.hide_in_width,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        FileEncode = {
+            provider = "FileEncode",
+            condition = condition.hide_in_width,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
+    }
+)
+
+table.insert(
+    gls.right,
+    {
+        Space = {
+            provider = function()
+                return " "
+            end,
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
+    }
+)
+
+table.insert(
+    gls.short_line_left,
+    {
+        BufferType = {
+            provider = "FileTypeName",
+            separator = " ",
+            separator_highlight = "StatusLineSeparator",
+            highlight = "StatusLineNC"
+        }
+    }
+)
+
+table.insert(
+    gls.short_line_left,
+    {
+        SFileName = {
+            provider = "SFileName",
+            condition = condition.buffer_not_empty,
+            highlight = "StatusLineNC"
+        }
+    }
+)

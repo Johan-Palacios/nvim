@@ -25,13 +25,7 @@ return packer.startup(
         --Show numbers
         use "nacro90/numb.nvim"
         --Indent line
-        use {
-            "lukas-reineke/indent-blankline.nvim",
-            event = "BufRead",
-            setup = function()
-                require("misc-utils").blankline()
-            end
-        }
+        use "lukas-reineke/indent-blankline.nvim"
         --Start up
         use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
         -- Autosave

@@ -100,11 +100,11 @@ nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 "Omnisharp
-" let g:OmniSharp_server_stdio = 0
+let g:OmniSharp_server_stdio = 0
 " inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 " \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
-" let g:omnicomplete_fetch_full_documentation = 1
-" let g:OmniSharp_autoselect_existing_sln = 1
+let g:omnicomplete_fetch_full_documentation = 1
+let g:OmniSharp_autoselect_existing_sln = 1
 " let g:Omnisharp_popup_position = 'peek'
 " let g:Omnisharp_highlighting = 3
 " let g:OmniSharp_start_server = 1
@@ -126,3 +126,9 @@ let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =
 \ { 'ln': 'true',
   \ 'fm': 'Source Code Pro' }
+"Lazzygit
+let g:lazygit_floating_window_winblend = 0 " transparency of floating window
+let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating window
+let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
+let g:lazygit_floating_window_use_plenary = 0 " use plenary.nvim to manage floating window if available
+let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed

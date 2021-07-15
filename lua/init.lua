@@ -22,6 +22,7 @@ require "pg-installsp/init"
 
 require "pg-compe/init"
 
+require "pg-terminal/init"
 local g = vim.g
 
 vim.api.nvim_exec(

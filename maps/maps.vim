@@ -106,9 +106,13 @@ function ToggleMouse()
 endfunction
 
 "--------------------Terminal------------------
-vnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
-nnoremap <c-r> :split<CR>:term<CR>:resize 15<CR>
+vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
+nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 tnoremap <Esc> <C-\><C-n>:q!<CR>
+
+nmap <Leader>ft :ToggleTerm<CR>
+nmap <Leader>fr :FloatermToggle<CR>
+nnoremap <silent> <leader>gg :LazyGit<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

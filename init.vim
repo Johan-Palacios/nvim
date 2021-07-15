@@ -18,9 +18,10 @@ lua require 'init'
 "Plugins
 source $HOME/.config/nvim/plugins/plugins.vim
 "Themes
-source $HOME/.config/nvim/themes/onedark.vim
+    source $HOME/.config/nvim/themes/onedark.vim
 "Maps
 source $HOME/.config/nvim/maps/maps.vim
 "Plugins Config
 source $HOME/.config/nvim/plugins/pluginsconfig.vim
+
 "=============================================================

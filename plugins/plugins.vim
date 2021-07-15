@@ -35,6 +35,8 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'benmills/vimux'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'tyewang/vimux-jest-test'
+    Plug 'voldikss/vim-floaterm'
+    Plug 'kdheepak/lazygit.nvim'
     Plug 'janko-m/vim-test'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'junegunn/fzf'
@@ -60,4 +62,8 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'liuchengxu/vim-clap'
     Plug 'glepnir/dashboard-nvim'
     Plug 'preservim/tagbar'
+    "Vim snippets
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
     call plug#end()

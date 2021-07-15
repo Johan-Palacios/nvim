@@ -32,5 +32,7 @@ return packer.startup(
         use "Pocco81/AutoSave.nvim"
         -- Install languages server
         use "kabouzeid/nvim-lspinstall"
+        --Terminal
+        use "akinsho/nvim-toggleterm.lua"
     end
 )

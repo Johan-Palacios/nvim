@@ -34,5 +34,7 @@ return packer.startup(
         use "kabouzeid/nvim-lspinstall"
         --Terminal
         use "akinsho/nvim-toggleterm.lua"
+        -- -- Tabnine
+        -- use "codota/tabnine-vim"
     end
 )

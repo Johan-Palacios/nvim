@@ -16,11 +16,10 @@
 
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     "Autocomplete plugin
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'mattn/emmet-vim'
     Plug 'sheerun/vim-polyglot'
-    "Plug 'preservim/nerdtree'
+    Plug 'aca/completion-tabnine', { 'do': './install.sh' }
     "Themes
     Plug 'romgrk/barbar.nvim'
     Plug 'joshdick/onedark.vim'

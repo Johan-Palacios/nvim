@@ -111,7 +111,8 @@ nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
 nmap <Leader>fr :ToggleTerm<CR>
-nnoremap <silent> <leader>gg :LazyGit<CR>
+nmap <Leader>ft :ToggleTerm direction="vertical"<CR>
+nmap <Leader>fhr :ToggleTerm size=10 direction="horizontal"<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

@@ -86,7 +86,7 @@ let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_auto_ignore_ft = ["dashboard"]
-    let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard"]
+let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar"]
 "---------------------NERDCOMMNETER----------
 let g:NERDCreateDefaultMappings = 1
 "--------------------LSP------------------
@@ -126,15 +126,12 @@ let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =
 \ { 'ln': 'true',
   \ 'fm': 'Source Code Pro' }
-"Tabnine
-let g:completion_chain_complete_list = {
-    \ 'default': [
-    \    {'complete_items': ['lsp', 'snippet', 'tabnine' ]},
-    \    {'mode': '<c-p>'},
-    \    {'mode': '<c-n>'}
-    \]
-\}
-let g:completion_tabnine_priority = 1
-let g:completion_tabnine_max_num_results=7
-let g:completion_tabnine_sort_by_details=1
-let g:completion_tabnine_max_lines=1000
+"  au User lsp_setup call lsp#register_server({
+"      \ 'name': 'kite',
+"      \ 'cmd': '~/.local/share/kite/current/kite-lsp --editor=nvim',
+"      \ 'whitelist': ["php", "javascript", "python", "bash", "html", "go"],
+"      \ })
+"
+" " Turn off Kite
+" let g:kite_supported_languages = ['*']
+" let g:kite_completions=1

@@ -14,11 +14,14 @@ M.config = function()
         max_kind_width = 100,
         max_menu_width = 100,
         documentation = true,
+        ignore_pattern = "()[]{}",
         source = {
             buffer = {kind = "﬘", true},
             luasnip = {kind = "﬌", true},
             nvim_lsp = true,
-            nvim_lua = true
+            nvim_lua = true,
+            tabnine = true
+            -- snippets = true
         }
     }
 end

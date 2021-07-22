@@ -110,8 +110,7 @@ vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
-nmap <Leader>ft :ToggleTerm<CR>
-nmap <Leader>fr :FloatermToggle<CR>
+nmap <Leader>fr :ToggleTerm<CR>
 nnoremap <silent> <leader>gg :LazyGit<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -121,6 +120,7 @@ map <C-t> :NvimTreeOpen<CR>
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
+nmap <leader>db :bd<CR>
 nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
 vnoremap <Tab> >gV

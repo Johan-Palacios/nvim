@@ -4,7 +4,6 @@ M.config = function()
     local g = vim.g
 
     vim.o.termguicolors = true
-
     g.nvim_tree_side = "left"
     g.nvim_tree_width = 25
     g.nvim_tree_ignore = {".git", "node_modules", ".cache"}

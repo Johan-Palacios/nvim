@@ -6,7 +6,7 @@ require "pg-nvimtree/init"
 
 require "pg-fileicon/init"
 
-require "pg-zenmode/init"
+-- require "pg-zenmode/init"
 
 require "pg-treesiter/init"
 

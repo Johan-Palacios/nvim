@@ -27,6 +27,7 @@ require("lspkind").init(
             Constant = "",
             Spell = "",
             Struct = ""
+            -- tabnine = "ﮧ"
         }
     }
 )

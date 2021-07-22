@@ -4,7 +4,6 @@ local configs = require "lspconfig/configs"
 require "lspinstall".setup()
 require "lspinstall".installed_servers()
 
-
 require "compe".setup {
     enabled = true,
     autocomplete = true,
@@ -28,7 +27,8 @@ require "compe".setup {
         spell = true,
         tags = true,
         snippets_nvim = true,
-        treesitter = true
+        treesitter = true,
+        tabnine = true
     }
 }
 local t = function(str)

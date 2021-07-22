@@ -16,23 +16,36 @@ return packer.startup(
         use "akinsho/nvim-bufferline.lua"
         use "onsails/lspkind-nvim"
         --Zen mode
-        use "Pocco81/TrueZen.nvim"
+        use {
+            "folke/zen-mode.nvim",
+            config = function()
+                require("zen-mode").setup {}
+            end
+        }
         --Tressiter
         use "nvim-treesitter/nvim-treesitter"
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
-        use "nvim-lua/completion-nvim"
+        -- use "nvim-lua/completion-nvim"
         --Show numbers
         use "nacro90/numb.nvim"
         --Indent line
         use "lukas-reineke/indent-blankline.nvim"
         --Start up
-        use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
+        use "tweekmonster/startuptime.vim"
         -- Autosave
         use "Pocco81/AutoSave.nvim"
         -- Install languages server
         use "kabouzeid/nvim-lspinstall"
         --Terminal
         use "akinsho/nvim-toggleterm.lua"
+        -- Lua
+        use {
+            "folke/twilight.nvim",
+            config = function()
+                require("twilight").setup {}
+            end
+        }
+        -- Lua
     end
 )

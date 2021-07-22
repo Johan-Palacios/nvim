@@ -19,10 +19,10 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'OmniSharp/omnisharp-vim'
     Plug 'mattn/emmet-vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+    Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
     "Themes
-    Plug 'romgrk/barbar.nvim'
     Plug 'joshdick/onedark.vim'
+    Plug 'romgrk/barbar.nvim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'mhinz/vim-signify'
@@ -34,18 +34,15 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'benmills/vimux'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'tyewang/vimux-jest-test'
-    Plug 'voldikss/vim-floaterm'
     Plug 'janko-m/vim-test'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'easymotion/vim-easymotion'
-    " Plug 'yggdroot/indentline'
     Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
-    "Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'
@@ -61,7 +58,4 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'glepnir/dashboard-nvim'
     Plug 'preservim/tagbar'
     "Vim snippets
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
     call plug#end()

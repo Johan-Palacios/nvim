@@ -27,20 +27,18 @@ autocmd BufWritePre *.scss :Neoformat
 autocmd BufWritePre *.c :Neoformat
 autocmd BufWritePre *.cpp :Neoformat
 autocmd BufWritePre *.cs :Neoformat
+autocmd BufWritePre *.py :Neoformat black
 autocmd BufWritePre *.lua :Neoformat
 "---------------------ALE------------------------
-let g:ale_linters = {
-\   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy'],
-\   'cs': ['Omnisharp']
-\}
-
-"\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-
-let g:ale_fixers = {
-\   'python': ['black', 'isort'],
-\}
-
-let g:ale_fix_on_save = 1
+" let g:ale_linters = {
+" \   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy']
+" \}
+"
+" let g:ale_fixers = {
+" \   'python': ['black', 'isort'],
+" \}
+"
+" let g:ale_fix_on_save = 1
 "---------------Telescope---------------------------
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -86,7 +84,7 @@ let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_auto_ignore_ft = ["dashboard"]
-let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar"]
+let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree"]
 "---------------------NERDCOMMNETER----------
 let g:NERDCreateDefaultMappings = 1
 "--------------------LSP------------------
@@ -99,16 +97,6 @@ nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-"Omnisharp
-let g:OmniSharp_server_stdio = 0
-" inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
-" \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
-let g:omnicomplete_fetch_full_documentation = 1
-let g:OmniSharp_autoselect_existing_sln = 1
-" let g:Omnisharp_popup_position = 'peek'
-" let g:Omnisharp_highlighting = 3
-" let g:OmniSharp_start_server = 1
-" let g:OmniSharp_translate_cygwin_wsl = 0
 "-------------------Nvim.TREE-------------------------
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
@@ -126,12 +114,15 @@ let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =
 \ { 'ln': 'true',
   \ 'fm': 'Source Code Pro' }
-"  au User lsp_setup call lsp#register_server({
+
+let g:kite_log = 1
+
+" au User lsp_setup call lsp#register_server({
 "      \ 'name': 'kite',
 "      \ 'cmd': '~/.local/share/kite/current/kite-lsp --editor=nvim',
-"      \ 'whitelist': ["php", "javascript", "python", "bash", "html", "go"],
+"      \ 'whitelist': ["php", "javascript", "python", "bash"],
 "      \ })
-"
 " " Turn off Kite
-" let g:kite_supported_languages = ['*']
+" let g:kite_supported_languages = ['python', 'javascript', 'bash', 'php']
 " let g:kite_completions=1
+" let g:kite_auto_complete=1

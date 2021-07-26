@@ -19,8 +19,9 @@ M.config = function()
             buffer = {kind = "﬘", true},
             luasnip = {kind = "﬌", true},
             nvim_lsp = true,
-            nvim_lua = true,
-            tabnine = true
+            nvim_lua = true
+            -- tabnine = true,
+            -- kite = true
             -- snippets = true
         }
     }

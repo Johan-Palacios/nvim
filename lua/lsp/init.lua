@@ -20,15 +20,15 @@ require "compe".setup {
     source = {
         path = true,
         buffer = true,
-        calc = true,
-        vsnip = true,
+        -- calc = true,
+        -- vsnip = true,
         nvim_lsp = true,
         nvim_lua = true,
         spell = true,
-        tags = true,
-        snippets_nvim = true,
-        treesitter = true,
-        tabnine = true
+        -- tags = true,
+        -- snippets_nvim = true,
+        treesitter = true
+        -- tabnine = true
     }
 }
 local t = function(str)
@@ -64,7 +64,10 @@ if not lspconfig.emmet_ls then
         }
     }
 end
-
+-- require "lspconfig".kite.setup {
+--     cmd = {"~/.local/share/kite/current/kite-lsp", "--stdio"},
+--     filetypes = {"php", "python", "javascript", "go"}
+-- }
 require "lspconfig".omnisharp.setup {}
 require "lspconfig".pyright.setup {}
 require "lspconfig".bashls.setup {}

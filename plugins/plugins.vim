@@ -16,10 +16,8 @@
 
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     "Autocomplete plugin
-    Plug 'OmniSharp/omnisharp-vim'
-    Plug 'mattn/emmet-vim'
     Plug 'sheerun/vim-polyglot'
-    Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+    " Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
     "Themes
     Plug 'joshdick/onedark.vim'
     Plug 'romgrk/barbar.nvim'
@@ -47,7 +45,7 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'ap/vim-css-color'
     Plug 'kristijanhusak/vim-carbon-now-sh'
     Plug 'sbdchd/neoformat'
-    Plug 'dense-analysis/ale'
+    " Plug 'dense-analysis/ale'
     Plug 'andymass/vim-matchup'
     Plug 'zivyangll/git-blame.vim'
     "---------Telescope Comands

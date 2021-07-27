@@ -31,6 +31,20 @@ require "compe".setup {
         -- tabnine = true
     }
 }
+local M = {}
+
+M.snippets = function()
+    local ls = require("luasnip")
+
+    ls.config.set_config(
+        {
+            history = true,
+            updateevents = "TextChanged,TextChangedI"
+        }
+    )
+    require("luasnip/loaders/from_vscode").load()
+end
+
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -80,3 +94,4 @@ require "lspconfig".sumneko_lua.setup {}
 require "lspconfig".intelephense.setup {}
 require "lspconfig".java_language_server.setup {}
 require "lspconfig".emmet_ls.setup {capabilities = capabilities}
+return M

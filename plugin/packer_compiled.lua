@@ -73,10 +73,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/AutoSave.nvim"
   },
-  ["TrueZen.nvim"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/TrueZen.nvim"
-  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"

@@ -6,8 +6,6 @@ require "pg-nvimtree/init"
 
 require "pg-fileicon/init"
 
--- require "pg-zenmode/init"
-
 require "pg-treesiter/init"
 
 require "pg-lspkind/init"
@@ -19,8 +17,6 @@ require "pg-numb/init"
 require "pg-autosave/init"
 
 require "pg-installsp/init"
-
-require "pg-compe/init"
 
 require "pg-terminal/init"
 local g = vim.g

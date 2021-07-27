@@ -29,16 +29,6 @@ autocmd BufWritePre *.cpp :Neoformat
 autocmd BufWritePre *.cs :Neoformat
 autocmd BufWritePre *.py :Neoformat black
 autocmd BufWritePre *.lua :Neoformat
-"---------------------ALE------------------------
-" let g:ale_linters = {
-" \   'python': ['flake8', 'pydocstyle', 'bandit', 'mypy']
-" \}
-"
-" let g:ale_fixers = {
-" \   'python': ['black', 'isort'],
-" \}
-"
-" let g:ale_fix_on_save = 1
 "---------------Telescope---------------------------
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -84,7 +74,7 @@ let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_auto_ignore_ft = ["dashboard"]
-let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree"]
+let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "vim-plug"]
 "---------------------NERDCOMMNETER----------
 let g:NERDCreateDefaultMappings = 1
 "--------------------LSP------------------
@@ -114,15 +104,4 @@ let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =
 \ { 'ln': 'true',
   \ 'fm': 'Source Code Pro' }
-
-let g:kite_log = 1
-
-" au User lsp_setup call lsp#register_server({
-"      \ 'name': 'kite',
-"      \ 'cmd': '~/.local/share/kite/current/kite-lsp --editor=nvim',
-"      \ 'whitelist': ["php", "javascript", "python", "bash"],
-"      \ })
-" " Turn off Kite
-" let g:kite_supported_languages = ['python', 'javascript', 'bash', 'php']
-" let g:kite_completions=1
-" let g:kite_auto_complete=1
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>

@@ -58,6 +58,7 @@ filetype plugin on
 filetype plugin indent on
 set timeoutlen=1000
 set ttimeoutlen=0
+set updatetime=100
 "-----------------NVIM 0.5V--------------
 
 if has("nvim-0.5.0") || has("patch-8.1.1564")

@@ -31,7 +31,7 @@ local colors = {
 
 local condition = require "galaxyline.condition"
 local gls = gl.section
-gl.short_line_list = {"NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm"}
+gl.short_line_list = {"NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm", "vim-plug"}
 
 --1
 table.insert(

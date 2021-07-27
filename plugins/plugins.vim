@@ -15,45 +15,44 @@
 "
 
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
-    "Autocomplete plugin
-    Plug 'sheerun/vim-polyglot'
-    " Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-    "Themes
-    Plug 'joshdick/onedark.vim'
-    Plug 'romgrk/barbar.nvim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'octol/vim-cpp-enhanced-highlight'
+    "Use of VIM
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-unimpaired'
     Plug 'liuchengxu/vim-which-key'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'alvan/vim-closetag'
-    Plug 'tpope/vim-surround'
     Plug 'benmills/vimux'
     Plug 'christoomey/vim-tmux-navigator'
-    Plug 'tyewang/vimux-jest-test'
     Plug 'janko-m/vim-test'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'junegunn/fzf'
-    Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'editorconfig/editorconfig-vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'preservim/nerdcommenter'
-    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'ap/vim-css-color'
-    Plug 'kristijanhusak/vim-carbon-now-sh'
-    Plug 'sbdchd/neoformat'
-    " Plug 'dense-analysis/ale'
     Plug 'andymass/vim-matchup'
-    Plug 'zivyangll/git-blame.vim'
-    "---------Telescope Comands
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'liuchengxu/vim-clap'
     Plug 'glepnir/dashboard-nvim'
     Plug 'preservim/tagbar'
-    "Vim snippets
+    "Git
+    Plug 'tpope/vim-fugitive'
+    Plug 'zivyangll/git-blame.vim'
+    "Files
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
+    Plug 'kristijanhusak/vim-carbon-now-sh'
+    "Sintax and pairs
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'sbdchd/neoformat'
+    "Themes
+    Plug 'joshdick/onedark.vim'
+    Plug 'romgrk/barbar.nvim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'ap/vim-css-color'
+    "Pendiente
+    " Plug 'alvan/vim-closetag'
+    " Plug 'tpope/vim-surround'
+    " Plug 'tyewang/vimux-jest-test'
+    " Plug 'liuchengxu/vim-clap'
     call plug#end()

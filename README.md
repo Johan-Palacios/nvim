@@ -14,43 +14,37 @@
 ## Preview / Pre-visualización 🕹️
 
 
-![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
+![image](https://user-images.githubusercontent.com/77251405/127188398-121053a3-52ac-4b73-8fe1-f5da6a70d64e.png)
 
 ------------
 ## English 🇺🇸
 
 ### Starting 🚀
 This configuration have:
-- Autocomplete of [Coc](https://github.com/neoclide/coc.nvim "CoC")
-	-  Coc-Kite
-	- Coc-go
-	- Coc-html
-	- Coc-json
-	- Coc-omnisharp
-	- Coc-prettier
-	- Coc-pyright
-	- Coc-tsserver
-	- Coc-css
-	- Coc-emmet
-- One Dark theme for Neovim
-- Syntax plugins
-- Airline plugin for One Dark
-- Fast Navigator
+- Autocomplete with LSP
+	- You can install more servers with [LSP](https://github.com/neovim/nvim-lspconfig "LSP") Install
+- One dark theme for Neovim
+- Plugins of sintaxis
+- Tmux Navigator
 - Telescope
 - Fzf
 - NerdCommenter
 - Carbon screen
-	-You can configure this in `/plugins/pluginsconfig.vim` _default is F17_
-- Cool Icons
-- Nerd Tree
+	- You can customize this in  `/plugins/pluginsconfig.vim` _the key by default is F17_
+- Web Icons 😎
+- Nvim Tree
 - ToogleBar
 - Galaxy line
 - Barbar
-- Autoformat With Neoformat and Ale
-- Lua configurations
+- Neoformat
+- Lua Config
 - Dashbard
+- StartupTime
 
-_This configurations only works in NVIM 0.5 >_
+### Requirements
+- Nvim 0.5 or >
+- Packer, You can install [here](https://github.com/wbthomason/packer.nvim "aquí")
+
 ## Instalation  🔧
 
 
@@ -81,7 +75,7 @@ Later you need to go to `init.vim`, that have this configuration:
 
 And run this command `so %` for indicate the main file
 
-![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
+![image](https://user-images.githubusercontent.com/77251405/127188398-121053a3-52ac-4b73-8fe1-f5da6a70d64e.png)
 
 In this part you can see all of the direction of the sources, first you need to go in plugins
 
@@ -94,21 +88,16 @@ In this file you install the plugins with this command
 
 - `:PlugInstall`
 
-![n1qPRp7bbp](https://user-images.githubusercontent.com/77251405/123716403-bbc54280-d837-11eb-85f6-ba03779965b3.gif)
+![muuFv7Wj8m](https://user-images.githubusercontent.com/77251405/127194396-c5482c23-987e-4c6f-a89b-543de8f90562.gif)
 
 And for the lua plugins use 
 
 
-![ysRRGCQTeD](https://user-images.githubusercontent.com/77251405/123717153-81f53b80-d839-11eb-8762-4fac09b424d3.gif)
+![image](https://user-images.githubusercontent.com/77251405/127194249-89b42e53-3006-43de-bc39-00b5524ce766.png)
 
 
-Later of that you need to install the autocomplete dependences of coc
 
-```vb
-:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier  coc-pyright coc-kite coc-emmet coc-clangd
-```
-
-Later of that you can fun with that configuration 😀
+Later of that you can fun with this config
 
 
 ## Autor ✒️
@@ -118,20 +107,10 @@ Later of that you can fun with that configuration 😀
 ## Español 🇪🇸
 ### Comenzando 🚀
 Esta configuración tiene :
-- Autocompletado con  [Coc](https://github.com/neoclide/coc.nvim "CoC")
-	-  Coc-Kite
-	- Coc-go
-	- Coc-html
-	- Coc-json
-	- Coc-omnisharp
-	- Coc-prettier
-	- Coc-pyright
-	- Coc-python
-	- Coc-tsserver
-	- Coc-css
+- Autocompletado con LSP Nativo
+	- Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
 - Tema One dark para Neovim
 - Plugins de sintaxis
-- Airline plugin para One Dark
 - Navegador rápido de Tmux
 - Telescope
 - Fzf
@@ -139,15 +118,19 @@ Esta configuración tiene :
 - Carbon screen
 	- Puedes configurar esto en los  `/plugins/pluginsconfig.vim` _Por defecto es F17_
 - Iconos web cool 😎
-- Nerd Tree
+- Nvim Tree
 - ToogleBar
 - Galaxy line
 - Barbar
-- Autoformat With Neoformat and Ale
-- Lua configurations
+- Neoformat
+- Configuración con Lua
 - Dashbard
+- StartupTime
 
-_Esta configuración solo funciona en  NVIM 0.5  o superior_
+### Requisitos 
+- Nvim 0.5 o superior
+- Packer, puedes instalarlo [aquí](https://github.com/wbthomason/packer.nvim "aquí")
+
 ## Instalación  🔧
 
 
@@ -182,7 +165,7 @@ cd /.config/
 
 Corre el comando de so para indicar que tu directorio raiz sea este `so %`
 
-![image](https://user-images.githubusercontent.com/77251405/123715794-4dcc4b80-d836-11eb-96f1-0465497562a2.png)
+![image](https://user-images.githubusercontent.com/77251405/127188398-121053a3-52ac-4b73-8fe1-f5da6a70d64e.png)
 
 Ahora vamos a iniciar con los plugins
 
@@ -194,21 +177,15 @@ Luego corre el siguiente comando, te dejo un video donde muestro como hacerlo
 
 - `:PlugInstall`
 
-![n1qPRp7bbp](https://user-images.githubusercontent.com/77251405/123716403-bbc54280-d837-11eb-85f6-ba03779965b3.gif)
+![muuFv7Wj8m](https://user-images.githubusercontent.com/77251405/127194396-c5482c23-987e-4c6f-a89b-543de8f90562.gif)
 
 
 Y para los plugins de lua usa :
 
-![ysRRGCQTeD](https://user-images.githubusercontent.com/77251405/123717153-81f53b80-d839-11eb-8762-4fac09b424d3.gif)
+![image](https://user-images.githubusercontent.com/77251405/127194249-89b42e53-3006-43de-bc39-00b5524ce766.png)
 
-Ahora vamos a instalar los servidores para el autocompletado de Coc
-
-```vb
-:CocInstall coc-omnisharp coc-go coc-tsserver coc-html coc-css coc-json coc-prettier  coc-pyright coc-kite coc-emmet coc-clangd
-```
 
 Luego de esto puedes disfrutar de tu Neovim 😀
 ## Autor ✒️
 
 * **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)
-

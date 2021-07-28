@@ -1,20 +1,3 @@
-"
-"
-"   +----------------------------+
-"   |                            |
-"   |Jᴏʜᴀɴ Pᴀʟᴀᴄɪᴏs /NVIM-Cᴏɴғɪɢ |
-"   |         I love NVIM        |
-"   |   This is for NVIM 0.5_V   |
-"   |                            |
-"   +----------------------------+
-"    _  ____
-"   / |/  __\     GitHub: https://github.com/Johan-Palacios
-"   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
-"/\_| ||  __/     IG: www.instagram.com/_el_johan/
-"\____/\_/        FB: www.facebook.com/johan.palacios.fx/
-"                 I use :                  ﬏
-"
-
 "-------------------Tmux navigar-------------------
 let g:tmux_navigator_save_on_switch = 2
 "---------------------Neoformat-------------------
@@ -26,9 +9,11 @@ autocmd BufWritePre *.ts :Neoformat
 autocmd BufWritePre *.scss :Neoformat
 autocmd BufWritePre *.c :Neoformat
 autocmd BufWritePre *.cpp :Neoformat
-autocmd BufWritePre *.cs :Neoformat
-autocmd BufWritePre *.py :Neoformat black
+" autocmd BufWritePre *.cs :Neoformat
+autocmd BufWritePre *.cs :OmniSharpCodeFormat
+autocmd BufWritePre *.py :Neoformat
 autocmd BufWritePre *.lua :Neoformat
+" let g:neoformat_run_all_formatters = 1
 "---------------Telescope---------------------------
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -86,7 +71,6 @@ nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-
 "-------------------Nvim.TREE-------------------------
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
@@ -98,7 +82,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 let g:nvim_tree_update_cwd = 1
-"Carbon
+"----------------------Carbon screen--------------
 vnoremap <F17> :CarbonNowSh
 let g:carbon_now_sh_browser = ''
 let g:carbon_now_sh_options =

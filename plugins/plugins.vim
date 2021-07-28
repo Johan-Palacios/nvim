@@ -1,19 +1,3 @@
-"
-"   +----------------------------+
-"   |                            |
-"   |Jᴏʜᴀɴ Pᴀʟᴀᴄɪᴏs /NVIM-Cᴏɴғɪɢ |
-"   |         I love NVIM        |
-"   |   This is for NVIM 0.5_V   |
-"   |                            |
-"   +----------------------------+
-"    _  ____
-"   / |/  __\     GitHub: https://github.com/Johan-Palacios
-"   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
-"/\_| ||  __/     IG: www.instagram.com/_el_johan/
-"\____/\_/        FB: www.facebook.com/johan.palacios.fx/
-"                 I use :                  ﬏
-"
-
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     "Use of VIM
     Plug 'mhinz/vim-signify'
@@ -33,6 +17,7 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'glepnir/dashboard-nvim'
     Plug 'preservim/tagbar'
+    Plug 'OmniSharp/omnisharp-vim'
     "Git
     Plug 'tpope/vim-fugitive'
     Plug 'zivyangll/git-blame.vim'

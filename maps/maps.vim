@@ -1,19 +1,3 @@
-"
-"   +----------------------------+
-"   |                            |
-"   |Jᴏʜᴀɴ Pᴀʟᴀᴄɪᴏs /NVIM-Cᴏɴғɪɢ |
-"   |         I love NVIM        |
-"   |   This is for NVIM 0.5_V   |
-"   |                            |
-"   +----------------------------+
-"    _  ____
-"   / |/  __\     GitHub: https://github.com/Johan-Palacios
-"   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
-"/\_| ||  __/     IG: www.instagram.com/_el_johan/
-"\____/\_/        FB: www.facebook.com/johan.palacios.fx/
-"                 I use :                  ﬏
-"
-
 "-------------Init set and let for NVIM-------------------------
 set encoding=utf-8
 set showtabline=2
@@ -60,30 +44,24 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set updatetime=100
 "-----------------NVIM 0.5V--------------
-
 if has("nvim-0.5.0") || has("patch-8.1.1564")
-
   set signcolumn=number
 else
   set signcolumn=yes
 endif
-
 "--------------------Execute codes ---------
 augroup exe_code
   autocmd!
-
   "Python codes
   autocmd FileType python nnoremap <buffer> <localleader>r
         \ :vsp<CR> :term python3 %<CR> :startinsert<CR>
   "Javascript
   autocmd FileType javascript nnoremap <buffer> <localleader>r
         \ :vsp<CR> :term nodejs %<CR> :startinsert<CR>
-
 "-------------Compile Code and Run code -------------------
 autocmd filetype c nnoremap <F21> :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cpp nnoremap <F21> :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cs nnoremap <F21> :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-
 map <localleader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 exec "w"

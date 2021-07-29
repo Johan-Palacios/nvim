@@ -46,6 +46,5 @@ return packer.startup(
                 require("twilight").setup {}
             end
         }
-        -- Lua
     end
 )

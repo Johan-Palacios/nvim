@@ -14,6 +14,7 @@
 "                 I use :                  ﬏
 "
 "=============================================================
+"Lua plugins
 lua require 'init'
 "Plugins
 source $HOME/.config/nvim/plugins/plugins.vim

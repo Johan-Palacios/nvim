@@ -1,4 +1,3 @@
-"
 "  +----------------------------+
 "   |                            |
 "   |Jᴏʜᴀɴ Pᴀʟᴀᴄɪᴏs /NVIM-Cᴏɴғɪɢ |
@@ -11,8 +10,7 @@
 "   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
-"                 I use :                  ﬏
-"
+"                 I use :                  ﬏"
 "=============================================================
 "Lua plugins
 lua require 'init'

@@ -39,6 +39,8 @@ return packer.startup(
         use "kabouzeid/nvim-lspinstall"
         --Terminal
         use "akinsho/nvim-toggleterm.lua"
+        --Kite
+        use "kiteco/vim-plugin"
         -- Lua
         use {
             "folke/twilight.nvim",

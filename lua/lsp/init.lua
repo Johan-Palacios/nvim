@@ -25,7 +25,7 @@ require "compe".setup {
         nvim_lsp = true,
         nvim_lua = true,
         spell = true,
-        -- tags = true,
+        -- kite = true,
         -- snippets_nvim = true,
         treesitter = true
         -- tabnine = true
@@ -78,14 +78,10 @@ if not lspconfig.emmet_ls then
         }
     }
 end
--- require "lspconfig".kite.setup {
---     cmd = {"~/.local/share/kite/current/kite-lsp", "--stdio"},
---     filetypes = {"php", "python", "javascript", "go"}
--- }
+
 require "lspconfig".omnisharp.setup {}
 require "lspconfig".pyright.setup {}
 require "lspconfig".bashls.setup {}
--- require'lspconfig'.html.setup{}
 require "lspconfig".clangd.setup {}
 require "lspconfig".tsserver.setup {}
 require "lspconfig".cssls.setup {}

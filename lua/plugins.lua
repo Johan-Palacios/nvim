@@ -1,7 +1,5 @@
 local packer = require("packer")
-
 local use = packer.use
-
 -- using { } for using different branch , loading plugin with certain commands etc
 return packer.startup(
     function()
@@ -46,6 +44,21 @@ return packer.startup(
             "folke/twilight.nvim",
             config = function()
                 require("twilight").setup {}
+            end
+        }
+        use {
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = function()
+                require("todo-comments").setup {}
+            end
+        }
+        -- Lua
+        use {
+            "folke/trouble.nvim",
+            requires = "kyazdani42/nvim-web-devicons",
+            config = function()
+                require("trouble").setup {}
             end
         }
     end

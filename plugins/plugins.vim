@@ -35,9 +35,4 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
-    "Pendiente
-    " Plug 'alvan/vim-closetag'
-    " Plug 'tpope/vim-surround'
-    " Plug 'tyewang/vimux-jest-test'
-    " Plug 'liuchengxu/vim-clap'
     call plug#end()

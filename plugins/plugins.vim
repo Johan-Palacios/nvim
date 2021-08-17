@@ -33,6 +33,6 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'romgrk/barbar.nvim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'ap/vim-css-color'
     call plug#end()

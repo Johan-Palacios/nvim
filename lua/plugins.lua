@@ -22,8 +22,12 @@ return packer.startup(
         }
         --Tressiter
         use "nvim-treesitter/nvim-treesitter"
+        --Autocomplete
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
+        use "alvan/vim-closetag"
+        -- -- use "tweekmonster/django-plus.vim"
+        -- -- use "SirVer/ultisnips"
         -- use "nvim-lua/completion-nvim"
         --Show numbers
         use "nacro90/numb.nvim"
@@ -37,8 +41,8 @@ return packer.startup(
         use "kabouzeid/nvim-lspinstall"
         --Terminal
         use "akinsho/nvim-toggleterm.lua"
-        --Kite
-        use "kiteco/vim-plugin"
+        -- --Kite
+        -- use "kiteco/vim-plugin"
         -- Lua
         use {
             "folke/twilight.nvim",

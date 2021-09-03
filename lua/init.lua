@@ -1,5 +1,4 @@
 require("plugins")
-
 local g = vim.g
 require "pg-statusline/init"
 
@@ -24,6 +23,7 @@ require "pg-terminal/init"
 require "pg-coments/init"
 
 require "pg-troble/init"
+
 -- vim.api.nvim_exec(
 --     [[
 --    au BufEnter term://* setlocal nonumber

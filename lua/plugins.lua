@@ -25,10 +25,10 @@ return packer.startup(
         --Autocomplete
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
+        use "L3MON4D3/LuaSnip"
+        use "aca/emmet-ls"
         use "alvan/vim-closetag"
-        -- -- use "tweekmonster/django-plus.vim"
-        -- -- use "SirVer/ultisnips"
-        -- use "nvim-lua/completion-nvim"
+        use "tweekmonster/django-plus.vim"
         --Show numbers
         use "nacro90/numb.nvim"
         --Indent line
@@ -41,6 +41,8 @@ return packer.startup(
         use "kabouzeid/nvim-lspinstall"
         --Terminal
         use "akinsho/nvim-toggleterm.lua"
+        --git
+        use "rhysd/git-messenger.vim"
         -- --Kite
         -- use "kiteco/vim-plugin"
         -- Lua

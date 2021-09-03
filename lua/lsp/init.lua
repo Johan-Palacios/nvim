@@ -20,16 +20,13 @@ require "compe".setup {
     source = {
         path = true,
         buffer = true,
-        -- calc = true,
-        vsnip = true,
         nvim_lsp = true,
-        ultisnips = true,
         nvim_lua = true,
         spell = true,
-        -- kite = true,
+        luasnip = true,
         snippets_nvim = true,
+        ultisnips = true,
         treesitter = true
-        -- tabnine = true
     }
 }
 local M = {}
@@ -59,13 +56,19 @@ _G.s_tab_complete = function()
     end
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+        "documentation",
+        "detail",
+        "additionalTextEdits"
+    }
+}
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+--
 if not lspconfig.emmet_ls then
     configs.emmet_ls = {
         default_config = {
@@ -91,9 +94,10 @@ require "lspconfig".intelephense.setup {}
 require "lspconfig".java_language_server.setup {}
 
 require "lspconfig".html.setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    filetypes = {"html", "htmldjango"}
 }
-
+--
 require "lspconfig".cssls.setup {
     capabilities = capabilities
 }

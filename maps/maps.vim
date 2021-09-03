@@ -83,7 +83,6 @@ function ToggleMouse()
         let g:is_mouse_enabled = 1
     endif
 endfunction
-
 "--------------------Terminal------------------
 vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
@@ -105,6 +104,7 @@ nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
 vnoremap <Tab> >gV
 vnoremap <S-Tab> <gV
+nnoremap <silent> <leader>n :nohlsearch<CR>
 "------------------ resize --------------------
 nnoremap <up> <nop>
 nnoremap <down> <nop>

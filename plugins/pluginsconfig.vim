@@ -10,5 +10,6 @@ source $HOME/.config/nvim/plugins/LSP/configs.lua
 source $HOME/.config/nvim/plugins/CARBON/CARBON.vim
 source $HOME/.config/nvim/plugins/BRACEY/BRACEY.vim
 source $HOME/.config/nvim/plugins/GIT/GIT.vim
+source $HOME/.config/nvim/plugins/Emmet/emmet.vim
 luafile $HOME/.config/nvim/lua/pg-dash/init.lua
 luafile $HOME/.config/nvim/plugins/NVIMTREE/lTree.lua

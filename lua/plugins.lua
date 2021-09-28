@@ -26,9 +26,7 @@ return packer.startup(
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
         use "L3MON4D3/LuaSnip"
-        use "aca/emmet-ls"
         use "alvan/vim-closetag"
-        use "tweekmonster/django-plus.vim"
         --Show numbers
         use "nacro90/numb.nvim"
         --Indent line

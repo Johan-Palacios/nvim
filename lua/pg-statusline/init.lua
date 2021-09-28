@@ -26,7 +26,10 @@ local colors = {
     nord_blue = "#81A1C1",
     statusline_bg = "#22262e",
     lightbg = "#2d3139",
-    lightbg2 = "#262a32"
+    lightbg2 = "#262a32",
+    violet = "#8A2BE2",
+    darkblue = "#00008B",
+    warnyelow = "#FFA500"
 }
 
 local condition = require "galaxyline.condition"
@@ -78,12 +81,12 @@ table.insert(
     {
         GitIcon = {
             provider = function()
-                return "  "
+                return "   "
             end,
             condition = condition.check_git_workspace,
-            separator = " ",
+            separator = "",
             separator_highlight = "StatusLineSeparator",
-            highlight = {colors.orange, colors.statusline_bg}
+            highlight = {colors.orange}
         }
     }
 )
@@ -147,7 +150,8 @@ table.insert(
             end,
             highlight = {colors.grey_fg2, colors.lightbg2},
             separator = " ",
-            separator_highlight = {colors.lightbg2, colors.statusline_bg}
+            -- separator_highlight = {colors.lightbg2, colors.statusline_bg}
+            separator_highlight = {colors.lightbg2}
         }
     }
 )
@@ -261,7 +265,8 @@ table.insert(
         DiagnosticError = {
             provider = "DiagnosticError",
             icon = "  ",
-            highlight = {colors.red, colors.statusline_bg}
+            highlight = {colors.error_red}
+            -- highlight = {colors.red, colors.statusline_bg}
         }
     }
 )
@@ -271,7 +276,8 @@ table.insert(
         DiagnosticWarn = {
             provider = "DiagnosticWarn",
             icon = "  ",
-            highlight = {colors.yellow, colors.statusline_bg}
+            -- highlight = {colors.yellow, colors.statusline_bg}
+            highlight = {colors.warnyelow}
         }
     }
 )
@@ -282,7 +288,7 @@ table.insert(
         DiagnosticInfo = {
             provider = "DiagnosticInfo",
             icon = "  ",
-            highlight = {colors.green, colors.statusline_bg}
+            highlight = {colors.green}
         }
     }
 )
@@ -293,7 +299,7 @@ table.insert(
         DiagnosticHint = {
             provider = "DiagnosticHint",
             icon = "  ",
-            highlight = {colors.yellow, colors.statusline_bg}
+            highlight = {colors.yellow}
         }
     }
 )
@@ -310,7 +316,7 @@ table.insert(
             end,
             separator = " ",
             separator_highlight = "StatusLineSeparator",
-            highlight = "StatusLineTreeSitter"
+            highlight = "StatusLineNC"
         }
     }
 )

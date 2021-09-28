@@ -21,6 +21,7 @@ call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'lilydjwg/colorizer'
     "Html, css and js
+    Plug 'mattn/emmet-vim'
     "Git
     Plug 'tpope/vim-fugitive'
     Plug 'zivyangll/git-blame.vim'

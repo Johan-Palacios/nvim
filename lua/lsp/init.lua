@@ -25,7 +25,7 @@ require "compe".setup {
         spell = true,
         luasnip = true,
         snippets_nvim = true,
-        ultisnips = true,
+        -- ultisnips = true,
         treesitter = true
     }
 }
@@ -69,27 +69,15 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 --
-if not lspconfig.emmet_ls then
-    configs.emmet_ls = {
-        default_config = {
-            cmd = {"emmet-ls", "--stdio"},
-            filetypes = {"html", "css", "htmldjango"},
-            root_dir = function(fname)
-                return vim.loop.cwd()
-            end,
-            settings = {}
-        }
-    }
-end
 
-require "lspconfig".omnisharp.setup {}
+-- require "lspconfig".omnisharp.setup {}
 require "lspconfig".pyright.setup {}
 require "lspconfig".bashls.setup {}
 require "lspconfig".clangd.setup {}
 require "lspconfig".tsserver.setup {}
 require "lspconfig".cssls.setup {}
 require "lspconfig".vuels.setup {}
-require "lspconfig".sumneko_lua.setup {}
+-- require "lspconfig".sumneko_lua.setup {}
 require "lspconfig".intelephense.setup {}
 require "lspconfig".java_language_server.setup {}
 
@@ -101,6 +89,6 @@ require "lspconfig".html.setup {
 require "lspconfig".cssls.setup {
     capabilities = capabilities
 }
-require "lspconfig".emmet_ls.setup {capabilities = capabilities}
-require "lspconfig".tailwindcss.setup {}
+-- require "lspconfig".emmet_ls.setup {capabilities = capabilities}
+-- require "lspconfig".tailwindcss.setup {}
 return M

@@ -68,7 +68,6 @@ exec "w"
 exec "vsp"
 exec "term ./%<"
 endfunc
-
 "--------------------MOUSE------------------
 let g:is_mouse_enabled = 1
 noremap <silent> <Leader>m :call ToggleMouse()<CR>
@@ -91,6 +90,8 @@ tnoremap <Esc> <C-\><C-n>:q!<CR>
 nmap <Leader>fr :ToggleTerm<CR>
 nmap <Leader>ft :ToggleTerm direction="vertical"<CR>
 nmap <Leader>fhr :ToggleTerm size=10 direction="horizontal"<CR>
+"Find words
+nmap <Leader>ag :Ag<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

@@ -77,14 +77,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
-  ["django-plus.vim"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/django-plus.vim"
-  },
-  ["emmet-ls"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/emmet-ls"
-  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"

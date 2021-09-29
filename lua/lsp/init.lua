@@ -20,12 +20,12 @@ require "compe".setup {
     source = {
         path = true,
         buffer = true,
+        vsnip = true,
         nvim_lsp = true,
         nvim_lua = true,
         spell = true,
         luasnip = true,
         snippets_nvim = true,
-        -- ultisnips = true,
         treesitter = true
     }
 }

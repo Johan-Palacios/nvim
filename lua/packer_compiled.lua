@@ -98,6 +98,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/goto-preview"
   },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/impatient.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"

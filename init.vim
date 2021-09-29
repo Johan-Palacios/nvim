@@ -10,9 +10,11 @@
 "   | ||  \/|     Youtube: www.youtube.com/channel/UC8h9RRhxtAbpE3-J3RQljKQ
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
-"                 I use :                  ﬏"
+"                 I use :                  ﬏
 "=============================================================
 "Lua plugins
+lua require('impatient')
+lua require'impatient'.enable_profile()
 lua require 'init'
 "Plugins
 source $HOME/.config/nvim/plugins/plugins.vim

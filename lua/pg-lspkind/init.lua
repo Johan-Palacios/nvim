@@ -1,3 +1,4 @@
+local M = {}
 require("lspkind").init(
     {
         with_text = true,
@@ -16,7 +17,7 @@ require("lspkind").init(
             Value = "",
             Enum = "了",
             Keyword = "",
-            Snippet = "﬌",
+            Snippet = "",
             Color = "",
             File = "",
             Folder = "",
@@ -26,8 +27,10 @@ require("lspkind").init(
             EnumMember = "",
             Constant = "",
             Spell = "",
+            Reference = "",
+            TypeParameter = " ",
             Struct = ""
-            -- tabnine = "ﮧ"
         }
     }
 )
+return M

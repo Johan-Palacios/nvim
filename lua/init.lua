@@ -2,6 +2,14 @@ require("plugins")
 local g = vim.g
 require "pg-statusline/init"
 
+require "pg-troble/init"
+
+require "pg-luasnip/init"
+
+require "pg-luasnip/config"
+
+require "pg-gotoprev/init"
+
 require "pg-nvimtree/init"
 
 require "pg-fileicon/init"
@@ -22,9 +30,8 @@ require "pg-terminal/init"
 
 require "pg-coments/init"
 
-require "pg-troble/init"
-
 -- vim.api.nvim_exec(
+-- a%d
 --     [[
 --    au BufEnter term://* setlocal nonumber
 --    au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif

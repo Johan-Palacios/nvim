@@ -1,18 +1,28 @@
 local packer = require("packer")
 local use = packer.use
 -- using { } for using different branch , loading plugin with certain commands etc
+packer.startup {
+    {...},
+    config = {
+        compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
+    }
+}
+
 return packer.startup(
     function()
         --Down Line
         use "wbthomason/packer.nvim"
         use "glepnir/galaxyline.nvim"
         use "lewis6991/gitsigns.nvim"
+        use "lewis6991/impatient.nvim"
         --Tree
         use "kyazdani42/nvim-tree.lua"
         --Bar
         use "kyazdani42/nvim-web-devicons"
         use "akinsho/nvim-bufferline.lua"
         use "onsails/lspkind-nvim"
+        use "hrsh7th/vim-vsnip"
+        use "hrsh7th/vim-vsnip-integ"
         --Zen mode
         use {
             "folke/zen-mode.nvim",
@@ -26,6 +36,7 @@ return packer.startup(
         use "neovim/nvim-lspconfig"
         use "hrsh7th/nvim-compe"
         use "L3MON4D3/LuaSnip"
+        use "rafamadriz/friendly-snippets"
         use "alvan/vim-closetag"
         --Show numbers
         use "nacro90/numb.nvim"
@@ -41,8 +52,6 @@ return packer.startup(
         use "akinsho/nvim-toggleterm.lua"
         --git
         use "rhysd/git-messenger.vim"
-        -- --Kite
-        -- use "kiteco/vim-plugin"
         -- Lua
         use {
             "folke/twilight.nvim",
@@ -57,12 +66,17 @@ return packer.startup(
                 require("todo-comments").setup {}
             end
         }
-        -- Lua
         use {
             "folke/trouble.nvim",
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
                 require("trouble").setup {}
+            end
+        }
+        use {
+            "rmagatti/goto-preview",
+            config = function()
+                require("goto-preview").setup {}
             end
         }
     end

@@ -1,6 +1,6 @@
 call plug#begin('~johan_linux/.config/nvim/autoload/plugged')
     "Use of VIM
-    Plug 'mhinz/vim-signify'
+    " Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-unimpaired'
     Plug 'liuchengxu/vim-which-key'
     Plug 'benmills/vimux'

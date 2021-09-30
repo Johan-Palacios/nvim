@@ -2,6 +2,10 @@ require("plugins")
 local g = vim.g
 require "pg-statusline/init"
 
+require "gitsigns/gitsigns"
+
+require "pg-troble/init"
+
 require "pg-troble/init"
 
 require "pg-luasnip/init"

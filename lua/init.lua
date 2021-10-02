@@ -1,8 +1,13 @@
 require("plugins")
 
 local g = vim.g
+require "pg-lspkind/init"
 
 require "pg-nvimtree/init"
+
+require "core/tools/scroll"
+
+require "core/cmp"
 
 require "pg-nvimtree/treecomands"
 
@@ -23,8 +28,6 @@ require "pg-gotoprev/init"
 require "pg-fileicon/init"
 
 require "pg-treesiter/init"
-
-require "pg-lspkind/init"
 
 require "lsp/init"
 

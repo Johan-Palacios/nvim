@@ -89,6 +89,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/bracey.vim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
+  },
   colorizer = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/colorizer"
@@ -154,6 +166,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/neoformat"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nerdcommenter"
@@ -166,9 +182,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -219,9 +235,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/startuptime.vim"
   },
-  tagbar = {
+  ["symbols-outline.nvim"] = {
     loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/tagbar"
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -289,14 +305,6 @@ _G.packer_plugins = {
   ["vim-unimpaired"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   },
   ["vim-which-key"] = {
     loaded = true,

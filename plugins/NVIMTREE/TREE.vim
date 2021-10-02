@@ -1,5 +1,5 @@
 "-------------- Nvimtree ----------------------
-    let g:nvim_tree_auto_ignore_ft = ["dashboard"]
+let g:nvim_tree_auto_ignore_ft = ["dashboard"]
 let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "vim-plug"]
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1

@@ -170,7 +170,7 @@ table.insert(
             provider = "DiffAdd",
             condition = condition.hide_in_width,
             icon = "  ",
-            highlight = "StatusLineGitAdd"
+            highlight = {colors.light_green}
         }
     }
 )
@@ -181,8 +181,8 @@ table.insert(
         DiffModified = {
             provider = "DiffModified",
             condition = condition.hide_in_width,
-            icon = " 柳",
-            highlight = "StatusLineGitChange"
+            icon = "  柳 ",
+            highlight = {colors.light_blue}
         }
     }
 )
@@ -194,7 +194,7 @@ table.insert(
             provider = "DiffRemove",
             condition = condition.hide_in_width,
             icon = "  ",
-            highlight = "StatusLineGitDelete"
+            highlight = {colors.red}
         }
     }
 )
@@ -419,6 +419,7 @@ table.insert(
     }
 )
 
+
 table.insert(
     gls.right,
     {
@@ -432,6 +433,18 @@ table.insert(
     }
 )
 
+table.insert(
+    gls.right,
+    {
+        Time = {
+            provider = function()
+            return '  ' .. os.date('%H:%M') .. ' '
+            end,
+            highlight = {colors.green, colors.gray},
+            separator = ' ',
+        }
+    }
+)
 table.insert(
     gls.right,
     {

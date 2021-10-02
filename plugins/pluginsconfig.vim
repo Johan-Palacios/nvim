@@ -12,5 +12,7 @@ source $HOME/.config/nvim/plugins/BRACEY/BRACEY.vim
 source $HOME/.config/nvim/plugins/GIT/GIT.vim
 source $HOME/.config/nvim/plugins/Emmet/emmet.vim
 source $HOME/.config/nvim/plugins/gotoprev/prev.vim
+source $HOME/.config/nvim/plugins/matchup.vim
 luafile $HOME/.config/nvim/lua/pg-dash/init.lua
 luafile $HOME/.config/nvim/lua/pg-nvimtree/treecomands.lua
+

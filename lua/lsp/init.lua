@@ -4,57 +4,57 @@ local configs = require "lspconfig/configs"
 require "lspinstall".setup()
 require "lspinstall".installed_servers()
 
-require "compe".setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = "enable",
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
-    source = {
-        path = true,
-        buffer = true,
-        vsnip = true,
-        nvim_lsp = true,
-        nvim_lua = true,
-        spell = true,
-        luasnip = true,
-        snippets_nvim = true,
-        treesitter = true
-    }
-}
-local M = {}
-
-M.snippets = function()
-    local ls = require("luasnip")
-
-    ls.config.set_config(
-        {
-            history = true,
-            updateevents = "TextChanged,TextChangedI"
-        }
-    )
-    require("luasnip/loaders/from_vscode").load()
-end
-
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-_G.s_tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-    elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
-        return t "<Plug>(vsnip-jump-prev)"
-    else
-        return t "<S-Tab>"
-    end
-end
+-- require "compe".setup {
+--     enabled = true,
+--     autocomplete = true,
+--     debug = false,
+--     min_length = 1,
+--     preselect = "enable",
+--     throttle_time = 80,
+--     source_timeout = 200,
+--     incomplete_delay = 400,
+--     max_abbr_width = 100,
+--     max_kind_width = 100,
+--     max_menu_width = 100,
+--     documentation = true,
+--     source = {
+--         path = true,
+--         buffer = true,
+--         vsnip = true,
+--         nvim_lsp = true,
+--         nvim_lua = true,
+--         spell = true,
+--         luasnip = true,
+--         snippets_nvim = true,
+--         treesitter = true
+--     }
+-- }
+-- local M = {}
+--
+-- M.snippets = function()
+--     local ls = require("luasnip")
+--
+--     ls.config.set_config(
+--         {
+--             history = true,
+--             updateevents = "TextChanged,TextChangedI"
+--         }
+--     )
+--     require("luasnip/loaders/from_vscode").load()
+-- end
+--
+-- local t = function(str)
+--     return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
+-- _G.s_tab_complete = function()
+--     if vim.fn.pumvisible() == 1 then
+--         return t "<C-p>"
+--     elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+--         return t "<Plug>(vsnip-jump-prev)"
+--     else
+--         return t "<S-Tab>"
+--     end
+-- end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

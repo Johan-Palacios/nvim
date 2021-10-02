@@ -9,6 +9,7 @@ packer.startup {
 }
 return packer.startup(
     function()
+        -- Esencial plugin
         use 'tpope/vim-unimpaired'
         use 'liuchengxu/vim-which-key'
         use 'benmills/vimux'
@@ -24,7 +25,6 @@ return packer.startup(
         use 'nvim-lua/plenary.nvim'
         use 'nvim-telescope/telescope.nvim'
         use 'glepnir/dashboard-nvim'
-        use 'preservim/tagbar'
         use 'OmniSharp/omnisharp-vim'
         use 'turbio/bracey.vim'
         use 'lilydjwg/colorizer'
@@ -50,6 +50,11 @@ return packer.startup(
         use  "glepnir/galaxyline.nvim"
         use  "lewis6991/gitsigns.nvim"
         use  "lewis6991/impatient.nvim"
+        -- CMP
+        use 'hrsh7th/cmp-nvim-lsp'
+        use 'hrsh7th/cmp-buffer'
+        use 'hrsh7th/nvim-cmp'
+        use 'saadparwaiz1/cmp_luasnip'
         --Tree
         use  {
         'kyazdani42/nvim-tree.lua',
@@ -61,8 +66,6 @@ return packer.startup(
         use  "kyazdani42/nvim-web-devicons"
         use  "akinsho/nvim-bufferline.lua"
         use  "onsails/lspkind-nvim"
-        use  "hrsh7th/vim-vsnip"
-        use  "hrsh7th/vim-vsnip-integ"
         --Zen mode
         use  {
             "folke/zen-mode.nvim",
@@ -74,7 +77,7 @@ return packer.startup(
         use  "nvim-treesitter/nvim-treesitter"
         --Autocomplete
         use  "neovim/nvim-lspconfig"
-        use  "hrsh7th/nvim-compe"
+        -- use  "hrsh7th/nvim-compe"
         use  "L3MON4D3/LuaSnip"
         use  "rafamadriz/friendly-snippets"
         use  "alvan/vim-closetag"
@@ -119,5 +122,9 @@ return packer.startup(
                 require("goto-preview").setup {}
             end
         }
+        -- Move well
+        use 'karb94/neoscroll.nvim'
+        -- Show parameters
+        use 'simrat39/symbols-outline.nvim'
     end
 )

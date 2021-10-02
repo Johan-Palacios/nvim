@@ -13,15 +13,13 @@
 "                 I use :                  ﬏
 "=============================================================
 "Lua plugins
+lua require 'init'
 lua require('impatient')
 lua require'impatient'.enable_profile()
-lua require 'init'
-"Plugins
-source $HOME/.config/nvim/plugins/plugins.vim
+"Plugins Config
+source $HOME/.config/nvim/plugins/pluginsconfig.vim
 "Themes
 source $HOME/.config/nvim/themes/onedark.vim
 "Maps
 source $HOME/.config/nvim/maps/maps.vim
-"Plugins Config
-source $HOME/.config/nvim/plugins/pluginsconfig.vim
 "=============================================================

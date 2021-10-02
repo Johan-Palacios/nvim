@@ -1,5 +1,11 @@
 require("plugins")
+
 local g = vim.g
+
+require "pg-nvimtree/init"
+
+require "pg-nvimtree/treecomands"
+
 require "pg-statusline/init"
 
 require "gitsigns/gitsigns"
@@ -13,8 +19,6 @@ require "pg-luasnip/init"
 require "pg-luasnip/config"
 
 require "pg-gotoprev/init"
-
-require "pg-nvimtree/init"
 
 require "pg-fileicon/init"
 
@@ -40,7 +44,7 @@ require "pg-coments/init"
 --    au BufEnter term://* setlocal nonumber
 --    au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
 --    au BufEnter term://* set laststatus=0
--- ]],
+-- ]]
 --     false
 -- )
 --

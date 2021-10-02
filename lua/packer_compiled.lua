@@ -77,13 +77,53 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+  },
+  ["bracey.vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/bracey.vim"
+  },
+  colorizer = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/colorizer"
+  },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+  },
+  ["editorconfig-vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/editorconfig-vim"
+  },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/emmet-vim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/fzf"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["git-blame.vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/git-blame.vim"
   },
   ["git-messenger.vim"] = {
     loaded = true,
@@ -110,6 +150,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
+  neoformat = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nerdcommenter"
+  },
   ["numb.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/numb.nvim"
@@ -135,6 +183,7 @@ _G.packer_plugins = {
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
   },
   ["nvim-tree.lua"] = {
+    config = { "\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
@@ -146,6 +195,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
+  ["omnisharp-vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/omnisharp-vim"
+  },
+  ["onedark.vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/onedark.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -154,9 +211,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
   ["startuptime.vim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/startuptime.vim"
+  },
+  tagbar = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/tagbar"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
     config = { "\27LJ\2\2?\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0" },
@@ -173,9 +242,53 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/twilight.nvim"
   },
+  ["vim-carbon-now-sh"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-carbon-now-sh"
+  },
   ["vim-closetag"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-closetag"
+  },
+  ["vim-devicons"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-devicons"
+  },
+  ["vim-easymotion"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-easymotion"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-matchup"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-matchup"
+  },
+  ["vim-multiple-cursors"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-repeat"
+  },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-test"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
+  },
+  ["vim-unimpaired"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
   },
   ["vim-vsnip"] = {
     loaded = true,
@@ -184,6 +297,14 @@ _G.packer_plugins = {
   ["vim-vsnip-integ"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
+  },
+  ["vim-which-key"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-which-key"
+  },
+  vimux = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vimux"
   },
   ["zen-mode.nvim"] = {
     config = { "\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0" },
@@ -201,18 +322,22 @@ time([[Config for trouble.nvim]], false)
 time([[Config for twilight.nvim]], true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0", "config", "twilight.nvim")
 time([[Config for twilight.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\2?\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
 time([[Config for todo-comments.nvim]], false)
--- Config for: goto-preview
-time([[Config for goto-preview]], true)
-try_loadstring("\27LJ\2\2>\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\17goto-preview\frequire\0", "config", "goto-preview")
-time([[Config for goto-preview]], false)
 -- Config for: zen-mode.nvim
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
 time([[Config for zen-mode.nvim]], false)
+-- Config for: goto-preview
+time([[Config for goto-preview]], true)
+try_loadstring("\27LJ\2\2>\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\17goto-preview\frequire\0", "config", "goto-preview")
+time([[Config for goto-preview]], false)
 if should_profile then save_profiles() end
 
 end)

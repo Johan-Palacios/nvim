@@ -1,7 +1,7 @@
 local M = {}
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+local check_back_space = function()
+    local col = vim.fn.col '.' - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
 end
 
 local function T(str)
@@ -110,6 +110,8 @@ cmp.setup({
         {
             name = "nvim_lsp"
         }, {
+            name = "path"
+        }, {
             name = 'nvim_lua'
         }, {
             name = "buffer"
@@ -117,8 +119,6 @@ cmp.setup({
             name = "spell"
         }, {
             name = "luasnip"
-        }, {
-            name = "path"
         }
     }
 })

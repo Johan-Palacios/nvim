@@ -27,7 +27,11 @@ local colors = {
     lightbg2 = "#262a32",
     violet = "#8A2BE2",
     darkblue = "#00008B",
-    warnyelow = "#FFA500"
+    warnyelow = "#FFA500",
+    newyellow = "#E5C07B",
+    infoblue = "#56B6C2",
+    sintaxviolet = "#BA99F6",
+    newlighbg = "#38393f"
 }
 
 local condition = require "galaxyline.condition"
@@ -36,6 +40,7 @@ gl.short_line_list = {
     "NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm", "vim-plug",
     "Outline"
 }
+local extension = require "pg-statusline/extension"
 
 -- 1
 table.insert(gls.left, {
@@ -138,6 +143,7 @@ local checkwidth = function()
     if squeeze_width > 30 then return true end
     return false
 end
+
 table.insert(gls.left, {
     DiffAdd = {
         provider = "DiffAdd",
@@ -224,7 +230,7 @@ table.insert(gls.right, {
         provider = "DiagnosticWarn",
         icon = "  ",
         -- highlight = {colors.yellow, colors.statusline_bg}
-        highlight = {colors.warnyelow}
+        highlight = {colors.newyellow}
     }
 })
 
@@ -232,7 +238,7 @@ table.insert(gls.right, {
     DiagnosticInfo = {
         provider = "DiagnosticInfo",
         icon = "  ",
-        highlight = {colors.green}
+        highlight = {colors.light_blue}
     }
 })
 
@@ -240,7 +246,7 @@ table.insert(gls.right, {
     DiagnosticHint = {
         provider = "DiagnosticHint",
         icon = "  ",
-        highlight = {colors.yellow}
+        highlight = {colors.infoblue}
     }
 })
 
@@ -255,6 +261,7 @@ table.insert(gls.right, {
         separator = " ",
         separator_highlight = "StatusLineSeparator",
         highlight = "StatusLineNC"
+        -- highlight = {colors.sintaxviolet}
     }
 })
 
@@ -358,6 +365,14 @@ table.insert(gls.right, {
         separator = ' '
     }
 })
+
+table.insert(gls.right, {
+    ScrollBar = {
+        provider = extension.scrollbar_instance,
+        highlight = {colors.yellow, colors.gray}
+    }
+})
+
 table.insert(gls.right, {
     Space = {
         provider = function() return " " end,

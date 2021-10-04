@@ -4,9 +4,13 @@ local g = vim.g
 
 require "pg-lspkind/init"
 
-require "pg-nvimtree/init"
+require "core/tools/comment"
+
+require "core/tools/trouble"
 
 require "core/tools/scroll"
+
+require "pg-nvimtree/init"
 
 require "core/cmp"
 
@@ -15,10 +19,6 @@ require "pg-nvimtree/treecomands"
 require "pg-statusline/init"
 
 require "gitsigns/gitsigns"
-
-require "pg-troble/init"
-
-require "pg-troble/init"
 
 require "pg-luasnip/init"
 
@@ -39,8 +39,6 @@ require "pg-autosave/init"
 require "pg-installsp/init"
 
 require "pg-terminal/init"
-
-require "pg-coments/init"
 
 -- vim.api.nvim_exec(
 -- a%d

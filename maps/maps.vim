@@ -34,6 +34,8 @@ set ma
 set modifiable
 set clipboard+=unnamedplus
 set rnu
+set scrolloff=6
+set scrolljump=-3
 let mapleader="\<Space>"
 let maplocalleader="//"
 nnoremap <F14> :set invpaste paste?<CR>
@@ -43,6 +45,8 @@ filetype plugin indent on
 set timeoutlen=1000
 set ttimeoutlen=0
 set updatetime=100
+set completeopt=menu,menuone,noselect
+highlight pmenu ctermbg=DarkGray guibg=onedark 
 "-----------------NVIM 0.5V--------------
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   set signcolumn=number

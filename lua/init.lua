@@ -1,6 +1,7 @@
 require("plugins")
 
 local g = vim.g
+
 require "pg-lspkind/init"
 
 require "pg-nvimtree/init"

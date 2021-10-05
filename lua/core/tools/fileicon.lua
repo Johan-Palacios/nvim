@@ -1,6 +1,6 @@
 local colors = require "themes/onedark"
 
-require "nvim-web-devicons".setup {
+require"nvim-web-devicons".setup {
     override = {
         html = {
             icon = "",

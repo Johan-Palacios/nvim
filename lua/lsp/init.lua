@@ -1,3 +1,4 @@
+require "lsp.keys"
 -- NOTE: Colores en pupup y en menu de autocompletado
 vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1E2127]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1E2127]]
@@ -106,4 +107,5 @@ require"lspconfig".html.setup {
 }
 require"lspconfig".cssls.setup {
     capabilities = capabilities
+
 }

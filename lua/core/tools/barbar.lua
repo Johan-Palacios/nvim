@@ -1,3 +1,4 @@
+vim.cmd [[ 
 "---------------BarBar comands--------------------
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
 nnoremap <silent>    <A-2> :BufferGoto 2<CR>
@@ -27,5 +28,4 @@ let bufferline.semantic_letters = v:true
 let bufferline.letters =
   \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
 let bufferline.no_name_title = v:null
-"--------------------Tagbar Comd---------------
-nnoremap <F13> :TagbarToggle<CR>
+]]

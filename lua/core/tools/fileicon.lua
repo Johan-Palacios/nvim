@@ -23,7 +23,7 @@ require"nvim-web-devicons".setup {
             name = "ts"
         },
         kt = {
-            icon = "󱈙",
+            icon = "KT",
             color = colors.orange,
             name = "kt"
         },

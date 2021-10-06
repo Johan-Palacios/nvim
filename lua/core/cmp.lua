@@ -1,20 +1,17 @@
 local M = {}
-local check_back_space = function()
-    local col = vim.fn.col '.' - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+
+local check_backspace = function()
+    local col = vim.fn.col "." - 1
+    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
 local function T(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local is_emmet_active = function()
-    local clients = vim.lsp.buf_get_clients()
-
-    for _, client in pairs(clients) do
-        if client.name == "emmet_ls" then return true end
-    end
-    return false
+local feedkey = function(key)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true),
+                          "n", true)
 end
 
 local has_words_before = function()
@@ -28,11 +25,6 @@ local has_words_before = function()
                    :match("%s") == nil
 end
 
-local feedkey = function(key)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true),
-                          "n", true)
-end
-
 local luasnip = require("luasnip")
 local cmp = require 'cmp'
 
@@ -41,15 +33,11 @@ cmp.setup({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true
     },
-    snippet = {
-        expand = function(args) require('luasnip').lsp_expand(args.body) end
+    completion = {
+        completeopt = "menu,menuone,noinsert"
     },
-    -- completion = {
-    --     completeopt = "menu,menuone,noinsert"
-    -- },
     formatting = {
         format = function(entry, vim_item)
-            -- vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
             local icons = require("pg-lspkind.init").icons
             vim_item.kind = icons[vim_item.kind]
             vim_item.menu = ({
@@ -74,25 +62,29 @@ cmp.setup({
     documentation = {
         border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
     },
+    snippet = {
+        expand = function(args) require('luasnip').lsp_expand(args.body) end
+    },
     mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
-        -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if vim.fn.pumvisible() == 1 then
-                feedkey("<C-n>")
+                vim.fn.feedkeys(T "<down>", "n")
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
                 cmp.complete()
+            elseif check_backspace() then
+                vim.fn.feedkey(T "<Tab>", "n")
             else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                fallback()
             end
         end, {"i", "s"}),
 

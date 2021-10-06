@@ -16,7 +16,7 @@ return packer.startup(function()
     use 'janko-m/vim-test'
     use 'terryma/vim-multiple-cursors'
     use 'editorconfig/editorconfig-vim'
-    use 'easymotion/vim-easymotion'
+    -- use 'easymotion/vim-easymotion'
     use 'preservim/nerdcommenter'
     use 'tpope/vim-repeat'
     use 'andymass/vim-matchup'

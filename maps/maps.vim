@@ -100,7 +100,8 @@ nmap <Leader>ag :Ag<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "Personal Comands
-map <C-t> :NvimTreeOpen<CR>
+nmap <leader>e :NvimTreeOpen<CR>
+nmap <leader>ce :NvimTreeClose<CR>
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
@@ -119,3 +120,12 @@ nnoremap <silent> <right> :vertical resize +5<CR>
 nnoremap <silent> <left> :vertical resize -5<CR>
 nnoremap <silent> <up> :vertical resize +5<CR>
 nnoremap <silent> <down> :vertical resize -5<CR>
+"Maps of go to goto-preview
+nnoremap <leader>go <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap <leader>gb <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap <leader>gc <cmd>lua require('goto-preview').close_all_win()<CR>
+"maps git
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nmap <leader>gs :G<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gh :diffget //3<CR>

@@ -46,7 +46,6 @@ local extension = require "pg-statusline/extension"
 table.insert(gls.left, {
     ViMode = {
         provider = function()
-            -- auto change color according the vim mode
             local mode_color = {
                 n = colors.blue,
                 i = colors.green,
@@ -77,7 +76,7 @@ table.insert(gls.left, {
         highlight = "StatusLineNC"
     }
 })
--- print(vim.fn.getbufvar(0, 'ts'))
+
 vim.fn.getbufvar(0, "ts")
 -- 2
 table.insert(gls.left, {

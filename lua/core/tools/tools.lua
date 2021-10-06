@@ -14,3 +14,11 @@ require "core.tools.autosave"
 require "core.tools.fileicon"
 
 require "core.tools.luasnip"
+
+require "core.tools.barbar"
+
+require "core.tools.tmux"
+
+require "core.tools.bracey"
+
+require "core.tools.emmet"

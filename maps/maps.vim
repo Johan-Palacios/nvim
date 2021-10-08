@@ -1,58 +1,4 @@
-"-------------Init set and let for NVIM-------------------------
-set encoding=utf-8
-set showtabline=2
-set nocompatible
-set autoindent
-set fdm=indent
-set foldlevelstart=99
-set cmdheight=2
-set number
-set title
-set splitright
-set splitbelow
-set number
-set mouse=a
-set nowrap
-set cursorline
-set pastetoggle=<F14>
-set showmode
-set colorcolumn=120
-set tabstop=2
-set shiftwidth=4
-set softtabstop=2
-set shiftround
-set expandtab
-set hidden
-set ignorecase
-set smartcase
-set spelllang=en,es
-set termguicolors
-set background=dark
-set noma
-set write
-set ma
-set modifiable
-set clipboard+=unnamedplus
-set rnu
-set scrolloff=6
-set scrolljump=-3
-let mapleader="\<Space>"
-let maplocalleader="//"
-nnoremap <F14> :set invpaste paste?<CR>
-filetype on
-filetype plugin on
-filetype plugin indent on
-set timeoutlen=1000
-set ttimeoutlen=0
-set updatetime=100
-set completeopt=menu,menuone,noselect
 highlight pmenu ctermbg=DarkGray guibg=onedark 
-"-----------------NVIM 0.5V--------------
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 "--------------------Execute codes ---------
 augroup exe_code
   autocmd!
@@ -91,17 +37,17 @@ vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 tnoremap <Esc> <C-\><C-n>:q!<CR>
 
-nmap <Leader>fr :ToggleTerm<CR>
-nmap <Leader>ft :ToggleTerm direction="vertical"<CR>
-nmap <Leader>fhr :ToggleTerm size=10 direction="horizontal"<CR>
+nmap <Leader>tf :ToggleTerm<CR>
+nmap <Leader>tv :ToggleTerm direction="vertical"<CR>
+nmap <Leader>th :ToggleTerm size=10 direction="horizontal"<CR>
 "Find words
-nmap <Leader>ag :Ag<CR>
+" nmap <Leader>ag :Ag<CR>
 "Tab trigger 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "Personal Comands
 nmap <leader>e :NvimTreeOpen<CR>
-nmap <leader>ce :NvimTreeClose<CR>
+nmap <leader>q :NvimTreeClose<CR>
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
@@ -121,11 +67,11 @@ nnoremap <silent> <left> :vertical resize -5<CR>
 nnoremap <silent> <up> :vertical resize +5<CR>
 nnoremap <silent> <down> :vertical resize -5<CR>
 "Maps of go to goto-preview
-nnoremap <leader>go <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap <leader>gb <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-nnoremap <leader>gc <cmd>lua require('goto-preview').close_all_win()<CR>
+nnoremap <leader>pgo <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap <leader>pgi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap <leader>pgc <cmd>lua require('goto-preview').close_all_win()<CR>
 "maps git
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>gms :<C-u>call gitblame#echo()<CR>
 nmap <leader>gs :G<CR>
-nmap <leader>gu :diffget //2<CR>
-nmap <leader>gh :diffget //3<CR>
+nmap <leader>gi :diffget //2<CR>
+nmap <leader>gd :diffget //3<CR>

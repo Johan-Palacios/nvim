@@ -12,6 +12,8 @@
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
 "                 I use :                  ﬏
 "=============================================================
+"Esencial Config
+source $HOME/.config/nvim/maps/esencial.vim
 "Lua plugins
 lua require 'init'
 lua require('impatient')

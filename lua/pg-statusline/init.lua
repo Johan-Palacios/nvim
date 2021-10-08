@@ -1,6 +1,5 @@
 local status_ok, gl = pcall(require, "galaxyline")
 if not status_ok then return end
-
 local colors = {
     white = "#abb2bf",
     bg = "#2E2E2E",
@@ -406,5 +405,12 @@ table.insert(gls.short_line_left, {
         provider = "SFileName",
         condition = condition.buffer_not_empty,
         highlight = "StatusLineNC"
+    }
+})
+
+table.insert(gls.short_line_right, {
+    BufferIcon = {
+        provider = 'BufferIcon',
+        highlight = {colors.blue, colors.black}
     }
 })

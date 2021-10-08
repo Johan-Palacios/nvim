@@ -10,6 +10,8 @@ require "core.terminal"
 
 require "core.treesit"
 
+require "core.whichkey"
+
 -- NOTE: tools for nvim
 
 require "core/tools/tools"

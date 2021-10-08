@@ -9,14 +9,22 @@ packer.startup {
 }
 return packer.startup(function()
     -- Esencial plugin
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
     use 'tpope/vim-unimpaired'
-    use 'liuchengxu/vim-which-key'
     use 'benmills/vimux'
     use 'christoomey/vim-tmux-navigator'
     use 'janko-m/vim-test'
     use 'terryma/vim-multiple-cursors'
     use 'editorconfig/editorconfig-vim'
-    -- use 'easymotion/vim-easymotion'
     use 'preservim/nerdcommenter'
     use 'tpope/vim-repeat'
     use 'andymass/vim-matchup'
@@ -26,12 +34,14 @@ return packer.startup(function()
     use 'glepnir/dashboard-nvim'
     use 'OmniSharp/omnisharp-vim'
     use 'turbio/bracey.vim'
-    use 'lilydjwg/colorizer'
+    use 'norcalli/nvim-colorizer.lua'
+    -- use 'lilydjwg/colorizer'
     -- "Html, css and js
     use 'mattn/emmet-vim'
     -- "Git
     use 'tpope/vim-fugitive'
     use 'zivyangll/git-blame.vim'
+    use 'sindrets/diffview.nvim'
     -- "Files
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'

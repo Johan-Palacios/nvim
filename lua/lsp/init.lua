@@ -1,13 +1,7 @@
 require "lsp.keys"
 -- NOTE: Colores en pupup y en menu de autocompletado
 vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1E2127]]
-vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1E2127]]
--- vim.cmd [[
---     sign define DiagnosticSignError text=  linehl= texthl=DiagnosticSignError numhl=
---     sign define DiagnosticSignWarn text=  linehl= texthl=DiagnosticSignWarn numhl=
---     sign define DiagnosticSignInfo text=  linehl= texthl=DiagnosticSignInfo numhl=
---     sign define DiagnosticSignHint text=  linehl= texthl=DiagnosticSignHint numhl=
--- ]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guibg=#1E2127]]
 vim.cmd [[
     sign define DiagnosticSignError text=  linehl= texthl=DiagnosticSignError numhl=
     sign define DiagnosticSignWarn text= linehl= texthl=DiagnosticSignWarn numhl=
@@ -15,9 +9,9 @@ vim.cmd [[
     sign define DiagnosticSignHint text=💡  linehl= texthl=DiagnosticSignHint numhl=
 ]]
 local border = {
-    {"╭", "FloatBorder"}, {"▔", "FloatBorder"}, {"╮", "FloatBorder"},
-    {"▕", "FloatBorder"}, {"╯", "FloatBorder"}, {"▁", "FloatBorder"},
-    {"╰", "FloatBorder"}, {"▏", "FloatBorder"}
+    {"╭", "floatborder"}, {"▔", "floatborder"}, {"╮", "floatborder"},
+    {"▕", "floatborder"}, {"╯", "floatborder"}, {"▁", "floatborder"},
+    {"╰", "floatborder"}, {"▏", "floatborder"}
 }
 -- NOTE: LSP Settings
 
@@ -78,9 +72,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 -- vim.o.updatetime = 250
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})
 
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig/configs"
-
 -- NOTE: Configs of lspinstall
 
 require"lspinstall".setup()
@@ -91,21 +82,4 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {"documentation", "detail", "additionalTextEdits"}
 }
 
--- NOTE: LSP.configs
-
-require"lspconfig".pyright.setup {}
-require"lspconfig".bashls.setup {}
-require"lspconfig".clangd.setup {}
-require"lspconfig".tsserver.setup {}
-require"lspconfig".cssls.setup {}
-require"lspconfig".vuels.setup {}
-require"lspconfig".intelephense.setup {}
-require"lspconfig".java_language_server.setup {}
-require"lspconfig".html.setup {
-    capabilities = capabilities,
-    filetypes = {"html", "htmldjango"}
-}
-require"lspconfig".cssls.setup {
-    capabilities = capabilities
-
-}
+require "lsp.lspconfig"

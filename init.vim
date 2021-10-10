@@ -11,6 +11,7 @@
 "/\_| ||  __/     IG: www.instagram.com/_el_johan/
 "\____/\_/        FB: www.facebook.com/johan.palacios.fx/
 "                 I use :                  ﬏
+"                
 "=============================================================
 "Esencial Config
 source $HOME/.config/nvim/maps/esencial.vim

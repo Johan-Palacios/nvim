@@ -1,5 +1,6 @@
 local status_ok, gl = pcall(require, "galaxyline")
 if not status_ok then return end
+
 local colors = {
     white = "#abb2bf",
     bg = "#2E2E2E",
@@ -47,6 +48,7 @@ gl.short_line_list = {
 }
 local extension = require "pg-statusline/extension"
 
+vim.fn.getbufvar(0, "ts")
 -- 1
 table.insert(gls.left, {
     ViMode = {

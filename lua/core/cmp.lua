@@ -1,5 +1,3 @@
-local M = {}
-
 local check_backspace = function()
     local col = vim.fn.col "." - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -7,11 +5,6 @@ end
 
 local function T(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local feedkey = function(key)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true),
-                          "n", true)
 end
 
 local has_words_before = function()
@@ -54,7 +47,8 @@ cmp.setup({
             vim_item.dup = ({
                 buffer = 1,
                 path = 1,
-                nvim_lsp = 0
+                nvim_lsp = 0,
+                luasnip = 1
             })[entry.source.name] or 0
             return vim_item
         end
@@ -64,6 +58,10 @@ cmp.setup({
     },
     snippet = {
         expand = function(args) require('luasnip').lsp_expand(args.body) end
+    },
+    experimental = {
+        native_menu = true,
+        ghost_text = false
     },
     mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -75,22 +73,24 @@ cmp.setup({
             select = true
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            if vim.fn.pumvisible() == 1 then
-                vim.fn.feedkeys(T "<down>", "n")
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expandable() then
+                luasnip.expand()
             elseif has_words_before() then
                 cmp.complete()
+            elseif luasnip.jumpable() then
+                luasnip.jump(1)
             elseif check_backspace() then
-                vim.fn.feedkey(T "<Tab>", "n")
+                vim.fn.feedkeys(T "<Tab>", "n")
             else
-                fallback()
+                vim.fn.feedkeys(T "<Tab>", "n")
             end
         end, {"i", "s"}),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if vim.fn.pumvisible() == 1 then
-                feedkey("<C-p>")
+            if cmp.visible() then
+                cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else

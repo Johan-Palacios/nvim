@@ -9,9 +9,9 @@ augroup exe_code
   autocmd FileType javascript nnoremap <buffer> <localleader>r
         \ :vsp<CR> :term nodejs %<CR> :startinsert<CR>
 "-------------Compile Code and Run code -------------------
-autocmd filetype c nnoremap <F21> :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-autocmd filetype cpp nnoremap <F21> :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-autocmd filetype cs nnoremap <F21> :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+autocmd filetype c nnoremap <leader>r :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+autocmd filetype cpp nnoremap <leader>r :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+autocmd filetype cs nnoremap <leader>r :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 map <localleader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 exec "w"
@@ -51,7 +51,7 @@ nmap <leader>q :NvimTreeClose<CR>
 nmap <C-s> :w<CR>
 nmap <C-m> :x<CR>
 nmap <C-w> :q!<CR>
-nmap <leader>db :bd<CR>
+nmap <leader>bd :bd<CR>
 nnoremap <C-p> :bprev<CR>
 nnoremap <C-o> :bnext<CR>
 vnoremap <Tab> >gV
@@ -67,9 +67,9 @@ nnoremap <silent> <left> :vertical resize -5<CR>
 nnoremap <silent> <up> :vertical resize +5<CR>
 nnoremap <silent> <down> :vertical resize -5<CR>
 "Maps of go to goto-preview
-nnoremap <leader>pgo <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap <leader>pgi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-nnoremap <leader>pgc <cmd>lua require('goto-preview').close_all_win()<CR>
+nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap <leader>pi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap <leader>pc <cmd>lua require('goto-preview').close_all_win()<CR>
 "maps git
 nnoremap <Leader>gms :<C-u>call gitblame#echo()<CR>
 nmap <leader>gs :G<CR>

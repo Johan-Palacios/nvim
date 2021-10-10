@@ -6,8 +6,6 @@ require("which-key").setup {
             enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
             suggestions = 20 -- how many suggestions should be shown in the list?
         },
-        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-        -- No actual key bindings are created
         presets = {
             operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
             motions = true, -- adds help for motions
@@ -36,7 +34,7 @@ require("which-key").setup {
         group = "+" -- symbol prepended to a group
     },
     window = {
-        border = "none", -- none, single, double, shadow
+        border = "single", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = {1, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
         padding = {2, 2, 2, 2} -- extra window padding [top, right, bottom, left]
@@ -50,11 +48,13 @@ require("which-key").setup {
             min = 20,
             max = 50
         }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
+        spacing = 4, -- spacing between columns
         align = "left" -- align columns left, center or right
     },
     ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-    hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+    hidden = {
+        "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ ", "<C>"
+    }, -- hide mapping boilerplate
     show_hColorelp = true, -- show help message on the command line when the popup is visible
     triggers = "auto", -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
@@ -69,25 +69,25 @@ require("which-key").setup {
 local wk = require("which-key")
 wk.register({
     f = {
-        name = "Files", -- optional group name
-        f = {"<cmd>Telescope find_files<cr>", "Find Files"}, -- create a binding with label
-        g = {"<cmd>Telescope live_grep<cr>", "Find Words"},
-        h = {"<cmd>Telescope help_tags<cr>", "Find tags"}
+        name = "Files ",
+        f = {"<cmd>Telescope find_files<cr>", "Find Files 🔎"}, -- create a binding with label
+        g = {"<cmd>Telescope live_grep<cr>", "Find Words 📖"},
+        h = {"<cmd>Telescope help_tags<cr>", "Find tags 📋"}
     },
     n = {
-        name = "Clean Search"
+        name = "Clean Search "
     },
     m = {
-        name = "Mouse Enable/Disable"
+        name = "Mouse Enable/Disable "
     },
     e = {
-        name = "Explorer"
+        name = "Explorer פּ"
     },
     q = {
-        name = "Close Explorer"
+        name = "Close Explorer xפּ"
     },
     c = {
-        name = "Comment",
+        name = "Comment ",
         ["$"] = {"<cmd><Plug>NERDCommenterToEOL<cr>", "NERDCommenterToEOL"},
         ["<space>"] = {
             "<cmd><Plug>NERDCommenterToggle<cr>", "NERDCommenterToggle"
@@ -105,7 +105,7 @@ wk.register({
         y = {"<cmd><Plug>NERDCommenterYank<cr>", "NERDCommenterYank"}
     },
     t = {
-        name = "Terminal",
+        name = "Terminal ",
         f = {"<cmd>ToggleTerm<cr>", "Floating Terminal"},
         v = {"<cmd>ToggleTerm direction=\"vertical\"", "Terminal Vertial"},
         h = {
@@ -114,14 +114,14 @@ wk.register({
         }
     },
     h = {
-        name = "Gitsigns"
+        name = "Gitsigns "
     },
-    d = {
-        name = "Delete",
-        b = {"<cmd>bd<cr>", "Delete Buffer"}
+    b = {
+        name = "Buffers ",
+        d = {"<cmd>bd<cr>", "Delete Buffer"}
     },
     g = {
-        name = "Git Options",
+        name = "Git Options ",
         s = {"<cmd>G<cr>", "Git"},
         m = {"<cmd><Plug>(git-messenger)<cr>", "Show git message"},
         d = {"<cmd>diffget //2", "cambios de la derecha"},
@@ -129,23 +129,28 @@ wk.register({
 
     },
     p = {
-        name = "Preview",
-        g = {
-            name = "View",
-            o = {
-                "<cmd>lua require('goto-preview').goto_preview_definition()<cr>",
-                "Go to Preview"
-            },
-            i = {
-                "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>",
-                "Go to Implementation"
-            },
-            c = {
-                "<cmd>lua require('goto-preview').close_all_win()<CR>",
-                "Close Preview"
-            }
-
+        name = "Preview ",
+        o = {
+            "<cmd>lua require('goto-preview').goto_preview_definition()<cr>",
+            "Go to Preview"
+        },
+        i = {
+            "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>",
+            "Go to Implementation"
+        },
+        c = {
+            "<cmd>lua require('goto-preview').close_all_win()<CR>",
+            "Close Preview"
         }
+    },
+    l = {
+        name = "LSP ",
+        h = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Docs"},
+        p = {
+            "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+            "Go To prev Diagnostic"
+        },
+        n = {"<cmd>lua vim.lsp.diagnostic.goto_next()", "Go To Next Diagnostic"}
     }
 }, {
     prefix = "<leader>"

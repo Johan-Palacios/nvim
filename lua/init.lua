@@ -1,3 +1,5 @@
+require "configs.esencials"
+
 require("plugins")
 
 local g = vim.g
@@ -6,10 +8,10 @@ require "lsp/init"
 
 require "core.init"
 
-require "pg-lspkind/init"
+require "kind/init"
 
-require "pg-nvimtree/init"
+require "line/init"
 
-require "pg-nvimtree/treecomands"
+require "configs.commands"
 
-require "pg-statusline/init"
+require "configs.maps"

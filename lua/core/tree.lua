@@ -1,8 +1,11 @@
+
 require'nvim-tree'.setup()
 -- following options are the default
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+
 require'nvim-tree'.setup {
   -- disables netrw completely
-  disable_netrw       = false,
+  disable_netrw       = true,
   -- hijack netrw window on startup
   hijack_netrw        = true,
   -- open the tree when running this setup function
@@ -22,10 +25,9 @@ require'nvim-tree'.setup {
   },
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = false,
-  -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
-  update_cwd          = false,
+  -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
+  update_cwd          = true,
   -- show lsp diagnostics in the signcolumn
-  lsp_diagnostics     = false,
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
@@ -47,7 +49,7 @@ require'nvim-tree'.setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
-    width = 30,
+    width = 26,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
@@ -57,12 +59,14 @@ require'nvim-tree'.setup {
       -- if true, it will only use your list to set the mappings
       custom_only = false,
       -- list of mappings to set on the tree manually
-      list = {}
+      list = {
+        { key = "<leader>s",                        cb = tree_cb("vsplit") },
+      }
     }
   }
 }
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
--- default mappings
-local list = {
-     { key = "<C-s>",                        cb = tree_cb("vsplit") },
-}
+vim.cmd [[
+"-------------- Nvimtree ----------------------
+let g:nvim_tree_auto_ignore_ft = ["dashboard"]
+let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline"]
+]]

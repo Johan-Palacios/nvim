@@ -19,6 +19,4 @@ require "core.tools.barbar"
 
 require "core.tools.tmux"
 
-require "core.tools.bracey"
-
 require "core.tools.emmet"

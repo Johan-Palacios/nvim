@@ -46,7 +46,7 @@ gl.short_line_list = {
     "NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm", "vim-plug",
     "Outline"
 }
-local extension = require "pg-statusline/extension"
+local extension = require "line/extension"
 
 vim.fn.getbufvar(0, "ts")
 -- 1

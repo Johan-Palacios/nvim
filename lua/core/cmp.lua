@@ -31,7 +31,7 @@ cmp.setup({
     },
     formatting = {
         format = function(entry, vim_item)
-            local icons = require("pg-lspkind.init").icons
+            local icons = require("kind.init").icons
             vim_item.kind = icons[vim_item.kind]
             vim_item.menu = ({
                 nvim_lsp = "(LSP)",
@@ -114,5 +114,3 @@ cmp.setup({
         }
     }
 })
-
-return M

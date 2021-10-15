@@ -1,3 +1,5 @@
+vim.cmd [[
+nnoremap <F14> :set invpaste paste?<CR>
 highlight pmenu ctermbg=DarkGray guibg=onedark 
 "--------------------Execute codes ---------
 augroup exe_code
@@ -11,7 +13,7 @@ augroup exe_code
 "-------------Compile Code and Run code -------------------
 autocmd filetype c nnoremap <leader>r :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 autocmd filetype cpp nnoremap <leader>r :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-autocmd filetype cs nnoremap <leader>r :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
+"autocmd filetype cs nnoremap <leader>r :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 map <localleader>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 exec "w"
@@ -32,31 +34,6 @@ function ToggleMouse()
         let g:is_mouse_enabled = 1
     endif
 endfunction
-"--------------------Terminal------------------
-vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
-nnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
-tnoremap <Esc> <C-\><C-n>:q!<CR>
-
-nmap <Leader>tf :ToggleTerm<CR>
-nmap <Leader>tv :ToggleTerm direction="vertical"<CR>
-nmap <Leader>th :ToggleTerm size=10 direction="horizontal"<CR>
-"Find words
-" nmap <Leader>ag :Ag<CR>
-"Tab trigger 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"Personal Comands
-nmap <leader>e :NvimTreeOpen<CR>
-nmap <leader>q :NvimTreeClose<CR>
-nmap <C-s> :w<CR>
-nmap <C-m> :x<CR>
-nmap <C-w> :q!<CR>
-nmap <leader>bd :bd<CR>
-nnoremap <C-p> :bprev<CR>
-nnoremap <C-o> :bnext<CR>
-vnoremap <Tab> >gV
-vnoremap <S-Tab> <gV
-nnoremap <silent> <leader>n :nohlsearch<CR>
 "------------------ resize --------------------
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -66,12 +43,9 @@ nnoremap <silent> <right> :vertical resize +5<CR>
 nnoremap <silent> <left> :vertical resize -5<CR>
 nnoremap <silent> <up> :vertical resize +5<CR>
 nnoremap <silent> <down> :vertical resize -5<CR>
-"Maps of go to goto-preview
-nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap <leader>pi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-nnoremap <leader>pc <cmd>lua require('goto-preview').close_all_win()<CR>
-"maps git
-nnoremap <Leader>gms :<C-u>call gitblame#echo()<CR>
-nmap <leader>gs :G<CR>
-nmap <leader>gi :diffget //2<CR>
-nmap <leader>gd :diffget //3<CR>
+vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
+tnoremap <Esc> <C-\><C-n>:q!<CR>
+"Tab trigger 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+]]

@@ -13,16 +13,9 @@
 "                 I use :                  ﬏
 "                
 "=============================================================
-"Esencial Config
-source $HOME/.config/nvim/maps/esencial.vim
 "Lua plugins
 lua require 'init'
 lua require('impatient')
 lua require'impatient'.enable_profile()
-"Themes
+"themes
 source $HOME/.config/nvim/themes/onedark.vim
-"Maps
-source $HOME/.config/nvim/maps/maps.vim
-"Plugins Config
-source $HOME/.config/nvim/plugins/pluginsconfig.vim
-"=============================================================

@@ -1,6 +1,4 @@
-"-------------- Nvimtree ----------------------
-let g:nvim_tree_auto_ignore_ft = ["dashboard"]
-let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline"]
+vim.cmd [[ 
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -12,3 +10,5 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 "---------------------NERDCOMMNETER----------
 let g:NERDCreateDefaultMappings = 1
+let g:matchup_matchparen_offscreen = {}
+]]

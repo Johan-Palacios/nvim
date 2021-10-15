@@ -7,3 +7,5 @@ require "core.cosmetics.omni"
 require "core.cosmetics.carbon"
 
 require "core.cosmetics.colorizer"
+
+require "core.cosmetics.nerdcommenter"

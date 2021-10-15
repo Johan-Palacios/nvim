@@ -1,7 +1,7 @@
 require"lspconfig".pyright.setup {}
 require"lspconfig".bashls.setup {}
 require"lspconfig".clangd.setup {}
-require"lspconfig".tsserver.setup {}
+-- require"lspconfig".tsserver.setup {}
 require"lspconfig".cssls.setup {}
 require"lspconfig".vuels.setup {}
 require"lspconfig".intelephense.setup {}

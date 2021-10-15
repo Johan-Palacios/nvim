@@ -13,9 +13,6 @@ return packer.startup(function()
         "folke/which-key.nvim",
         config = function()
             require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
             }
         end
     }
@@ -33,9 +30,7 @@ return packer.startup(function()
     use 'nvim-telescope/telescope.nvim'
     use 'glepnir/dashboard-nvim'
     use 'OmniSharp/omnisharp-vim'
-    use 'turbio/bracey.vim'
     use 'norcalli/nvim-colorizer.lua'
-    -- use 'lilydjwg/colorizer'
     -- "Html, css and js
     use 'mattn/emmet-vim'
     -- "Git
@@ -95,8 +90,6 @@ return packer.startup(function()
     use "nacro90/numb.nvim"
     -- Indent line
     use "lukas-reineke/indent-blankline.nvim"
-    -- Start up
-    use "tweekmonster/startuptime.vim"
     -- Autosave
     use "Pocco81/AutoSave.nvim"
     -- Install languages server

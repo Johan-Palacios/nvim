@@ -1,6 +1,5 @@
 vim.cmd [[
 nnoremap <F14> :set invpaste paste?<CR>
-highlight pmenu ctermbg=DarkGray guibg=onedark 
 "--------------------Execute codes ---------
 augroup exe_code
   autocmd!

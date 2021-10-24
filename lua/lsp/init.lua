@@ -9,7 +9,6 @@ vim.cmd [[
     sign define DiagnosticSignHint text=💡  linehl= texthl=DiagnosticSignHint numhl=
 ]]
 
-
 local border = {
     {"╭", "floatborder"}, {"▔", "floatborder"}, {"╮", "floatborder"},
     {"▕", "floatborder"}, {"╯", "floatborder"}, {"▁", "floatborder"},

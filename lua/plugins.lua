@@ -1,5 +1,6 @@
 local packer = require("packer")
 local use = packer.use
+vim.cmd [[packadd packer.nvim]]
 -- using { } for using different branch , loading plugin with certain commands etc
 packer.startup {
     {...},
@@ -33,6 +34,7 @@ return packer.startup(function()
     use 'norcalli/nvim-colorizer.lua'
     -- "Html, css and js
     use 'mattn/emmet-vim'
+    use "AndrewRadev/tagalong.vim"
     -- "Git
     use 'tpope/vim-fugitive'
     use 'zivyangll/git-blame.vim'
@@ -48,7 +50,7 @@ return packer.startup(function()
     -- "Themes
     use 'joshdick/onedark.vim'
     use 'romgrk/barbar.nvim'
-    use 'ryanoasis/vim-devicons'
+    -- use 'ryanoasis/vim-devicons'
     -- Down Line
     use "wbthomason/packer.nvim"
     use "glepnir/galaxyline.nvim"
@@ -80,6 +82,7 @@ return packer.startup(function()
     }
     -- Tressiter
     use "nvim-treesitter/nvim-treesitter"
+    use 'nvim-treesitter/playground'
     -- Autocomplete
     use "neovim/nvim-lspconfig"
     -- use "hrsh7th/nvim-compe"

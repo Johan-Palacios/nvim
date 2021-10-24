@@ -20,3 +20,4 @@ syntax on
 set t_Co=256
 colorscheme onedark
 highlight pmenu ctermbg=DarkGray guibg=onedark 
+highlight Search guibg='DarkGray' guifg='Black'

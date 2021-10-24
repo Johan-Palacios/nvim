@@ -26,9 +26,9 @@ cmp.setup({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true
     },
-    completion = {
-        completeopt = "menu,menuone,noinsert"
-    },
+    -- completion = {
+    --     completeopt = "menu,menuone,noinsert"
+    -- },
     formatting = {
         format = function(entry, vim_item)
             local icons = require("kind.init").icons
@@ -44,7 +44,7 @@ cmp.setup({
                 latex_symbols = "(Latex)"
                 -- treesitter = "(Treesitter)"
             })[entry.source.name]
-            vim_item.dup = ({
+                vim_item.dup = ({
                 buffer = 1,
                 path = 1,
                 nvim_lsp = 0,
@@ -61,7 +61,7 @@ cmp.setup({
     },
     experimental = {
         native_menu = true,
-        ghost_text = false
+        ghost_text = true
     },
     mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),

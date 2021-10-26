@@ -14,5 +14,5 @@
 require 'init'
 require('impatient')
 require'impatient'.enable_profile()
---themes
+--Themes
 vim.cmd("source $HOME/.config/nvim/themes/onedark.vim")

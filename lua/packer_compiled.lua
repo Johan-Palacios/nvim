@@ -121,21 +121,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/editorconfig-vim"
   },
-  ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/emmet-vim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/friendly-snippets"
-  },
-  fzf = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/fzf"
-  },
-  ["fzf.vim"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/fzf.vim"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
@@ -170,10 +158,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/lightspeed.nvim"
   },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
-  },
   neoformat = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/neoformat"
@@ -189,10 +173,6 @@ _G.packer_plugins = {
   ["numb.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/numb.nvim"
-  },
-  ["nvim-bufferline.lua"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -255,6 +235,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
+  ["tagalong.vim"] = {
+    loaded = true,
+    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/tagalong.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -282,10 +266,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-closetag"
   },
-  ["vim-devicons"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-devicons"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -294,10 +274,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-matchup"
   },
-  ["vim-multiple-cursors"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-multiple-cursors"
-  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-polyglot"
@@ -305,10 +281,6 @@ _G.packer_plugins = {
   ["vim-repeat"] = {
     loaded = true,
     path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-repeat"
-  },
-  ["vim-test"] = {
-    loaded = true,
-    path = "/home/johan_linux/.local/share/nvim/site/pack/packer/start/vim-test"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
@@ -343,10 +315,10 @@ time([[Config for trouble.nvim]], false)
 time([[Config for twilight.nvim]], true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0", "config", "twilight.nvim")
 time([[Config for twilight.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\2?\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
@@ -359,10 +331,10 @@ time([[Config for goto-preview]], false)
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\2\2:\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
 time([[Config for zen-mode.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\2;\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0004\1\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

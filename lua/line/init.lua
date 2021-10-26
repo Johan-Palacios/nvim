@@ -132,22 +132,22 @@ table.insert(gls.left, {
         condition = condition.buffer_not_empty,
         highlight = {colors.white, colors.lightbg},
         separator = "  ",
-        separator_highlight = {colors.lightbg, colors.lightbg2}
+        separator_highlight = {colors.lightbg}
     }
 })
 
-table.insert(gls.left, {
-    current_dir = {
-        provider = function()
-            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "   " .. dir_name .. " "
-        end,
-        highlight = {colors.gray, colors.lightbg2},
-        separator = " ",
-        -- separator_highlight = {colors.lightbg2, colors.statusline_bg}
-        separator_highlight = {colors.lightbg2}
-    }
-})
+-- table.insert(gls.left, {
+--     current_dir = {
+--         provider = function()
+--             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+--             return "   " .. dir_name .. " "
+--         end,
+--         highlight = {colors.gray, colors.lightbg2},
+--         separator = " ",
+--         -- separator_highlight = {colors.lightbg2, colors.statusline_bg}
+--         separator_highlight = {colors.lightbg2}
+--     }
+-- })
 
 local checkwidth = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
@@ -327,14 +327,6 @@ table.insert(gls.right, {
     }
 })
 
-table.insert(gls.right, {
-    PerCent = {
-        provider = "LinePercent",
-        separator = " ",
-        separator_highlight = "StatusLineSeparator",
-        highlight = "StatusLineNC"
-    }
-})
 
 table.insert(gls.right, {
     Tabstop = {
@@ -372,8 +364,17 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     Time = {
         provider = function() return '  ' .. os.date('%H:%M') .. ' ' end,
-        highlight = {colors.green, colors.gray},
+        highlight = "StatusLineNC",
         separator = ' '
+    }
+})
+
+table.insert(gls.right, {
+    PerCent = {
+        provider = "LinePercent",
+        separator = "",
+        separator_highlight = "StatusLineSeparator",
+        highlight = "StatusLineNC"
     }
 })
 

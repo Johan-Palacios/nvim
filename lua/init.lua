@@ -2,8 +2,6 @@ require "configs.esencials"
 
 require("plugins")
 
-local g = vim.g
-
 require "lsp/init"
 
 require "core.init"

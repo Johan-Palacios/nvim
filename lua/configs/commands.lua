@@ -20,6 +20,7 @@ keymap("n", "<C-p>", ":bprev<CR>", opts)
 keymap("n", "<C-o>", ":bnext<CR>", opts)
 keymap("v", "<Tab>", ">gV", opts)
 keymap("v", "<S-Tab>", "<gV", opts)
+keymap("n", "<Leader>n", ":nohlsearch<CR>", {silent = true})
 
 --Git
 keymap("n", "<Leader>gms", ":<C-u>call gitblame#echo()<CR>", opts)
@@ -31,10 +32,34 @@ keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-
 vim.cmd [[
-nnoremap <silent> <leader>n :nohlsearch<CR>
+nnoremap <F14> :set invpaste paste?<CR>
 nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 nnoremap <leader>pi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
 nnoremap <leader>pc <cmd>lua require('goto-preview').close_all_win()<CR>
+"------------------ resize --------------------
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <silent> <right> :vertical resize +5<CR>
+nnoremap <silent> <left> :vertical resize -5<CR>
+nnoremap <silent> <up> :vertical resize +5<CR>
+nnoremap <silent> <down> :vertical resize -5<CR>
+vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
+tnoremap <Esc> <C-\><C-n>:q!<CR>
+"--------------------MOUSE------------------
+let g:is_mouse_enabled = 1
+noremap <silent> <Leader>m :call ToggleMouse()<CR>
+function ToggleMouse()
+    if g:is_mouse_enabled == 1
+        echo "Mouse OFF"
+        set mouse=
+        let g:is_mouse_enabled = 0
+    else
+        echo "Mouse ON"
+        set mouse=a
+        let g:is_mouse_enabled = 1
+    endif
+endfunction
 ]]

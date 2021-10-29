@@ -20,15 +20,11 @@ end
 
 local luasnip = require("luasnip")
 local cmp = require 'cmp'
-
 cmp.setup({
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = true
     },
-    -- completion = {
-    --     completeopt = "menu,menuone,noinsert"
-    -- },
     formatting = {
         format = function(entry, vim_item)
             local icons = require("kind.init").icons
@@ -39,12 +35,9 @@ cmp.setup({
                 path = "(Path)",
                 buffer = "(Buffer)",
                 luasnip = "(snippet)",
-                -- spell = "(Spell)",
-                -- cmp_tabnine = "(TN)",
                 latex_symbols = "(Latex)"
-                -- treesitter = "(Treesitter)"
             })[entry.source.name]
-                vim_item.dup = ({
+            vim_item.dup = ({
                 buffer = 1,
                 path = 1,
                 nvim_lsp = 0,
@@ -53,15 +46,25 @@ cmp.setup({
             return vim_item
         end
     },
+    -- Prioridad
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset, cmp.config.compare.exact,
+            cmp.config.compare.score, cmp.config.compare.kind,
+            cmp.config.compare.sort_text, cmp.config.compare.length,
+            cmp.config.compare.order
+        }
+    },
     documentation = {
         border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
     },
+
     snippet = {
         expand = function(args) require('luasnip').lsp_expand(args.body) end
     },
     experimental = {
-        native_menu = true,
-        ghost_text = true
+        native_menu = false,
+        ghost_text = false
     },
     mapping = {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -107,8 +110,6 @@ cmp.setup({
             name = 'nvim_lua'
         }, {
             name = "buffer"
-        }, {
-            name = "spell"
         }, {
             name = "luasnip"
         }

@@ -18,7 +18,7 @@ return packer.startup(function()
     use 'romgrk/barbar.nvim'
     use "kyazdani42/nvim-web-devicons"
     --Mappings and others
-    use 'tpope/vim-repeat'
+    -- use 'tpope/vim-repeat'
     use 'andymass/vim-matchup'
     use 'tpope/vim-unimpaired'
     use 'nvim-lua/plenary.nvim'

@@ -360,19 +360,19 @@ table.insert(gls.right, {
         highlight = "StatusLineNC"
     }
 })
-
-table.insert(gls.right, {
-    Time = {
-        provider = function() return '  ' .. os.date('%H:%M') .. ' ' end,
-        highlight = "StatusLineNC",
-        separator = ' '
-    }
-})
-
+--
+-- table.insert(gls.right, {
+--     Time = {
+--         provider = function() return '  ' .. os.date('%H:%M') .. ' ' end,
+--         highlight = "StatusLineNC",
+--         separator = ' '
+--     }
+-- })
+--
 table.insert(gls.right, {
     PerCent = {
         provider = "LinePercent",
-        separator = "",
+        separator = " ",
         separator_highlight = "StatusLineSeparator",
         highlight = "StatusLineNC"
     }

@@ -15,6 +15,7 @@ return packer.startup(function()
     use 'glepnir/dashboard-nvim'
     use "glepnir/galaxyline.nvim"
     use 'joshdick/onedark.vim'
+    -- use "navarasu/onedark.nvim"
     use 'romgrk/barbar.nvim'
     use "kyazdani42/nvim-web-devicons"
     --Mappings and others

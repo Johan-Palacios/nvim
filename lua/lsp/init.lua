@@ -45,14 +45,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 -- NOTE: Diagnosticos en la status line
 vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
--- NOTE: Configs of lspinstall
-
-require"lspinstall".setup()
-require"lspinstall".installed_servers()
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {"documentation", "detail", "additionalTextEdits"}
-}
 
 require "lsp.lspconfig"

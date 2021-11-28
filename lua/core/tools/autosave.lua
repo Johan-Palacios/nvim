@@ -13,4 +13,3 @@ autosave.setup({
     on_off_commands = true,
     clean_command_line_interval = 2500
 })
-

@@ -10,4 +10,3 @@ nnoremap <silent> <leader>lp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <leader>ln <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <leader>lf :Neoformat <CR>
 ]]
-

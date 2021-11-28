@@ -15,6 +15,7 @@ return packer.startup(function()
     use 'glepnir/dashboard-nvim'
     use "glepnir/galaxyline.nvim"
     use 'joshdick/onedark.vim'
+    use "rcarriga/nvim-notify"
     -- use "navarasu/onedark.nvim"
     use 'romgrk/barbar.nvim'
     use "kyazdani42/nvim-web-devicons"
@@ -83,7 +84,7 @@ return packer.startup(function()
     -- Autosave
     use "Pocco81/AutoSave.nvim"
     -- Install languages server
-    use "kabouzeid/nvim-lspinstall"
+    use "williamboman/nvim-lsp-installer"
     -- Terminal
     use "akinsho/nvim-toggleterm.lua"
     -- git

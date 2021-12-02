@@ -44,6 +44,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 -- NOTE: Diagnosticos en la status line
 vim.o.updatetime = 250
+
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 
+--NOTE: Configuraciones de lsp Installer
 require "lsp.lspconfig"

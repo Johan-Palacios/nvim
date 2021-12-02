@@ -1,7 +1,7 @@
 -- NOTE: Principal Plugins
+
 require "core.cmp"
 
-require "core.lspinsta"
 -- NOTE: Principal Plugins configuration
 
 require "core.gitsigns"

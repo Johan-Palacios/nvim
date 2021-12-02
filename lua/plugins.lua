@@ -85,6 +85,8 @@ return packer.startup(function()
     use "Pocco81/AutoSave.nvim"
     -- Install languages server
     use "williamboman/nvim-lsp-installer"
+    use "jose-elias-alvarez/null-ls.nvim"
+    use "jose-elias-alvarez/nvim-lsp-ts-utils"
     -- Terminal
     use "akinsho/nvim-toggleterm.lua"
     -- git

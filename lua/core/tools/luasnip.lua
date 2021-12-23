@@ -150,8 +150,6 @@ local function bash(_, _, command)
 	return res
 end
 
--- Returns a snippet_node wrapped around an insert_node whose initial
--- text value is set to the current date in the desired format.
 local date_input = function(args, state, fmt)
 	local fmt = fmt or "%Y-%m-%d"
 	return sn(nil, i(1, os.date(fmt)))

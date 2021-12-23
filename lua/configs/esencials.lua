@@ -38,11 +38,14 @@ vim.bo.ma = true
 --Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "//"
+vim.g.did_load_filetypes = 1
 --Others
 vim.cmd [[
 set clipboard+=unnamedplus
-filetype on
-filetype plugin on
-filetype plugin indent on
+"filetype on
+"filetype plugin on
+"filetype plugin indent on
 set completeopt=menu,menuone,noselect
+let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown.plugin']
 ]]

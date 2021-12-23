@@ -11,16 +11,22 @@ packer.startup {
 return packer.startup(function()
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
+    use "tweekmonster/startuptime.vim"
+    use "nathom/filetype.nvim"
     --Style
     use 'glepnir/dashboard-nvim'
     use "glepnir/galaxyline.nvim"
     use 'joshdick/onedark.vim'
-    use "rcarriga/nvim-notify"
-    -- use "navarasu/onedark.nvim"
     use 'romgrk/barbar.nvim'
     use "kyazdani42/nvim-web-devicons"
+    use {
+        'VonHeikemen/fine-cmdline.nvim',
+        requires = {
+            {'MunifTanjim/nui.nvim'}
+        }
+    }
+   -- use "rcarriga/nvim-notify"
     --Mappings and others
-    -- use 'tpope/vim-repeat'
     use 'andymass/vim-matchup'
     use 'tpope/vim-unimpaired'
     use 'nvim-lua/plenary.nvim'
@@ -85,7 +91,13 @@ return packer.startup(function()
     use "Pocco81/AutoSave.nvim"
     -- Install languages server
     use "williamboman/nvim-lsp-installer"
-    use "jose-elias-alvarez/null-ls.nvim"
+    use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+        require("null-ls").setup()
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+})
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     -- Terminal
     use "akinsho/nvim-toggleterm.lua"

@@ -32,6 +32,8 @@ keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', {noremap = true})
+
 vim.cmd [[
 nnoremap <F14> :set invpaste paste?<CR>
 nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>

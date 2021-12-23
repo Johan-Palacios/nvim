@@ -1,5 +1,5 @@
 local status_ok, gl = pcall(require, "galaxyline")
-if not status_ok then return end
+
 
 local colors = {
     white = "#abb2bf",
@@ -43,7 +43,7 @@ local colors = {
 local condition = require "galaxyline.condition"
 local gls = gl.section
 gl.short_line_list = {
-    "NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm", "vim-plug",
+    "NvimTree", "vista", "dbui", "packer", "tagbar", "toggleterm",
     "Outline"
 }
 local extension = require "line/extension"
@@ -331,6 +331,7 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     Tabstop = {
         provider = function()
+            --Aqui el cambio
             return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") ..
                        " "
         end,

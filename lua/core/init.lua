@@ -16,6 +16,8 @@ require "core.telescope"
 
 require "core.tree"
 
+-- require "core.null-ls"
+
 -- NOTE: tools for nvim
 
 require "core/tools/tools"

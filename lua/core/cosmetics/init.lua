@@ -10,3 +10,4 @@ require "core.cosmetics.colorizer"
 
 require "core.cosmetics.nerdcommenter"
 
+require "core.cosmetics.filetype"

@@ -1,3 +1,18 @@
+local border = {
+    {"╭", "floatborder"}, {"▔", "floatborder"}, {"╮", "floatborder"},
+    {"▕", "floatborder"}, {"╯", "floatborder"}, {"▁", "floatborder"},
+    {"╰", "floatborder"}, {"▏", "floatborder"}
+}
+local on_attach = function(client, bufnr)
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+                                                 vim.lsp.handlers.hover, {
+            border = border
+        })
+    vim.lsp.handlers["textDocument/signatureHelp"] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, {
+            border = border
+        })
+end
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.documentationFormat = {"markdown", "plaintext"}
@@ -58,31 +73,16 @@ local lua_settings = {
   }
 }
 local lspconfig = require "lspconfig"
-local buf_map = function(bufnr, mode, lhs, rhs, opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    mode,
-    lhs,
-    rhs,
-    opts or
-      {
-        silent = true
-      }
-  )
-end
 local ts_utils_settings = {
   -- debug = true,
   import_all_scan_buffers = 100,
   update_imports_on_move = true,
-  -- filter out dumb module warning
   filter_out_diagnostics_by_code = {80001}
 }
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
+
 lsp_installer.on_server_ready(
   function(server)
     local opts = {config}
-
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
@@ -96,15 +96,9 @@ lsp_installer.on_server_ready(
       opts.on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.document_range_formatting = false
-
         on_attach(client, bufnr)
-
         ts_utils.setup(ts_utils_settings)
         ts_utils.setup_client(client)
-
-        --buf_map("n", "gs", ":TSLspOrganize<CR>", nil, bufnr)
-        --buf_map("n", "gI", ":TSLspRenameFile<CR>", nil, bufnr)
-        --buf_map("n", "go", ":TSLspImportAll<CR>", nil, bufnr)
       end
       opts.filetypes = {
         "typescript",
@@ -119,8 +113,8 @@ lsp_installer.on_server_ready(
       opts.root_dir = function()
         return vim.loop.cwd()
       end
-      require("null-ls").config({})
-      lspconfig["null-ls"].setup({on_attach = on_attach})
+      -- require("null-ls").config({})
+      -- lspconfig["null-ls"].setup({on_attach = on_attach})
     elseif server.name == "gopls" then
       -- opts.settings = {
       --   go = {
@@ -248,9 +242,6 @@ lsp_installer.on_server_ready(
         }
       }
     end
-
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
   end
 )

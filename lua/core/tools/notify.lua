@@ -1,9 +1,9 @@
 require("notify").setup({
   background_colour = "#1E2127",
-  stages = "slide",
+  stages = "fade_in_slide_out",
   on_open = nil,
   render = "default",
-  timeout = 5000,
+  timeout = 1000,
   minimum_width = 50,
   icons = {
     ERROR = "",
@@ -13,4 +13,4 @@ require("notify").setup({
     TRACE = "✎",
   },
 })
-require("notify").history()
+-- require("notify").history()

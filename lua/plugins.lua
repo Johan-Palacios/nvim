@@ -64,7 +64,6 @@ return packer.startup(function()
             {'MunifTanjim/nui.nvim'}
         }
     }
-   -- use "rcarriga/nvim-notify"
     --Mappings and others
     use 'andymass/vim-matchup'
     use 'moll/vim-bbye'
@@ -131,6 +130,7 @@ return packer.startup(function()
     use "Pocco81/AutoSave.nvim"
     -- Install languages server
     use "williamboman/nvim-lsp-installer"
+    use "tamago324/nlsp-settings.nvim"
     use({
     "jose-elias-alvarez/null-ls.nvim",
     config = function()

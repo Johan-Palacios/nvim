@@ -23,6 +23,7 @@ vim.o.ttimeoutlen = 0
 vim.o.updatetime = 100
 vim.o.swapfile = false
 vim.o.cmdheight = 2
+vim.o.updatetime = 250
 --Window Local
 vim.wo.fdm = "indent"
 vim.wo.number = true

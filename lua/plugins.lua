@@ -1,5 +1,34 @@
+local fn = vim.fn
+
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
+end
+
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
 local packer = require("packer")
 local use = packer.use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
 vim.cmd [[packadd packer.nvim]]
 -- using { } for using different branch , loading plugin with certain commands etc
 packer.startup {
@@ -8,9 +37,19 @@ packer.startup {
         compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua"
     }
 }
+
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
 return packer.startup(function()
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
+    use 'antoinemadec/FixCursorHold.nvim'
     use "tweekmonster/startuptime.vim"
     use "nathom/filetype.nvim"
     --Style
@@ -28,11 +67,12 @@ return packer.startup(function()
    -- use "rcarriga/nvim-notify"
     --Mappings and others
     use 'andymass/vim-matchup'
+    use 'moll/vim-bbye'
     use 'tpope/vim-unimpaired'
     use 'nvim-lua/plenary.nvim'
     use 'editorconfig/editorconfig-vim'
     use 'nvim-lua/popup.nvim'
-    use 'jiangmiao/auto-pairs'
+    use "windwp/nvim-autopairs"
     use 'sheerun/vim-polyglot'
     use 'sbdchd/neoformat'
     --Tmux
@@ -127,4 +167,8 @@ return packer.startup(function()
     -- Show parameters
     use 'simrat39/symbols-outline.nvim'
     use 'ggandor/lightspeed.nvim'
+
+    if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)

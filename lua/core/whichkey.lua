@@ -110,7 +110,7 @@ wk.register({
     },
     b = {
         name = "Buffers ",
-        d = {"<cmd>bd<cr>", "Delete Buffer"}
+        d = {"<cmd>Bdelete<cr>", "Delete Buffer"}
     },
     g = {
         name = "Git Options ",

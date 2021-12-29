@@ -19,4 +19,4 @@ require "core.tools.barbar"
 
 require "core.tools.tmux"
 
---require "core.tools.notify"
+require "core.tools.autopairs"

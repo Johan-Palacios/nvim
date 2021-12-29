@@ -1,4 +1,3 @@
-
 vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
@@ -85,5 +84,5 @@ require'nvim-tree'.setup {
 }
 vim.cmd [[
 "-------------- BLAKLINE ----------------------
-let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline"]
+let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline", "packer"]
 ]]

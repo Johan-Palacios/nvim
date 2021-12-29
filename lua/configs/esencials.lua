@@ -21,6 +21,8 @@ vim.o.scrolljump = -3
 vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 0
 vim.o.updatetime = 100
+vim.o.swapfile = false
+vim.o.cmdheight = 2
 --Window Local
 vim.wo.fdm = "indent"
 vim.wo.number = true
@@ -46,6 +48,8 @@ set clipboard+=unnamedplus
 "filetype plugin on
 "filetype plugin indent on
 set completeopt=menu,menuone,noselect
+syntax off
 let g:polyglot_disabled = ['markdown']
 let g:polyglot_disabled = ['markdown.plugin']
+let g:cursorhold_updatetime = 100
 ]]

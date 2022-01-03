@@ -1,15 +1,15 @@
-require "configs.esencials"
+require("configs.esencials")
 
 require("plugins")
 
-require "lsp/init"
+require("lsp/init")
 
-require "core.init"
+require("core.init")
 
-require "kind/init"
+require("kind/init")
 
-require "line/init"
+require("line/init")
 
-require "configs.commands"
+require("configs.commands")
 
-require "configs.maps"
+require("configs.maps")

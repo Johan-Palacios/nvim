@@ -50,7 +50,8 @@ set clipboard+=unnamedplus
 "filetype plugin indent on
 set completeopt=menu,menuone,noselect
 syntax off
-let g:polyglot_disabled = ['markdown']
-let g:polyglot_disabled = ['markdown.plugin']
+"let g:polyglot_disabled = ['markdown']
+"let g:polyglot_disabled = ['markdown.plugin']
 let g:cursorhold_updatetime = 100
+"set laststatus=0
 ]]

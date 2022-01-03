@@ -8,8 +8,8 @@ keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
 keymap("n", "<Leader>tv", ":ToggleTerm direction=\"vertical\"<CR>", {})
 keymap("n", "<Leader>th", ":ToggleTerm direction=\"horizontal\"<CR>", {})
 --Explorer
-keymap("n", "<Leader>e", ":NvimTreeOpen<CR>", {})
-keymap("n", "<Leader>q", ":NvimTreeClose<CR>", {})
+keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+-- keymap("n", "<Leader>q", ":NvimTreeClose<CR>", {})
 --Bufers management
 keymap("n", "<Leader>bd", ":Bdelete<CR>", {})
 local opts = {

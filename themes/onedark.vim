@@ -22,5 +22,4 @@ colorscheme onedark
 highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
 " highlight NvimTreeNormal guifg=#D8DEE9  guibg=#2a2e39
-" highlight NvimTreeNormal guifg=#D8DEE9  guibg=#21242b
-" highlight NvimTreeNormal guifg=#D8DEE9  guibg=#171b21
+highlight NvimTreeRootFolder guifg=#D8DEE9

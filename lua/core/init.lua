@@ -10,7 +10,7 @@ require("core.terminal")
 
 require("core.treesit")
 
-require("core.whichkey")
+--require("core.whichkey")
 
 require("core.telescope")
 

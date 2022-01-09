@@ -1,8 +1,10 @@
 --Global options
 vim.o.encoding = "utf-8"
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
+vim.o.showtabline = false
 vim.o.foldlevelstart = 99
 vim.o.cmdheight = 2
+vim.o.hlsearch = true
 vim.o.title = true
 vim.o.splitright= true
 vim.o.splitbelow = true
@@ -24,6 +26,7 @@ vim.o.updatetime = 100
 vim.o.swapfile = false
 vim.o.cmdheight = 2
 vim.o.updatetime = 250
+vim.o.fillchars = "eob: "
 --Window Local
 vim.wo.fdm = "indent"
 vim.wo.number = true
@@ -50,8 +53,6 @@ set clipboard+=unnamedplus
 "filetype plugin indent on
 set completeopt=menu,menuone,noselect
 syntax off
-"let g:polyglot_disabled = ['markdown']
-"let g:polyglot_disabled = ['markdown.plugin']
 let g:cursorhold_updatetime = 100
 "set laststatus=0
 ]]

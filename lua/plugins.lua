@@ -57,7 +57,7 @@ return packer.startup(function()
 	-- use "glepnir/galaxyline.nvim"
 	use("NTBBloodbath/galaxyline.nvim")
 	use("joshdick/onedark.vim")
-	use "akinsho/bufferline.nvim"
+	use("akinsho/bufferline.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"VonHeikemen/fine-cmdline.nvim",
@@ -73,7 +73,6 @@ return packer.startup(function()
 	use("editorconfig/editorconfig-vim")
 	use("nvim-lua/popup.nvim")
 	use("windwp/nvim-autopairs")
-	use("sbdchd/neoformat")
 	--Tmux
 	use("benmills/vimux")
 	use("christoomey/vim-tmux-navigator")
@@ -82,12 +81,12 @@ return packer.startup(function()
 	use("nvim-telescope/telescope.nvim")
 	use("OmniSharp/omnisharp-vim")
 	use("kristijanhusak/vim-carbon-now-sh")
-	use({
-		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-		end,
-	})
+	-- use({
+	--   "folke/which-key.nvim",
+	--   config = function()
+	--     require("which-key").setup({})
+	--   end,
+	-- })
 	-- "Html, css and js
 	use("AndrewRadev/tagalong.vim")
 	use("alvan/vim-closetag")
@@ -156,13 +155,13 @@ return packer.startup(function()
 			require("twilight").setup({})
 		end,
 	})
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
-	})
+	-- use({
+	--   "folke/todo-comments.nvim",
+	--   requires = "nvim-lua/plenary.nvim",
+	--   config = function()
+	--     require("todo-comments").setup({})
+	--   end,
+	-- })
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -179,7 +178,7 @@ return packer.startup(function()
 	-- Move well
 	use("karb94/neoscroll.nvim")
 	-- Show parameters
-	use("simrat39/symbols-outline.nvim")
+	-- use("simrat39/symbols-outline.nvim")
 	use("ggandor/lightspeed.nvim")
 
 	if PACKER_BOOTSTRAP then

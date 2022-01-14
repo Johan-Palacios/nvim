@@ -53,8 +53,10 @@ return packer.startup(function()
 	use("tweekmonster/startuptime.vim")
 	use("nathom/filetype.nvim")
 	--Style
-	use("glepnir/dashboard-nvim")
+	-- use("glepnir/dashboard-nvim")
+	-- 
 	-- use "glepnir/galaxyline.nvim"
+	use "goolord/alpha-nvim"
 	use("NTBBloodbath/galaxyline.nvim")
 	use("joshdick/onedark.vim")
 	use("akinsho/bufferline.nvim")

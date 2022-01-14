@@ -20,3 +20,5 @@ require "core.tools.barbar"
 require "core.tools.tmux"
 
 require "core.tools.autopairs"
+
+require "core.tools.indent"

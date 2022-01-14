@@ -1,4 +1,6 @@
-require "core.cosmetics.dash"
+-- require "core.cosmetics.dash"
+
+require "core.cosmetics.alpha"
 
 require "core.cosmetics.format"
 

@@ -51,6 +51,7 @@ gl.short_line_list = {
 	"packer",
 	"tagbar",
 	"toggleterm",
+	"Alpha-nvim",
 	"Outline",
 }
 local extension = require("line/extension")

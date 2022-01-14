@@ -82,7 +82,7 @@ require("nvim-tree").setup({
         tree_width = 30,
     },
 })
-vim.cmd([[
-"-------------- BLAKLINE ----------------------
-let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline", "packer", "lspinstaller"]
-]])
+-- vim.cmd([[
+-- "-------------- BLAKLINE ----------------------
+-- let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline", "packer", "nvim-lsp-installer"]
+-- ]])

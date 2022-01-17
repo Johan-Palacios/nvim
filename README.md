@@ -13,20 +13,19 @@
 
 ## Preview / Pre-visualización 🕹️
 
-![image](https://user-images.githubusercontent.com/77251405/136500331-a7f76083-3a48-4089-996b-451e98385935.png)
+![image](https://user-images.githubusercontent.com/77251405/149706236-506b348b-32a4-499f-b98d-76ea88d66306.png)
 
-![image](https://user-images.githubusercontent.com/77251405/136499886-f5e7629f-573a-4700-9bd8-c7cb70f44037.png)
-
-![image](https://user-images.githubusercontent.com/77251405/136499970-afff1d17-9c6e-40b3-83aa-2b2c246e87e6.png)
-
-![image](https://user-images.githubusercontent.com/77251405/136500114-e8dc97da-4d66-40a9-bd0e-896f15c3c64e.png)
-
-![image](https://user-images.githubusercontent.com/77251405/136500152-42e3e6e0-b581-49c6-93f6-a70303a4e615.png)
-
-![image](https://user-images.githubusercontent.com/77251405/136500223-f9638f72-f45a-4408-a220-681661457885.png)
+![image](https://user-images.githubusercontent.com/77251405/149706302-f855cf2f-e4d7-4ccf-82e2-e4685a4f2fac.png)
 
 
-![image](https://user-images.githubusercontent.com/77251405/136500289-8b383ed2-bdbb-4682-b562-b95e4470c4bd.png)
+![image](https://user-images.githubusercontent.com/77251405/149706495-680d37c7-dd06-4a03-a770-52d32b187690.png)
+
+![image](https://user-images.githubusercontent.com/77251405/149706566-3f125567-3b6b-42a7-a7bf-11335ee1116e.png)
+
+![image](https://user-images.githubusercontent.com/77251405/149706612-872c64ed-ab99-4f81-911f-6795ab3f79dc.png)
+
+
+![image](https://user-images.githubusercontent.com/77251405/149706637-e90a2771-53d8-475c-ac56-eec25126199d.png)
 
 
 ------------
@@ -35,7 +34,7 @@
 ### Starting 🚀
 This configuration have:
 - Autocomplete with LSP
-	- You can install more servers with [LSP](https://github.com/neovim/nvim-lspconfig "LSP") Install
+        - You can install more servers with [LSP](https://github.com/neovim/nvim-lspconfig "LSP") Install
 - One dark theme for Neovim
 - Plugins of sintaxis
 - Tmux Navigator
@@ -43,7 +42,6 @@ This configuration have:
 - Fzf
 - NerdCommenter
 - Carbon screen
-	- You can customize this in  `/plugins/pluginsconfig.vim` _the key by default is F17_
 - Web Icons 😎
 - Nvim Tree
 - ToogleBar
@@ -67,24 +65,13 @@ You can create that with this command in $HOME
 
 `mkdir ~/.config/`
 
- Or clone the repo with this command
-
-**HTTP**
+ Later clone the repo
 
 
-`git clone https://github.com/Johan-Palacios/Nvim-config.git`
-
-**SHH**
-
-`git clone git@github.com:Johan-Palacios/Nvim-config.git`
-
-**CLI GIT**
-
-```gh repo clone Johan-Palacios/Nvim-config```
-
-And for the lua plugins use 
+And for the lua plugins use
 `:PackerUpdate`
-![image](https://user-images.githubusercontent.com/77251405/136500556-85ae2ede-01a1-4f29-8455-3d4e2eccd638.png)
+
+![image](https://user-images.githubusercontent.com/77251405/149706774-d6156d93-baaa-4d0b-b10b-1cad353321f5.png)
 Later of that you can fun with this config
 ## Autor ✒️
 * **Johan Palacios** - *All Work* - [Johan-Palacios](https://github.com/Johan-Palacios)
@@ -92,7 +79,7 @@ Later of that you can fun with this config
 ### Comenzando 🚀
 Esta configuración tiene :
 - Autocompletado con LSP Nativo
-	- Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
+        - Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
 - Tema One dark para Neovim
 - Plugins de sintaxis
 - Navegador rápido de Tmux
@@ -100,7 +87,6 @@ Esta configuración tiene :
 - Fzf
 - NerdCommenter
 - Carbon screen
-	- Puedes configurar esto en los  `/plugins/pluginsconfig.vim` _Por defecto es F17_
 - Iconos web cool 😎
 - Nvim Tree
 - ToogleBar
@@ -110,30 +96,17 @@ Esta configuración tiene :
 - Configuración con Lua
 - Dashbard
 - StartupTime
-### Requisitos 
+### Requisitos
 - Nvim 0.5 o superior
 - Packer, puedes instalarlo [aquí](https://github.com/wbthomason/packer.nvim "aquí")
 ## Instalación  🔧
-Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM
-Usa este comando para crear el directorio
-```
-mkdir ~/.config/
-
-"Muevete al directorio con: "
-
-cd /.config/
-```
- Luego de esto Clona el repositiorio en dicha carpeta
-**HTTP**
-`git clone https://github.com/Johan-Palacios/Nvim-config.git`
-**SHH**
-`git clone git@github.com:Johan-Palacios/Nvim-config.git`
-**CLI GIT**
-```gh repo clone Johan-Palacios/Nvim-config```
+Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio cambiandole el nombre a la carpeta a nvim
 
 Para instalar los plugins usa:
 `:Packer Update`
-![image](https://user-images.githubusercontent.com/77251405/136500556-85ae2ede-01a1-4f29-8455-3d4e2eccd638.png)
+
+![image](https://user-images.githubusercontent.com/77251405/149706774-d6156d93-baaa-4d0b-b10b-1cad353321f5.png)
+
 Luego de esto puedes disfrutar de tu Neovim 😀
 ## Autor ✒️
-* **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)
+* **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)q

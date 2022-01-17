@@ -21,9 +21,6 @@
 require 'init'
 require('impatient')
 require'impatient'.enable_profile()
-vim.cmd [[
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-]]
 vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')
 print("Hello Master")
--- require("nvim-lsp-installer").settings({ log_level = vim.log.levels.DEBUG })
+vim.lsp.set_log_level "debug"

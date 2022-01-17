@@ -54,8 +54,8 @@ return packer.startup(function()
 	use("nathom/filetype.nvim")
 	--Style
 	-- use("glepnir/dashboard-nvim")
-	-- 
 	-- use "glepnir/galaxyline.nvim"
+	use "ahmedkhalf/project.nvim"
 	use "goolord/alpha-nvim"
 	use("NTBBloodbath/galaxyline.nvim")
 	use("joshdick/onedark.vim")
@@ -83,12 +83,12 @@ return packer.startup(function()
 	use("nvim-telescope/telescope.nvim")
 	use("OmniSharp/omnisharp-vim")
 	use("kristijanhusak/vim-carbon-now-sh")
-	-- use({
-	--   "folke/which-key.nvim",
-	--   config = function()
-	--     require("which-key").setup({})
-	--   end,
-	-- })
+	use({
+	  "folke/which-key.nvim",
+	  config = function()
+	    require("which-key").setup({})
+	  end,
+	})
 	-- "Html, css and js
 	use("AndrewRadev/tagalong.vim")
 	use("alvan/vim-closetag")

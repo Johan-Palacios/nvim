@@ -68,6 +68,9 @@ require("which-key").setup({
 })
 local wk = require("which-key")
 wk.register({
+	q = {
+		name = "Diagnostics",
+	},
 	f = {
 		name = "Files ",
 		f = { "<cmd>Telescope find_files<cr>", "Find Files 🔎" }, -- create a binding with label
@@ -105,9 +108,9 @@ wk.register({
 	t = {
 		name = "Terminal ",
 		f = { "<cmd>ToggleTerm<cr>", "Floating Terminal" },
-		v = { '<cmd>ToggleTerm direction="vertical"', "Terminal Vertial" },
+		v = { '<cmd>ToggleTerm direction="vertical<cr>"', "Terminal Vertial" },
 		h = {
-			'<cmd>ToggleTerm size=10 direction="horizontal"',
+			'<cmd>ToggleTerm size=10 direction="horizontal"<cr>',
 			"Terminal Horizontal",
 		},
 	},
@@ -151,4 +154,15 @@ wk.register({
 	},
 }, {
 	prefix = "<leader>",
+})
+wk.register({
+	name = "Search",
+	["/"] = {
+		name = "Searching",
+		r = {
+			name = "Run Python",
+		},
+	},
+}, {
+	prefix = "/",
 })

@@ -62,7 +62,7 @@ require("nvim-tree").setup({
         mappings = {
         custom_only = false,
         list = {
-            { key = "<leader>s", cb = tree_cb("vsplit") },
+            { key = "v", cb = tree_cb("vsplit") },
         },
         },
     },

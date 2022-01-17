@@ -22,3 +22,5 @@ require "core.tools.tmux"
 require "core.tools.autopairs"
 
 require "core.tools.indent"
+
+require "core.tools.sesion"

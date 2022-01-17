@@ -11,10 +11,10 @@ augroup exe_code
 "autocmd filetype c nnoremap <leader>r :w <bar> exec "!gcc ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 "autocmd filetype cpp nnoremap <leader>r :w <bar> exec "!g++ ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
 "autocmd filetype cs nnoremap <leader>r :w <bar> exec "!mcs ".shellescape("%")." -o ".shellescape("%:r")." && ./".shellescape("%:r")<CR>
-map <localleader>r :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-exec "w"
-exec "vsp"
-exec "term ./%<"
-endfunc
+"map <localleader>r :call CompileRunGcc()<CR>
+"func! CompileRunGcc()
+"exec "w"
+"exec "vsp"
+"exec "term ./%<"
+"endfunc
 ]]

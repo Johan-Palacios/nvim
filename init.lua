@@ -23,4 +23,3 @@ require('impatient')
 require'impatient'.enable_profile()
 vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')
 print("Hello Master")
-vim.lsp.set_log_level "debug"

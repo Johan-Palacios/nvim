@@ -1,6 +1,9 @@
-local autosave = require("autosave")
+local status_ok, save = pcall(require, "autosave")
+if not status_ok then
+  return
+end
 
-autosave.setup({
+save.setup({
     enabled = true,
     execution_message = "Autoguardado hace: " .. vim.fn.strftime("%H:%M:%S"),
     events = {"InsertLeave"},

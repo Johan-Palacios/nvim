@@ -30,7 +30,7 @@ if not status_ok then
 	return
 end
 vim.cmd([[packadd packer.nvim]])
--- using { } for using different branch , loading plugin with certain commands etc
+
 packer.startup({
 	{ ... },
 	config = {
@@ -55,8 +55,8 @@ return packer.startup(function()
 	--Style
 	-- use("glepnir/dashboard-nvim")
 	-- use "glepnir/galaxyline.nvim"
-	use "ahmedkhalf/project.nvim"
-	use "goolord/alpha-nvim"
+	use("ahmedkhalf/project.nvim")
+	use("goolord/alpha-nvim")
 	use("NTBBloodbath/galaxyline.nvim")
 	use("joshdick/onedark.vim")
 	use("akinsho/bufferline.nvim")
@@ -75,6 +75,7 @@ return packer.startup(function()
 	use("editorconfig/editorconfig-vim")
 	use("nvim-lua/popup.nvim")
 	use("windwp/nvim-autopairs")
+	use("rcarriga/nvim-notify")
 	--Tmux
 	use("benmills/vimux")
 	use("christoomey/vim-tmux-navigator")
@@ -84,10 +85,10 @@ return packer.startup(function()
 	use("OmniSharp/omnisharp-vim")
 	use("kristijanhusak/vim-carbon-now-sh")
 	use({
-	  "folke/which-key.nvim",
-	  config = function()
-	    require("which-key").setup({})
-	  end,
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({})
+		end,
 	})
 	-- "Html, css and js
 	use("AndrewRadev/tagalong.vim")
@@ -157,13 +158,13 @@ return packer.startup(function()
 			require("twilight").setup({})
 		end,
 	})
-	-- use({
-	--   "folke/todo-comments.nvim",
-	--   requires = "nvim-lua/plenary.nvim",
-	--   config = function()
-	--     require("todo-comments").setup({})
-	--   end,
-	-- })
+  use({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup({})
+    end,
+  })
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",

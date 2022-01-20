@@ -53,7 +53,7 @@ This configuration have:
 - StartupTime
 
 ### Requirements
-- Nvim 0.5 or >
+- Nvim 0.7
 - Packer, You can install [here](https://github.com/wbthomason/packer.nvim "aquí")
 
 ## Instalation  🔧
@@ -97,7 +97,7 @@ Esta configuración tiene :
 - Dashbard
 - StartupTime
 ### Requisitos
-- Nvim 0.5 o superior
+- Nvim 0.7
 - Packer, puedes instalarlo [aquí](https://github.com/wbthomason/packer.nvim "aquí")
 ## Instalación  🔧
 Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio cambiandole el nombre a la carpeta a nvim

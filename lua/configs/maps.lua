@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 augroup exe_code
   autocmd!
   "Python codes
@@ -17,4 +17,4 @@ augroup exe_code
 "exec "vsp"
 "exec "term ./%<"
 "endfunc
-]]
+]])

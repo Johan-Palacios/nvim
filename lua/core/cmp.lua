@@ -23,6 +23,7 @@ cmp.setup({
 		select = true,
 	},
 	formatting = {
+    fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			local icons = require("kind.init").icons
 			vim_item.kind = icons[vim_item.kind]

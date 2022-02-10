@@ -12,14 +12,23 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
 -- keymap("n", "<Leader>q", ":NvimTreeClose<CR>", {})
 --Bufers management
 keymap("n", "<Leader>bd", ":Bdelete<CR>", {})
+keymap("n", "<Leader>bv", ":vsp<CR>", {})
+keymap("n", "<Leader>bh", ":split<CR>", {})
 local opts = {
 	noremap = true,
 }
 --Management
 keymap("n", "<C-p>", ":bprev<CR>", opts)
 keymap("n", "<C-o>", ":bnext<CR>", opts)
-keymap("v", "<Tab>", ">gV", opts)
-keymap("v", "<S-Tab>", "<gV", opts)
+keymap("v", "<Tab>", ">gv", opts)
+keymap("v", "<S-Tab>", "<gv", opts)
+keymap("v", "<a-j>", ":m .+1<cr>==", {noremap = true, silent = true})
+keymap("v", "<A-k>", ":m .-2<CR>==", {noremap = true, silent = true})
+keymap("v", "p", '"_dP', {noremap = true, silent = true})
+keymap("x", "J", ":move '>+1<CR>gv-gv", {noremap = true, silent = true})
+keymap("x", "K", ":move '<-2<CR>gv-gv", {noremap = true, silent = true})
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", {noremap = true, silent = true})
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", {noremap = true, silent = true})
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
 
 --Git

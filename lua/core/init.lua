@@ -4,7 +4,7 @@ require("core.cmp")
 
 -- NOTE: Principal Plugins configuration
 
-require("core.gitsigns")
+require("core.gitsign")
 
 require("core.terminal")
 
@@ -15,6 +15,7 @@ require("core.whichkey")
 require("core.telescope")
 
 require("core.tree")
+
 
 -- NOTE: tools for nvim
 

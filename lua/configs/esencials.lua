@@ -10,62 +10,61 @@ vim.o.background = "dark"
 vim.o.write = true
 vim.o.scrolljump = -3
 vim.o.fillchars = "eob: "
--- --Window Local
+--Window Local
 vim.wo.fdm = "indent"
 vim.wo.number = true
 vim.wo.cursorline = true
 vim.wo.wrap = false
 vim.wo.colorcolumn = "120"
 vim.wo.rnu = true
--- -- Buffer Local
+-- Buffer Local
 vim.bo.autoindent = true
 vim.bo.spelllang = "en"
 vim.bo.ma = true
--- --Leaders
+--Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "//"
 vim.g.did_load_filetypes = 1
--- --Others
+--Others
 vim.cmd([[
-"set completeopt=menu,menuone,noselect
 syntax off
 let g:cursorhold_updatetime = 100
 ]])
 local options = {
-	backup = false, -- creates a backup file
-	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
-	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-	conceallevel = 0, -- so that `` is visible in markdown files
-	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = true, -- highlight all matches on previous search pattern
-	ignorecase = true, -- ignore case in search patterns
-	mouse = "a", -- allow the mouse to be used in neovim
-	pumheight = 10, -- pop up menu height
-	showmode = false, -- we don't need to see things like -- INSERT -- anymore
-	showtabline = 2, -- always show tabs
-	smartcase = true, -- smart case
-	smartindent = true, -- make indenting smarter again
-	splitbelow = true, -- force all horizontal splits to go below current window
-	splitright = true, -- force all vertical splits to go to the right of current window
-	swapfile = false, -- creates a swapfile
-	termguicolors = true, -- set term gui colors (most terminals support this)
-	timeoutlen = 200, -- time to wait for a mapped sequence to complete (in milliseconds)
-	undofile = true, -- enable persistent undo
-	updatetime = 200, -- faster completion (4000ms default)
-	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-	expandtab = true, -- convert tabs to spaces
-	shiftwidth = 2, -- the number of spaces inserted for each indentation
-	tabstop = 2, -- insert 2 spaces for a tab
-	cursorline = true, -- highlight the current line
-	number = false, -- set numbered lines
-	relativenumber = true, -- set relative numbered lines
-	numberwidth = 4, -- set number column width to 2 {default 4}
-	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-	wrap = false, -- display lines as one long line
-	scrolloff = 9, -- is one of my fav
+	backup = false,
+  foldmethod = "manual",
+	clipboard = "unnamedplus",
+	cmdheight = 2,
+	completeopt = { "menuone", "noselect" },
+	conceallevel = 0,
+	fileencoding = "utf-8",
+	hlsearch = true,
+	ignorecase = true,
+	mouse = "a",
+	pumheight = 10,
+	showmode = false,
+	showtabline = 2,
+	smartcase = true,
+	smartindent = true,
+	splitbelow = true,
+	splitright = true,
+	swapfile = false,
+	termguicolors = true,
+	timeoutlen = 200,
+	undofile = true,
+	updatetime = 200,
+	writebackup = false,
+	expandtab = true,
+	shiftwidth = 2,
+	tabstop = 2,
+	cursorline = true,
+	number = false,
+	relativenumber = true,
+	numberwidth = 4,
+	signcolumn = "yes",
+	wrap = false,
+	scrolloff = 9,
 	sidescrolloff = 8,
-	guifont = "monospace:h17", -- the font used in graphical neovim applications
 }
 
 vim.opt.shortmess:append("c")

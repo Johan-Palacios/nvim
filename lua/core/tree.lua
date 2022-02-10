@@ -25,7 +25,7 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = true,
+    open_on_setup = false,
     ignore_ft_on_setup = { "dashboard" },
     auto_close = true,
     open_on_tab = false,
@@ -82,7 +82,3 @@ require("nvim-tree").setup({
         tree_width = 30,
     },
 })
--- vim.cmd([[
--- "-------------- BLAKLINE ----------------------
--- let g:indent_blankline_filetype_exclude = ["help", "terminal", "dashboard", "tagbar","NvimTree", "Outline", "packer", "nvim-lsp-installer"]
--- ]])

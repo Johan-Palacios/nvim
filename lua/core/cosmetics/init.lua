@@ -10,7 +10,7 @@ require "core.cosmetics.carbon"
 
 require "core.cosmetics.colorizer"
 
-require "core.cosmetics.nerdcommenter"
+require "core.cosmetics.com"
 
 require "core.cosmetics.filetype"
 

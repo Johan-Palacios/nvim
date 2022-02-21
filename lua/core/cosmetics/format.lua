@@ -1,3 +1,3 @@
-vim.cmd [[ 
-nmap <leader>lo :OmniSharpCodeFormat <CR>
-]]
+-- vim.cmd [[
+-- nmap <leader>lo :OmniSharpCodeFormat <CR>
+-- ]]

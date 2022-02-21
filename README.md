@@ -74,7 +74,7 @@ And for the lua plugins use
 ![image](https://user-images.githubusercontent.com/77251405/149706774-d6156d93-baaa-4d0b-b10b-1cad353321f5.png)
 Later of that you can fun with this config
 ## Autor ✒️
-* **Johan Palacios** - *All Work* - [Johan-Palacios](https://github.com/Johan-Palacios)
+* **Johan Palacios** - *Author* - [Johan-Palacios](https://github.com/Johan-Palacios)
 ## Español 🇪🇸
 ### Comenzando 🚀
 Esta configuración tiene :
@@ -109,4 +109,4 @@ Para instalar los plugins usa:
 
 Luego de esto puedes disfrutar de tu Neovim 😀
 ## Autor ✒️
-* **Johan Palacios** - *Todo* - [Johan-Palacios](https://github.com/Johan-Palacios)q
+* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios)q

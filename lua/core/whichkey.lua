@@ -25,29 +25,29 @@ require("which-key").setup({
 		["<tab>"] = "TAB",
 	},
 	icons = {
-		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-		separator = "➜", -- symbol used between a key and it's label
-		group = "+", -- symbol prepended to a group
+		breadcrumb = "»",
+		separator = "➜",
+		group = "+",
 	},
 	window = {
-		border = "single", -- none, single, double, shadow
-		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+		border = "single",
+		position = "bottom",
+		margin = { 1, 0, 1, 0 },
+		padding = { 2, 2, 2, 2 },
 	},
 	layout = {
 		height = {
 			min = 4,
 			max = 25,
-		}, -- min and max height of the columns
+		},
 		width = {
 			min = 20,
 			max = 50,
-		}, -- min and max width of the columns
-		spacing = 4, -- spacing between columns
-		align = "left", -- align columns left, center or right
+		},
+		spacing = 4,
+		align = "left",
 	},
-	ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+	ignore_missing = false,
 	hidden = {
 		"<silent>",
 		"<cmd>",
@@ -58,9 +58,9 @@ require("which-key").setup({
 		"^:",
 		"^ ",
 		"<C>",
-	}, -- hide mapping boilerplate
-	show_hColorelp = true, -- show help message on the command line when the popup is visible
-	triggers = "auto", -- automatically setup triggers
+	},
+	show_hColorelp = true,
+	triggers = "auto",
 	triggers_blacklist = {
 		i = { "j", "k" },
 		v = { "j", "k" },
@@ -73,7 +73,7 @@ wk.register({
 	},
 	f = {
 		name = "Files ",
-		f = { "<cmd>Telescope find_files<cr>", "Find Files 🔎" }, -- create a binding with label
+		f = { "<cmd>Telescope find_files<cr>", "Find Files 🔎" },
 		g = { "<cmd>Telescope live_grep<cr>", "Find Words 📖" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find tags 📋" },
 	},

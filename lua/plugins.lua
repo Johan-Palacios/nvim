@@ -104,7 +104,7 @@ return packer.startup(function()
 	use("akinsho/nvim-toggleterm.lua")
 	use("rhysd/git-messenger.vim")
 	use("karb94/neoscroll.nvim")
-	-- use("simrat39/symbols-outline.nvim")
+  use("simrat39/symbols-outline.nvim")
 	use({
 		"folke/twilight.nvim",
 		config = function()

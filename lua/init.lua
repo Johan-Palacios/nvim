@@ -1,3 +1,4 @@
+-- NOTE: Main Config
 require("configs.esencials")
 
 require("plugins")

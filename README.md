@@ -109,4 +109,4 @@ Para instalar los plugins usa:
 
 Luego de esto puedes disfrutar de tu Neovim 😀
 ## Autor ✒️
-* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios)q
+* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios)

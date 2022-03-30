@@ -1,6 +1,5 @@
 local M = {}
 
--- extension for scoll bar
 function M.scrollbar_instance(scroll_bar_chars)
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")

@@ -1,5 +1,4 @@
 -- --Global options
--- vim.o.showtabline = false
 vim.o.foldlevelstart = 99
 vim.o.title = true
 vim.o.pastetoggle = "<F14>"
@@ -76,3 +75,14 @@ end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]])
+if vim.fn.has("win32") then
+  vim.cmd([[
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+  if executable(s:clip)
+      augroup WSLYank
+          autocmd!
+          autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+      augroup END
+  endif
+  ]])
+end

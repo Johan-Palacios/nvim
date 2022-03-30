@@ -19,7 +19,6 @@ vim.g.nvim_tree_icons = {
 	},
 }
 require("nvim-tree").setup()
--- following options are the default
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 require("nvim-tree").setup({
@@ -27,7 +26,7 @@ require("nvim-tree").setup({
     hijack_netrw = true,
     open_on_setup = false,
     ignore_ft_on_setup = { "dashboard" },
-    auto_close = true,
+    -- auto_open = false,
     open_on_tab = false,
     update_to_buf_dir = {
         enable = true,

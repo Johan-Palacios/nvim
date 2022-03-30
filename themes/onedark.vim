@@ -16,7 +16,7 @@ endif
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
-syntax on
+syntax off
 set t_Co=256
 colorscheme onedark
 highlight pmenu ctermbg=DarkGray guibg=onedark
@@ -40,5 +40,6 @@ highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#61AFEF
 highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
 highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
 highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
 
 " highlight CmpItemKindSnippet guibg=NONE guifg=#E5C07B

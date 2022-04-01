@@ -43,6 +43,12 @@ keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
 
+vim.cmd "silent! command PackerClean lua require 'plugins' require('packer').clean()"
+vim.cmd "silent! command PackerCompile lua require 'plugins' require('packer').compile()"
+vim.cmd "silent! command PackerInstall lua require 'plugins' require('packer').install()"
+vim.cmd "silent! command PackerStatus lua require 'plugins' require('packer').status()"
+vim.cmd "silent! command PackerSync lua require 'plugins' require('packer').sync()"
+vim.cmd "silent! command PackerUpdate lua require 'plugins' require('packer').update()"
 vim.cmd([[
 nnoremap <F14> :set invpaste paste?<CR>
 nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>

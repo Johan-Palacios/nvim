@@ -1,5 +1,5 @@
 -- NOTE: TOOLS PLUGINS CONFIG
-require "core/tools/comment"
+require "core.tools.comment"
 
 require "core.tools.trouble"
 

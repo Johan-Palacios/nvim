@@ -1,3 +1,7 @@
+local g = vim.g
+
+g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
+
 vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
@@ -54,6 +58,7 @@ require("nvim-tree").setup({
     },
     view = {
         width = 26,
+        hide_root_folder = true,
         side = "left",
         number = false,
         relativenumber = false,

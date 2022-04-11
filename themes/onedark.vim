@@ -21,8 +21,6 @@ set t_Co=256
 colorscheme onedark
 highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
-" highlight NvimTreeNormal guibg=#2a2e39
-highlight NvimTreeRootFolder guifg=#D8DEE9
 "Colors menu
 " gray
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080

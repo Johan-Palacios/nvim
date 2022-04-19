@@ -68,9 +68,12 @@ cmp.setup({
 	--     cmp.config.compare.order,
 	--   },
 	-- },
+  window = {
 	documentation = {
 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	},
+
+  },
 
 	snippet = {
 		expand = function(args)

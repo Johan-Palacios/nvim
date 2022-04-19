@@ -21,9 +21,9 @@ set t_Co=256
 colorscheme onedark
 highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
-hi foldcolumn guibg=#1e2127
-hi VertSplit guibg=#1e2127 guifg=#1e2127
-hi NvimTreeNormal guibg=#21242b
+" hi foldcolumn guibg=#21242b
+" hi VertSplit guibg=#21242b guifg=#21242b
+" hi NvimTreeNormal guibg=#21242b
 "Colors menu
 " gray
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080

@@ -14,12 +14,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+-- vim.cmd([[
+--
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]])
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -55,17 +56,17 @@ return packer.startup(function()
 	use("moll/vim-bbye")
 	-- NOTE: STYLE PLUGIND
 	use("goolord/alpha-nvim")
-	use("NTBBloodbath/galaxyline.nvim")
-	use("joshdick/onedark.vim")
-	use("akinsho/bufferline.nvim")
+	use{"NTBBloodbath/galaxyline.nvim", event="BufWinEnter", config="require('line/init')"}
+	use{"joshdick/onedark.vim", config="vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')"}
+	use{"akinsho/bufferline.nvim", config="require('core/tools/barbar')", event="BufWinEnter"}
 	use("kyazdani42/nvim-web-devicons")
 	use("lewis6991/gitsigns.nvim")
 	use("nvim-lua/popup.nvim")
 	use("editorconfig/editorconfig-vim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("rcarriga/nvim-notify")
-	use("nvim-treesitter/nvim-treesitter")
-	use("nvim-treesitter/playground")
+	use{"rcarriga/nvim-notify", config="require('core/cosmetics/notify')"}
+  use{"nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event="BufWinEnter", config="require('core/treesit')"}
+	use{"nvim-treesitter/playground", after="nvim-treesitter"}
 	-- NOTE: PROYECT MANAGEMENT
 	use({
 		"VonHeikemen/fine-cmdline.nvim",
@@ -75,10 +76,10 @@ return packer.startup(function()
 	})
 	use("ahmedkhalf/project.nvim")
 	-- NOTE: Insert mode plugins
-	use("andymass/vim-matchup")
+	use{"andymass/vim-matchup", event="VimEnter"}
 	use("tpope/vim-unimpaired")
 	use("nvim-lua/plenary.nvim")
-	use("windwp/nvim-autopairs")
+	use{"windwp/nvim-autopairs", config="require('core/tools/autopairs')"}
 	use("tpope/vim-surround")
 	use({
 		"anuvyklack/pretty-fold.nvim",
@@ -95,13 +96,13 @@ return packer.startup(function()
 	use("nvim-telescope/telescope.nvim")
 	use("AndrewRadev/tagalong.vim")
 	use("alvan/vim-closetag")
-	use("norcalli/nvim-colorizer.lua")
+	use{"norcalli/nvim-colorizer.lua", event="BufRead", config="require('core/cosmetics/colorizer')"}
 	use("tpope/vim-fugitive")
 	use("zivyangll/git-blame.vim")
 	use("sindrets/diffview.nvim")
 	use("nacro90/numb.nvim")
 	use("Pocco81/AutoSave.nvim")
-	use("akinsho/nvim-toggleterm.lua")
+	use{"akinsho/nvim-toggleterm.lua", config="require('core/terminal')"}
 	use("rhysd/git-messenger.vim")
 	use("karb94/neoscroll.nvim")
   use("simrat39/symbols-outline.nvim")
@@ -114,9 +115,7 @@ return packer.startup(function()
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup({})
-		end,
+    config="require('core/tools/comment')"
 	})
 	use({
 		"folke/trouble.nvim",
@@ -127,23 +126,18 @@ return packer.startup(function()
 	})
 	use({
 		"rmagatti/goto-preview",
-		config = function()
-			require("goto-preview").setup({})
-		end,
+    config="require('core/tools/gotoprev')"
 	})
 	use("ggandor/lightspeed.nvim")
 	use({
 		"folke/which-key.nvim",
-		config = function()
-			require("which-key").setup({})
-		end,
+    config="require('core/whichkey')",
+    event="BufWinEnter"
 	})
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("nvim-tree").setup({})
-		end,
+    config="require('core/tree')"
 	})
 	use({
 		"folke/zen-mode.nvim",
@@ -153,7 +147,7 @@ return packer.startup(function()
 	})
 	-- NOTE: Autocomplete
 	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
+	use( "hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-path")

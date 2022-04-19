@@ -84,7 +84,7 @@ table.insert(gls.left, {
 				t = colors.blue,
 			}
 			vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
-			return " ▊"
+			return "  ▊"
 		end,
 		separator_highlight = "StatusLineSeparator",
 		-- separator_highlight = {colors.lightbg},
@@ -390,31 +390,29 @@ table.insert(gls.right, {
 	},
 })
 
--- table.insert(gls.short_line_left, {
---   BufferType = {
---     provider = "FileTypeName",
---     separator = " ",
---     separator_highlight = "StatusLineSeparator",
---     highlight = "StatusLineNC",
---   },
--- })
---
--- table.insert(gls.short_line_left, {
---   SFileName = {
---     provider = "SFileName",
---     condition = condition.buffer_not_empty,
---     highlight = "StatusLineNC",
---   },
--- })
-
 table.insert(gls.short_line_left, {
-  BufferIcon = {
-    provider = "BufferIcon",
-    highlight = { "#21242b", "#21242b" },
-  },
+	BufferType = {
+		provider = "FileTypeName",
+		separator = " ",
+		separator_highlight = "StatusLineSeparator",
+		highlight = "StatusLineNC",
+	},
 })
 
--- Disable line
+table.insert(gls.short_line_left, {
+	SFileName = {
+		provider = "SFileName",
+		condition = condition.buffer_not_empty,
+		highlight = "StatusLineNC",
+	},
+})
+
+table.insert(gls.short_line_right, {
+	BufferIcon = {
+		provider = "BufferIcon",
+		highlight = { colors.blue, colors.black },
+	},
+})
 
 vim.cmd([[
 au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree_1" | set laststatus=0 | else | set laststatus=2 | endif

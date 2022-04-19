@@ -1,6 +1,8 @@
 -- NOTE: Main Config
 require("configs.esencials")
 
+require("packer_compiled")
+
 require("plugins")
 
 require("lsp/init")
@@ -8,8 +10,6 @@ require("lsp/init")
 require("core.init")
 
 require("kind/init")
-
-require("line/init")
 
 require("configs.commands")
 

@@ -6,15 +6,7 @@ require("core.cmp")
 
 require("core.gitsign")
 
-require("core.terminal")
-
-require("core.treesit")
-
-require("core.whichkey")
-
 require("core.telescope")
-
-require("core.tree")
 
 
 -- NOTE: tools for nvim

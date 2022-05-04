@@ -8,7 +8,6 @@ require("core.gitsign")
 
 require("core.telescope")
 
-
 -- NOTE: tools for nvim
 
 require("core/tools/tools")

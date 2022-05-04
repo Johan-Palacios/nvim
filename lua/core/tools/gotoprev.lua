@@ -1,4 +1,9 @@
-require("goto-preview").setup {
+local status_ok, gotoprev = pcall(require, "goto-preview")
+if not status_ok then
+  return
+end
+
+gotoprev.setup {
     width = 120, -- Width of the floating window
     height = 15, -- Height of the floating window
     default_mappings = false, -- Bind default mappings

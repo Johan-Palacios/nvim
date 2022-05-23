@@ -20,5 +20,3 @@
 
 require "init"
 require("impatient").enable_profile()
-print "Hello Master"
-print "-Neovim Ready-"

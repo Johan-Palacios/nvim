@@ -44,3 +44,4 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
 
 " highlight CmpItemKindSnippet guibg=NONE guifg=#E5C07B
+syntax on

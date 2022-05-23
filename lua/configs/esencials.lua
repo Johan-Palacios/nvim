@@ -26,7 +26,6 @@ vim.g.maplocalleader = "//"
 vim.g.did_load_filetypes = 1
 --Others
 vim.cmd([[
-syntax off
 let g:cursorhold_updatetime = 100
 ]])
 local options = {
@@ -54,6 +53,7 @@ local options = {
 	updatetime = 200,
 	writebackup = false,
 	expandtab = true,
+  laststatus = 3,
 	shiftwidth = 2,
 	tabstop = 2,
 	cursorline = true,
@@ -66,6 +66,8 @@ local options = {
 	sidescrolloff = 8,
 }
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
@@ -75,6 +77,7 @@ end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]])
+
 if vim.fn.has("win32") then
   vim.cmd([[
   let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point

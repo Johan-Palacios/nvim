@@ -50,6 +50,7 @@ return packer.startup(function()
   use("lewis6991/impatient.nvim")
   use { "tweekmonster/startuptime.vim" }
   use("nathom/filetype.nvim")
+  use ("github/copilot.vim")
   use { "antoinemadec/FixCursorHold.nvim" }
   use { "vim-scripts/restore_view.vim" }
   use("moll/vim-bbye")
@@ -181,6 +182,7 @@ return packer.startup(function()
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   use({
     "jose-elias-alvarez/null-ls.nvim",
     config = function()

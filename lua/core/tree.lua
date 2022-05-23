@@ -74,13 +74,3 @@ tree.setup({
     require_confirm = true,
   },
 })
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_1' . tabpagenr() | quit | endif")
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  nested = true,
-  callback = function()
-    if vim.fn.winnr "$" == 1 and vim.fn.bufname() == "NvimTree_1" .. vim.fn.tabpagenr() then
-      vim.api.nvim_command ":silent qa!"
-    end
-  end,
-})

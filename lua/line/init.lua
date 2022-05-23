@@ -50,6 +50,7 @@ gl.short_line_list = {
 	"dbui",
 	"packer",
 	"tagbar",
+  "telescope",
 	"toggleterm",
 	"Alpha-nvim",
 	"Outline",
@@ -276,16 +277,6 @@ table.insert(gls.right, {
 		highlight = "StatusLineNC",
 	},
 })
--- table.insert(gls.right, {
---         PerCent = {
---                 provider = "LinePercent",
---                 separator = " ",
---                 separator_highlight = "StatusLineSeparator",
---                 highlight = "StatusLineNC",
---
---         },
--- })
---
 table.insert(gls.right, {
 	LineInfo = {
 		provider = "LineColumn",
@@ -337,6 +328,3 @@ table.insert(gls.short_line_right, {
 	},
 })
 
-vim.cmd([[
-au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree_1" | set laststatus=0 | else | set laststatus=2 | endif
-]])

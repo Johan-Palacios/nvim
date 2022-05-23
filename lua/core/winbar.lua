@@ -47,9 +47,9 @@ M.gps = function()
     return
   end
 
-  local icons = require "core.tools.icons"
+  local icons = require "core.icons"
 
-  if not gps.is_available() then
+  if not gps.is_available() then -- Returns boolean value indicating whether a output can be provided
     return
   end
 

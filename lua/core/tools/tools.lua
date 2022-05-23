@@ -16,5 +16,3 @@ require "core.tools.luasnip"
 require "core.tools.tmux"
 
 require "core.tools.sesion"
-
-require "core.tools.gps"

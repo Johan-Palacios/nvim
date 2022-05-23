@@ -3,6 +3,7 @@
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 if vim.fn.has "mac" == 0 then
+  -- elseif vim.fn.has "mac" == 1 then
   return {
     kind = {
       Text = "",

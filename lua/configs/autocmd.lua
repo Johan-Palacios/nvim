@@ -21,37 +21,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
     nested = true,
 })
 
--- vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
---   callback = function()
---     local winbar_filetype_exclude = {
---       "help",
---       "startify",
---       "dashboard",
---       "packer",
---       "neogitstatus",
---       "NvimTree",
---       "Trouble",
---       "alpha",
---       "lir",
---       "Outline",
---       "spectre_panel",
---       "toggleterm",
---     }
---
---     if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
---       vim.opt_local.winbar = nil
---       return
---     end
---
---     local value = require("core.tools.winbar").gps()
---
---     if value == nil then
---       value = require("core.tools.winbar").filename()
---     end
---
---     vim.opt_local.winbar = value
---   end,
--- })
 vim.api.nvim_create_autocmd('WinEnter', {
   pattern = '*',
   callback = function()
@@ -72,6 +41,38 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
+  callback = function()
+    local winbar_filetype_exclude = {
+      "help",
+      "startify",
+      "dashboard",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "alpha",
+      "lir",
+      "Outline",
+      "spectre_panel",
+      "toggleterm",
+    }
+
+    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
+      vim.opt_local.winbar = nil
+      return
+    end
+
+    local value = require("core.winbar").gps()
+
+    if value == nil then
+      value = require("core.winbar").filename()
+    end
+
+    vim.opt_local.winbar = value
   end,
 })
 

@@ -8,26 +8,36 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- Disable statusline on ignored filetypes
+-- Disable statusline on ignored filetypes SPEED
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'TelescopePrompt', 'AnotherFileType', 'toggleterm', 'packer'},
+  pattern = { 'TelescopePrompt', 'packer'},
   callback = function()
     vim.opt.laststatus = 0
   end
 })
 
-vim.api.nvim_create_autocmd('BufEnter', {
-    command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
-    nested = true,
-})
-
-vim.api.nvim_create_autocmd('WinEnter', {
-  pattern = '*',
+vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
   callback = function()
-    vim.opt.laststatus = 3
-  end
+    local statusline_wintype_excluded = {
+      "popup",
+    }
+    if vim.tbl_contains(statusline_wintype_excluded, vim.fn.win_gettype()) then
+      vim.opt.laststatus = 0
+    end
+  end,
 })
 
+vim.api.nvim_create_autocmd('BufEnter', {
+  command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
+  nested = true,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinLeave", "WinEnter"}, {
+  pattern = "*",
+  callback = function()
+      vim.opt.laststatus = 3
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
@@ -36,6 +46,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.spell = true
   end,
 })
+
 
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -75,6 +86,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
     vim.opt_local.winbar = value
   end,
 })
+
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()

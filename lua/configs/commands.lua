@@ -42,6 +42,7 @@ keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
+keymap("n", "<Leader>j", ":JABSOpen<cr>", opts)
 
 vim.cmd "silent! command PackerClean lua require 'plugins' require('packer').clean()"
 vim.cmd "silent! command PackerCompile lua require 'plugins' require('packer').compile()"

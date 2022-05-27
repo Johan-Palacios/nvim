@@ -40,6 +40,7 @@ local colors = {
 	newlighbg = "#5B6477",
 	newpurple = "#C678DD",
 	replacecolor = "#E06C75",
+  line ="#1e2127"
 }
 
 local condition = require("galaxyline.condition")
@@ -87,10 +88,10 @@ table.insert(gls.left, {
 			vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
 			return "  ▊"
 		end,
-		separator_highlight = "StatusLineSeparator",
-		-- separator_highlight = {colors.lightbg},
-		highlight = "StatusLineNC",
-		-- highlight = {colors.lightbg}
+    separator_highlight = "StatusLineSeparator",
+    -- separator_highlight = {colors.line, colors.line},
+    highlight = "StatusLineNC",
+    -- highlight = {colors.line, colors.line}
 	},
 })
 
@@ -104,7 +105,7 @@ table.insert(gls.left, {
 		condition = condition.check_git_workspace,
 		separator = "",
 		-- separator_highlight = "StatusLineSeparator",
-		separator_highlight = { colors.lightbg },
+    -- separator_highlight = { colors.lightbg },
 		highlight = { colors.orange, colors.lightbg },
 	},
 })
@@ -121,32 +122,32 @@ table.insert(gls.left, {
 	},
 })
 
-table.insert(gls.left, {
-	FirstElement = {
-		provider = function()
-			return "█"
-		end,
-		highlight = { colors.lightbg, colors.lightbg2 },
-	},
-})
+-- table.insert(gls.left, {
+--   FirstElement = {
+--     provider = function()
+--       return "█"
+--     end,
+--     highlight = { colors.lightbg, colors.lightbg2 },
+--   },
+-- })
 -- 4
-table.insert(gls.left, {
-	FileIcon = {
-		provider = "FileIcon",
-		condition = condition.buffer_not_empty,
-		highlight = { colors.blue, colors.lightbg },
-	},
-})
-
-table.insert(gls.left, {
-	FileName = {
-		provider = { "FileName" },
-		condition = condition.buffer_not_empty,
-		highlight = { colors.white, colors.lightbg },
-		separator = "  ",
-		separator_highlight = { colors.lightbg },
-	},
-})
+-- table.insert(gls.left, {
+--   FileIcon = {
+--     provider = "FileIcon",
+--     condition = condition.buffer_not_empty,
+--     highlight = { colors.blue, colors.lightbg },
+--   },
+-- })
+--
+-- table.insert(gls.left, {
+--   FileName = {
+--     provider = { "FileName" },
+--     condition = condition.buffer_not_empty,
+--     highlight = { colors.white, colors.lightbg },
+--     separator = "  ",
+--     separator_highlight = { colors.lightbg },
+--   },
+-- })
 
 table.insert(gls.left, {
 	DiffAdd = {

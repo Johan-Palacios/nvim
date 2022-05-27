@@ -50,7 +50,7 @@ return packer.startup(function()
   use("lewis6991/impatient.nvim")
   use { "tweekmonster/startuptime.vim" }
   use("nathom/filetype.nvim")
-  use ("github/copilot.vim")
+  use("github/copilot.vim")
   use { "antoinemadec/FixCursorHold.nvim" }
   use { "vim-scripts/restore_view.vim" }
   use("moll/vim-bbye")
@@ -76,7 +76,7 @@ return packer.startup(function()
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = { "BufWinEnter", "BufNewFile" },
+    event = { "BufRead", "BufNewFile"},
     config = "require('core/treesit')"
   }
   use { "nvim-treesitter/playground",
@@ -103,6 +103,10 @@ return packer.startup(function()
       require("pretty-fold.preview").setup()
     end,
   })
+  use {
+    "christianchiarulli/JABS.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+  }
   -- NOTE: TERMUX
   use("benmills/vimux")
   use("christoomey/vim-tmux-navigator")
@@ -151,7 +155,7 @@ return packer.startup(function()
     , event = "BufRead"
   }
   use("ggandor/lightspeed.nvim")
-  use ("anuvyklack/nvim-keymap-amend")
+  use("anuvyklack/nvim-keymap-amend")
   use({
     "folke/which-key.nvim",
     config = "require('core/whichkey')",
@@ -182,7 +186,10 @@ return packer.startup(function()
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
-  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  use { "christianchiarulli/nvim-gps", branch = "text_hl",
+    event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
+    config = "require('core.gps')"
+  }
   use({
     "jose-elias-alvarez/null-ls.nvim",
     config = function()

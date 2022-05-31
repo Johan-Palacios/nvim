@@ -68,7 +68,6 @@ return packer.startup(function()
   use("kyazdani42/nvim-web-devicons")
   use { "lewis6991/gitsigns.nvim" }
   use("nvim-lua/popup.nvim")
-  use { "editorconfig/editorconfig-vim" }
   use { "lukas-reineke/indent-blankline.nvim",
     config = "require('core/tools/indent')",
     event = "BufRead"
@@ -76,7 +75,7 @@ return packer.startup(function()
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = { "BufRead", "BufNewFile"},
+    event = { "BufRead", "BufNewFile", "BufWinEnter"},
     config = "require('core/treesit')"
   }
   use { "nvim-treesitter/playground",
@@ -120,7 +119,8 @@ return packer.startup(function()
     config = "require('core/cosmetics/colorizer')" }
   use("tpope/vim-fugitive")
   use("zivyangll/git-blame.vim")
-  use("sindrets/diffview.nvim")
+  -- Not works
+  -- use("sindrets/diffview.nvim")
   use { "nacro90/numb.nvim" }
   use { "Pocco81/AutoSave.nvim" }
   use { "akinsho/nvim-toggleterm.lua",
@@ -134,6 +134,7 @@ return packer.startup(function()
       require("twilight").setup({})
     end,
   })
+  use {'is0n/jaq-nvim'}
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -186,10 +187,6 @@ return packer.startup(function()
   use("williamboman/nvim-lsp-installer")
   use("tamago324/nlsp-settings.nvim")
   use("jose-elias-alvarez/nvim-lsp-ts-utils")
-  use { "christianchiarulli/nvim-gps", branch = "text_hl",
-    event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
-    config = "require('core.gps')"
-  }
   use({
     "jose-elias-alvarez/null-ls.nvim",
     config = function()
@@ -197,6 +194,11 @@ return packer.startup(function()
     end,
     requires = { "nvim-lua/plenary.nvim" },
   })
+  -- NOTE: WINBAR
+  use { "christianchiarulli/nvim-gps", branch = "text_hl",
+    event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
+    config = "require('core.gps')"
+  }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

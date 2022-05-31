@@ -18,3 +18,5 @@ require "core.tools.tmux"
 require "core.tools.sesion"
 
 require "core.tools.jabs"
+
+require "core.tools.jaq"

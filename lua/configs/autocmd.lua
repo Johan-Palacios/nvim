@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- Disable statusline on ignored filetypes SPEED
+-- NOTE: SPEED
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'TelescopePrompt', 'packer'},
   callback = function()
@@ -27,11 +27,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
   end,
 })
 
+-- NOTE: TREE CUSTOM LINE
 vim.api.nvim_create_autocmd('BufEnter', {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
   nested = true,
 })
 
+-- NOTE: Configuration of 3 statusline
 vim.api.nvim_create_autocmd({ "BufWinLeave", "WinEnter"}, {
   pattern = "*",
   callback = function()
@@ -46,8 +48,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.spell = true
   end,
 })
-
-
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()

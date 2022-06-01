@@ -10,7 +10,7 @@ require("core.telescope")
 
 -- NOTE: tools for nvim
 
-require("core/tools/tools")
+require("core.tools.init")
 
 -- NOTE: Cosmetics
 

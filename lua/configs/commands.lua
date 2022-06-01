@@ -1,25 +1,20 @@
 local keymap = vim.api.nvim_set_keymap
--- For the buffers management
-keymap("n", "<C-s>", ":w<CR>", {})
-keymap("n", "<C-m>", ":x<CR>", {})
-keymap("n", "<C-w>", ":q!<CR>", {})
---terminal
-keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
-keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', {})
-keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', {})
 --Explorer
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
--- keymap("n", "<Leader>q", ":NvimTreeClose<CR>", {})
 --Bufers management
 keymap("n", "<Leader>bd", ":Bdelete<CR>", {})
-keymap("n", "<Leader>bv", ":vsp<CR>", {})
+keymap("n", "<C-s>", ":vsp<CR>", {})
 keymap("n", "<Leader>bh", ":split<CR>", {})
 local opts = {
   noremap = true,
 }
---Management
-keymap("n", "<C-p>", ":bprev<CR>", opts)
-keymap("n", "<C-o>", ":bnext<CR>", opts)
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("v", "<Tab>", ">gv", opts)
 keymap("v", "<S-Tab>", "<gv", opts)
 keymap("v", "<a-j>", ":m .+1<cr>==", { noremap = true, silent = true })
@@ -30,7 +25,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
-
 --Git
 keymap("n", "<Leader>gms", ":<C-u>call gitblame#echo()<CR>", opts)
 keymap("n", "<Leader>gs", ":G", opts)
@@ -41,44 +35,27 @@ keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap("n", "<CR>", "<cmd>FineCmdline<CR>", { noremap = true })
-keymap("n", "<Leader>j", ":JABSOpen<cr>", opts)
+-- keymap("n", "<cr>", "<cmd>FineCmdline<CR>", { noremap = true })
+keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
-
-vim.cmd "silent! command PackerClean lua require 'plugins' require('packer').clean()"
-vim.cmd "silent! command PackerCompile lua require 'plugins' require('packer').compile()"
-vim.cmd "silent! command PackerInstall lua require 'plugins' require('packer').install()"
-vim.cmd "silent! command PackerStatus lua require 'plugins' require('packer').status()"
-vim.cmd "silent! command PackerSync lua require 'plugins' require('packer').sync()"
-vim.cmd "silent! command PackerUpdate lua require 'plugins' require('packer').update()"
+keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition()<CR>", opts)
+keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
+keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
+keymap("n", "<F14>", ":set invpaste paste?<CR>", opts)
+keymap(
+  "n",
+  "<C-p>",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  opts
+)
+-- resize
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- terminal
 vim.cmd([[
-nnoremap <F14> :set invpaste paste?<CR>
-nnoremap <leader>po <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-nnoremap <leader>pi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-nnoremap <leader>pc <cmd>lua require('goto-preview').close_all_win()<CR>
-"------------------ resize --------------------
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <silent> <right> :vertical resize +5<CR>
-nnoremap <silent> <left> :vertical resize -5<CR>
-nnoremap <silent> <up> :vertical resize +5<CR>
-nnoremap <silent> <down> :vertical resize -5<CR>
-vnoremap <c-r> :split<CR>:term<CR>:resize 10<CR>
 tnoremap <Esc> <C-\><C-n>:q!<CR>
-"--------------------MOUSE------------------
-let g:is_mouse_enabled = 1
-noremap <silent> <Leader>m :call ToggleMouse()<CR>
-function ToggleMouse()
-    if g:is_mouse_enabled == 1
-        echo "Mouse OFF"
-        set mouse=
-        let g:is_mouse_enabled = 0
-    else
-        echo "Mouse ON"
-        set mouse=a
-        let g:is_mouse_enabled = 1
-    endif
-endfunction
 ]])
+keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
+keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', {})
+keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', {})

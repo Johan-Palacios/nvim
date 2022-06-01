@@ -75,18 +75,19 @@ return packer.startup(function()
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = { "BufRead", "BufNewFile", "BufWinEnter"},
+    event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = "require('core/treesit')"
   }
   use { "nvim-treesitter/playground",
     after = "nvim-treesitter" }
+  use{ "JoosepAlviste/nvim-ts-context-commentstring" }
   -- NOTE: PROYECT MANAGEMENT
-  use({
-    "VonHeikemen/fine-cmdline.nvim",
-    requires = {
-      { "MunifTanjim/nui.nvim" },
-    },
-  })
+  -- use({
+  --   "VonHeikemen/fine-cmdline.nvim",
+  --   requires = {
+  --     { "MunifTanjim/nui.nvim" },
+  --   },
+  -- })
   use("ahmedkhalf/project.nvim")
   -- NOTE: Insert mode plugins
   use { "andymass/vim-matchup",
@@ -106,11 +107,8 @@ return packer.startup(function()
     "christianchiarulli/JABS.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
   }
-  -- NOTE: TERMUX
-  use("benmills/vimux")
-  use("christoomey/vim-tmux-navigator")
   -- NOTE: TOOLS
-  use("preservim/nerdcommenter")
+  use("numToStr/Comment.nvim")
   use { "nvim-telescope/telescope.nvim" }
   use("AndrewRadev/tagalong.vim")
   use("alvan/vim-closetag")
@@ -134,11 +132,11 @@ return packer.startup(function()
       require("twilight").setup({})
     end,
   })
-  use {'is0n/jaq-nvim'}
+  use { 'is0n/jaq-nvim' }
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
-    config = "require('core/tools/comment')",
+    config = "require('core/tools/info_icons')",
     event = "BufRead"
   })
   use({

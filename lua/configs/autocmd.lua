@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
   end,
 })
 
+vim.cmd "let g:matchup_matchparen_offscreen = {}"
+
 -- NOTE: TREE CUSTOM LINE
 vim.api.nvim_create_autocmd('BufEnter', {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
@@ -59,16 +61,11 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
   callback = function()
     local winbar_filetype_exclude = {
       "help",
-      "startify",
-      "dashboard",
       "packer",
-      "neogitstatus",
       "NvimTree",
       "Trouble",
       "alpha",
-      "lir",
       "Outline",
-      "spectre_panel",
       "toggleterm",
     }
 

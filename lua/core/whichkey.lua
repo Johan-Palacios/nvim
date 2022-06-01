@@ -16,9 +16,9 @@ require("which-key").setup({
 			g = true,
 		},
 	},
-	operators = {
-		gc = "Comments",
-	},
+	-- operators = {
+	-- 	gc = "Comments",
+	-- },
 	key_labels = {
 		["<space>"] = "SPC",
 		["<cr>"] = "RET",
@@ -80,30 +80,8 @@ wk.register({
 	n = {
 		name = "Clean Search ",
 	},
-	m = {
-		name = "Mouse Enable/Disable ",
-	},
 	e = {
 		name = "Explorer פּ",
-	},
-	c = {
-		name = "Comment ",
-    ["$"] = { "<cmd><Plug>NERDCommenterToEOL<cr>", "NERDCommenterToEOL" },
-    ["<space>"] = {
-      "<cmd><Plug>NERDCommenterToggle<cr>",
-      "NERDCommenterToggle",
-    },
-    A = { "<cmd><Plug>NERDCommenterAppend<cr>", "NERDCommenterAppend" },
-    a = { "<cmd><Plug>NERDCommenterAltDelims<cr>", "NERDCommenterAltDelims" },
-    b = { "<cmd><Plug>NERDCommenterAlignBoth<cr>", "NERDCommenterAlignBoth" },
-    c = { "<cmd><Plug>NERDCommenterComment<cr>", "NERDCommenterComment" },
-    i = { "<cmd><Plug>NERDCommenterInvert<cr>", "NERDCommenterInvert" },
-    l = { "<cmd><Plug>NERDCommenterAlignLeft<cr>", "NERDCommenterAlignLeft" },
-    m = { "<cmd><Plug>NERDCommenterMinimal<cr>", "NERDCommenterMinimal" },
-    n = { "<cmd><Plug>NERDCommenterNested<cr>", "NERDCommenterNested" },
-    s = { "<cmd><Plug>NERDCommenterSexy<cr>", "NERDCommenterMinimal" },
-    u = { "<cmd><Plug>NERDCommenterUncomment<cr>", "NERDCommenterUncomment" },
-    y = { "<cmd><Plug>NERDCommenterYank<cr>", "NERDCommenterYank" },
 	},
 	t = {
 		name = "Terminal ",

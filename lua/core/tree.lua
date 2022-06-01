@@ -3,8 +3,6 @@ if not status_ok then
   return
 end
 
--- tree.setup()
-
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 tree.setup({

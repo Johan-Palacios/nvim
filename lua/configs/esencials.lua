@@ -20,14 +20,7 @@ vim.wo.rnu = true
 vim.bo.autoindent = true
 vim.bo.spelllang = "en"
 vim.bo.ma = true
---Leaders
-vim.g.mapleader = " "
-vim.g.maplocalleader = "//"
-vim.g.did_load_filetypes = 1
---Others
-vim.cmd([[
-let g:cursorhold_updatetime = 100
-]])
+
 local options = {
 	backup = false,
   foldmethod = "manual",
@@ -68,6 +61,10 @@ local options = {
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.mapleader = " "
+vim.g.maplocalleader = "//"
+vim.g.cursorhold_updatetime = 100
+vim.g.did_load_filetypes = 1
 vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
@@ -78,9 +75,9 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]])
 
-if vim.fn.has("win32") then
+if vim.fn.has("wsl") == 1 then
   vim.cmd([[
-  let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'
   if executable(s:clip)
       augroup WSLYank
           autocmd!

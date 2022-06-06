@@ -32,7 +32,7 @@ keymap("n", "<Leader>gi", ":diffget //2<CR>", opts)
 keymap("n", "<Leader>gd", ":diffget //3<CR>", opts)
 --Telescope
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<Leader>fw", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 -- keymap("n", "<cr>", "<cmd>FineCmdline<CR>", { noremap = true })

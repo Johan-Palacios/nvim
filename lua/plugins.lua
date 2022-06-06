@@ -50,7 +50,6 @@ return packer.startup(function()
   use("lewis6991/impatient.nvim")
   use { "tweekmonster/startuptime.vim" }
   use("nathom/filetype.nvim")
-  use("github/copilot.vim")
   use { "antoinemadec/FixCursorHold.nvim" }
   use { "vim-scripts/restore_view.vim" }
   use("moll/vim-bbye")
@@ -80,7 +79,7 @@ return packer.startup(function()
   }
   use { "nvim-treesitter/playground",
     after = "nvim-treesitter" }
-  use{ "JoosepAlviste/nvim-ts-context-commentstring" }
+  use { "JoosepAlviste/nvim-ts-context-commentstring" }
   -- NOTE: PROYECT MANAGEMENT
   -- use({
   --   "VonHeikemen/fine-cmdline.nvim",

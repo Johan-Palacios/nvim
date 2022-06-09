@@ -6,7 +6,6 @@ end
 local colors = {
 	white = "#abb2bf",
 	bg = "#2E2E2E",
-	-- bg = '#292D38',
 	yellow = "#DCDCAA",
 	dark_yellow = "#D7BA7D",
 	cyan = "#4EC9B0",
@@ -26,10 +25,7 @@ local colors = {
 	info_yellow = "#FFCC66",
 	nord_blue = "#81A1C1",
 	statusline_bg = "#22262e",
-	-- lightbg = "#2d3139",
 	lightbg = "#21242B",
-	-- lightbg2 = "#262a32",
-	-- lightbg2 = "#282C34",
 	lightbg2 = "#24272F",
 	violet = "#8A2BE2",
 	darkblue = "#00008B",
@@ -73,7 +69,6 @@ table.insert(gls.left, {
 				no = colors.blue,
 				s = colors.orange,
 				S = colors.orange,
-				-- [""] = colors.orange,
 				ic = colors.yellow,
 				R = colors.red,
 				Rv = colors.red,
@@ -235,14 +230,12 @@ table.insert(gls.right, {
 		provider = "DiagnosticError",
 		icon = "  ",
 		highlight = { colors.error_red },
-		-- highlight = {colors.red, colors.statusline_bg}
 	},
 })
 table.insert(gls.right, {
 	DiagnosticWarn = {
 		provider = "DiagnosticWarn",
 		icon = "  ",
-		-- highlight = {colors.yellow, colors.statusline_bg}
 		highlight = { colors.newyellow },
 	},
 })

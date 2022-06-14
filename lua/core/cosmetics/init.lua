@@ -1,5 +1,3 @@
-require "core.cosmetics.carbon"
-
 require "core.cosmetics.comments"
 
 require "core.cosmetics.notify"

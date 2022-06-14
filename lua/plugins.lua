@@ -178,6 +178,7 @@ return packer.startup(function()
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-nvim-lua")
   use("f3fora/cmp-spell")
+  use { "hrsh7th/cmp-nvim-lsp-signature-help" }
   use("neovim/nvim-lspconfig")
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")

@@ -16,3 +16,4 @@ require("core.tools.init")
 
 require("core.cosmetics.init")
 
+-- require("core.navic")

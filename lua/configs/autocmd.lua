@@ -1,3 +1,4 @@
+local navic = require("nvim-navic")
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
   callback = function()

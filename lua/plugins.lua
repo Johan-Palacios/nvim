@@ -56,11 +56,18 @@ return packer.startup(function()
   -- NOTE: STYLE PLUGIND
   use { "goolord/alpha-nvim",
     config = "require('core/cosmetics/alpha')" }
-  use { "NTBBloodbath/galaxyline.nvim",
+  use { "glepnir/galaxyline.nvim",
+    branch = 'main',
     event = "BufWinEnter",
-    config = "require('line/init')" }
+    config = function()
+      require('line.init')
+    end,
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  }
   use { "joshdick/onedark.vim",
-    config = "vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')" }
+    config = function()
+      vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')
+    end }
   use { "akinsho/bufferline.nvim",
     config = "require('core/tools/barbar')",
     event = "BufWinEnter" }
@@ -75,7 +82,9 @@ return packer.startup(function()
   use { "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     event = { "BufRead", "BufNewFile", "BufWinEnter" },
-    config = "require('core/treesit')"
+    config = function()
+      require('core.treesit')
+    end
   }
   use { "nvim-treesitter/playground",
     after = "nvim-treesitter" }
@@ -113,7 +122,9 @@ return packer.startup(function()
   use("alvan/vim-closetag")
   use { "norcalli/nvim-colorizer.lua",
     event = "BufRead",
-    config = "require('core/cosmetics/colorizer')" }
+    config = function()
+      require("core.cosmetics.colorizer")
+    end }
   use("tpope/vim-fugitive")
   use("zivyangll/git-blame.vim")
   -- Not works
@@ -121,7 +132,9 @@ return packer.startup(function()
   use { "nacro90/numb.nvim" }
   use { "Pocco81/AutoSave.nvim" }
   use { "akinsho/nvim-toggleterm.lua",
-    config = "require('core/terminal')" }
+    config = function()
+      require('core.terminal')
+    end }
   use("rhysd/git-messenger.vim")
   use("karb94/neoscroll.nvim")
   use { "simrat39/symbols-outline.nvim" }
@@ -156,13 +169,17 @@ return packer.startup(function()
   use("anuvyklack/nvim-keymap-amend")
   use({
     "folke/which-key.nvim",
-    config = "require('core/whichkey')",
+    config = function ()
+      require('core.whichkey')
+    end,
     event = "BufWinEnter"
   })
   use({
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
-    config = "require('core/tree')"
+    config = function ()
+     require('core.tree')
+    end
   })
   use({
     "folke/zen-mode.nvim",
@@ -195,8 +212,14 @@ return packer.startup(function()
   -- NOTE: WINBAR
   use { "christianchiarulli/nvim-gps", branch = "text_hl",
     event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
-    config = "require('core.gps')"
+    config = function ()
+     require('core.gps')
+    end
   }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+}
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

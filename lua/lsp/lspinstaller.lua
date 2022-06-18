@@ -11,6 +11,7 @@ lsp_installer.setup {
 	ensure_installed = servers
 }
 
+
 for _, server in pairs(servers) do
 	local opts = {
 		on_attach = require("lsp.handler").on_attach,

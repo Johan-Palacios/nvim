@@ -84,11 +84,11 @@ return packer.startup(function()
   }
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
     event = { "BufRead", "BufNewFile", "BufWinEnter"},
+    commit = "518e27589c0463af15463c9d675c65e464efc2fe",
     config = function()
       require('core.treesit')
-    end
+    end,
   }
   use { "nvim-treesitter/playground",
     after = "nvim-treesitter" }

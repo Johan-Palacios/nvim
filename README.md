@@ -71,7 +71,7 @@ You can create that with this command in $HOME
 
 
 And for the lua plugins use
-`:PackerUpdateSync`
+`:PackerSync`
 
 ![image](https://user-images.githubusercontent.com/77251405/174420755-c3769524-b3e1-4a46-afb6-5a72443b0641.png)
 That's is up, you can use neovim
@@ -115,7 +115,7 @@ Esta configuración tiene :
 Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio cambiandole el nombre a la carpeta a nvim
 
 Para instalar los plugins usa:
-`:PackerUpdateSync`
+`:PackerSync`
 
 ![image](https://user-images.githubusercontent.com/77251405/174420755-c3769524-b3e1-4a46-afb6-5a72443b0641.png)
 

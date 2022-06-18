@@ -15,5 +15,3 @@ require("core.tools.init")
 -- NOTE: Cosmetics
 
 require("core.cosmetics.init")
-
--- require("core.navic")

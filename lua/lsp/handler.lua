@@ -1,5 +1,5 @@
 local M = {}
-local navic = require("nvim-navic")
+-- local navic = require("nvim-navic")
 
 -- TODO: backfill this to template
 M.setup = function()
@@ -93,9 +93,9 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
-  navic.attach(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  -- navic.attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

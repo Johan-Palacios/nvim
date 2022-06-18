@@ -1,4 +1,3 @@
-local navic = require("nvim-navic")
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
   callback = function()
@@ -11,13 +10,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- NOTE: SPEED
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'TelescopePrompt', 'packer'},
+  pattern = { 'TelescopePrompt', 'packer' },
   callback = function()
     vim.opt.laststatus = 0
   end
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     local statusline_wintype_excluded = {
       "popup",
@@ -37,10 +36,10 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 -- NOTE: Configuration of 3 statusline
-vim.api.nvim_create_autocmd({ "BufWinLeave", "WinEnter"}, {
+vim.api.nvim_create_autocmd({ "BufWinLeave", "WinEnter" }, {
   pattern = "*",
   callback = function()
-      vim.opt.laststatus = 3
+    vim.opt.laststatus = 3
   end,
 })
 
@@ -58,33 +57,11 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
+vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }, {
   callback = function()
-    local winbar_filetype_exclude = {
-      "help",
-      "packer",
-      "NvimTree",
-      "Trouble",
-      "alpha",
-      "Outline",
-      "toggleterm",
-    }
-
-    if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
-      vim.opt_local.winbar = nil
-      return
-    end
-
-    local value = require("core.winbar").gps()
-
-    if value == nil then
-      value = require("core.winbar").filename()
-    end
-
-    vim.opt_local.winbar = value
+    require("core.winbar").get_winbar()
   end,
 })
-
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()

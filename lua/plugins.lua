@@ -49,10 +49,10 @@ return packer.startup(function()
   use("wbthomason/packer.nvim")
   use("lewis6991/impatient.nvim")
   use { "tweekmonster/startuptime.vim" }
-  use("nathom/filetype.nvim")
+  use { "nathom/filetype.nvim" }
   use { "antoinemadec/FixCursorHold.nvim" }
   use { "vim-scripts/restore_view.vim" }
-  use("moll/vim-bbye")
+  use { "moll/vim-bbye" }
   -- NOTE: STYLE PLUGIND
   use { "goolord/alpha-nvim",
     config = "require('core/cosmetics/alpha')" }
@@ -69,19 +69,23 @@ return packer.startup(function()
       vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')
     end }
   use { "akinsho/bufferline.nvim",
-    config = "require('core/tools/barbar')",
+    config = function()
+      require("core.tools.barbar")
+    end,
     event = "BufWinEnter" }
   use("kyazdani42/nvim-web-devicons")
   use { "lewis6991/gitsigns.nvim" }
   use("nvim-lua/popup.nvim")
   use { "lukas-reineke/indent-blankline.nvim",
-    config = "require('core/tools/indent')",
+    config = function()
+      require("core.tools.indent")
+    end,
     event = "BufRead"
   }
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = { "BufRead", "BufNewFile", "BufWinEnter" },
+    event = { "BufRead", "BufNewFile", "BufWinEnter"},
     config = function()
       require('core.treesit')
     end
@@ -89,6 +93,7 @@ return packer.startup(function()
   use { "nvim-treesitter/playground",
     after = "nvim-treesitter" }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
+  -- use { "romgrk/nvim-treesitter-context" }
   -- NOTE: PROYECT MANAGEMENT
   -- use({
   --   "VonHeikemen/fine-cmdline.nvim",
@@ -96,7 +101,7 @@ return packer.startup(function()
   --     { "MunifTanjim/nui.nvim" },
   --   },
   -- })
-  use("ahmedkhalf/project.nvim")
+  use { "ahmedkhalf/project.nvim" }
   -- NOTE: Insert mode plugins
   use { "andymass/vim-matchup",
     event = "BufRead", opt = true }
@@ -104,13 +109,13 @@ return packer.startup(function()
   use("nvim-lua/plenary.nvim")
   use { "windwp/nvim-autopairs" }
   use { "tpope/vim-surround" }
-  use({
+  use {
     "anuvyklack/pretty-fold.nvim",
     config = function()
       require("pretty-fold").setup({})
       require("pretty-fold.preview").setup()
     end,
-  })
+  }
   use {
     "christianchiarulli/JABS.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
@@ -148,8 +153,10 @@ return packer.startup(function()
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
-    config = "require('core/tools/info_icons')",
-    event = "BufRead"
+    config = function()
+      require("core.tools.info_icons")
+    end,
+    event = { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" }
   })
   use({
     "folke/trouble.nvim",
@@ -163,13 +170,12 @@ return packer.startup(function()
     config = function()
       require('goto-preview').setup {}
     end
-    , event = "BufRead"
   }
   use("ggandor/lightspeed.nvim")
   use("anuvyklack/nvim-keymap-amend")
   use({
     "folke/which-key.nvim",
-    config = function ()
+    config = function()
       require('core.whichkey')
     end,
     event = "BufWinEnter"
@@ -177,8 +183,8 @@ return packer.startup(function()
   use({
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function ()
-     require('core.tree')
+    config = function()
+      require('core.tree')
     end
   })
   use({
@@ -197,6 +203,7 @@ return packer.startup(function()
   use("f3fora/cmp-spell")
   use { "hrsh7th/cmp-nvim-lsp-signature-help" }
   use("neovim/nvim-lspconfig")
+  -- NOTE: Snippets
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
   use("williamboman/nvim-lsp-installer")
@@ -211,15 +218,11 @@ return packer.startup(function()
   })
   -- NOTE: WINBAR
   use { "christianchiarulli/nvim-gps", branch = "text_hl",
-    event = { "CursorMoved", "BufWinEnter", "BufFilePost" },
-    config = function ()
-     require('core.gps')
+    event = { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
+    config = function()
+      require('core.gps')
     end
   }
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-}
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

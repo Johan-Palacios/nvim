@@ -84,8 +84,7 @@ return packer.startup(function()
   }
   use { "rcarriga/nvim-notify" }
   use { "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile", "BufWinEnter"},
-    commit = "518e27589c0463af15463c9d675c65e464efc2fe",
+    event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = function()
       require('core.treesit')
     end,
@@ -201,8 +200,10 @@ return packer.startup(function()
   use("hrsh7th/cmp-path")
   use("hrsh7th/cmp-nvim-lua")
   use("f3fora/cmp-spell")
-  use { "hrsh7th/cmp-nvim-lsp-signature-help" }
   use("neovim/nvim-lspconfig")
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
   -- NOTE: Snippets
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")

@@ -35,27 +35,28 @@ keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fw", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
--- keymap("n", "<cr>", "<cmd>FineCmdline<CR>", { noremap = true })
-keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
-keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
-keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition()<CR>", opts)
-keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
-keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
-keymap("n", "<F14>", ":set invpaste paste?<CR>", opts)
 keymap(
   "n",
   "<C-p>",
   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
   opts
 )
--- resize
+--Jabs
+keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
+-- Jaq
+keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
+-- Go to preview
+keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition()<CR>", opts)
+keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
+keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
+-- Smart Paste
+keymap("n", "<F14>", ":set invpaste paste?<CR>", opts)
+-- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
--- terminal
-vim.cmd([[
-tnoremap <Esc> <C-\><C-n>:q!<CR>
-]])
+-- Terminal
+keymap("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {})
 keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
 keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', {})
 keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', {})

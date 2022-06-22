@@ -94,12 +94,6 @@ return packer.startup(function()
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
   -- use { "romgrk/nvim-treesitter-context" }
   -- NOTE: PROYECT MANAGEMENT
-  -- use({
-  --   "VonHeikemen/fine-cmdline.nvim",
-  --   requires = {
-  --     { "MunifTanjim/nui.nvim" },
-  --   },
-  -- })
   use { "ahmedkhalf/project.nvim" }
   -- NOTE: Insert mode plugins
   use { "andymass/vim-matchup",

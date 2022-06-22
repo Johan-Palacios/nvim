@@ -9,14 +9,13 @@ vim.o.background = "dark"
 vim.o.write = true
 vim.o.scrolljump = -3
 vim.o.fillchars = "eob: "
---Window Local
+-- --Window Local
 vim.wo.fdm = "indent"
-vim.wo.number = true
 vim.wo.cursorline = true
 vim.wo.wrap = false
 vim.wo.colorcolumn = "120"
 vim.wo.rnu = true
--- Buffer Local
+-- -- Buffer Local
 vim.bo.autoindent = true
 vim.bo.spelllang = "en"
 vim.bo.ma = true

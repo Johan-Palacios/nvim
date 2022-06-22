@@ -16,31 +16,26 @@ endif
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
+" Set up config
 set t_Co=256
 colorscheme onedark
-highlight pmenu ctermbg=DarkGray guibg=onedark
-highlight Search guibg='DarkGray' guifg='Black'
+" NvimTree colors
 " hi foldcolumn guibg=#21242b
 " hi VertSplit guibg=#21242b guifg=#21242b
 " hi NvimTreeNormal guibg=#21242b
-"Colors menu
-" gray
+"cmp color menu and winbar
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-" blue
 highlight! CmpItemAbbrMatch guibg=NONE guifg=#61AFEF
 highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#61AFEF
-" light blue
 highlight! CmpItemKindVariable guibg=NONE guifg=#56b6c2
 highlight! CmpItemKindInterface guibg=NONE guifg=#e06c75
 highlight! CmpItemKindText guibg=NONE guifg=#98c379
-" pink
 highlight! CmpItemKindFunction guibg=NONE guifg=#C678DD
 highlight! CmpItemKindMethod guibg=NONE guifg=#e06c75
-" " front
 highlight! CmpItemKindKeyword guibg=NONE guifg=#e5c07b
 highlight! CmpItemKindProperty guibg=NONE guifg=#61AFEF
 highlight! CmpItemKindUnit guibg=NONE guifg=#abb2bf
-
-
 highlight CmpItemKindSnippet guibg=NONE guifg=#e06c75
-" syntax on
+" Menu highlight
+highlight pmenu ctermbg=DarkGray guibg=onedark
+highlight Search guibg='DarkGray' guifg='Black'

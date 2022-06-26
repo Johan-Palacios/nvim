@@ -45,7 +45,6 @@ local options = {
 	updatetime = 200,
 	writebackup = false,
 	expandtab = true,
-  laststatus = 3,
 	shiftwidth = 2,
 	tabstop = 2,
 	cursorline = true,
@@ -56,6 +55,7 @@ local options = {
 	wrap = false,
 	scrolloff = 9,
 	sidescrolloff = 8,
+  laststatus = 3,
 }
 
 vim.g.loaded_netrw = 1

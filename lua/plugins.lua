@@ -56,13 +56,17 @@ return packer.startup(function()
   -- NOTE: STYLE PLUGIND
   use { "goolord/alpha-nvim",
     config = "require('core/cosmetics/alpha')" }
-  use { "glepnir/galaxyline.nvim",
-    branch = 'main',
-    event = "BufWinEnter",
-    config = function()
-      require('line.init')
-    end,
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  -- use { "glepnir/galaxyline.nvim",
+  --   branch = 'main',
+  --   event = "BufWinEnter",
+  --   config = function()
+  --     require('line.init')
+  --   end,
+  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  -- }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use { "joshdick/onedark.vim",
     config = function()

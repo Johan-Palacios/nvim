@@ -13,3 +13,4 @@ require("configs.commands")
 
 require("configs.autocmd")
 
+require("line.lualine")

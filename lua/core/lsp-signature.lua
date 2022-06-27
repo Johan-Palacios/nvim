@@ -22,7 +22,7 @@ local cfg = {
   max_height = 12,
   max_width = 120,
   handler_opts = {
-    border = "rounded", -- double, rounded, single, shadow, none
+    border = "rounded",
   },
   always_trigger = false,
   auto_close_after = nil,

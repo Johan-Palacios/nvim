@@ -11,15 +11,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path,
   })
   print("Installing packer close and reopen Neovim...")
+  print("Instalando packer y reabriendo Neovim")
   vim.cmd([[packadd packer.nvim]])
 end
-
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -56,14 +50,6 @@ return packer.startup(function()
   -- NOTE: STYLE PLUGIND
   use { "goolord/alpha-nvim",
     config = "require('core/cosmetics/alpha')" }
-  -- use { "glepnir/galaxyline.nvim",
-  --   branch = 'main',
-  --   event = "BufWinEnter",
-  --   config = function()
-  --     require('line.init')
-  --   end,
-  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-  -- }
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }

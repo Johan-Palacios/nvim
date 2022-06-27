@@ -25,7 +25,6 @@ telescope.setup({
 			"--smart-case",
 			"--hidden",
 		},
-    -- borderchars = { "", "│", "", "│", "╭", "╮", "╯", "╰" },
 		prompt_prefix = "❯ ",
 		selection_caret = "❯ ",
 		sorting_strategy = "ascending",

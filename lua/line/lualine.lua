@@ -25,6 +25,7 @@ local colors = {
   info_yellow = "#FFCC66",
   statusline_bg = "#22262e",
   lightbg = "#21242B",
+  git = "#FF8800",
   lightbg2 = "#24272F",
   violet = "#8A2BE2",
   darkblue = "#00008B",
@@ -35,6 +36,9 @@ local colors = {
   newlighbg = "#5B6477",
   newpurple = "#C678DD",
   replacecolor = "#E06C75",
+  status_text = "#4e545f",
+  branch_name = "#a4abb7",
+  branch_cover = "#21242B",
   line = "#1e2127"
 }
 
@@ -46,11 +50,10 @@ local onedark_theme = {
   }
 }
 
-vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#FF8800", bg = "#1e2127" })
-vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#a4abb7", bg = "#21242B", bold = false })
-vim.api.nvim_set_hl(0, "SLProgress", { fg = "#569CD6", bg = "#1e2127" })
-vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#569CD6", bg = "#1e2127" })
-vim.api.nvim_set_hl(0, "SLSeparator", { fg = "#1e2127", bg = "#252525" })
+vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.line })
+vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.branch_cover, bold = false })
+vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.line })
+vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.blue, bg =  colors.branch_cover})
 
 local mode_color = {
   n = "#569cd6",
@@ -99,10 +102,8 @@ local diagnostics = {
   sections = { "error", "warn" },
   symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
   colored = true,
-  color = { bg = "#1e2127" },
+  color = { bg = colors.line },
   update_in_insert = false,
-  -- always_visible = true,
-
 }
 
 local diff = {
@@ -110,15 +111,13 @@ local diff = {
   colored = true,
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
   cond = hide_in_width,
-  color = { bg = "#1e2127" },
-  separator = "%#SLSeparator#" .. "│ " .. "%*",
+  color = { bg = colors.line },
 }
 
 local filetype = {
   "filetype",
   icons_enabled = true,
-  color = { bg = "#1e2127", fg = "#4e545f" },
-  -- icon = nil,
+  color = { bg = colors.line, fg = colors.status_text },
 }
 
 local branch = {
@@ -153,7 +152,7 @@ local spaces = {
 local location = {
   "location",
   color = function()
-    return { bg = "#1e2127", fg = "#4e545f" }
+    return { bg = colors.line, fg = colors.status_text }
   end,
 }
 

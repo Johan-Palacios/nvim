@@ -16,9 +16,6 @@ require("which-key").setup({
       g = true,
     },
   },
-  -- operators = {
-  -- 	gc = "Comments",
-  -- },
   key_labels = {
     ["<space>"] = "SPC",
     ["<cr>"] = "RET",

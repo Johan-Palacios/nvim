@@ -73,6 +73,11 @@ return packer.startup(function()
     event = "BufRead"
   }
   use { "rcarriga/nvim-notify" }
+  use { "mfussenegger/nvim-dap" }
+  use { "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap" }
+  use { "ravenxrz/DAPInstall.nvim" }
+
   use { "nvim-treesitter/nvim-treesitter",
     event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = function()
@@ -155,6 +160,7 @@ return packer.startup(function()
     end
   }
   use("ggandor/lightspeed.nvim")
+  use { "RRethy/vim-illuminate" }
   use("anuvyklack/nvim-keymap-amend")
   use({
     "folke/which-key.nvim",
@@ -208,6 +214,8 @@ return packer.startup(function()
       require('core.gps')
     end
   }
+  -- Custom programing languages
+  use { 'simrat39/rust-tools.nvim' }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

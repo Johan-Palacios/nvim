@@ -1,20 +1,22 @@
 local keymap = vim.api.nvim_set_keymap
+local opts = {
+  noremap = true,
+}
 --Explorer
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
 --Bufers management
 keymap("n", "<Leader>bd", ":Bdelete<CR>", {})
 keymap("n", "<C-s>", ":vsp<CR>", {})
 keymap("n", "<Leader>bh", ":split<CR>", {})
-local opts = {
-  noremap = true,
-}
+keymap("n", "<C-k>", "<C-w>k", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Movements
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+-- It works
 keymap("v", "<Tab>", ">gv", opts)
 keymap("v", "<S-Tab>", "<gv", opts)
 keymap("v", "<a-j>", ":m .+1<cr>==", { noremap = true, silent = true })
@@ -50,7 +52,18 @@ keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition(
 keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
 keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
 -- Smart Paste
-keymap("n", "<F14>", ":set invpaste paste?<CR>", opts)
+keymap("n", "<Leader>do", ":lua require('dapui').open()<CR>", opts)
+-- Dap
+-- DAP
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -60,3 +73,19 @@ keymap("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {})
 keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
 keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', {})
 keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', {})
+M = {}
+M.show_documentation = function()
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ "vim", "help" }, filetype) then
+    vim.cmd("h " .. vim.fn.expand "<cword>")
+  elseif vim.tbl_contains({ "man" }, filetype) then
+    vim.cmd("Man " .. vim.fn.expand "<cword>")
+  elseif vim.fn.expand "%:t" == "Cargo.toml" then
+    require("crates").show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>", opts)
+
+return M

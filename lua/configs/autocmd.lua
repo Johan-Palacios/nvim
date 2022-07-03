@@ -8,25 +8,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- NOTE: SPEED
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { 'TelescopePrompt', 'packer' },
---   callback = function()
---     vim.opt.laststatus = 0
---   end
--- })
-
--- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
---   callback = function()
---     local statusline_wintype_excluded = {
---       "popup",
---     }
---     if vim.tbl_contains(statusline_wintype_excluded, vim.fn.win_gettype()) then
---       vim.opt.laststatus = 0
---     end
---   end,
--- })
-
 -- Disable winbar of matchup
 vim.cmd "let g:matchup_matchparen_offscreen = {}"
 
@@ -34,8 +15,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
   nested = true,
 })
-
--- vim.opt.laststatus = 3
 
 -- NOTE: Configuration of 3 statusline
 vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
@@ -85,5 +64,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
     vim.cmd "hi link illuminatedWord LspReferenceText"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.java", "*.cpp", "*.c"},
+  callback = function()
+    vim.lsp.codelens.refresh()
   end,
 })

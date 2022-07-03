@@ -8,7 +8,7 @@
   </p>
 </p>
 
-# Neovim Configuration  for Windows Subsystem Linux (WLS)
+# Neovim Configuration  for Windows Subsystem Linux (WSL)
 
 ## Preview / Pre-visualización 🕹️
 
@@ -36,7 +36,7 @@ This configuration have:
 
 - One dark Theme
 - Easy move in buffers
-- Smoth scroll
+- Smooth scroll
 - File navigation with nvim-tree.lua
 - Managing tabs, buffers with bufferline.nvim
 - Great icons provided by nvim-web-devicons
@@ -71,9 +71,11 @@ You can create that with this command in $HOME
 
 
 And for the lua plugins use
+
 `:PackerSync`
 
 ![image](https://user-images.githubusercontent.com/77251405/174420755-c3769524-b3e1-4a46-afb6-5a72443b0641.png)
+
 That's is up, you can use neovim
 
 ## Español 🇪🇸
@@ -81,8 +83,10 @@ That's is up, you can use neovim
 ### Comenzando 🚀
 
 Esta configuración tiene :
+
 - Autocompletado con LSP Nativo
-        - Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
+
+  - Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
 		
 ## Plugins
 
@@ -123,4 +127,4 @@ Luego de esto puedes disfrutar de tu Neovim
 
 ## Autor ✒️
 
-* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios)
+* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios

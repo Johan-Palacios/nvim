@@ -13,6 +13,7 @@ local schemas = {
     },
     url = "https://json.schemastore.org/tsconfig.json",
   },
+
   {
     description = "Lerna config",
     fileMatch = { "lerna.json" },

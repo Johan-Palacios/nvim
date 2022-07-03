@@ -10,3 +10,6 @@ require("lsp.null")
 -- NOTE: Colores en pupup y en menu de autocompletado
 vim.cmd([[autocmd ColorScheme * highlight NormalFloat guibg=#1E2127]])
 vim.cmd([[autocmd ColorScheme * highlight FloatBorder guibg=#1E2127]])
+vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]

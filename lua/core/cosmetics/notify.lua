@@ -7,8 +7,6 @@ noty.setup({
   background_colour = "#1E2127",
 	timeout = 1000,
 	stages = "fade",
-	-- on_open = nil,
-  -- on_close = nil,
 	render = "default",
 	icons = {
 		ERROR = "",

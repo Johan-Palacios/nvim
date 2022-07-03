@@ -5,6 +5,7 @@ return {
     Function = " ",
     Constructor = " ",
     Field = " ",
+    Variable = " ",
     Class = " ",
     Interface = " ",
     Module = " ",

@@ -16,7 +16,6 @@ endif
 let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
-" Set up config
 set t_Co=256
 colorscheme onedark
 " NvimTree colors
@@ -25,9 +24,9 @@ colorscheme onedark
 " hi NvimTreeNormal guibg=#21242b
 "cmp color menu and winbar
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#61AFEF
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#61AFEF
-highlight! CmpItemKindVariable guibg=NONE guifg=#56b6c2
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#61AFEF "Color in bar
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#55b6c2
+highlight! CmpItemKindVariable guibg=NONE guifg=#BA99F6
 highlight! CmpItemKindInterface guibg=NONE guifg=#e06c75
 highlight! CmpItemKindText guibg=NONE guifg=#98c379
 highlight! CmpItemKindFunction guibg=NONE guifg=#C678DD
@@ -40,3 +39,4 @@ highlight CmpItemKindSnippet guibg=NONE guifg=#e06c75
 highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
 hi StatusLine guibg=NONE
+hi LspCodeLens guibg=NONE guifg=#434953

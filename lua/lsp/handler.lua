@@ -1,7 +1,5 @@
 local M = {}
--- local navic = require("nvim-navic")
 
--- TODO: backfill this to template
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -47,18 +45,15 @@ M.setup = function()
     } })
 end
 
-local function illuminate(client)
-  -- if client.server_capabilities.document_highlight then
+local function illuminate_h(client)
   local status_ok, illuminate = pcall(require, "illuminate")
   if not status_ok then
     return
   end
   illuminate.on_attach(client)
-  -- end
 end
 
 local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
@@ -99,11 +94,12 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
-  illuminate(client)
+  illuminate_h(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -114,5 +110,8 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 
 return M

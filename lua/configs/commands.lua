@@ -1,11 +1,12 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = {
   noremap = true,
+  silent = true
 }
 --Explorer
-keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", {})
+keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 --Bufers management
-keymap("n", "<Leader>bd", ":Bdelete<CR>", {})
+keymap("n", "<Leader>bd", ":Bdelete<CR>", opts)
 keymap("n", "<C-s>", ":vsp<CR>", {})
 keymap("n", "<Leader>bh", ":split<CR>", {})
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -19,13 +20,13 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- It works
 keymap("v", "<Tab>", ">gv", opts)
 keymap("v", "<S-Tab>", "<gv", opts)
-keymap("v", "<a-j>", ":m .+1<cr>==", { noremap = true, silent = true })
-keymap("v", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
-keymap("v", "p", '"_dP', { noremap = true, silent = true })
-keymap("x", "J", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
-keymap("x", "K", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", { noremap = true, silent = true })
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true, silent = true })
+keymap("v", "<a-j>", ":m .+1<cr>==", opts)
+keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "p", '"_dP', opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
 --Git
 keymap("n", "<Leader>gms", ":<C-u>call gitblame#echo()<CR>", opts)
@@ -69,10 +70,10 @@ keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Terminal
-keymap("t", "<Esc>", "<C-\\><C-n>:q!<CR>", {})
+keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
-keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', {})
-keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', {})
+keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', opts)
+keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', opts)
 M = {}
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -86,6 +87,7 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
-vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>", { noremap = true, silent = true})
 
 return M

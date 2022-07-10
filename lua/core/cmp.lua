@@ -11,11 +11,13 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
-  local col = vim.fn.col(".") - 1
-  return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
 local icons = require("core.icons")
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6cc644" })
 
 local kind_icons = icons.kind
 
@@ -27,7 +29,13 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+
+      vim_item.kind = kind_icons[vim_item.kind]
+
+      if entry.source.name == "copilot" then
+        vim_item.kind = icons.git.Octoface
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      end
       vim_item.menu = ({
         nvim_lsp = "(LSP)",
         nvim_lua = "(Lua)",
@@ -108,6 +116,9 @@ cmp.setup({
   },
   sources = {
     {
+      name = "copilot",
+    },
+    {
       name = "nvim_lsp",
     },
     {
@@ -121,6 +132,22 @@ cmp.setup({
     },
     {
       name = "luasnip",
+    },
+  },
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      require("copilot_cmp.comparators").prioritize,
+      require("copilot_cmp.comparators").score,
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
     },
   },
 })

@@ -167,11 +167,11 @@ local schemas = {
     fileMatch = { "resume.json" },
     url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   },
-  {
-    description = "Clang",
-    fileMatch = {".clang-format"},
-    url = "https://json.schemastore.org/clang-format.json"
-  }
+  -- {
+  --   description = "Clang",
+  --   fileMatch = {".clang-format"},
+  --   url = "https://json.schemastore.org/clang-format.json"
+  -- }
 }
 
 local function extend(tab1, tab2)

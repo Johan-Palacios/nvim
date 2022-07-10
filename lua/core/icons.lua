@@ -47,6 +47,7 @@ return {
     Rename = "",
     Diff = "",
     Repo = "",
+    Octoface = "",
   },
   ui = {
     Lock = " ",

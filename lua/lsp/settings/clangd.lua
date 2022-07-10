@@ -1,6 +1,8 @@
 return {
-  cmd = { "clangd" },
-  filetype = { "c", "cpp", "objc", "objcpp" },
+  cmd = {
+    "clangd",
+  },
+  filetype = { "c", "cpp", "objc", "objcpp", "cuda"},
   root_dir = {
     root_pattern(
       '.clangd',
@@ -10,7 +12,7 @@ return {
       'compile_flags.txt',
       'configure.ac',
       '.git'
-    )
+    ),
   },
-  single_file_support = {true}
+  single_file_support = true
 }

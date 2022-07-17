@@ -52,10 +52,8 @@ keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
 keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition()<CR>", opts)
 keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
 keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
--- Smart Paste
-keymap("n", "<Leader>do", ":lua require('dapui').open()<CR>", opts)
 -- Dap
--- DAP
+keymap("n", "<Leader>do", ":lua require('dapui').open()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
@@ -89,6 +87,5 @@ M.show_documentation = function()
 end
 
 vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>", { noremap = true, silent = true})
-
 
 return M

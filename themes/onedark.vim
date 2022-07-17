@@ -22,7 +22,7 @@ colorscheme onedark
 " hi foldcolumn guibg=#21242b
 " hi VertSplit guibg=#21242b guifg=#21242b
 " hi NvimTreeNormal guibg=#21242b
-"cmp color menu and winbar
+"Cmp color menu and winbar
 highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 highlight! CmpItemAbbrMatch guibg=NONE guifg=#61AFEF "Color in bar
 highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#55b6c2
@@ -39,4 +39,4 @@ highlight CmpItemKindSnippet guibg=NONE guifg=#e06c75
 highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
 hi StatusLine guibg=NONE
-hi LspCodeLens guibg=NONE guifg=#434953
+hi LspCodeLens guibg=NONE guifg=#4e545f

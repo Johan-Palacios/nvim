@@ -1,7 +1,7 @@
 return {
   kind = {
     Text = " ",
-    Method = " ",
+    Method = "m ",
     Function = " ",
     Constructor = " ",
     Field = " ",

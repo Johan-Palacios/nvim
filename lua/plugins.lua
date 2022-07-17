@@ -75,11 +75,13 @@ return packer.startup(function()
     event = 'BufRead'
   }
   use { 'rcarriga/nvim-notify' }
+  -- NOTE: Debuger plugins
   use { 'mfussenegger/nvim-dap' }
   use { 'rcarriga/nvim-dap-ui',
     requires = 'mfussenegger/nvim-dap' }
   use { 'ravenxrz/DAPInstall.nvim' }
-
+  -- External debuger
+  -- use {'mfussenegger/nvim-dap-python'}
   use { 'nvim-treesitter/nvim-treesitter',
     event = { 'BufRead', "BufNewFile", "BufWinEnter" },
     config = function()
@@ -220,14 +222,15 @@ return packer.startup(function()
     requires = { 'nvim-lua/plenary.nvim' },
   })
   -- NOTE: WINBAR
-  use { 'christianchiarulli/nvim-gps', branch = "text_hl",
-    event = { 'CursorMoved', "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
+  use { 'SmiteshP/nvim-navic',
+    event = { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
     config = function()
       require('core.gps')
-    end
+    end,
+    requires = "neovim/nvim-lspconfig"
   }
   -- Custom programing languages
-  use { 'simrat39/rust-tools.nvim' }
+  use { 'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" }
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

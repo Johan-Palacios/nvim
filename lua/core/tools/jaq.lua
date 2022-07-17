@@ -9,6 +9,7 @@ require('jaq-nvim').setup{
 			python = "python3 %",
 			rust = "rustc % && ./$fileBase && rm $fileBase",
 			cpp = "g++ % -o $fileBase && ./$fileBase",
+			-- cpp = "cd build && make && ./$fileBase",
 			go = "go run %",
 			sh = "sh %",
 		},

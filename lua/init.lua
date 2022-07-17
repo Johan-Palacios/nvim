@@ -5,7 +5,7 @@ require("packer_compiled")
 
 require("plugins")
 
-require("lsp/init")
+require("lsp.init")
 
 require("core.init")
 

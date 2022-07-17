@@ -17,3 +17,5 @@ require("core.tools.init")
 require("core.cosmetics.init")
 
 require("core.lsp-signature")
+
+require("core.dap")

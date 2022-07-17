@@ -100,6 +100,7 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   illuminate_h(client)
+  require("nvim-navic").attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -112,6 +113,5 @@ end
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 
 return M

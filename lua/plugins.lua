@@ -80,8 +80,7 @@ return packer.startup(function()
   use { 'rcarriga/nvim-dap-ui',
     requires = 'mfussenegger/nvim-dap' }
   use { 'ravenxrz/DAPInstall.nvim' }
-  -- External debuger
-  -- use {'mfussenegger/nvim-dap-python'}
+  -- NOTE: SINTAX
   use { 'nvim-treesitter/nvim-treesitter',
     event = { 'BufRead', "BufNewFile", "BufWinEnter" },
     config = function()
@@ -101,11 +100,11 @@ return packer.startup(function()
   use { 'nvim-lua/plenary.nvim' }
   use { 'windwp/nvim-autopairs' }
   use { 'tpope/vim-surround' }
+  use { 'tpope/vim-sleuth' }
   use {
     'anuvyklack/pretty-fold.nvim',
     config = function()
       require('pretty-fold').setup({})
-      require('pretty-fold.preview').setup()
     end,
   }
   use {
@@ -124,7 +123,6 @@ return packer.startup(function()
   use { 'tpope/vim-fugitive' }
   use { 'zivyangll/git-blame.vim' }
   -- Not works
-  -- use('sindrets/diffview.nvim')
   use { 'nacro90/numb.nvim' }
   use { 'Pocco81/AutoSave.nvim' }
   use { 'akinsho/nvim-toggleterm.lua',
@@ -134,12 +132,6 @@ return packer.startup(function()
   use('rhysd/git-messenger.vim')
   use('karb94/neoscroll.nvim')
   use { 'simrat39/symbols-outline.nvim' }
-  use({
-    'folke/twilight.nvim',
-    config = function()
-      require('twilight').setup({})
-    end,
-  })
   use { 'is0n/jaq-nvim' }
   use({
     'folke/todo-comments.nvim',
@@ -156,15 +148,14 @@ return packer.startup(function()
       require('trouble').setup({})
     end,
   })
-  use {
-    'rmagatti/goto-preview',
-    config = function()
-      require('goto-preview').setup {}
-    end
-  }
+  -- use {
+  --   'rmagatti/goto-preview',
+  --   config = function()
+  --     require('goto-preview').setup {}
+  --   end
+  -- }
   use { 'ggandor/lightspeed.nvim' }
   use { 'RRethy/vim-illuminate' }
-  use { 'anuvyklack/nvim-keymap-amend' }
   use({
     'folke/which-key.nvim',
     config = function()
@@ -179,12 +170,6 @@ return packer.startup(function()
       require('core.tree')
     end
   })
-  use({
-    'folke/zen-mode.nvim',
-    config = function()
-      require('zen-mode').setup({})
-    end
-  })
   -- NOTE: Autocomplete
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-nvim-lsp' }
@@ -194,11 +179,12 @@ return packer.startup(function()
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'f3fora/cmp-spell' }
   use { 'neovim/nvim-lspconfig' }
-  -- use { "github/copilot.vim" }
-  use { 'zbirenbaum/copilot-cmp' }
   use {
     'ray-x/lsp_signature.nvim',
   }
+  --copilot
+  -- use { "github/copilot.vim" }
+  use { 'zbirenbaum/copilot-cmp' }
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -214,6 +200,7 @@ return packer.startup(function()
   use { 'williamboman/nvim-lsp-installer' }
   use { 'tamago324/nlsp-settings.nvim' }
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
+  -- NOTE: Format
   use({
     'jose-elias-alvarez/null-ls.nvim',
     config = function()
@@ -221,6 +208,7 @@ return packer.startup(function()
     end,
     requires = { 'nvim-lua/plenary.nvim' },
   })
+  use { 'editorconfig/editorconfig-vim' }
   -- NOTE: WINBAR
   use { 'SmiteshP/nvim-navic',
     event = { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
@@ -230,7 +218,7 @@ return packer.startup(function()
     requires = "neovim/nvim-lspconfig"
   }
   -- Custom programing languages
-  use { 'simrat39/rust-tools.nvim', branch = "modularize_and_inlay_rewrite" }
+  use { 'simrat39/rust-tools.nvim' }
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end

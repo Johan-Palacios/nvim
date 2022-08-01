@@ -111,21 +111,21 @@ wk.register({
   x = {
     name = "Execute"
   },
-  p = {
-    name = "Preview ",
-    o = {
-      "<cmd>lua require('goto-preview').goto_preview_definition()<cr>",
-      "Go to Preview",
-    },
-    i = {
-      "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>",
-      "Go to Implementation",
-    },
-    c = {
-      "<cmd>lua require('goto-preview').close_all_win()<CR>",
-      "Close Preview",
-    },
-  },
+  -- p = {
+  --   name = "Preview ",
+  --   o = {
+  --     "<cmd>lua require('goto-preview').goto_preview_definition()<cr>",
+  --     "Go to Preview",
+  --   },
+  --   i = {
+  --     "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>",
+  --     "Go to Implementation",
+  --   },
+  --   c = {
+  --     "<cmd>lua require('goto-preview').close_all_win()<CR>",
+  --     "Close Preview",
+  --   },
+  -- },
   l = {
     name = "LSP ",
     h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Docs" },

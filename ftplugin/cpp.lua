@@ -8,7 +8,7 @@ if vim.fn.has('wsl') == 1 then
     id = 'cppdbg',
     type = 'executable',
     command = vim.env.HOME ..
-        '/' .. '.vscode-server/extensions/ms-vscode.cpptools-1.11.2-linux-x64/debugAdapters/bin/OpenDebugAD7',
+        '/' .. '.config/debug/test/extension/debugAdapters/bin/OpenDebugAD7',
     options = {
       detached = false
     },

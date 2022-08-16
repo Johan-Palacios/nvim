@@ -54,16 +54,16 @@ cmp.setup({
     end,
   },
   window = {
-    documentation = {
-      border = "rounded",
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    },
+    documentation = false,
+    -- documentation = {
+    --   border = "rounded",
+    --   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+    -- },
     completion = {
       border = "rounded",
       winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
     },
   },
-
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -117,28 +117,36 @@ cmp.setup({
   sources = {
     {
       name = "nvim_lsp",
+      group_index = 2
     },
     {
       name = "copilot",
+      max_item_count = 3,
+      trigger_characters = {
+        { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" },
+      },
+      group_index = 2,
     },
     {
       name = "path",
+      group_index = 2
     },
     {
       name = "nvim_lua",
+      group_index = 2
     },
     {
       name = "buffer",
+      group_index = 2
     },
     {
       name = "luasnip",
+      group_index = 2
     },
   },
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
       cmp.config.compare.offset,
       cmp.config.compare.exact,
       cmp.config.compare.score,

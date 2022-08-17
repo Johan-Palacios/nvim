@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Johan Logo" src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" height="160" />
+    <img alt="Johan Logo" src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" height="160px"/>
   </a>
   <p align="center">Johan NVIM Configurations/Configuraciones de Johan para Neovim</p>
   <p align="center">
@@ -127,4 +127,4 @@ Luego de esto puedes disfrutar de tu Neovim
 
 ## Autor ✒️
 
-* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios
+* **Johan Palacios** - *Autor* - [Johan-Palacios](https://github.com/Johan-Palacios)

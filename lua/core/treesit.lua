@@ -27,6 +27,6 @@ configs.setup({
     enable = true,
   },
   playground = {
-    enable = true
+    enable = false
   }
 })

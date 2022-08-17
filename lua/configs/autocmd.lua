@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 -- NOTE: Configuration of 3 statusline
-vim.api.nvim_create_autocmd({ "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = "*",
   callback = function()
     vim.opt.laststatus = 3
@@ -41,10 +41,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd(
   { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
   {
-  callback = function()
-    require("core.winbar").get_winbar()
-  end,
-})
+    callback = function()
+      require("core.winbar").get_winbar()
+    end,
+  })
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
     vim.cmd "quit"
   end,
 })
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
@@ -70,7 +71,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.java"},
+  pattern = { "*.java" },
   callback = function()
     vim.lsp.codelens.refresh()
   end,

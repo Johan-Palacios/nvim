@@ -29,7 +29,6 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
 --Git
-keymap("n", "<Leader>gms", ":<C-u>call gitblame#echo()<CR>", opts)
 keymap("n", "<Leader>gs", ":G", opts)
 keymap("n", "<Leader>gi", ":diffget //2<CR>", opts)
 keymap("n", "<Leader>gd", ":diffget //3<CR>", opts)

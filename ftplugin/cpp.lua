@@ -8,7 +8,7 @@ if vim.fn.has('wsl') == 1 then
     id = 'cppdbg',
     type = 'executable',
     command = vim.env.HOME ..
-        '/' .. '.config/debug/test/extension/debugAdapters/bin/OpenDebugAD7',
+        '/' .. '.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
     options = {
       detached = false
     },

@@ -6,6 +6,7 @@ end
 require("lsp.lspinstaller")
 require("lsp.handler").setup()
 require("lsp.null")
+require("lsp.lsp-saga")
 
 -- NOTE: Colores en pupup y en menu de autocompletado
 vim.cmd([[autocmd ColorScheme * highlight NormalFloat guibg=#1E2127]])

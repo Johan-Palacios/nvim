@@ -28,6 +28,10 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
+-- LSPSAGA
+keymap("n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "<Leader>ld", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 --Git
 keymap("n", "<Leader>gs", ":G", opts)
 keymap("n", "<Leader>gi", ":diffget //2<CR>", opts)
@@ -47,10 +51,6 @@ keymap(
 keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 -- Jaq
 keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
--- Go to preview
-keymap("n", "<Leader>po", ":lua require('goto-preview').goto_preview_definition()<CR>", opts)
-keymap("n", "<Leader>pi", ":lua require('goto-preview').goto_preview_implementation()<CR>", opts)
-keymap("n", "<Leader>pc", ":lua require('goto-preview').close_all_win()<CR>", opts)
 -- Dap
 keymap("n", "<Leader>do", ":lua require('dapui').open()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

@@ -82,8 +82,8 @@ wk.register({
   },
   t = {
     name = "Terminal ",
-    f = { "<cmd>ToggleTerm<cr>", "Floating Terminal" },
-    v = { '<cmd>ToggleTerm direction="vertical<cr>"', "Terminal Vertial" },
+    f = { '<cmd>ToggleTerm direction="float"<cr>', "Floating Terminal" },
+    v = { '<cmd>ToggleTerm direction="vertical"<cr>', "Terminal Vertial" },
     h = {
       '<cmd>ToggleTerm size=10 direction="horizontal"<cr>',
       "Terminal Horizontal",
@@ -114,9 +114,10 @@ wk.register({
   l = {
     name = "LSP ",
     h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Docs" },
-    p = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-      "Go To prev Diagnostic",
+    f = {"LSP Find"
+    },
+    d = {"Definition Preview"},
+    r = {"LSP Rename"
     },
     n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "Go To Next Diagnostic" },
   },

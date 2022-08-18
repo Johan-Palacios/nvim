@@ -213,6 +213,17 @@ return packer.startup(function()
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'neovim/nvim-lspconfig' }
   use { 'ray-x/lsp_signature.nvim' }
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      local saga = require("lspsaga")
+
+      saga.init_lsp_saga({
+        -- your configuration
+      })
+    end,
+  })
   use {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },

@@ -55,10 +55,11 @@ return packer.startup(function()
 
   -- GIT
 
-  --    View Commit
-  --    use('rhysd/git-messenger.vim')
   use { 'lewis6991/gitsigns.nvim' }
   use { 'tpope/vim-fugitive' }
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end }
 
 
   -- COSTMETICS

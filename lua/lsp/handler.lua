@@ -45,14 +45,6 @@ M.setup = function()
     } })
 end
 
-local function illuminate_h(client)
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
-  end
-  illuminate.on_attach(client)
-end
-
 local function lsp_highlight_document(client)
   if client.server_capabilities.document_highlight then
     vim.api.nvim_exec(
@@ -99,7 +91,6 @@ M.on_attach = function(client, bufnr)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
-  illuminate_h(client)
   require("nvim-navic").attach(client, bufnr)
 end
 

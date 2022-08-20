@@ -34,8 +34,12 @@ keymap("n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<Leader>ld", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
 --Git
 keymap("n", "<Leader>gs", ":G", opts)
-keymap("n", "<Leader>gi", ":diffget //2<CR>", opts)
-keymap("n", "<Leader>gd", ":diffget //3<CR>", opts)
+keymap('n', 'co', '<Plug>(git-conflict-ours)', opts)
+keymap('n', 'cb', '<Plug>(git-conflict-both)', opts)
+keymap('n', 'ct', '<Plug>(git-conflict-theirs)', opts)
+keymap('n', 'c0', '<Plug>(git-conflict-none)', opts)
+keymap('n', ']x', '<Plug>(git-conflict-prev-conflict)', opts)
+keymap('n', '[x', '<Plug>(git-conflict-next-conflict)', opts)
 --Telescope
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fw", "<cmd>Telescope live_grep<cr>", opts)
@@ -49,8 +53,6 @@ keymap(
 )
 --Jabs
 keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
--- Jaq
-keymap("n", "<Leader>x", ":Jaq toggleterm<cr>", opts)
 -- Dap
 keymap("n", "<Leader>do", ":lua require('dapui').open()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

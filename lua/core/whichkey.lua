@@ -65,6 +65,25 @@ require("which-key").setup({
 })
 local wk = require("which-key")
 wk.register({
+  d = {
+    name = "Debugger ",
+    b = "Break Point ",
+    c = "Continue ",
+    i = "Step Into 樂",
+    l = "Run last ",
+    O = "Step Out ﬀ",
+    o = "Step Over",
+    r = "Repl Toggle ",
+    t = "Terminate Debugger 栗",
+    u = "DAP Toggle "
+  },
+  c = {
+    name = "Conflict Manager ",
+    o = "Conflict Ours",
+    t = "Conflict Theirs",
+    b = "Conflict Both",
+    ["0"] = "Conflict None",
+  },
   q = {
     name = "Diagnostics",
   },
@@ -89,9 +108,6 @@ wk.register({
       "Terminal Horizontal",
     },
   },
-  h = {
-    name = "Gitsigns ",
-  },
   b = {
     name = "Buffers ",
     d = { "<cmd>Bdelete<cr>", "Delete Buffer" },
@@ -99,38 +115,30 @@ wk.register({
     h = { "<cmd>split<cr>", "Horizontal Split" },
   },
   g = {
-    name = "Git Options ",
-    s = { "<cmd>G<cr>", "Git" },
-    m = { "<cmd><Plug>(git-messenger)<cr>", "Show git message" },
-    d = { "<cmd>diffget //2", "cambios de la derecha" },
-    i = { "<cmd>diffget //3", "cambios de la derecha" },
+    name = "Git ",
+    s = { "Git " },
   },
   j = {
-    name = "Jabs"
-  },
-  x = {
-    name = "Execute"
+    name = "Jabs "
   },
   l = {
     name = "LSP ",
     h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Docs" },
-    f = {"LSP Find"
+    f = { "LSP Find"
     },
-    d = {"Definition Preview"},
-    r = {"LSP Rename"
+    d = { "Definition Preview" },
+    r = { "LSP Rename"
     },
     n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "Go To Next Diagnostic" },
   },
 }, {
   prefix = "<leader>",
 })
+
 wk.register({
   name = "Search",
   ["/"] = {
     name = "Searching",
-    r = {
-      name = "Run Python",
-    },
   },
 }, {
   prefix = "/",

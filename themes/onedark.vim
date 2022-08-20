@@ -24,3 +24,6 @@ highlight pmenu ctermbg=DarkGray guibg=onedark
 highlight Search guibg='DarkGray' guifg='Black'
 hi StatusLine guibg=NONE
 hi LspCodeLens guibg=NONE guifg=#4e545f
+hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
+hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
+hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE

@@ -1,12 +1,12 @@
-local status_ok, noty = pcall(require, "notify")
+local status_ok, notify = pcall(require, "notify")
 if not status_ok then
   return
 end
 
-noty.setup({
-  background_colour = "#1E2127",
-	timeout = 1000,
-	stages = "fade",
+notify.setup({
+  background_colour = "Normal",
+	timeout = 175,
+	stages = "fade_in_slide_out",
 	render = "default",
 	icons = {
 		ERROR = "",

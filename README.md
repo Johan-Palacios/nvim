@@ -1,10 +1,12 @@
 <p align="center">
-    <img alt="Johan Logo" src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" height="160px"/>
+    <img alt="Johan Logo" 
+    src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" 
+    height="160px"/>
   </a>
-  <p align="center">Johan NVIM Configurations/Configuraciones de Johan para Neovim</p>
+  <p align="center">Neovim Configuration/Configuracion de Neovim</p>
   <p align="center">
-  <p>With this configurations you can customize your NEOVIM for programming use/ Con estas configuraciones podrás customizar Neovim a tus gusto para programar
-  </p>
+    With this configurations you can customize your Neovim for programming use / 
+    Con estas configuraciones podrás personalizar Neovim para programación 
   </p>
 </p>
 

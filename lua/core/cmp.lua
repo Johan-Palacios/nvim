@@ -119,14 +119,14 @@ cmp.setup({
       name = "nvim_lsp",
       group_index = 2
     },
-    {
-      name = "copilot",
-      max_item_count = 3,
-      trigger_characters = {
-        { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" },
-      },
-      group_index = 2,
-    },
+    --[[ { ]]
+    --[[   name = "copilot", ]]
+    --[[   max_item_count = 3, ]]
+    --[[   trigger_characters = { ]]
+    --[[     { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" }, ]]
+    --[[   }, ]]
+    --[[   group_index = 2, ]]
+    --[[ }, ]]
     {
       name = "path",
       group_index = 2

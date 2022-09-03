@@ -204,7 +204,7 @@ return packer.startup(function()
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/cmp-nvim-lua' }
   use { 'f3fora/cmp-spell' }
-  use { 'zbirenbaum/copilot-cmp' }
+  --[[ use { 'zbirenbaum/copilot-cmp' } ]]
 
   -- LSP
 
@@ -225,15 +225,21 @@ return packer.startup(function()
       })
     end,
   })
-  use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "core.copilot"
-      end, 100)
-    end,
-  }
+  use { "j-hui/fidget.nvim", config = function()
+    require "fidget".setup {}
+  end }
+  use { "lvimuser/lsp-inlayhints.nvim" }
+
+  use { "b0o/SchemaStore.nvim" }
+  --[[ use { ]]
+  --[[   "zbirenbaum/copilot.lua", ]]
+  --[[   event = { "VimEnter" }, ]]
+  --[[   config = function() ]]
+  --[[     vim.defer_fn(function() ]]
+  --[[       require "core.copilot" ]]
+  --[[     end, 100) ]]
+  --[[   end, ]]
+  --[[ } ]]
 
 
   -- SNIPPETS

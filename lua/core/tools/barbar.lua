@@ -11,7 +11,7 @@ bufferline.setup {
     left_mouse_command = "buffer %d",
     middle_mouse_command = nil,
     -- NOTE: this plugin is designed with this icon in mind,
-    indicator_icon = "▎",
+    icon = "▎",
     buffer_close_icon = "",
     modified_icon = "●",
     close_icon = "",

@@ -14,6 +14,7 @@ require("illuminate").configure {
     "alpha",
     "NvimTree",
     "packer",
+    "manson",
     "neogitstatus",
     "Trouble",
     "lir",

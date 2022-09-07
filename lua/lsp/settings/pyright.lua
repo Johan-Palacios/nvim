@@ -5,11 +5,10 @@ return {
         typeCheckingMode = "basic",
         diagnosticMode = "workspace",
         inlayHints = {
-          enable = true,
           variableTypes = true,
           functionReturnTypes = true,
         },
-      },
-    },
+      }
+    }
   },
 }

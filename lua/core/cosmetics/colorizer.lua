@@ -6,10 +6,10 @@ end
 color.setup({ "*" }, {
   RGB = true,
   RRGGBB = true,
-  names = true,
+  names = false,
   RRGGBBAA = true,
-  rgb_fn = true,
-  hsl_fn = true,
+  rgb_fn = false,
+  hsl_fn = false,
   css = false,
   css_fn = false,
   mode = "background",

@@ -217,20 +217,11 @@ return packer.startup(function()
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
-    config = function()
-      local saga = require("lspsaga")
-
-      saga.init_lsp_saga({
-        -- your configuration
-      })
-    end,
   })
   use { "j-hui/fidget.nvim", config = function()
     require "fidget".setup {}
   end }
-  use { "lvimuser/lsp-inlayhints.nvim" }
-
-  use { "b0o/SchemaStore.nvim" }
+  use {"lvimuser/lsp-inlayhints.nvim"}
   --[[ use { ]]
   --[[   "zbirenbaum/copilot.lua", ]]
   --[[   event = { "VimEnter" }, ]]
@@ -250,6 +241,7 @@ return packer.startup(function()
 
   -- FORMAT
 
+  use {"b0o/SchemaStore.nvim"}
   use({
     'jose-elias-alvarez/null-ls.nvim',
     config = function()

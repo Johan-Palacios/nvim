@@ -38,13 +38,25 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd(
-  { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-  {
-    callback = function()
-      require("core.winbar").get_winbar()
-    end,
-  })
+local create_winbar = function()
+  vim.api.nvim_create_augroup("_winbar", {})
+  if vim.fn.has "nvim-0.8" == 1 then
+    vim.api.nvim_create_autocmd(
+      { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+      {
+        group = "_winbar",
+        callback = function()
+          local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
+          if not status_ok then
+            require("core.winbar").get_winbar()
+          end
+        end,
+      }
+    )
+  end
+end
+
+create_winbar()
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
@@ -63,12 +75,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
-
---[[ vim.api.nvim_create_autocmd({ "VimEnter" }, { ]]
---[[   callback = function() ]]
---[[     vim.cmd "hi link illuminatedWord LspReferenceText" ]]
---[[   end, ]]
---[[ }) ]]
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = { "*.java" },

@@ -27,3 +27,4 @@ hi LspCodeLens guibg=NONE guifg=#4e545f
 hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
 hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
 hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
+hi def WhichKeyBorder guibg=NONE guifg=#4e545f

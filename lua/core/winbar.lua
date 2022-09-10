@@ -13,6 +13,18 @@ M.winbar_filetype_exclude = {
   "Outline",
   "spectre_panel",
   "toggleterm",
+  "Jaq",
+  "harpoon",
+  "dapui_scopes",
+  "dapui_breakpoints",
+  "dapui_stacks",
+  "dapui_watches",
+  "dap-repl",
+  "dap-terminal",
+  "dapui_console",
+  "lab",
+  "Markdown",
+  "",
 }
 
 local get_filename = function()
@@ -92,6 +104,13 @@ M.get_winbar = function()
     else
       value = value .. mod
     end
+  end
+
+  local num_tabs = #vim.api.nvim_list_tabpages()
+
+  if num_tabs > 1 and not f.isempty(value) then
+    local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
+    value = value .. "%=" .. tabpage_number .. "/" .. tostring(num_tabs)
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })

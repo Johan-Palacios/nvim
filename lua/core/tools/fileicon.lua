@@ -150,5 +150,5 @@ require("nvim-web-devicons").set_icon {
     icon = "",
     color = colors.blue,
     name = "ino"
-  }
+  },
 }

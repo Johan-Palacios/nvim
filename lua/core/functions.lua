@@ -1,12 +1,5 @@
 local M = {}
 
-function M.remove_augroup(name)
-  if vim.fn.exists("#" .. name) == 1 then
-    vim.cmd("au! " .. name)
-  end
-end
-
--- get length of current word
 function M.get_word_length()
   local word = vim.fn.expand "<cword>"
   return #word

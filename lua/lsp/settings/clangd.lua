@@ -2,8 +2,12 @@ return {
   cmd = {
     "clangd",
   },
-  clangdInlayHintsProvider = true,
   filetype = { "c", "cpp", "objc", "objcpp", "cuda" },
+  init_options = {
+    clangdFileStatus = true,
+    semanticHighlighting = true,
+  },
+  clangdInlayHintsProvider = true,
   root_dir = {
     root_pattern(
       '.clangd',

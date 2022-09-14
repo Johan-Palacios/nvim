@@ -473,8 +473,15 @@ ls.autosnippets = {
 
 -- in a lua file: search lua-, then c-, then all-snippets.
 ls.filetype_extend("lua", { "c" })
+
+--[[ ls.filetype_extend("htmldjango", {"html"}) ]]
+
 -- in a cpp file: search c-snippets, then all-snippets only (no cpp-snippets!!).
 ls.filetype_set("cpp", { "c" })
+
+-- DJANGO HMTL CONFIG
+ls.filetype_set("htmldjango", { "html" })
+ls.filetype_extend("htmldjango", { "djangohtml"})
 
 --[[
 -- Beside defining your own snippets you can also load snippets from "vscode-like" packages

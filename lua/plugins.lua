@@ -214,14 +214,16 @@ return packer.startup(function()
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'neovim/nvim-lspconfig' }
   use { 'ray-x/lsp_signature.nvim' }
---  use({
- --   "glepnir/lspsaga.nvim",
+  --  use({
+  --   "glepnir/lspsaga.nvim",
   --  branch = "main",
-  -- })
-  use { "j-hui/fidget.nvim", config = function()
-    require "fidget".setup {}
-  end }
-  use {"lvimuser/lsp-inlayhints.nvim"}
+  --})
+  use { "j-hui/fidget.nvim",
+    config = function()
+      require "fidget".setup {}
+    end
+  }
+  use { "lvimuser/lsp-inlayhints.nvim" }
   --[[ use { ]]
   --[[   "zbirenbaum/copilot.lua", ]]
   --[[   event = { "VimEnter" }, ]]
@@ -241,7 +243,7 @@ return packer.startup(function()
 
   -- FORMAT
 
-  use {"b0o/SchemaStore.nvim"}
+  use { "b0o/SchemaStore.nvim" }
   use({
     'jose-elias-alvarez/null-ls.nvim',
     config = function()

@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 hints.setup {
   inlay_hints = {
     parameter_hints = {
-      show = false,
+      show = true,
       separator = ", ",
     },
     type_hints = {

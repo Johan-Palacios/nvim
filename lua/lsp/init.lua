@@ -6,7 +6,7 @@ end
 require("lsp.lspinstaller")
 require("lsp.handler").setup()
 require("lsp.null")
-require("lsp.lsp-saga")
+--[[ require("lsp.lsp-saga") ]]
 require("lsp.inlayhints")
 
 -- NOTE: Colores en pupup y en menu de autocompletado

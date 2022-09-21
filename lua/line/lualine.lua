@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local icons = require "core.icons"
+
 local colors = {
   white = "#abb2bf",
   bg = "#2E2E2E",
@@ -53,7 +55,7 @@ local onedark_theme = {
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.line })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.branch_cover, bold = false })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.line })
-vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.blue, bg =  colors.branch_cover})
+vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.blue, bg = colors.branch_cover })
 
 local mode_color = {
   n = "#569cd6",
@@ -94,7 +96,6 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
-local icons = require "core.icons"
 
 local diagnostics = {
   "diagnostics",
@@ -130,13 +131,8 @@ local branch = {
 
 local progress = {
   "progress",
-  fmt = function()
-    local current_line = vim.fn.line "."
-    local total_lines = vim.fn.line "$"
-    local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-    local line_ratio = current_line / total_lines
-    local index = math.ceil(line_ratio * #chars)
-    return "%#SLProgress#" .. chars[index] .. "%*"
+  color = function()
+    return { bg = colors.lightbg2, fg = colors.blue }
   end
 }
 
@@ -144,7 +140,7 @@ local spaces = {
   function()
     return "Spaces " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  color = { bg = "#1e2127", fg = "#4e545f" },
+  color = { bg = colors.line, fg = colors.status_text },
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
 }
@@ -152,7 +148,7 @@ local spaces = {
 local location = {
   "location",
   color = function()
-    return { bg = colors.line, fg = colors.status_text }
+    return { bg = colors.blue, fg = colors.line }
   end,
 }
 
@@ -171,8 +167,8 @@ lualine.setup {
     lualine_b = { diagnostics },
     lualine_c = { { cond = hide_in_width } },
     lualine_x = { diff, spaces, filetype },
-    lualine_y = { location },
-    lualine_z = { progress },
+    lualine_y = { progress },
+    lualine_z = { location },
   },
   inactive_sections = {
     lualine_a = {},

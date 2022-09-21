@@ -117,6 +117,7 @@ return packer.startup(function()
   }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'RRethy/vim-illuminate' }
+  use { 'p00f/nvim-ts-rainbow' }
 
 
   -- MOVEMENT TOOLS

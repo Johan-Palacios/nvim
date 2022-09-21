@@ -2,6 +2,10 @@ local status_ok, todo = pcall(require, "todo-comments")
 if not status_ok then
   return
 end
+local colors = {
+  purple = "#b273c0",
+  grey = "#abb2bf"
+}
 todo.setup {
   signs = true,
   sign_priority = 8,
@@ -26,11 +30,12 @@ todo.setup {
     },
     PERF = {
       icon = " ",
+      color = colors.grey,
       alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" }
     },
     NOTE = {
       icon = " ",
-      color = "hint",
+      color = colors.purple,
       alt = { "INFO" }
     }
   },

@@ -28,5 +28,18 @@ configs.setup({
   },
   playground = {
     enable = false
-  }
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = false,
+    colors = {
+      "Gold",
+      "Orchid",
+      "#62aeef",
+      --[[ "Cornsilk", ]]
+      --[[ "Salmon", ]]
+      --[[ "LawnGreen", ]]
+    },
+    disable = { "html"}
+  },
 })

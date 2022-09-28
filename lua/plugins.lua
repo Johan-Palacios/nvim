@@ -97,7 +97,8 @@ return packer.startup(function()
   use { 'joshdick/onedark.vim',
     config = function()
       vim.cmd('source $HOME/.config/nvim/themes/onedark.vim')
-    end }
+    end
+  }
 
 
   -- DEBUGERS
@@ -247,9 +248,6 @@ return packer.startup(function()
   use { "b0o/SchemaStore.nvim" }
   use({
     'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('null-ls').setup()
-    end,
     requires = { 'nvim-lua/plenary.nvim' },
   })
   use { 'editorconfig/editorconfig-vim' }

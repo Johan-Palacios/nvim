@@ -1,3 +1,4 @@
+
 -- NOTE: Principal Plugins
 
 require("core.cmp")
@@ -19,3 +20,4 @@ require("core.cosmetics.init")
 require("core.lsp-signature")
 
 require("core.dap")
+

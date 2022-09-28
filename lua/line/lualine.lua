@@ -118,7 +118,7 @@ local diff = {
 local filetype = {
   "filetype",
   icons_enabled = true,
-  color = { bg = colors.line, fg = colors.status_text },
+  color = { bg = colors.line, fg = colors.branch_name },
 }
 
 local branch = {
@@ -131,16 +131,21 @@ local branch = {
 
 local progress = {
   "progress",
+  fmt = function()
+    -- Porcentaje / No. Lineas
+    return "%P"
+  end,
   color = function()
-    return { bg = colors.lightbg2, fg = colors.blue }
-  end
+    return { bg = colors.branch_cover, fg = colors.white }
+  end,
+  separator = { left = ' ', right = '' },
 }
 
 local spaces = {
   function()
     return "Spaces " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  color = { bg = colors.line, fg = colors.status_text },
+  color = { bg = colors.line, fg = colors.white },
   padding = 0,
   separator = "%#SLSeparator#" .. " │" .. "%*",
 }
@@ -148,7 +153,7 @@ local spaces = {
 local location = {
   "location",
   color = function()
-    return { bg = colors.blue, fg = colors.line }
+    return { fg = colors.line, bg = mode_color[vim.fn.mode()] }
   end,
 }
 
@@ -159,7 +164,7 @@ lualine.setup {
     theme = onedark_theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    disabled_filetypes = { "alpha", "dashboard", "NvimTree", "packer", "Outline", "toggleterm" },
+    disabled_filetypes = { "alpha", "dashboard", "NvimTree", "packer", "Outline", "toggleterm", "TelescopePrompt" },
     always_divide_middle = true,
   },
   sections = {

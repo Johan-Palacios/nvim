@@ -36,9 +36,6 @@ configs.setup({
       "Gold",
       "Orchid",
       "#62aeef",
-      --[[ "Cornsilk", ]]
-      --[[ "Salmon", ]]
-      --[[ "LawnGreen", ]]
     },
     disable = { "html"}
   },

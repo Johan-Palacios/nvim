@@ -14,7 +14,7 @@ if not lspconfig_status_ok then
 end
 
 local servers = { "jsonls", "sumneko_lua", "omnisharp", "html", "cssls", "vimls", "rust_analyzer",
-  "pyright", "cmake", "clangd", "tsserver"}
+  "pyright", "cmake", "clangd", "tsserver" }
 
 local settings = {
   ui = {

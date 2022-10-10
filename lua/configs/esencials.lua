@@ -23,7 +23,6 @@ vim.bo.ma = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.cursorhold_updatetime = 100
-vim.g.did_load_filetypes = 1
 
 local options = {
   backup = false,

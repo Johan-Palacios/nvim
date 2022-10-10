@@ -4,14 +4,10 @@ if vim.fn.has('wsl') == 1 then
   -- CPPTOOLS DAP DEBUGER
   local dap = require('dap')
   dap.adapters.cppdbg = {
-    name = 'cppdbg',
     id = 'cppdbg',
     type = 'executable',
-    command = vim.env.HOME ..
-        '/' .. '.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
-    options = {
-      detached = false
-    },
+    command = vim.env.HOME .. "/" ..
+        ".local/share/nvim/mason/bin/OpenDebugAD7",
     setupCommands = {
       {
         text = '-enable-pretty-printing',
@@ -20,18 +16,16 @@ if vim.fn.has('wsl') == 1 then
       },
     },
   }
-
   dap.configurations.cpp = {
     {
-      name = 'Launch',
-      type = 'cppdbg',
-      request = 'launch',
+      name = "Launch file",
+      type = "cppdbg",
+      request = "launch",
       program = function()
         return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
       end,
       cwd = '${workspaceFolder}',
-      stopOnEntry = false,
-      args = {},
-    },
+      stopAtEntry = true,
+    }
   }
 end

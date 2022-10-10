@@ -47,4 +47,3 @@ function _C_TERM()
 end
 
 vim.api.nvim_set_keymap("n", "<m-4>", "<cmd>lua _C_TERM()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<m-4>", "<cmd>lua _C_TERM()<CR>", { noremap = true, silent = true })

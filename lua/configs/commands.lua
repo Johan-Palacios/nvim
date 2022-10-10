@@ -31,7 +31,7 @@ keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
 -- LSPSAGA
 keymap("n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 keymap("n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "<Leader>ld", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+keymap("n", "<Leader>ld", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 --Git
 keymap("n", "<Leader>gs", ":G", opts)
 keymap('n', 'co', '<Plug>(git-conflict-ours)', opts)
@@ -67,7 +67,8 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- Resize
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
@@ -87,6 +88,7 @@ M.show_documentation = function()
   end
 end
 
-vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>", { noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>",
+  { noremap = true, silent = true })
 
 return M

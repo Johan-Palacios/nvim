@@ -25,6 +25,22 @@ local log = require("plenary.log").new({
 
 vim.notify = function(msg, level, opts)
 	log.info(msg, level, opts)
-
 	require("notify")(msg, level, opts)
+end
+
+vim.notify = notify
+
+local notify_filter = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match "character_offset must be called" then
+    return
+  end
+  if msg:match "method textDocument" then
+    return
+  end
+  if msg:match "documentSymbols" then
+    return
+  end
+
+  notify_filter(msg, ...)
 end

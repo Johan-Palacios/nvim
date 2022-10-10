@@ -123,13 +123,12 @@ wk.register({
   },
   l = {
     name = "LSP ",
-    h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Docs" },
     f = { "LSP Find"
     },
-    d = { "Definition Preview" },
+    d = { "LSP Definition Preview" },
     r = { "LSP Rename"
     },
-    n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "Go To Next Diagnostic" },
+    n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "LSP Go To Next Diagnostic" },
   },
 }, {
   prefix = "<leader>",

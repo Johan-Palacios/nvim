@@ -31,11 +31,13 @@ packer.startup({
 })
 
 packer.init({
+  max_jobs = 50,
   display = {
     open_fn = function()
       return require('packer.util').float({ border = "rounded" })
     end,
   },
+  prompt_border = "rounded"
 })
 
 return packer.startup(function()
@@ -45,7 +47,6 @@ return packer.startup(function()
   use { 'wbthomason/packer.nvim' }
   use { 'lewis6991/impatient.nvim' }
   use { 'tweekmonster/startuptime.vim' }
-  use { 'nathom/filetype.nvim' }
   use { 'antoinemadec/FixCursorHold.nvim' }
   use { 'vim-scripts/restore_view.vim' }
   use { 'moll/vim-bbye' }
@@ -113,7 +114,7 @@ return packer.startup(function()
   use { 'nvim-treesitter/nvim-treesitter',
     event = { 'BufRead', "BufNewFile", "BufWinEnter" },
     config = function()
-      require('core.treesit')
+      require('core.treesiter')
     end,
   }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
@@ -216,10 +217,10 @@ return packer.startup(function()
   use { 'jose-elias-alvarez/nvim-lsp-ts-utils' }
   use { 'neovim/nvim-lspconfig' }
   use { 'ray-x/lsp_signature.nvim' }
-  --  use({
-  --   "glepnir/lspsaga.nvim",
-  --  branch = "main",
-  --})
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+  })
   use { "j-hui/fidget.nvim",
     config = function()
       require "fidget".setup {}

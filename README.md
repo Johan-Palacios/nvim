@@ -98,7 +98,7 @@ Esta configuración tiene :
 - Navegación de archivos por medio de Nvim-treee
 - Manejo de tabs y buffers
 - Excelentes iconos provistos por nvim-web-devicons
-- Una gran configuración de lsp dada por lspconfig y lspinstaller
+- Una gran configuración de lsp dada por mason
 - Autocompletado por cmp
 - Búsqueda de palabras, ficheros y ficheros recientes con telescope.nvim
 - Subrayado de sintaxis por treesitter

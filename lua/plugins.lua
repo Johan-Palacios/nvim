@@ -138,7 +138,12 @@ return packer.startup(function()
   use { "Pocco81/AutoSave.nvim" }
   use { "nacro90/numb.nvim" }
   use "karb94/neoscroll.nvim"
-  use { "ggandor/lightspeed.nvim" }
+  use {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  }
   use {
     "folke/which-key.nvim",
     config = function()

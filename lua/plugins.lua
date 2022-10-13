@@ -132,16 +132,15 @@ return packer.startup(function()
   use { "tpope/vim-surround" }
   use { "nvim-telescope/telescope.nvim" }
   use { "tpope/vim-sleuth" }
-  use {
-    "matbme/JABS.nvim",
-  }
+  use { "matbme/JABS.nvim" }
   use { "Pocco81/AutoSave.nvim" }
   use { "nacro90/numb.nvim" }
-  use "karb94/neoscroll.nvim"
+  use { "karb94/neoscroll.nvim" }
   use {
     "ggandor/leap.nvim",
     config = function()
-      require("leap").add_default_mappings()
+      vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)")
+      vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)")
     end,
   }
   use {

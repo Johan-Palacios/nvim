@@ -1,4 +1,4 @@
-require("which-key").setup({
+require("which-key").setup {
   plugins = {
     marks = true,
     registers = true,
@@ -62,20 +62,20 @@ require("which-key").setup({
     i = { "j", "k" },
     v = { "j", "k" },
   },
-})
-local wk = require("which-key")
+}
+local wk = require "which-key"
 wk.register({
   d = {
     name = "Debugger ",
     b = "Break Point ",
     c = "Continue ",
+    r = " Repl Toggle ",
     i = "Step Into 樂",
     l = "Run last ",
     O = "Step Out ﬀ",
     o = "Step Over",
-    r = "Repl Toggle ",
     t = "Terminate Debugger 栗",
-    u = "DAP Toggle "
+    u = "DAP Toggle ",
   },
   c = {
     name = "Conflict Manager ",
@@ -119,15 +119,13 @@ wk.register({
     s = { "Git " },
   },
   j = {
-    name = "Jabs "
+    name = "Jabs ",
   },
   l = {
     name = "LSP ",
-    f = { "LSP Find"
-    },
+    f = { "LSP Find" },
     d = { "LSP Definition Preview" },
-    r = { "LSP Rename"
-    },
+    r = { "LSP Rename" },
     n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "LSP Go To Next Diagnostic" },
   },
 }, {

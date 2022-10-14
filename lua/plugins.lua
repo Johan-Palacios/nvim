@@ -81,7 +81,7 @@ return packer.startup(function()
     end,
     event = "BufWinEnter",
   }
-  use "kyazdani42/nvim-web-devicons"
+  use { "kyazdani42/nvim-web-devicons" }
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -118,6 +118,7 @@ return packer.startup(function()
     config = function()
       require "core.treesiter"
     end,
+    run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
   use { "RRethy/vim-illuminate" }

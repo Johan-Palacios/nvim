@@ -1,4 +1,9 @@
-require("which-key").setup {
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+  return
+end
+
+local setup = {
   plugins = {
     marks = true,
     registers = true,
@@ -7,9 +12,9 @@ require("which-key").setup {
       suggestions = 20,
     },
     presets = {
-      operators = true,
-      motions = true,
-      text_objects = true,
+      operators = false,
+      motions = false,
+      text_objects = false,
       windows = true,
       nav = true,
       z = true,
@@ -17,9 +22,9 @@ require("which-key").setup {
     },
   },
   key_labels = {
-    ["<space>"] = "SPC",
-    ["<cr>"] = "RET",
-    ["<tab>"] = "TAB",
+    ["<leader>"] = "SPC",
+    -- ["<cr>"] = "RET",
+    -- ["<tab>"] = "TAB",
   },
   icons = {
     breadcrumb = "»",
@@ -27,10 +32,11 @@ require("which-key").setup {
     group = "+",
   },
   window = {
-    border = "single",
+    border = "rounded",
     position = "bottom",
     margin = { 1, 0, 1, 0 },
     padding = { 2, 2, 2, 2 },
+    winblend = 0,
   },
   layout = {
     height = {
@@ -56,6 +62,7 @@ require("which-key").setup {
     "^ ",
     "<C>",
   },
+  show_help = false,
   show_hColorelp = true,
   triggers = "auto",
   triggers_blacklist = {
@@ -63,13 +70,31 @@ require("which-key").setup {
     v = { "j", "k" },
   },
 }
-local wk = require "which-key"
-wk.register({
+
+local opts = {
+  mode = "n",
+  prefix = "<leader>",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+}
+
+local s_opts = {
+  mode = "n",
+  prefix = "/",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+}
+
+local n_mapings = {
   d = {
     name = "Debugger ",
     b = "Break Point ",
     c = "Continue ",
-    r = " Repl Toggle ",
+    r = "Repl Toggle ",
     i = "Step Into 樂",
     l = "Run last ",
     O = "Step Out ﬀ",
@@ -128,15 +153,15 @@ wk.register({
     r = { "LSP Rename" },
     n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "LSP Go To Next Diagnostic" },
   },
-}, {
-  prefix = "<leader>",
-})
+}
 
-wk.register({
+local s_mappings = {
   name = "Search",
   ["/"] = {
     name = "Searching",
   },
-}, {
-  prefix = "/",
-})
+}
+
+which_key.setup(setup)
+which_key.register(n_mapings, opts)
+which_key.register(s_mappings, s_opts)

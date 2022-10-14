@@ -11,8 +11,6 @@ require "core.tools.autosave"
 
 require "core.tools.fileicon"
 
-require "core.tools.luasnip"
-
 require "core.tools.sesion"
 
 require "core.tools.jabs"

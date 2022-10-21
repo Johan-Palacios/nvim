@@ -13,7 +13,7 @@ if not lspconfig_status_ok then
   return
 end
 
-local servers = { "jsonls", "sumneko_lua", "pyright", "omnisharp", "html", "cssls", "vimls", "rust_analyzer", "cmake",
+local servers = { "jsonls", "sumneko_lua", "pyright", "html", "cssls", "vimls", "rust_analyzer", "cmake",
   "clangd", "tsserver", "emmet_ls"}
 
 local settings = {

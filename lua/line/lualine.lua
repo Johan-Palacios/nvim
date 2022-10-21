@@ -41,7 +41,7 @@ local colors = {
   status_text = "#4e545f",
   branch_name = "#a4abb7",
   branch_cover = "#21242B",
-  line = "#1e2127"
+  line = "#1e2127",
 }
 
 local onedark_theme = {
@@ -49,7 +49,7 @@ local onedark_theme = {
     a = { fg = colors.black, bg = colors.violet },
     b = { fg = colors.black, bg = colors.grey },
     c = { fg = colors.black, bg = colors.black },
-  }
+  },
 }
 
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.line })
@@ -96,7 +96,6 @@ local hide_in_width = function()
   return vim.fn.winwidth(0) > 80
 end
 
-
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
@@ -125,7 +124,7 @@ local branch = {
   "branch",
   icons_enabled = true,
   icon = "%#SLGitIcon#" .. "" .. "%*" .. "%#SLBranchName#",
-  separator = { left = '', right = '' },
+  separator = { left = "", right = "" },
   colored = false,
 }
 
@@ -138,7 +137,7 @@ local progress = {
   color = function()
     return { bg = colors.branch_cover, fg = colors.white }
   end,
-  separator = { left = ' ', right = '' },
+  separator = { left = " ", right = "" },
 }
 
 local spaces = {

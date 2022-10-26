@@ -1,7 +1,7 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = {
   noremap = true,
-  silent = true
+  silent = true,
 }
 --Explorer
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
@@ -34,12 +34,12 @@ keymap("n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<Leader>ld", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 --Git
 keymap("n", "<Leader>gs", ":G", opts)
-keymap('n', 'co', '<Plug>(git-conflict-ours)', opts)
-keymap('n', 'cb', '<Plug>(git-conflict-both)', opts)
-keymap('n', 'ct', '<Plug>(git-conflict-theirs)', opts)
-keymap('n', 'c0', '<Plug>(git-conflict-none)', opts)
-keymap('n', ']x', '<Plug>(git-conflict-prev-conflict)', opts)
-keymap('n', '[x', '<Plug>(git-conflict-next-conflict)', opts)
+keymap("n", "co", "<Plug>(git-conflict-ours)", opts)
+keymap("n", "cb", "<Plug>(git-conflict-both)", opts)
+keymap("n", "ct", "<Plug>(git-conflict-theirs)", opts)
+keymap("n", "c0", "<Plug>(git-conflict-none)", opts)
+keymap("n", "]x", "<Plug>(git-conflict-prev-conflict)", opts)
+keymap("n", "[x", "<Plug>(git-conflict-next-conflict)", opts)
 --Telescope
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fw", "<cmd>Telescope live_grep<cr>", opts)
@@ -74,6 +74,8 @@ keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
 keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', opts)
 keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', opts)
+
+-- Custom Functions Command
 M = {}
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -88,7 +90,11 @@ M.show_documentation = function()
   end
 end
 
-vim.api.nvim_set_keymap("n", "K", ":lua require('configs.commands').show_documentation()<CR>",
-  { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "K",
+  ":lua require('configs.commands').show_documentation()<CR>",
+  { noremap = true, silent = true }
+)
 
 return M

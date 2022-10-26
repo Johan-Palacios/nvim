@@ -151,4 +151,9 @@ require("nvim-web-devicons").set_icon {
     color = colors.blue,
     name = "ino"
   },
+  editorconfig = {
+    icon = "",
+    color = colors.grey,
+    name = "editorconfig"
+  }
 }

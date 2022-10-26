@@ -40,6 +40,15 @@ packer.init {
 }
 
 return packer.startup(function()
+  -- COLORSCHEMA
+
+  use {
+    "joshdick/onedark.vim",
+    config = function()
+      vim.cmd "source $HOME/.config/nvim/themes/onedark.vim"
+    end,
+  }
+
   -- MANAGMENT PLUGINS
   use { "wbthomason/packer.nvim" }
   use { "lewis6991/impatient.nvim" }
@@ -76,10 +85,6 @@ return packer.startup(function()
   }
   use {
     "akinsho/bufferline.nvim",
-    config = function()
-      require "core.tools.barbar"
-    end,
-    event = "BufWinEnter",
   }
   use { "kyazdani42/nvim-web-devicons" }
   use {
@@ -93,15 +98,6 @@ return packer.startup(function()
     "anuvyklack/pretty-fold.nvim",
     config = function()
       require("pretty-fold").setup {}
-    end,
-  }
-
-  -- COLORSCHEMA
-
-  use {
-    "joshdick/onedark.vim",
-    config = function()
-      vim.cmd "source $HOME/.config/nvim/themes/onedark.vim"
     end,
   }
 

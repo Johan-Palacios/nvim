@@ -1,7 +1,5 @@
 if vim.fn.has('wsl') == 1 then
-  -- VSCODE extensions
   require('dap.ext.vscode').load_launchjs(nil, { cppdbg = { 'c', 'cpp' } })
-  -- CPPTOOLS DAP DEBUGER
   local dap = require('dap')
   dap.adapters.cppdbg = {
     id = 'cppdbg',

@@ -5,14 +5,12 @@ vim.o.pastetoggle = "<F14>"
 vim.o.compatible = false
 vim.o.shiftround = true
 vim.o.hidden = true
-vim.o.background = "dark"
 vim.o.write = true
 vim.o.scrolljump = -3
 vim.o.fillchars = "eob: "
 --Window Local
 vim.wo.fdm = "indent"
 vim.wo.cursorline = true
-vim.wo.wrap = false
 vim.wo.colorcolumn = "120"
 vim.wo.rnu = true
 -- Buffer Local
@@ -34,6 +32,7 @@ local options = {
   fileencoding = "utf-8",
   hlsearch = true,
   ignorecase = true,
+  mousemoveevent = true,
   mouse = "a",
   pumheight = 10,
   showmode = false,
@@ -62,8 +61,7 @@ local options = {
   laststatus = 3,
 }
 
-
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append "c"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "//"
 
@@ -71,12 +69,12 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]])
+vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set iskeyword+=-]]
+vim.cmd [[set formatoptions-=cro]]
 
-if vim.fn.has("wsl") == 1 then
-  vim.cmd([[
+if vim.fn.has "wsl" == 1 then
+  vim.cmd [[
   let s:clip = '/mnt/c/Windows/System32/clip.exe'
   if executable(s:clip)
       augroup WSLYank
@@ -84,5 +82,5 @@ if vim.fn.has("wsl") == 1 then
           autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
       augroup END
   endif
-  ]])
+  ]]
 end

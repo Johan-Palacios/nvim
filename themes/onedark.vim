@@ -1,5 +1,5 @@
-let g:onedark_termcolors=256
-set t_Co=256
+" let g:onedark_termcolors=256
+" set t_Co=256
 colorscheme onedark
 highlight Normal guibg=#1e2127
 " NvimTree colors

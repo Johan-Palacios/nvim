@@ -19,9 +19,9 @@ bufferline.setup {
     max_name_length = 30,
     max_prefix_length = 30,
     tab_size = 21,
-    diagnostics = true,
+    diagnostics = false,
     diagnostics_update_in_insert = false,
-    offsets = { { filetype = "NvimTree", text = "Explorer 📦", padding = 1 } },
+    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     show_buffer_icons = true,
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -38,7 +38,7 @@ bufferline.setup {
   },
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
+      fg = { attribute = "fg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     background = {
@@ -58,16 +58,16 @@ bufferline.setup {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
-    tab_selected = {
-      fg = "#1e2127",
-      bg = "#569cd6",
-    },
-    tab = {
-      bg = "#1e2127",
-      fg = "#569cd6",
-      -- fg = { attribute = "fg", highlight = "TabLineSel" },
-      -- bg = { attribute = "bg", highlight = "Normal" },
-    },
+    -- tab_selected = {
+    --   fg = "#1e2127",
+    --   bg = "#569cd6",
+    -- },
+    -- tab = {
+    --   bg = "#1e2127",
+    --   fg = "#569cd6",
+    --   -- fg = { attribute = "fg", highlight = "TabLineSel" },
+    --   -- bg = { attribute = "bg", highlight = "Normal" },
+    -- },
     tab_close = {
       fg = { attribute = "fg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "Normal" },
@@ -101,7 +101,6 @@ bufferline.setup {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
-
     separator = {
       fg = { attribute = "bg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },

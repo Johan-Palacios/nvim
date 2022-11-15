@@ -2,12 +2,19 @@ local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
 end
+
+local status_ok, dap = pcall(require, "dap")
+if not status_ok then
+  return
+end
+
+-- which_key
 local keymap = vim.keymap.set
 local key_opts = { silent = true }
 
 keymap("n", "<leader>rh", "<cmd>RustSetInlayHints<Cr>", key_opts)
 keymap("n", "<leader>rhd", "<cmd>RustDisableInlayHints<Cr>", key_opts)
-keymap("n", "<leader>th", "<cmd>RustToggleInlayHints<Cr>", key_opts)
+keymap("n", "<leader>rth", "<cmd>RustToggleInlayHints<Cr>", key_opts)
 keymap("n", "<leader>rr", "<cmd>RustRunnables<Cr>", key_opts)
 keymap("n", "<leader>rem", "<cmd>RustExpandMacro<Cr>", key_opts)
 keymap("n", "<leader>roc", "<cmd>RustOpenCargo<Cr>", key_opts)
@@ -25,45 +32,35 @@ keymap("n", "<leader>rss", "<cmd>RustSSR<Cr>", key_opts)
 keymap("n", "<leader>rxd", "<cmd>RustOpenExternalDocs<Cr>", key_opts)
 
 local opts = {
-  mode = "n", -- NORMAL mode
+  mode = "n",
   prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
 
 local mappings = {
-  L = {
+  r = {
     name = "Rust",
-    h = { "<cmd>RustToggleInlayHints<Cr>", "Toggle Hints" },
     r = { "<cmd>RustRunnables<Cr>", "Runnables" },
-    -- r = { "<cmd>lua _CARGO_RUN()<cr>", "Cargo Run" },
     t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
     m = { "<cmd>RustExpandMacro<Cr>", "Expand Macro" },
     c = { "<cmd>RustOpenCargo<Cr>", "Open Cargo" },
     p = { "<cmd>RustParentModule<Cr>", "Parent Module" },
-    -- j = { "<cmd>RustJoinLines<Cr>", "Join Lines" },
-    -- s = { "<cmd>RustStartStandaloneServerForBuffer<Cr>", "Start Server Buf" },
     d = { "<cmd>RustDebuggables<Cr>", "Debuggables" },
     v = { "<cmd>RustViewCrateGraph<Cr>", "View Crate Graph" },
     R = {
       "<cmd>lua require('rust-tools/workspace_refresh')._reload_workspace_from_cargo_toml()<Cr>",
       "Reload Workspace",
     },
-    -- S = { "<cmd>RustSSR<Cr>", "SSR" },
-    -- o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
-    -- h = { "<cmd>RustSetInlayHints<Cr>", "Enable Hints" },
-    -- H = { "<cmd>RustDisableInlayHints<Cr>", "Disable Hints" },
-    -- a = { "<cmd>RustHoverActions<Cr>", "Hover Actions" },
-    -- a = { "<cmd>RustHoverRange<Cr>", "Hover Range" },
-    -- j = { "<cmd>RustMoveItemDown<Cr>", "Move Item Down" },
-    -- k = { "<cmd>RustMoveItemUp<Cr>", "Move Item Up" },
+    o = { "<cmd>RustOpenExternalDocs<Cr>", "Open External Docs" },
   },
 }
-
+vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
 which_key.register(mappings, opts)
 
+-- Filter Notify
 local notify_filter = vim.notify
 vim.notify = function(msg, ...)
   if msg:match "message with no corresponding" then
@@ -72,43 +69,86 @@ vim.notify = function(msg, ...)
 
   notify_filter(msg, ...)
 end
-local Terminal = require("toggleterm.terminal").Terminal
-local vertical_term = Terminal:new {
-  cmd = "cargo run",
-  direction = "horizontal",
-  on_open = function(term)
-    vim.cmd "startinsert!"
-    vim.api.nvim_buf_set_keymap(
-      term.bufnr,
-      "n",
-      "<m-4>",
-      "<cmd>4ToggleTerm size=15 direction=horizontal<cr>",
-      { noremap = true, silent = true }
-    )
-    vim.api.nvim_buf_set_keymap(
-      term.bufnr,
-      "t",
-      "<m-4>",
-      "<cmd>4ToggleTerm size=15 direction=horizontal<cr>",
-      { noremap = true, silent = true }
-    )
-    vim.api.nvim_buf_set_keymap(
-      term.bufnr,
-      "i",
-      "<m-4>",
-      "<cmd>4ToggleTerm size=60 direction=horizontal<cr>",
-      { noremap = true, silent = true }
-    )
-  end,
-  on_close = function(term)
-    vim.cmd("Closing terminal")
-  end,
-  count = 4,
+
+-- DAP
+--
+local codelldb_adapter = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = "codelldb",
+    args = { "--port", "${port}" },
+    detached = false,
+  },
 }
 
-function _CARGO_TERM()
-  vertical_term:toggle(15)
-end
+require("rust-tools").setup {
+  tools = {
+    executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
+    reload_workspace_from_cargo_toml = true,
+    runnables = {
+      use_telescope = true,
+    },
+    inlay_hints = {
+      auto = true,
+      only_current_line = false,
+      show_parameter_hints = false,
+      parameter_hints_prefix = "<-",
+      other_hints_prefix = "=>",
+      max_len_align = false,
+      max_len_align_padding = 1,
+      right_align = false,
+      right_align_padding = 7,
+      highlight = "Comment",
+    },
+    hover_actions = {
+      border = "rounded",
+    },
+    on_initialized = function()
+      vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+        pattern = { "*.rs" },
+        callback = function()
+          local _, _ = pcall(vim.lsp.codelens.refresh)
+        end,
+      })
+    end,
+  },
+  dap = {
+    adapter = codelldb_adapter,
+  },
+  server = {
+    on_attach = function(client, bufnr)
+      require("lsp.handler").on_attach(client, bufnr)
+      local rt = require "rust-tools"
+      vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+    end,
 
-vim.api.nvim_set_keymap("n", "<m-4>", "<cmd>lua _CARGO_TERM()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<m-4>", "<cmd>lua _CARGO_TERM()<CR>", { noremap = true, silent = true })
+    capabilities = require("lsp.handler").capabilities,
+    settings = {
+      ["rust-analyzer"] = {
+        lens = {
+          enable = true,
+        },
+        checkOnSave = {
+          enable = true,
+          command = "clippy",
+        },
+      },
+    },
+  },
+}
+
+dap.adapters.codelldb = codelldb_adapter
+
+dap.configurations.rust = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}

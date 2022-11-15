@@ -9,7 +9,7 @@ if not dap_ui_status_ok then
 end
 
 dapui.setup {
-  icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "", collapsed = "", circular = "" },
   mappings = {
     expand = { "<CR>", "<2-LeftMouse>" },
     open = "o",
@@ -21,47 +21,55 @@ dapui.setup {
   layouts = {
     {
       elements = {
-        -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        "repl",
-        "stacks",
-        "watches",
+        { id = "repl", size = 0.45 },
+        { id = "console", size = 0.55 },
       },
-      size = 40, -- 40 columns
-      position = "right",
+      size = 0.27,
+      position = "bottom",
     },
     {
       elements = {
-        "console",
+        { id = "scopes", size = 0.33 },
+        { id = "breakpoints", size = 0.17 },
+        { id = "stacks", size = 0.25 },
+        { id = "watches", size = 0.25 },
       },
-      size = 0.25, -- 25% of total lines
-      position = "bottom",
+      size = 0.33,
+      position = "right",
+    },
+  },
+  controls = {
+    enabled = true,
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "",
+      terminate = "",
     },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
+    max_height = 0.9,
+    max_width = 0.5,
+    border = vim.g.border_chars,
     mappings = {
       close = { "q", "<Esc>" },
     },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
   },
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
-
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open {}
+  dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close {}
+  dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close {}
+  dapui.close()
 end

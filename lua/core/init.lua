@@ -5,8 +5,6 @@ require("core.cmp")
 
 -- NOTE: Principal Plugins configuration
 
-require("core.gitsign")
-
 require("core.telescope")
 
 -- NOTE: tools for nvim

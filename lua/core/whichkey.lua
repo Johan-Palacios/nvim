@@ -100,7 +100,7 @@ local n_mapings = {
     O = "Step Out ﬀ",
     o = "Step Over",
     t = "Terminate Debugger 栗",
-    u = "DAP Toggle ",
+    u = "Toggle ",
   },
   c = {
     name = "Conflict Manager ",

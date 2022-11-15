@@ -61,7 +61,12 @@ return packer.startup(function()
 
   -- GIT
 
-  use { "lewis6991/gitsigns.nvim" }
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require "core.gitsign"
+    end,
+  }
   use { "tpope/vim-fugitive" }
   use {
     "akinsho/git-conflict.nvim",
@@ -85,8 +90,8 @@ return packer.startup(function()
   }
   use {
     "akinsho/bufferline.nvim",
-    requires = 'kyazdani42/nvim-web-devicons',
-    tag = "v3.*"
+    requires = "kyazdani42/nvim-web-devicons",
+    tag = "v3.*",
   }
   use { "kyazdani42/nvim-web-devicons" }
   use {

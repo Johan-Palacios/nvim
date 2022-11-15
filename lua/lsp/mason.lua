@@ -13,8 +13,19 @@ if not lspconfig_status_ok then
   return
 end
 
-local servers = { "jsonls", "sumneko_lua", "pyright", "html", "cssls", "vimls", "rust_analyzer", "cmake",
-  "clangd", "tsserver", "emmet_ls"}
+local servers = {
+  "jsonls",
+  "sumneko_lua",
+  "pyright",
+  "html",
+  "cssls",
+  "vimls",
+  "rust_analyzer",
+  "cmake",
+  "clangd",
+  "tsserver",
+  "emmet_ls",
+}
 
 local settings = {
   ui = {
@@ -45,17 +56,5 @@ for _, server in pairs(servers) do
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
   end
-
-
-  if server == "rust_analyzer" then
-    local rust_opts = require "lsp.settings.rust_analyzer"
-    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
-    if not rust_tools_status_ok then
-      return
-    end
-    rust_tools.setup(rust_opts)
-    goto continue
-  end
   lspconfig[server].setup(opts)
-  ::continue::
 end

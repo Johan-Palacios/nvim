@@ -273,6 +273,7 @@ return packer.startup(function()
   -- EXTRA TOOLS
 
   use { "simrat39/rust-tools.nvim" }
+  use { "mfussenegger/nvim-jdtls" }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

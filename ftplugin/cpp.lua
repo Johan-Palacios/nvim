@@ -20,10 +20,20 @@ dap.configurations.cpp = {
     name = "Launch file",
     type = "codelldb",
     request = "launch",
+    -- program = function()
+    --   return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    -- end,
     program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+      local path
+      vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() }, function(input)
+        path = input
+      end)
+      vim.cmd [[redraw]]
+      return path
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
   },
 }
+
+dap.configurations.c = dap.configurations.cpp

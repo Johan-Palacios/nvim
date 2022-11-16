@@ -1,4 +1,7 @@
+local Terminal = require("toggleterm.terminal").Terminal
+
 local notify_filter = vim.notify
+
 vim.notify = function(msg, ...)
   if msg:match "warning: multiple different client offset_encodings detected for buffer, this is not supported yet" then
     return
@@ -6,7 +9,6 @@ vim.notify = function(msg, ...)
   notify_filter(msg, ...)
 end
 
-local Terminal = require("toggleterm.terminal").Terminal
 local vertical_term = Terminal:new {
   cmd = "cd build && make && ./main",
   close_on_exit = false,
@@ -37,7 +39,7 @@ local vertical_term = Terminal:new {
     )
   end,
   on_close = function(term)
-    vim.cmd("startinsert")
+    vim.cmd "startinsert"
   end,
   count = 5,
 }

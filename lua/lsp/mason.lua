@@ -19,6 +19,7 @@ local servers = {
   "pyright",
   "html",
   "cssls",
+  -- "jdtls",
   "vimls",
   "rust_analyzer",
   "cmake",
@@ -51,7 +52,6 @@ for _, server in pairs(servers) do
     on_attach = require("lsp.handler").on_attach,
     capabilities = require("lsp.handler").capabilities,
   }
-
   local has_custom_opts, server_custom_opts = pcall(require, "lsp.settings." .. server)
   if has_custom_opts then
     opts = vim.tbl_deep_extend("force", server_custom_opts, opts)

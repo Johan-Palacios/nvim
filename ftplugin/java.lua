@@ -29,7 +29,7 @@ else
 end
 
 -- Find root of project
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle"}
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
   return
@@ -53,16 +53,12 @@ vim.list_extend(
   )
 )
 
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
-  -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
-
     -- 💀
     "java", -- or '/path/to/java11_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -82,7 +78,7 @@ local config = {
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
-
+    --
     -- 💀
     "-configuration",
     home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. CONFIG,
@@ -146,9 +142,6 @@ local config = {
       },
       format = {
         enabled = false,
-        -- settings = {
-        --   profile = "asdf"
-        -- }
       },
     },
     signatureHelp = { enabled = true },
@@ -191,7 +184,6 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    -- bundles = {},
     bundles = bundles,
   },
 }

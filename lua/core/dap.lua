@@ -29,10 +29,10 @@ dapui.setup {
     },
     {
       elements = {
-        { id = "scopes", size = 0.33 },
-        { id = "breakpoints", size = 0.17 },
-        { id = "stacks", size = 0.25 },
-        { id = "watches", size = 0.25 },
+        { id = "scopes", size = 0.30 },
+        { id = "breakpoints", size = 0.20 },
+        { id = "stacks", size = 0.10 },
+        { id = "watches", size = 0.30 },
       },
       size = 0.33,
       position = "right",

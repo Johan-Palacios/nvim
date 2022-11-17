@@ -4,27 +4,32 @@ vim.opt_local.cmdheight = 2
 -- INSTALL JAVA 17 or lastest
 -- USE PYTHON3.9
 
-local capabilities = require("lsp.handler").capabilities
-
 local status, jdtls = pcall(require, "jdtls")
 if not status then
   return
 end
 
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+  return
+end
+
+local capabilities = require("lsp.handler").capabilities
+
 -- Determine OS
 local home = os.getenv "HOME"
 if vim.fn.has "mac" == 1 then
-  WORKSPACE_PATH = home .. "/workspace/"
+  WORKSPACE_PATH = home .. "/.javaeclipsecaches/"
   CONFIG = "mac"
 elseif vim.fn.has "unix" == 1 then
-  WORKSPACE_PATH = home .. "/workspace/"
+  WORKSPACE_PATH = home .. "/.javaeclipsecaches/"
   CONFIG = "linux"
 else
   print "Unsupported system"
 end
 
 -- Find root of project
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle"}
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
   return
@@ -117,10 +122,6 @@ local config = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
-            name = "JavaSE-11",
-            path = "~/.sdkman/candidates/java/11.0.12-open",
-          },
-          {
             name = "JavaSE-19",
             path = "~/.sdkman/candidates/java/19-open",
           },
@@ -207,15 +208,15 @@ config["on_attach"] = function(client, bufnr)
 
     vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc, buffer = bufnr, noremap = true })
   end
-  map("n", "<leader>Co", jdtls.organize_imports(), "Organize Imports")
-  map("n", "<leader>Cv", jdtls.extract_variable(), "Extract Variable")
-  map("n", "<leader>Cc", jdtls.extract_constant(), "Extract Constant")
-  map("n", "<leader>Ct", jdtls.test_nearest_method(), "Test Method")
-  map("n", "<leader>CT", jdtls.test_class(), "Test Class")
-  map("n", "<leader>Cu", "<Cmd>JdtUpdateConfig<CR>", "Update Config")
-  map("v", "<leader>Cv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable")
-  map("v", "<leader>Cc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant")
-  map("v", "<leader>Cm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method")
+  map("n", "<leader>jo", jdtls.organize_imports(), "Organize Imports")
+  map("n", "<leader>rv", jdtls.extract_variable(), "Extract Variable")
+  map("n", "<leader>rc", jdtls.extract_constant(), "Extract Constant")
+  map("n", "<leader>rt", jdtls.test_nearest_method(), "Test Method")
+  map("n", "<leader>rT", jdtls.test_class(), "Test Class")
+  map("n", "<leader>ru", "<Cmd>JdtUpdateConfig<CR>", "Update Config")
+  map("v", "<leader>rk", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable")
+  map("v", "<leader>rc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant")
+  map("v", "<leader>rm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method")
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -232,6 +233,6 @@ jdtls.start_or_attach(config)
 vim.cmd [[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
 -- vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 -- vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
--- -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
+-- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
 -- vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
--- -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
+-- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"

@@ -22,7 +22,7 @@ local setup = {
     },
   },
   key_labels = {
-    ["<leader>"] = "SPC",
+    ["<leader>"] = "SPC ",
     -- ["<cr>"] = "RET",
     -- ["<tab>"] = "TAB",
   },
@@ -141,7 +141,12 @@ local n_mapings = {
   },
   g = {
     name = "Git ",
-    s = { "Git " },
+    o = { "Conflict Ours" },
+    b = { "Conflict Both" },
+    t = { "Conflict Theirs" },
+    ["0"] = { "Confict none" },
+    p = { "Conflict Prev" },
+    n = { "Confict Next" },
   },
   j = {
     name = "Jabs ",
@@ -151,7 +156,6 @@ local n_mapings = {
     f = { "LSP Find" },
     d = { "LSP Definition Preview" },
     r = { "LSP Rename" },
-    n = { "<cmd>lua vim.lsp.diagnostic.goto_next()", "LSP Go To Next Diagnostic" },
   },
 }
 

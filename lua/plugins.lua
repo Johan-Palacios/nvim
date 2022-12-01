@@ -270,7 +270,7 @@ return packer.startup(function()
     requires = "neovim/nvim-lspconfig",
   }
 
-  -- EXTRA TOOLS
+  -- LANGUAGE TOOLS
 
   use { "simrat39/rust-tools.nvim" }
   use { "mfussenegger/nvim-jdtls" }

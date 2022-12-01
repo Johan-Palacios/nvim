@@ -9,10 +9,11 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
   debug = false,
   sources = {
-    formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
+    -- formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
+    formatting.prettier,
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
-    formatting.clang_format,
-    formatting.google_java_format.with { filetypes = { "java" } },
+    formatting.clang_format.with { filetypes = { "c", "cpp", "cuda", "cs" } },
+    -- formatting.google_java_format.with { filetypes = { "java" } },
   },
 }

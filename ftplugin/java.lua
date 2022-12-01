@@ -9,11 +9,6 @@ if not status then
   return
 end
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
-end
-
 local capabilities = require("lsp.handler").capabilities
 
 -- Determine OS
@@ -141,7 +136,11 @@ local config = {
         },
       },
       format = {
-        enabled = false,
+        enabled = true,
+        settings = {
+          url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml",
+          profile = "GoogleStyle",
+        },
       },
     },
     signatureHelp = { enabled = true },
@@ -193,22 +192,6 @@ config["on_attach"] = function(client, bufnr)
   require("jdtls.dap").setup_dap_main_class_configs()
   jdtls.setup_dap { hotcodereplace = "auto" }
   require("lsp.handler").on_attach(client, bufnr)
-  local map = function(mode, lhs, rhs, desc)
-    if desc then
-      desc = desc
-    end
-
-    vim.keymap.set(mode, lhs, rhs, { silent = true, desc = desc, buffer = bufnr, noremap = true })
-  end
-  map("n", "<leader>jo", jdtls.organize_imports(), "Organize Imports")
-  map("n", "<leader>rv", jdtls.extract_variable(), "Extract Variable")
-  map("n", "<leader>rc", jdtls.extract_constant(), "Extract Constant")
-  map("n", "<leader>rt", jdtls.test_nearest_method(), "Test Method")
-  map("n", "<leader>rT", jdtls.test_class(), "Test Class")
-  map("n", "<leader>ru", "<Cmd>JdtUpdateConfig<CR>", "Update Config")
-  map("v", "<leader>rk", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable")
-  map("v", "<leader>rc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant")
-  map("v", "<leader>rm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method")
 end
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
@@ -218,13 +201,20 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
+local keymap = function(mode, command, cmdex, description)
+  vim.keymap.set(mode, command, cmdex, { silent = true, noremap = true, desc = description })
+end
+keymap("n", "<leader>lo", '<Esc><Cmd>lua require("jdtls").organize_imports()<Cr>', "Organize Imports")
+keymap("n", "<leader>lv", '<Esc><Cmd>lua require("jdtls").extract_variable()<Cr>', "Extract Variable")
+keymap("n", "<leader>lc", '<Esc><Cmd>lua require("jdtls").extract_constant()<Cr>', "Extract Constant")
+keymap("n", "<leader>lt", '<Esc><Cmd>lua require("jdtls").test_nearest_method()<Cr>', "Test Method")
+keymap("n", "<leader>lT", '<Esc><Cmd>lua require("jdtls").test_class()<Cr>', "Test Class")
+keymap("n", "<leader>lu", "<Esc><Cmd>JdtUpdateConfig<CR>", "Update Config")
+keymap("v", "<leader>lv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable")
+keymap("v", "<leader>lc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Cosntant")
+keymap("v", "<leader>lm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method")
+--
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
+require("jdtls.setup").add_commands()
 jdtls.start_or_attach(config)
-
-vim.cmd [[command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)]]
--- vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
--- vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
--- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
--- vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
--- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"

@@ -15,13 +15,13 @@ local check_backspace = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
-local icons = require("core.icons")
+local icons = require "core.icons"
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6cc644" })
 
 local kind_icons = icons.kind
 
-cmp.setup({
+cmp.setup {
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = true,
@@ -29,7 +29,6 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-
       vim_item.kind = kind_icons[vim_item.kind]
 
       if entry.source.name == "copilot" then
@@ -80,11 +79,11 @@ cmp.setup({
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable,
-    ["<C-e>"] = cmp.mapping({
+    ["<C-e>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
-    }),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    },
+    ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -117,7 +116,16 @@ cmp.setup({
   sources = {
     {
       name = "nvim_lsp",
-      group_index = 2
+      entry_filter = function(entry, ctx)
+        local kind = require("cmp.types").lsp.CompletionItemKind[entry:get_kind()]
+        if kind == "Snippet" and ctx.prev_context.filetype == "java" then
+          return false
+        end
+        if kind == "Text" then
+          return false
+        end
+        return true
+      end,
     },
     --[[ { ]]
     --[[   name = "copilot", ]]
@@ -129,19 +137,15 @@ cmp.setup({
     --[[ }, ]]
     {
       name = "path",
-      group_index = 2
     },
     {
       name = "nvim_lua",
-      group_index = 2
     },
     {
       name = "buffer",
-      group_index = 2
     },
     {
       name = "luasnip",
-      group_index = 2
     },
   },
   sorting = {
@@ -158,4 +162,4 @@ cmp.setup({
       cmp.config.compare.order,
     },
   },
-})
+}

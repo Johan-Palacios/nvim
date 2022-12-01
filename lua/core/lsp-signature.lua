@@ -17,7 +17,6 @@ local cfg = {
   hint_enable = true,
   hint_prefix = icons.misc.Squirrel .. " ",
   hint_scheme = "Comment",
-  use_lspsaga = false,
   hi_parameter = "LspSignatureActiveParameter",
   max_height = 12,
   max_width = 120,

@@ -1,32 +1,8 @@
---Global options
-vim.o.foldlevelstart = 99
-vim.o.title = true
-vim.o.pastetoggle = "<F14>"
-vim.o.compatible = false
-vim.o.shiftround = true
-vim.o.hidden = true
-vim.o.write = true
-vim.o.scrolljump = -3
-vim.o.fillchars = "eob: "
---Window Local
-vim.wo.fdm = "indent"
-vim.wo.cursorline = true
-vim.wo.colorcolumn = "120"
-vim.wo.rnu = true
--- Buffer Local
-vim.bo.autoindent = true
-vim.bo.spelllang = "en"
-vim.bo.ma = true
--- Extra config
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.cursorhold_updatetime = 100
-
 local options = {
   backup = false,
   foldmethod = "manual",
   clipboard = "unnamedplus",
-  cmdheight = 2,
+  cmdheight = 1,
   completeopt = { "menuone", "noselect" },
   conceallevel = 0,
   fileencoding = "utf-8",
@@ -43,9 +19,9 @@ local options = {
   splitright = true,
   swapfile = false,
   termguicolors = true,
-  timeoutlen = 200,
+  timeoutlen = 500,
   undofile = true,
-  updatetime = 200,
+  updatetime = 100,
   writebackup = false,
   expandtab = true,
   shiftwidth = 2,
@@ -53,12 +29,15 @@ local options = {
   cursorline = true,
   number = false,
   relativenumber = true,
-  numberwidth = 1,
+  numberwidth = 3,
   signcolumn = "yes",
   wrap = false,
   scrolloff = 9,
   sidescrolloff = 8,
   laststatus = 3,
+  ruler = false,
+  title = true,
+  showcmd = false,
 }
 
 vim.opt.shortmess:append "c"
@@ -68,6 +47,11 @@ vim.g.maplocalleader = "//"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
+vim.opt.fillchars:append {
+  stl = " ",
+}
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

@@ -19,13 +19,11 @@ local servers = {
   "pyright",
   "html",
   "cssls",
-  -- "jdtls",
   "vimls",
   "rust_analyzer",
   "cmake",
-  "clangd",
+  -- "clangd",
   "tsserver",
-  "emmet_ls",
 }
 
 local settings = {

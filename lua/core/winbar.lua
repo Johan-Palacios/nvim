@@ -47,7 +47,7 @@ local get_filename = function()
       file_icon_color = ""
     end
 
-    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#9095a2#" .. filename .. "%*"
+    return " " .. "%#" .. hl_group .. "#" .. file_icon .. " " .. "%*" .. " " .. "%#9095a2#" .. filename .. "%*"
   end
 end
 

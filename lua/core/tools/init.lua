@@ -3,8 +3,6 @@ require "core.tools.bufferline"
 
 require "core.tools.trouble"
 
-require "core.tools.scroll"
-
 require "core.tools.autopairs"
 
 require "core.tools.numb"

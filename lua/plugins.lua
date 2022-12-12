@@ -45,7 +45,7 @@ return packer.startup(function()
   use {
     "joshdick/onedark.vim",
     config = function()
-      vim.cmd "source $HOME/.config/nvim/themes/onedark.vim"
+      require "core.colors.theme"
     end,
   }
 
@@ -135,11 +135,15 @@ return packer.startup(function()
   use { "windwp/nvim-autopairs" }
   use { "tpope/vim-surround" }
   use { "nvim-telescope/telescope.nvim" }
-  use { "tpope/vim-sleuth" }
   use { "matbme/JABS.nvim" }
   use { "Pocco81/AutoSave.nvim" }
   use { "nacro90/numb.nvim" }
-  use { "karb94/neoscroll.nvim" }
+  use {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
+    end,
+  }
   use {
     "ggandor/leap.nvim",
     config = function()
@@ -162,7 +166,7 @@ return packer.startup(function()
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = function()
-      require "core.tools.info_icons"
+      require "core.tools.iconscomments"
     end,
     event = { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
   }
@@ -191,7 +195,7 @@ return packer.startup(function()
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup {}
+      require "core.tools.trouble"
     end,
   }
 
@@ -252,6 +256,7 @@ return packer.startup(function()
 
   -- FORMAT
 
+  -- use { "tpope/vim-sleuth" }
   use { "b0o/SchemaStore.nvim" }
   use {
     "jose-elias-alvarez/null-ls.nvim",

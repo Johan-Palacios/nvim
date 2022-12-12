@@ -136,11 +136,12 @@ local config = {
         },
       },
       format = {
-        enabled = true,
-        settings = {
-          url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml",
-          profile = "GoogleStyle",
-        },
+        enabled = false,
+        -- Brew google-java-format
+        -- settings = {
+        --   url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml",
+        --   profile = "GoogleStyle",
+        -- },
       },
     },
     signatureHelp = { enabled = true },

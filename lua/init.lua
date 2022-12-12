@@ -1,5 +1,4 @@
--- NOTE: Main Config
-require("configs.esencials")
+require("configs.options")
 
 require("packer_compiled")
 
@@ -9,7 +8,7 @@ require("lsp.init")
 
 require("core.init")
 
-require("configs.commands")
+require("configs.keymaps")
 
 require("configs.autocmd")
 

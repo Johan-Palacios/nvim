@@ -14,6 +14,6 @@ null_ls.setup {
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
     formatting.clang_format.with { filetypes = { "c", "cpp", "cuda", "cs" } },
-    -- formatting.google_java_format.with { filetypes = { "java" } },
+    formatting.google_java_format.with { filetypes = { "java" } },
   },
 }

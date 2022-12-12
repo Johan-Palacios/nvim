@@ -1,3 +1,4 @@
+vim.cmd [[
 " let g:onedark_termcolors=256
 " set t_Co=256
 colorscheme onedark
@@ -28,3 +29,4 @@ hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
 hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
 hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
 hi def WhichKeyBorder guibg=NONE guifg=#4e545f
+]]

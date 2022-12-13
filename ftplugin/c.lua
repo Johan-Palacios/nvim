@@ -49,3 +49,46 @@ function _C_TERM()
 end
 
 vim.api.nvim_set_keymap("n", "<m-4>", "<cmd>lua _C_TERM()<CR>", { noremap = true, silent = true })
+
+local dap = require "dap"
+dap.adapters.codelldb = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = "codelldb",
+    args = { "--port", "${port}" },
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+  },
+}
+require("clangd_extensions").setup {
+  extensions = {
+    memory_usage = {
+      border = "rounded",
+    },
+    symbol_info = {
+      border = "rounded",
+    },
+    autoSetHints = false,
+  },
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      local path
+      vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/" }, function(input)
+        path = input
+      end)
+      vim.cmd [[redraw]]
+      return path
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+  },
+}
+
+dap.configurations.c = dap.configurations.cpp

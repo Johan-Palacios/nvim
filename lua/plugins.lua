@@ -279,6 +279,7 @@ return packer.startup(function()
 
   use { "simrat39/rust-tools.nvim" }
   use { "mfussenegger/nvim-jdtls" }
+  use { "p00f/clangd_extensions.nvim" }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

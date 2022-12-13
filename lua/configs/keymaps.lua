@@ -92,7 +92,7 @@ end
 vim.api.nvim_set_keymap(
   "n",
   "K",
-  ":lua require('configs.commands').show_documentation()<CR>",
+  ":lua require('configs.keymaps').show_documentation()<CR>",
   { noremap = true, silent = true }
 )
 

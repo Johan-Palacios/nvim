@@ -71,7 +71,7 @@ vim.notify = function(msg, ...)
 end
 
 -- DAP
---
+
 local codelldb_adapter = {
   type = "server",
   port = "${port}",

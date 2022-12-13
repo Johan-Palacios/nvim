@@ -22,7 +22,7 @@ local servers = {
   "vimls",
   "rust_analyzer",
   "cmake",
-  -- "clangd",
+  "clangd",
   "tsserver",
 }
 

@@ -1,15 +1,19 @@
-require("configs.options")
+require "configs.options"
 
-require("packer_compiled")
+-- Ensure packer compiled
+local is_compiled = pcall(require, "packer_compiled")
+if is_compiled then
+  require "packer_compiled"
+end
 
-require("plugins")
+require "plugins"
 
-require("lsp.init")
+require "lsp.init"
 
-require("core.init")
+require "core.init"
 
-require("configs.keymaps")
+require "configs.keymaps"
 
-require("configs.autocmd")
+require "configs.autocmd"
 
-require("line.lualine")
+require "line.lualine"

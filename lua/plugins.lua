@@ -168,10 +168,6 @@ return packer.startup(function()
   use { "alvan/vim-closetag" }
   use {
     "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
-    config = function()
-      require "after.plugin.colorizer"
-    end,
   }
 
   -- TERMINAL

@@ -50,13 +50,17 @@ if not status_builtin then
   return
 end
 
-vim.keymap.set("n", "<Leader>ff", builtin.find_files, { noremap = true, silent = true, desc = "Find Words" })
-vim.keymap.set("n", "<Leader>fw", builtin.live_grep, { noremap = true, silent = true, desc = "Find Words" })
-vim.keymap.set("n", "<Leader>fb", builtin.buffers, { noremap = true, silent = true, desc = "Find Buffers" })
-vim.keymap.set("n", "<Leader>fh", builtin.help_tags, { noremap = true, silent = true, desc = "Find Help" })
-vim.keymap.set("n", "<C-p>", function()
+local keymap = function(mode, key, command, desc)
+  vim.keymap.set(mode, key, command, { noremap = true, silent = true, desc = desc })
+end
+
+keymap("n", "<Leader>ff", builtin.find_files, "Find Words")
+keymap("n", "<Leader>fw", builtin.live_grep, "Find Words")
+keymap("n", "<Leader>fb", builtin.buffers, "Find Buffers")
+keymap("n", "<Leader>fh", builtin.help_tags, "Find Help")
+keymap("n", "<C-p>", function()
   builtin.find_files(require("telescope.themes").get_dropdown { previewer = false })
-end, { noremap = true, silent = true, desc = "Find Files" })
-vim.keymap.set("n", "<leader>fc", function()
+end, "Find Files")
+keymap("n", "<leader>fc", function()
   builtin.commands(require("telescope.themes").get_dropdown())
-end, { noremap = true, silent = true, desc = "Find Command" })
+end, "Find Command")

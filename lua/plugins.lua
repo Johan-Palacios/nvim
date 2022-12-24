@@ -147,10 +147,6 @@ return packer.startup(function()
   }
   use {
     "folke/which-key.nvim",
-    config = function()
-      require "core.whichkey"
-    end,
-    event = "BufWinEnter",
   }
 
   -- CODE HELP TOOLS
@@ -159,10 +155,6 @@ return packer.startup(function()
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require "core.tools.iconscomments"
-    end,
-    event = { "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost" },
   }
   use { "AndrewRadev/tagalong.vim" }
   use { "alvan/vim-closetag" }

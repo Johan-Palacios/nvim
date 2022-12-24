@@ -72,11 +72,13 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gp", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format { async = true }' ]]
+  vim.api.nvim_create_user_command("Format", function()
+    vim.lsp.buf.format { async = true }
+  end, {})
 end
 
 M.on_attach = function(client, bufnr)

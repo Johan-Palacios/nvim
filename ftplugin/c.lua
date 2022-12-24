@@ -50,44 +50,54 @@ end
 
 vim.api.nvim_set_keymap("n", "<m-4>", "<cmd>lua _C_TERM()<CR>", { noremap = true, silent = true })
 
-local dap = require "dap"
-dap.adapters.codelldb = {
-  type = "server",
-  port = "${port}",
-  executable = {
-    command = "codelldb",
-    args = { "--port", "${port}" },
+local status_dap, dap = pcall(require, "dap")
+if not status_dap then
+  return
+end
 
-    -- On windows you may have to uncomment this:
-    -- detached = false,
-  },
+dap.adapters.lldb = {
+  type = "executable",
+  command = "lldb",
+  name = "lldb",
 }
-require("clangd_extensions").setup {
-  extensions = {
-    memory_usage = {
-      border = "rounded",
-    },
-    symbol_info = {
-      border = "rounded",
-    },
-    autoSetHints = false,
-  },
-}
-dap.configurations.cpp = {
+
+dap.configurations.c = {
   {
-    name = "Launch file",
-    type = "codelldb",
+    name = "graph_test",
+    type = "lldb",
     request = "launch",
-    program = function()
-      local path
-      vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() .. "/" }, function(input)
-        path = input
-      end)
-      vim.cmd [[redraw]]
-      return path
-    end,
+    program = "graph_test",
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
+    args = {},
+  },
+  {
+    name = "utils_test",
+    type = "lldb",
+    request = "launch",
+    program = "utils_test",
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+  {
+    name = "net_test",
+    type = "lldb",
+    request = "launch",
+    program = "net_test",
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+  {
+    name = "testapp",
+    type = "lldb",
+    request = "launch",
+    program = "testapp",
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+    initCommands = { "settings set target.input-path testapp-debug" },
   },
 }
 

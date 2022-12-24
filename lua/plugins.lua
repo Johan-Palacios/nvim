@@ -63,9 +63,6 @@ return packer.startup(function()
 
   use {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require "core.gitsign"
-    end,
   }
   use { "tpope/vim-fugitive" }
   use {
@@ -80,9 +77,6 @@ return packer.startup(function()
 
   use {
     "goolord/alpha-nvim",
-    config = function()
-      require "core.cosmetics.alpha"
-    end,
   }
   use {
     "nvim-lualine/lualine.nvim",
@@ -176,7 +170,7 @@ return packer.startup(function()
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
     config = function()
-      require "core.cosmetics.colorizer"
+      require "after.plugin.colorizer"
     end,
   }
 
@@ -184,9 +178,6 @@ return packer.startup(function()
 
   use {
     "akinsho/nvim-toggleterm.lua",
-    config = function()
-      require "core.terminal"
-    end,
   }
 
   -- PROBLEMS NVIM

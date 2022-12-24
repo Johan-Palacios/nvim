@@ -39,17 +39,6 @@ keymap("n", "<leader>gt", "<Plug>(git-conflict-theirs)", opts)
 keymap("n", "<leader>g0", "<Plug>(git-conflict-none)", opts)
 keymap("n", "<leader>gp", "<Plug>(git-conflict-prev-conflict)", opts)
 keymap("n", "<leader>gn", "<Plug>(git-conflict-next-conflict)", opts)
---Telescope
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<Leader>fw", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap(
-  "n",
-  "<C-p>",
-  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  opts
-)
 --Jabs
 keymap("n", "<Leader>j", ":JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 -- Dap
@@ -74,9 +63,7 @@ keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
 keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', opts)
 keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', opts)
 
--- Custom Functions Command
-M = {}
-M.show_documentation = function()
+local show_documentation = function()
   local filetype = vim.bo.filetype
   if vim.tbl_contains({ "vim", "help" }, filetype) then
     vim.cmd("h " .. vim.fn.expand "<cword>")
@@ -89,11 +76,4 @@ M.show_documentation = function()
   end
 end
 
-vim.api.nvim_set_keymap(
-  "n",
-  "K",
-  ":lua require('configs.keymaps').show_documentation()<CR>",
-  { noremap = true, silent = true }
-)
-
-return M
+vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })

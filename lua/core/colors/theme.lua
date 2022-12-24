@@ -1,32 +1,33 @@
+vim.cmd "colorscheme onedark"
+
+local hl = vim.api.nvim_set_hl
+
+hl(0, "CmpItemKindSnippet", { bg = "none", fg = "#e06c75" })
+hl(0, "CmpItemKindMethod", { bg = "none", fg = "#e06c75" })
+hl(0, "CmpItemKindInterface", { bg = "none", fg = "#e06c75" })
+hl(0, "CmpItemKindText", { bg = "none", fg = "#98c379" })
+hl(0, "CmpItemKindText", { bg = "none", fg = "#98c379" })
+hl(0, "CmpItemAbbrMatch", { bg = "none", fg = "#61afef" })
+hl(0, "CmpItemKindProperty", { bg = "none", fg = "#61afef" })
+hl(0, "CmpItemKindUnit", { bg = "none", fg = "#abb2bf" })
+hl(0, "CmpItemAbbrMatchFuzzy", { bg = "none", fg = "#55b6c2" })
+hl(0, "CmpItemKindVariable", { bg = "none", fg = "#BA99F6" })
+hl(0, "CmpItemKindFunction", { bg = "none", fg = "#C678DD" })
+hl(0, "CmpItemKindKeyword", { bg = "none", fg = "#e5c07b" })
+hl(0, "LspCodeLens", { bg = "none", fg = "#4e545f" })
+hl(0, "StatusLine", { bg = "none" })
+
+-- TODO: Refactor in Lua
 vim.cmd [[
-" let g:onedark_termcolors=256
-" set t_Co=256
-colorscheme onedark
-highlight Normal guibg=#1e2127
-" NvimTree colors
-" hi foldcolumn guibg=#21242b
-" hi VertSplit guibg=#21242b guifg=#21242b
-" hi NvimTreeNormal guibg=#21242b
-"Cmp color menu and winbar
-highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#61AFEF "Color in bar
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#55b6c2
-highlight! CmpItemKindVariable guibg=NONE guifg=#BA99F6
-highlight! CmpItemKindInterface guibg=NONE guifg=#e06c75
-highlight! CmpItemKindText guibg=NONE guifg=#98c379
-highlight! CmpItemKindFunction guibg=NONE guifg=#C678DD
-highlight! CmpItemKindMethod guibg=NONE guifg=#e06c75
-highlight! CmpItemKindKeyword guibg=NONE guifg=#e5c07b
-highlight! CmpItemKindProperty guibg=NONE guifg=#61AFEF
-highlight! CmpItemKindUnit guibg=NONE guifg=#abb2bf
-highlight CmpItemKindSnippet guibg=NONE guifg=#e06c75
-" Menu highlight
-highlight pmenu ctermbg=DarkGray guibg=onedark
-highlight Search guibg='DarkGray' guifg='Black'
-hi StatusLine guibg=NONE
-hi LspCodeLens guibg=NONE guifg=#4e545f
-hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
-hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
-hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
-hi def WhichKeyBorder guibg=NONE guifg=#4e545f
+  highlight Normal guibg=#1e2127
+
+  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+
+  highlight pmenu ctermbg=DarkGray guibg=onedark
+  highlight Search guibg='DarkGray' guifg='Black'
+
+  hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
+  hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
+  hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
+  hi def WhichKeyBorder guibg=NONE guifg=#4e545f
 ]]

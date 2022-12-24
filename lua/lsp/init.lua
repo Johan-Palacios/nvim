@@ -7,4 +7,5 @@ require("lsp.handler").setup()
 require "lsp.mason"
 require "lsp.null"
 require "lsp.inlayhints"
-require("lsp.signature")
+require "lsp.signature"
+require "lsp.illuminate"

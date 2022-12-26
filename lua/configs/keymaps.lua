@@ -28,10 +28,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<Leader>n", ":nohlsearch<CR>", { silent = true })
--- LSPSAGA
-keymap("n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap("n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
-keymap("n", "<Leader>ld", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 --Git
 keymap("n", "<leader>go", "<Plug>(git-conflict-ours)", opts)
 keymap("n", "<leader>gb", "<Plug>(git-conflict-both)", opts)
@@ -70,7 +66,8 @@ local show_documentation = function()
   elseif vim.tbl_contains({ "man" }, filetype) then
     vim.cmd("Man " .. vim.fn.expand "<cword>")
   elseif vim.fn.expand "%:t" == "Cargo.toml" then
-    require("crates").show_popup()
+    -- Install crates
+    -- require("crates").show_popup()
   else
     vim.lsp.buf.hover()
   end

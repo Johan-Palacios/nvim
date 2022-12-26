@@ -64,3 +64,4 @@ end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(require("telescope.themes").get_dropdown())
 end, "Find Command")
+

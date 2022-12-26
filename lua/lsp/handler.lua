@@ -1,5 +1,8 @@
 local M = {}
 
+-- Extra Plugins
+local builtin = require "telescope.builtin"
+
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -62,13 +65,19 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
+  local keymap = function(mode, command, excommand, desc, bufr)
+    if not desc then
+      desc = ""
+    end
+    vim.keymap.set(mode, command, excommand, { noremap = true, silent = true, desc = desc, buffer = bufr })
+  end
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
@@ -79,6 +88,17 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_create_user_command("Format", function()
     vim.lsp.buf.format { async = true }
   end, {})
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ld", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>la", "<cmd>Lspsaga code_action<CR>", { silent = true })
+  -- telescope
+  keymap("n", "<leader>fr", function()
+    builtin.lsp_references()
+  end, "Find References", bufnr)
+  keymap("n", "<leader>fi", function()
+    builtin.lsp_implementations()
+  end, "Find Implementations", bufnr)
 end
 
 M.on_attach = function(client, bufnr)

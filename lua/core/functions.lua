@@ -64,4 +64,18 @@ function M.smart_quit()
   end
 end
 
+function M.keymap_buf(mode, command, excommand, desc, bufr)
+  if not desc then
+    desc = ""
+  end
+  vim.keymap.set(mode, command, excommand, { noremap = true, silent = true, desc = desc, buffer = bufr })
+end
+
+function M.keymap(mode, command, excommand, desc)
+  if not desc then
+    desc = ""
+  end
+  vim.keymap.set(mode, command, excommand, { noremap = true, silent = true, desc = desc })
+end
+
 return M

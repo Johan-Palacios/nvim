@@ -202,12 +202,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   end,
 })
 
-local keymap = function(mode, command, cmdex, description)
-  if not description then
-    description = ""
-  end
-  vim.keymap.set(mode, command, cmdex, { silent = true, noremap = true, desc = description })
-end
+local keymap = require("core.functions").keymap
+
 keymap("n", "<leader>lo", '<Esc><Cmd>lua require("jdtls").organize_imports()<Cr>', "Organize Imports")
 keymap("n", "<leader>lv", '<Esc><Cmd>lua require("jdtls").extract_variable()<Cr>', "Extract Variable")
 keymap("n", "<leader>lc", '<Esc><Cmd>lua require("jdtls").extract_constant()<Cr>', "Extract Constant")

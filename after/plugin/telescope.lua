@@ -50,9 +50,7 @@ if not status_builtin then
   return
 end
 
-local keymap = function(mode, key, command, desc)
-  vim.keymap.set(mode, key, command, { noremap = true, silent = true, desc = desc })
-end
+local keymap = require("core.functions").keymap
 
 keymap("n", "<Leader>ff", builtin.find_files, "Find Words")
 keymap("n", "<Leader>fw", builtin.live_grep, "Find Words")
@@ -64,4 +62,3 @@ end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(require("telescope.themes").get_dropdown())
 end, "Find Command")
-

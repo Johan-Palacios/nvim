@@ -63,11 +63,14 @@ return packer.startup(function()
 
   use {
     "lewis6991/gitsigns.nvim",
+    event = "BufRead",
+    config = function()
+      require "core.lazy_plugins.gitsigns"
+    end,
   }
   use { "tpope/vim-fugitive" }
   use {
     "akinsho/git-conflict.nvim",
-    tag = "*",
     config = function()
       require("git-conflict").setup()
     end,
@@ -117,7 +120,7 @@ return packer.startup(function()
     end,
     run = ":TSUpdate",
   }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "RRethy/vim-illuminate" }
   use { "p00f/nvim-ts-rainbow" }
 
@@ -151,7 +154,13 @@ return packer.startup(function()
 
   -- CODE HELP TOOLS
 
-  use { "numToStr/Comment.nvim" }
+  use {
+    "numToStr/Comment.nvim",
+    config = function()
+      require "core.lazy_plugins.comment"
+    end,
+    event = "BufRead",
+  }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",

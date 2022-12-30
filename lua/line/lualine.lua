@@ -63,13 +63,14 @@ local mode_color = {
   v = "#c586c0",
   -- [""] = "#c586c0",
   V = "#c586c0",
+  ["\22"] = "#c586c0",
   -- c = '#B5CEA8',
   -- c = '#D7BA7D',
   c = "#4EC9B0",
   no = "#569cd6",
   s = "#ce9178",
-  S = "#ce9178",
   [""] = "#ce9178",
+  S = "#ce9178",
   ic = "#dcdcaa",
   R = "#d16969",
   Rv = "#d16969",
@@ -79,7 +80,6 @@ local mode_color = {
   rm = "#4EC9B0",
   ["r?"] = "#4EC9B0",
   ["!"] = "#4EC9B0",
-  ["^V"] = "#FFFFFF",
   t = "#D7BA7D",
 }
 

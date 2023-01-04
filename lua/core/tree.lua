@@ -7,7 +7,7 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
 tree.setup({
   renderer = {
-    root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
+    -- root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
     icons = {
       webdev_colors = true,
       git_placement = "before",

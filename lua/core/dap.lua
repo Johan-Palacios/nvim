@@ -49,7 +49,7 @@ dapui.setup {
       step_out = "",
       step_back = "",
       run_last = "",
-      terminate = "",
+      terminate = " ",
     },
   },
   floating = {

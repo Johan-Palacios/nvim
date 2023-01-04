@@ -28,6 +28,7 @@ cmp.setup {
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
+    max_width = 0,
     format = function(entry, vim_item)
       vim_item.kind = kind_icons[vim_item.kind]
 

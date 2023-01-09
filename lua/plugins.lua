@@ -227,6 +227,7 @@ return packer.startup(function()
     end,
   }
   use { "lvimuser/lsp-inlayhints.nvim" }
+  use {"onsails/lspkind.nvim"}
   --[[ use { ]]
   --[[   "zbirenbaum/copilot.lua", ]]
   --[[   event = { "VimEnter" }, ]]

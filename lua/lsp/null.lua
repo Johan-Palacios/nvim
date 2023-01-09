@@ -5,6 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup {
   debug = false,
@@ -15,5 +16,10 @@ null_ls.setup {
     formatting.stylua,
     formatting.clang_format.with { filetypes = { "c", "cpp", "cuda", "cs" } },
     formatting.google_java_format.with { filetypes = { "java" } },
+    -- diagnostics
+    diagnostics.flake8,
+    diagnostics.eslint,
+    -- code Actions
+    code_actions.eslint,
   },
 }

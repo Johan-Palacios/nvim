@@ -50,6 +50,7 @@ return {
     Octoface = "",
   },
   ui = {
+    Ellipsis = "",
     Lock = " ",
     Circle = " ",
     BigCircle = " ",

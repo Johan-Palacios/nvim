@@ -25,6 +25,7 @@ telescope.setup {
       "--smart-case",
       "--hidden",
     },
+    entry_prefix = "  ",
     prompt_prefix = "❯ ",
     selection_caret = "❯ ",
     sorting_strategy = "ascending",
@@ -49,15 +50,22 @@ local status_builtin, builtin = pcall(require, "telescope.builtin")
 if not status_builtin then
   return
 end
+local status_theme, theme = pcall(require, "telescope.themes")
+if not status_theme then
+  return
+end
 
 local keymap = require("core.functions").keymap
 
 keymap("n", "<Leader>ff", builtin.find_files, "Find Words")
-keymap("n", "<Leader>fw", builtin.live_grep, "Find Words")
+keymap("n", "<Leader>fw",  function ()
+  builtin.live_grep(theme.get_dropdown())
+end
+  , "Find Words")
 keymap("n", "<Leader>fb", builtin.buffers, "Find Buffers")
 keymap("n", "<Leader>fh", builtin.help_tags, "Find Help")
 keymap("n", "<C-p>", function()
-  builtin.find_files(require("telescope.themes").get_dropdown { previewer = false })
+  builtin.find_files(theme.get_dropdown { previewer = false })
 end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(require("telescope.themes").get_dropdown())

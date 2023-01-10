@@ -15,6 +15,16 @@ local check_backspace = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
+---Return improved Menu
+---@param menu string (`vim_item.menu`)
+---@return string
+local chek_menu = function(menu)
+  if menu == nil then
+    return ""
+  end
+  return "\t" .. menu
+end
+
 local icons = require "core.icons"
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6cc644" })
@@ -40,12 +50,7 @@ cmp.setup {
         vim_item.kind = icons.git.Octoface
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       end
-      local menu = vim_item.menu
-      if menu == nil then
-        menu = ""
-      else
-        menu = "\t" .. menu
-      end
+      local menu = chek_menu(vim_item.menu)
       vim_item.menu = ({
         nvim_lsp = "(LSP)" .. menu,
         nvim_lua = "(Lua)",

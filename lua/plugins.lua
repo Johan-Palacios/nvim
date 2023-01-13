@@ -168,7 +168,7 @@ return packer.startup(function()
   use { "AndrewRadev/tagalong.vim" }
   use { "alvan/vim-closetag" }
   use {
-    "norcalli/nvim-colorizer.lua",
+    "NvChad/nvim-colorizer.lua"
   }
 
   -- TERMINAL

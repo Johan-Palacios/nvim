@@ -24,7 +24,8 @@ local servers = {
   "cmake",
   "clangd",
   "tsserver",
-  "tailwindcss"
+  "tailwindcss",
+  "lemminx"
 }
 
 local settings = {

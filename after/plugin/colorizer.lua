@@ -1,16 +1,23 @@
-local status_ok, color = pcall(require, "colorizer")
-if not status_ok then
+local ok, colorizer = pcall(require, "colorizer")
+if not ok then
   return
 end
 
-color.setup({ "*" }, {
-  RGB = true,
-  RRGGBB = true,
-  names = false,
-  RRGGBBAA = true,
-  rgb_fn = false,
-  hsl_fn = false,
-  css = false,
-  css_fn = false,
-  mode = "background",
-})
+colorizer.setup {
+  filetypes = {
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "css",
+    "html",
+    "astro",
+    "lua",
+  },
+  user_default_options = {
+    rgb_fn = true,
+    tailwind = "both",
+  },
+  -- buftypes = {
+  -- },
+}

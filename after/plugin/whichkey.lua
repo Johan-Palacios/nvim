@@ -109,9 +109,6 @@ local n_mapings = {
     b = "Conflict Both",
     ["0"] = "Conflict None",
   },
-  q = {
-    name = "Diagnostics",
-  },
   f = {
     name = "Files ",
     f = { "<cmd>Telescope find_files<cr>", "Find Files 🔎" },
@@ -130,6 +127,10 @@ local n_mapings = {
     v = { '<cmd>ToggleTerm direction="vertical"<cr>', "Terminal Vertial" },
     h = {
       '<cmd>ToggleTerm size=10 direction="horizontal"<cr>',
+      "Terminal Horizontal",
+    },
+    t = {
+      '<cmd>ToggleTerm direction="tab"<cr>',
       "Terminal Horizontal",
     },
   },
@@ -158,6 +159,7 @@ local n_mapings = {
     d = { "LSP Saga Definition Preview" },
     r = { "LSP Saga Rename" },
     R = { "LSP Rename" },
+    D = { "LSP Diagnostics List" }
   },
   s = {
     name = "Replace",

@@ -3,10 +3,10 @@ if not status_ok then
   return
 end
 
-local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
+local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
 ft_to_parser.motoko = "typescript"
 
-configs.setup({
+configs.setup {
   ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" },
@@ -27,7 +27,7 @@ configs.setup({
     enable = true,
   },
   playground = {
-    enable = false
+    enable = false,
   },
   rainbow = {
     enable = true,
@@ -37,6 +37,6 @@ configs.setup({
       "Orchid",
       "#62aeef",
     },
-    disable = { "html"}
+    disable = { "html" },
   },
-})
+}

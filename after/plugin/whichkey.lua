@@ -89,6 +89,15 @@ local s_opts = {
   nowait = true,
 }
 
+local g_opts = {
+  mode = "n",
+  prefix = "g",
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+}
+
 local n_mapings = {
   d = {
     name = "Debugger ",
@@ -154,7 +163,6 @@ local n_mapings = {
   },
   l = {
     name = "LSP ",
-    a = { "LSP Saga Code Action" },
     f = { "LSP Saga Find" },
     d = { "LSP Saga Definition Preview" },
     r = { "LSP Saga Rename" },
@@ -172,6 +180,16 @@ local s_mappings = {
   },
 }
 
+local g_mappings = {
+  d = "Go definition",
+  a = "Go Action",
+  I = "Go Implementations",
+  D = "Go Declaration",
+  r = "Go References",
+  q = "Go Diagnostigcs List",
+}
+
 which_key.setup(setup)
 which_key.register(n_mapings, opts)
 which_key.register(s_mappings, s_opts)
+which_key.register(g_mappings, g_opts)

@@ -24,13 +24,22 @@ M.setup = function()
     underline = true,
     severity_sort = true,
     float = {
-      focusable = false,
+      focusable = true,
       style = "minimal",
       border = "rounded",
       source = "always",
       header = "",
       prefix = "",
+      format = function(d)
+        local code = d.code or (d.user_data and d.user_data.lsp.code)
+        if code then
+          return string.format("%s [%s]", d.message, code):gsub("1. ", "")
+        end
+        return d.message
+      end,
     },
+    document_highlight = false,
+    code_lens_refresh = true,
   }
 
   vim.diagnostic.config(config)
@@ -86,7 +95,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ld", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>la", "<cmd>Lspsaga code_action<CR>", { silent = true })
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>Lspsaga code_action<CR>", { silent = true })
   -- telescope
   keymap("n", "<leader>fr", function()
     builtin.lsp_references()

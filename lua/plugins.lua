@@ -120,7 +120,9 @@ return packer.startup(function()
     end,
     run = ":TSUpdate",
   }
-  use { "JoosepAlviste/nvim-ts-context-commentstring" }
+  use {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  }
   use { "RRethy/vim-illuminate" }
   use { "p00f/nvim-ts-rainbow" }
 
@@ -168,7 +170,7 @@ return packer.startup(function()
   use { "AndrewRadev/tagalong.vim" }
   use { "alvan/vim-closetag" }
   use {
-    "NvChad/nvim-colorizer.lua"
+    "NvChad/nvim-colorizer.lua",
   }
 
   -- TERMINAL
@@ -227,7 +229,7 @@ return packer.startup(function()
     end,
   }
   use { "lvimuser/lsp-inlayhints.nvim" }
-  use {"onsails/lspkind.nvim"}
+  use { "onsails/lspkind.nvim" }
   --[[ use { ]]
   --[[   "zbirenbaum/copilot.lua", ]]
   --[[   event = { "VimEnter" }, ]]

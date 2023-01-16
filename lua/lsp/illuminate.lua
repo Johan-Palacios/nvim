@@ -24,6 +24,7 @@ require("illuminate").configure {
     "DressingSelect",
     "TelescopePrompt",
     "sagacodeaction",
+    "lspsagafinder",
     "JABSwindow"
   },
   -- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist

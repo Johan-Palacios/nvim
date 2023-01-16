@@ -17,12 +17,26 @@ end
 
 ---Return improved Menu
 ---@param menu string (`vim_item.menu`)
+---@param entry table (`entry`)
 ---@return string
-local chek_menu = function(menu)
-  if menu == nil then
-    return ""
+local check_menu = function(menu, entry)
+  -- Ignore filetype
+  if vim.bo.filetype == "java" then
+    entry.completion_item.detail = ""
   end
-  return "\t" .. menu
+  -- Get Path
+  if
+    entry.completion_item.detail ~= nil
+    and entry.completion_item.detail ~= ""
+    and entry.completion_item.detail ~= "Auto-import"
+  then
+    return "\t" .. entry.completion_item.detail
+  end
+  -- Get default menu
+  if menu ~= nil then
+    return "\t" .. menu
+  end
+  return ""
 end
 
 local icons = require "core.icons"
@@ -41,16 +55,14 @@ cmp.setup {
     fields = { "kind", "abbr", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local max_width = 0
-      if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
-      end
+      local max_width = 20
       vim_item.kind = kind_icons[vim_item.kind]
       if entry.source.name == "copilot" then
         vim_item.kind = icons.git.Octoface
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       end
-      local menu = chek_menu(vim_item.menu)
+      vim_item.menu_hl_group = "Comment"
+      local menu = check_menu(vim_item.menu, entry, vim_item.abbr)
       vim_item.menu = ({
         nvim_lsp = "(LSP)" .. menu,
         nvim_lua = "(Lua)",
@@ -65,6 +77,13 @@ cmp.setup {
         nvim_lsp = 0,
         luasnip = 1,
       })[entry.source.name] or 0
+      -- Reduce menu
+      if max_width ~= 0 and #vim_item.abbr > max_width then
+        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width + 20) .. icons.ui.Ellipsis
+      end
+      if max_width ~= 0 and #vim_item.menu > max_width then
+        vim_item.menu = string.sub(vim_item.abbr, 1, max_width) .. " " .. icons.ui.Ellipsis
+      end
       return vim_item
     end,
   },

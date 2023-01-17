@@ -15,13 +15,22 @@ local check_backspace = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
+---Ignore files
+---@return boolean
+local ignore_typefile = function()
+  local ignore = { "java" }
+  for _, value in ipairs(ignore) do
+    return vim.bo.filetype == value
+  end
+  return false
+end
+
 ---Return improved Menu
 ---@param menu string (`vim_item.menu`)
 ---@param entry table (`entry`)
 ---@return string
-local check_menu = function(menu, entry)
-  -- Ignore filetype
-  if vim.bo.filetype == "java" then
+local improved_menu = function(menu, entry)
+  if ignore_typefile() then
     entry.completion_item.detail = ""
   end
   -- Get Path
@@ -55,14 +64,14 @@ cmp.setup {
     fields = { "kind", "abbr", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local max_width = 20
+      local max_width = 30
       vim_item.kind = kind_icons[vim_item.kind]
       if entry.source.name == "copilot" then
         vim_item.kind = icons.git.Octoface
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       end
       vim_item.menu_hl_group = "Comment"
-      local menu = check_menu(vim_item.menu, entry, vim_item.abbr)
+      local menu = improved_menu(vim_item.menu, entry)
       vim_item.menu = ({
         nvim_lsp = "(LSP)" .. menu,
         nvim_lua = "(Lua)",
@@ -79,10 +88,10 @@ cmp.setup {
       })[entry.source.name] or 0
       -- Reduce menu
       if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width + 20) .. icons.ui.Ellipsis
+        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width + 10) .. icons.ui.Ellipsis
       end
       if max_width ~= 0 and #vim_item.menu > max_width then
-        vim_item.menu = string.sub(vim_item.abbr, 1, max_width) .. " " .. icons.ui.Ellipsis
+        vim_item.menu = string.sub(vim_item.menu, 1, max_width) .. " " .. icons.ui.Ellipsis
       end
       return vim_item
     end,

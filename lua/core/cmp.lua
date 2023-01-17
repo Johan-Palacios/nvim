@@ -25,11 +25,12 @@ local ignore_typefile = function()
   return false
 end
 
----Return improved Menu
+---Enriched Menu with path and classes
 ---@param menu string (`vim_item.menu`)
 ---@param entry table (`entry`)
+---@param lsptext string (`decorative text`)
 ---@return string
-local improved_menu = function(menu, entry)
+local improved_menu = function(menu, entry, lsptext)
   if ignore_typefile() then
     entry.completion_item.detail = ""
   end
@@ -43,9 +44,15 @@ local improved_menu = function(menu, entry)
   end
   -- Get default menu
   if menu ~= nil then
-    return "\t" .. menu
+    return lsptext .. "\t" .. menu
   end
-  return ""
+  return lsptext
+end
+
+local max_width_items = function(max_width, item, icon)
+  if max_width ~= 0 and #item > max_width then
+    item = string.sub(item, 1, max_width) .. icon
+  end
 end
 
 local icons = require "core.icons"
@@ -60,7 +67,6 @@ cmp.setup {
     select = true,
   },
   formatting = {
-    max_width = 0,
     fields = { "kind", "abbr", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
@@ -71,9 +77,9 @@ cmp.setup {
         vim_item.kind_hl_group = "CmpItemKindCopilot"
       end
       vim_item.menu_hl_group = "Comment"
-      local menu = improved_menu(vim_item.menu, entry)
+      local menu = improved_menu(vim_item.menu, entry, "(LSP)")
       vim_item.menu = ({
-        nvim_lsp = "(LSP)" .. menu,
+        nvim_lsp = menu,
         nvim_lua = "(Lua)",
         path = "(Path)",
         buffer = "(Buffer)",

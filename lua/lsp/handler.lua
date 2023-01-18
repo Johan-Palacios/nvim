@@ -98,9 +98,8 @@ local function lsp_keymaps(bufnr)
     vim.lsp.buf.rename()
   end, "Rename", bufnr)
   keymap({ "v", "n" }, "ga", function()
-    vim.cmd "Lspsaga code_action"
+    vim.lsp.buf.code_action()
   end, "Code Action", bufnr)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>Lspsaga code_action<CR>", { silent = true })
   -- telescope
   keymap("n", "<leader>fr", function()
     builtin.lsp_references()

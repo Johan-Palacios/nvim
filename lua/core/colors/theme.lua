@@ -1,7 +1,6 @@
 vim.cmd "colorscheme onedark"
 
-
-local colors = require("core.colors.colortheme")
+local colors = require "core.colors.colortheme"
 
 local hl = vim.api.nvim_set_hl
 
@@ -34,5 +33,4 @@ vim.cmd [[
   hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
   hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
   hi def WhichKeyBorder guibg=NONE guifg=#4e545f
-  syntax off
 ]]

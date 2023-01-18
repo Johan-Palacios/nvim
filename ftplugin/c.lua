@@ -55,50 +55,49 @@ if not status_dap then
   return
 end
 
-dap.adapters.lldb = {
-  type = "executable",
-  command = "lldb",
-  name = "lldb",
+local codelldb_adapter = {
+  type = "server",
+  port = "${port}",
+  executable = {
+    command = "codelldb",
+    args = { "--port", "${port}" },
+    detached = false,
+  },
 }
+
+dap.adapters.codelldb = codelldb_adapter
 
 dap.configurations.c = {
   {
-    name = "graph_test",
-    type = "lldb",
+    name = "Launch file",
+    type = "codelldb",
     request = "launch",
-    program = "graph_test",
+    -- program = function()
+    --   return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    -- end,
+    program = function()
+      local path
+      vim.ui.input({ prompt = "Path to executable: ", default = vim.loop.cwd() }, function(input)
+        path = input
+      end)
+      vim.cmd [[redraw]]
+      return path
+    end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
-    args = {},
-  },
-  {
-    name = "utils_test",
-    type = "lldb",
-    request = "launch",
-    program = "utils_test",
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-    args = {},
-  },
-  {
-    name = "net_test",
-    type = "lldb",
-    request = "launch",
-    program = "net_test",
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-    args = {},
-  },
-  {
-    name = "testapp",
-    type = "lldb",
-    request = "launch",
-    program = "testapp",
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-    args = {},
-    initCommands = { "settings set target.input-path testapp-debug" },
   },
 }
 
-dap.configurations.c = dap.configurations.cpp
+dap.configurations.cpp = dap.configurations.c
+
+require("clangd_extensions").setup {
+  extensions = {
+    autoSetHints = true,
+    memory_usage = {
+      border = "rounded",
+    },
+    symbol_info = {
+      border = "rounded",
+    },
+  },
+}

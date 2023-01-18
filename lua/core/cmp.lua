@@ -49,10 +49,16 @@ local improved_menu = function(menu, entry, lsptext)
   return lsptext
 end
 
-local max_width_items = function(max_width, item, icon)
+---Max Width and replace with ellipsis
+---@param item string
+---@param max_width integer
+---@param icon_ellipsis string
+---@return string
+local define_max_width = function(item, max_width, icon_ellipsis)
   if max_width ~= 0 and #item > max_width then
-    item = string.sub(item, 1, max_width) .. icon
+    return string.sub(item, 1, max_width) .. icon_ellipsis
   end
+  return item
 end
 
 local icons = require "core.icons"
@@ -70,7 +76,9 @@ cmp.setup {
     fields = { "kind", "abbr", "menu" },
     expandable_indicator = true,
     format = function(entry, vim_item)
-      local max_width = 30
+      local max_width_menu = 30
+      local max_width_abbr = 40
+      local ellipsis = icons.ui.Ellipsis
       vim_item.kind = kind_icons[vim_item.kind]
       if entry.source.name == "copilot" then
         vim_item.kind = icons.git.Octoface
@@ -93,12 +101,8 @@ cmp.setup {
         luasnip = 1,
       })[entry.source.name] or 0
       -- Reduce menu
-      if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width + 10) .. icons.ui.Ellipsis
-      end
-      if max_width ~= 0 and #vim_item.menu > max_width then
-        vim_item.menu = string.sub(vim_item.menu, 1, max_width) .. " " .. icons.ui.Ellipsis
-      end
+      vim_item.abbr = define_max_width(vim_item.abbr, max_width_abbr, ellipsis)
+      vim_item.menu = define_max_width(vim_item.menu, max_width_menu, ellipsis)
       return vim_item
     end,
   },

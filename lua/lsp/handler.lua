@@ -58,21 +58,6 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client)
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
-  end
-end
-
 local function lsp_keymaps(bufnr)
   local keymap = require("core.functions").keymap_buf
   local opts = { noremap = true, silent = true }
@@ -111,7 +96,6 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
   require("nvim-navic").attach(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)

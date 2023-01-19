@@ -27,7 +27,7 @@ return {
       require "core.lazy_plugins.gitsigns"
     end,
   },
-  { "tpope/vim-fugitive" },
+  { "tpope/vim-fugitive", event = "BufWinEnter" },
   {
     "akinsho/git-conflict.nvim",
     config = function()
@@ -84,10 +84,9 @@ return {
   -- MOVEMENT TOOLS
 
   { "andymass/vim-matchup", event = "BufRead" },
-  { "tpope/vim-unimpaired" },
   { "nvim-lua/plenary.nvim" },
-  { "windwp/nvim-autopairs" },
-  { "tpope/vim-surround" },
+  { "windwp/nvim-autopairs", event = "BufRead" },
+  { "tpope/vim-surround", event = "BufRead" },
   { "nvim-telescope/telescope.nvim" },
   { "matbme/JABS.nvim" },
   { "Pocco81/AutoSave.nvim" },
@@ -97,7 +96,7 @@ return {
     config = function()
       require("neoscroll").setup()
     end,
-    lazy = true,
+    event = "BufWinEnter",
   },
   {
     "ggandor/leap.nvim",

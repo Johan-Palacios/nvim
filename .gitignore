@@ -65,3 +65,4 @@ luac.out
 *.x86_64
 *.hex
 lua/packer_compiled.lua
+lazy-lock.json

@@ -11,6 +11,7 @@ return {
   },
 
   -- MANAGMENT PLUGINS
+  { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
   { "antoinemadec/FixCursorHold.nvim" },
   { "vim-scripts/restore_view.vim" },
@@ -38,6 +39,7 @@ return {
 
   -- COSTMETICS
 
+  { "kyazdani42/nvim-web-devicons" },
   { "goolord/alpha-nvim" },
   {
     "nvim-lualine/lualine.nvim",
@@ -63,29 +65,31 @@ return {
 
   -- DEBUGERS
 
-  { "mfussenegger/nvim-dap", dependencies = "rcarriga/nvim-dap-ui", lazy = true },
-
+  { "mfussenegger/nvim-dap" },
+  { "rcarriga/nvim-dap-ui" },
   -- SINTAX HIGHLIGHT
 
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufRead", "BufNewFile", "BufWinEnter" },
     config = function()
       require "core.treesiter"
     end,
     build = ":TSUpdate",
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
       "p00f/nvim-ts-rainbow",
     },
   },
-  { "RRethy/vim-illuminate", event = "BufRead" },
+
+  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
+  { "RRethy/vim-illuminate", event = "VeryLazy" },
 
   -- MOVEMENT TOOLS
 
   { "andymass/vim-matchup", event = "BufRead" },
   { "nvim-lua/plenary.nvim" },
-  { "windwp/nvim-autopairs", event = "BufRead" },
+  { "windwp/nvim-autopairs", event = "InsertEnter" },
   { "tpope/vim-surround", event = "BufRead" },
   { "nvim-telescope/telescope.nvim" },
   { "matbme/JABS.nvim" },
@@ -107,7 +111,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    lazy = true,
+    event = "VeryLazy",
   },
 
   -- CODE HELP TOOLS
@@ -133,7 +137,7 @@ return {
 
   {
     "akinsho/nvim-toggleterm.lua",
-    lazy = true,
+    event = "VeryLazy",
   },
 
   -- PROBLEMS NVIM
@@ -168,15 +172,26 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
       "f3fora/cmp-spell",
-      "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
     },
   },
+
+  { "hrsh7th/cmp-nvim-lsp", lazy = true },
+  { "hrsh7th/cmp-buffer", lazy = true },
+  { "saadparwaiz1/cmp_luasnip", lazy = true },
+  { "hrsh7th/cmp-path", lazy = true },
+  { "hrsh7th/cmp-nvim-lua", lazy = true },
+  { "f3fora/cmp-spell", lazy = true },
+  { "L3MON4D3/LuaSnip", event = "InsertEnter", dependencies = {
+    "friendly-snippets",
+  } },
+  { "rafamadriz/friendly-snippets", lazy = true },
 
   -- LSP
 
   {
     "neovim/nvim-lspconfig",
+    lazy = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "williamboman/mason.nvim",
@@ -186,21 +201,31 @@ return {
       "ray-x/lsp_signature.nvim",
       "glepnir/lspsaga.nvim",
       "lvimuser/lsp-inlayhints.nvim",
-      {
-        "j-hui/fidget.nvim",
-        config = function()
-          require("fidget").setup {}
-        end,
-      },
+      "j-hui/fidget.nvim",
     },
+  },
+  { "williamboman/mason-lspconfig.nvim", lazy = true },
+  { "williamboman/mason.nvim", lazy = true },
+  { "lvimuser/lsp-inlayhints.nvim", lazy = true },
+  { "tamago324/nlsp-settings.nvim", lazy = true },
+  { "jose-elias-alvarez/nvim-lsp-ts-utils", lazy = true },
+  { "ray-x/lsp_signature.nvim", lazy = true },
+  { "glepnir/lspsaga.nvim", lazy = true },
+  { "lvimuser/lsp-inlayhints.nvim", lazy = true },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup {}
+    end,
   },
 
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim" },
+  { "b0o/SchemaStore.nvim", lazy = true },
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = true,
   },
   { "editorconfig/editorconfig-vim" },
 

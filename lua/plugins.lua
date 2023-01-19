@@ -176,29 +176,24 @@ return {
   -- LSP
 
   {
-    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
+      "williamboman/mason.nvim",
+      "lvimuser/lsp-inlayhints.nvim",
+      "tamago324/nlsp-settings.nvim",
+      "jose-elias-alvarez/nvim-lsp-ts-utils",
+      "ray-x/lsp_signature.nvim",
+      "glepnir/lspsaga.nvim",
+      "lvimuser/lsp-inlayhints.nvim",
+      {
+        "j-hui/fidget.nvim",
+        config = function()
+          require("fidget").setup {}
+        end,
+      },
     },
   },
-  { "tamago324/nlsp-settings.nvim" },
-  { "jose-elias-alvarez/nvim-lsp-ts-utils" },
-  { "neovim/nvim-lspconfig" },
-  { "ray-x/lsp_signature.nvim" },
-  {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-  },
-  {
-    "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup {}
-    end,
-  },
-  { "lvimuser/lsp-inlayhints.nvim" },
-
-  -- SNIPPETS
 
   -- FORMAT
 

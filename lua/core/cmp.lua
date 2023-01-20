@@ -28,7 +28,7 @@ end
 ---Enriched Menu with path and classes
 ---@param menu string (`vim_item.menu`)
 ---@param entry table (`entry`)
----@param lsptext string (`decorative text`)
+---@param lsptext string
 ---@return string
 local improved_menu = function(menu, entry, lsptext)
   if ignore_typefile() then
@@ -61,9 +61,21 @@ local define_max_width = function(item, max_width, icon_ellipsis)
   return item
 end
 
-local icons = require "core.icons"
+-- NOTE: TRY TO ALING LSP
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6cc644" })
+-- local formatedmenu = function(menu, entry, max_width, text, icon)
+--   local textwidth = 10
+--   menu = improved_menu(menu, entry)
+--   if #menu >= max_width then
+--     return define_max_width(string.sub(menu, 1, max_width), textwidth, icon) .. " " .. text
+--   end
+--   if #menu < max_width then
+--     local fillchars = max_width - #menu
+--     return define_max_width(menu .. string.rep(" ", fillchars), 10, "") .. text
+--   end
+-- end
+
+local icons = require "core.icons"
 
 local kind_icons = icons.kind
 
@@ -77,13 +89,9 @@ cmp.setup {
     expandable_indicator = true,
     format = function(entry, vim_item)
       local max_width_menu = 30
-      local max_width_abbr = 40
+      local max_width_abbr = 30
       local ellipsis = icons.ui.Ellipsis
       vim_item.kind = kind_icons[vim_item.kind]
-      if entry.source.name == "copilot" then
-        vim_item.kind = icons.git.Octoface
-        vim_item.kind_hl_group = "CmpItemKindCopilot"
-      end
       vim_item.menu_hl_group = "Comment"
       local menu = improved_menu(vim_item.menu, entry, "(LSP)")
       vim_item.menu = ({
@@ -181,14 +189,6 @@ cmp.setup {
         return true
       end,
     },
-    --[[ { ]]
-    --[[   name = "copilot", ]]
-    --[[   max_item_count = 3, ]]
-    --[[   trigger_characters = { ]]
-    --[[     { ".", ":", "(", "'", '"', "[", ",", "#", "*", "@", "|", "=", "-", "{", "/", "\\", "+", "?" }, ]]
-    --[[   }, ]]
-    --[[   group_index = 2, ]]
-    --[[ }, ]]
     {
       name = "path",
     },

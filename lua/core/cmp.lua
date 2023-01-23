@@ -85,7 +85,7 @@ cmp.setup {
     select = true,
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "kind", "abbr", "menu"},
     expandable_indicator = true,
     format = function(entry, vim_item)
       local max_width_menu = 30

@@ -7,7 +7,7 @@ local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
 ft_to_parser.motoko = "typescript"
 
 configs.setup {
-  ensure_installed = "all",
+  ensure_installed = {},
   sync_install = false,
   ignore_install = { "" },
   autopairs = {

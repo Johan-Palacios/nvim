@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local icons = require "core.icons"
-
+local get_hl = require("core.functions").get_hlgroup
 local colors = {
   white = "#abb2bf",
   bg = "#2E2E2E",
@@ -42,20 +42,21 @@ local colors = {
   branch_name = "#a4abb7",
   branch_cover = "#21242B",
   line = "#1e2127",
+  none = "none",
 }
 
 local onedark_theme = {
   normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.black, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
+    a = { fg = colors.none, bg = colors.none },
+    b = { fg = colors.none, bg = colors.none },
+    c = { fg = colors.none, bg = colors.none },
   },
 }
 
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.line })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.branch_cover, bold = false })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.line })
-vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.blue, bg = colors.branch_cover })
+-- vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.blue, bg = colors.branch_cover })
 
 local mode_color = {
   n = "#569cd6",
@@ -103,7 +104,6 @@ local diagnostics = {
   sections = { "error", "warn" },
   symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
   colored = true,
-  color = { bg = colors.line },
   update_in_insert = false,
 }
 
@@ -112,13 +112,12 @@ local diff = {
   colored = true,
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
   cond = hide_in_width,
-  color = { bg = colors.line },
 }
 
 local filetype = {
   "filetype",
   icons_enabled = true,
-  color = { bg = colors.line, fg = colors.branch_name },
+  color = { bg = colors.l, fg = colors.branch_name },
 }
 
 local branch = {
@@ -145,9 +144,8 @@ local spaces = {
   function()
     return "Spaces " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  color = { bg = colors.line, fg = colors.white },
+  color = { fg = colors.white },
   padding = 0,
-  separator = "%#SLSeparator#" .. " │" .. "%*",
 }
 
 local location = {

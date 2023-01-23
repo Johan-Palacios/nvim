@@ -47,7 +47,7 @@ dashboard.section.buttons.opts.hl = "Keyword"
 dashboard.opts.opts.noautocmd = true
 
 vim.cmd [[
-    autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
+  autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
 ]]
 
 alpha.setup(dashboard.opts)

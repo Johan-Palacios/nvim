@@ -17,7 +17,6 @@ colorizer.setup {
   user_default_options = {
     rgb_fn = true,
     tailwind = "both",
+    names = false,
   },
-  -- buftypes = {
-  -- },
 }

@@ -5,9 +5,8 @@ end
 
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-tree.setup({
+tree.setup {
   renderer = {
-    -- root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
     icons = {
       webdev_colors = true,
       git_placement = "before",
@@ -76,7 +75,7 @@ tree.setup({
     mappings = {
       custom_only = false,
       list = {
-        { key = "v", cb = tree_cb("vsplit") },
+        { key = "v", cb = tree_cb "vsplit" },
       },
     },
   },
@@ -84,4 +83,4 @@ tree.setup({
     cmd = "trash",
     require_confirm = true,
   },
-})
+}

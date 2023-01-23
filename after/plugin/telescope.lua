@@ -63,29 +63,43 @@ telescope.setup {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-  -- extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms" },
 }
 
 local status_builtin, builtin = pcall(require, "telescope.builtin")
 if not status_builtin then
   return
 end
+
 local status_theme, theme = pcall(require, "telescope.themes")
 if not status_theme then
   return
 end
 
+local props = {
+  layout_config = {
+    width = function(_, max_columns, _)
+      return math.min(max_columns, 80)
+    end,
+
+    height = function(_, _, max_lines)
+      return math.min(max_lines, 15)
+    end,
+  },
+  previewer = false,
+}
+
 local keymap = require("core.functions").keymap
 
 keymap("n", "<Leader>ff", builtin.find_files, "Find Words")
 keymap("n", "<Leader>fw", function()
-  builtin.live_grep(theme.get_dropdown())
+  builtin.live_grep()
 end, "Find Words")
 keymap("n", "<Leader>fb", builtin.buffers, "Find Buffers")
 keymap("n", "<Leader>fh", builtin.help_tags, "Find Help")
 keymap("n", "<C-p>", function()
-  builtin.find_files(theme.get_dropdown { previewer = false })
+  builtin.find_files(props)
 end, "Find Files")
 keymap("n", "<leader>fc", function()
-  builtin.commands(require("telescope.themes").get_dropdown())
+  builtin.commands(props)
 end, "Find Command")

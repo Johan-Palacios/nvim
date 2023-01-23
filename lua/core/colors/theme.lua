@@ -1,6 +1,8 @@
 vim.cmd "colorscheme onedark"
+-- vim.cmd "highlight Normal guibg=#1e2127"
 
 local colors = require "core.colors.colortheme"
+local telescope = require "core.colors.telescope"
 
 local hl = vim.api.nvim_set_hl
 
@@ -17,13 +19,15 @@ hl(0, "CmpItemKindVariable", { bg = "none", fg = "#BA99F6" })
 hl(0, "CmpItemKindFunction", { bg = "none", fg = colors.purple })
 hl(0, "CmpItemKindKeyword", { bg = "none", fg = "#e5c07b" })
 hl(0, "LspCodeLens", { bg = "none", fg = colors.graylens })
-hl(0, "StatusLine", { bg = "none" })
 hl(0, "PmenuSel", { fg = colors.purple, bg = colors.dark })
+
+for group, props in pairs(telescope) do
+  hl(0, group, props)
+end
 
 -- TODO: Refactor in Lua
 vim.cmd [[
   highlight Normal guibg=#1e2127
-
   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
 
   highlight pmenu ctermbg=DarkGray guibg=onedark

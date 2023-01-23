@@ -9,7 +9,7 @@ local colors = {
   white = "#FFFFFF",
   purple = "#c678dd",
   dark = "#282c33",
-  normal = "#1e2127"
+  normal = "#1e2127",
 }
 
 return colors

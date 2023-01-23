@@ -25,7 +25,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
     config = function()
-      require "core.lazy_plugins.gitsigns"
+      require "core.gitsigns"
     end,
   },
   { "tpope/vim-fugitive", event = "BufWinEnter" },
@@ -39,15 +39,23 @@ return {
 
   -- COSTMETICS
 
-  { "kyazdani42/nvim-web-devicons" },
+  {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require "core.tools.webicons"
+    end,
+  },
   { "goolord/alpha-nvim" },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "akinsho/bufferline.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require "core.tools.bufferline"
+    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -61,6 +69,7 @@ return {
     config = function()
       require("pretty-fold").setup {}
     end,
+    event = "BufReadPre",
   },
 
   -- DEBUGERS
@@ -76,20 +85,26 @@ return {
     end,
     build = ":TSUpdate",
     dependencies = {
-      { "JoosepAlviste/nvim-ts-context-commentstring" },
-      "p00f/nvim-ts-rainbow",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "mrjones2014/nvim-ts-rainbow",
     },
   },
 
-  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
-  { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
+  { "mrjones2014/nvim-ts-rainbow", lazy = true },
+  { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
   { "RRethy/vim-illuminate", event = "VeryLazy" },
 
   -- MOVEMENT TOOLS
 
   { "andymass/vim-matchup", event = "BufRead" },
   { "nvim-lua/plenary.nvim" },
-  { "windwp/nvim-autopairs", event = "InsertEnter" },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require "core.tools.autopairs"
+    end,
+  },
   { "tpope/vim-surround", event = "BufRead" },
   { "nvim-telescope/telescope.nvim" },
   { "matbme/JABS.nvim" },
@@ -119,7 +134,7 @@ return {
   {
     "numToStr/Comment.nvim",
     config = function()
-      require "core.lazy_plugins.comment"
+      require "core.comment"
     end,
     event = "BufRead",
   },
@@ -131,6 +146,7 @@ return {
   { "alvan/vim-closetag" },
   {
     "NvChad/nvim-colorizer.lua",
+    event = "BufReadPre",
   },
 
   -- TERMINAL
@@ -144,17 +160,20 @@ return {
 
   {
     "folke/trouble.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "core.tools.trouble"
     end,
   },
 
   -- TREE
+  {
+    "NvChad/base46",
+  },
 
   {
     "kyazdani42/nvim-tree.lua",
-    dependencies = "kyazdani42/nvim-web-devicons",
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "core.tree"
     end,
@@ -165,6 +184,9 @@ return {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+    config = function()
+      require "core.cmp"
+    end,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -172,7 +194,6 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
       "f3fora/cmp-spell",
-      "rafamadriz/friendly-snippets",
     },
   },
 
@@ -191,7 +212,6 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    lazy = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "williamboman/mason.nvim",
@@ -221,13 +241,12 @@ return {
 
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim", lazy = true },
+  { "b0o/SchemaStore.nvim"},
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = true,
   },
-  { "editorconfig/editorconfig-vim" },
+  { "editorconfig/editorconfig-vim", lazy = true },
 
   -- WINBAR
 
@@ -235,7 +254,7 @@ return {
     "SmiteshP/nvim-navic",
     event = { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
     config = function()
-      require "core.gps"
+      require "core.navic"
     end,
     dependencies = "neovim/nvim-lspconfig",
   },

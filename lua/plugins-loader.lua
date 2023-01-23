@@ -19,4 +19,9 @@ local opts = {
   },
 }
 
-require("lazy").setup(plugins, opts)
+local status_lazy, lazy = pcall(require, "lazy")
+if not status_lazy then
+  return
+end
+
+lazy.setup(plugins, opts)

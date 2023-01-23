@@ -11,17 +11,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Disable winbar of matchup
 vim.cmd "let g:matchup_matchparen_offscreen = {}"
 
-vim.api.nvim_create_autocmd('BufEnter', {
+vim.api.nvim_create_autocmd("BufEnter", {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
   nested = true,
-})
-
--- NOTE: Configuration of 3 statusline
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = "*",
-  callback = function()
-    vim.opt.laststatus = 3
-  end,
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {

@@ -89,15 +89,3 @@ dap.configurations.c = {
 }
 
 dap.configurations.cpp = dap.configurations.c
-
-require("clangd_extensions").setup {
-  extensions = {
-    autoSetHints = true,
-    memory_usage = {
-      border = "rounded",
-    },
-    symbol_info = {
-      border = "rounded",
-    },
-  },
-}

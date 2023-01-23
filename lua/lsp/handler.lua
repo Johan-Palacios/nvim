@@ -76,7 +76,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.api.nvim_create_user_command("Format", function()
     vim.lsp.buf.format { async = true, bufnr = bufnr }
-  end, { range = 0 })
+  end, {})
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
   keymap("n", "R", function()
@@ -96,6 +96,7 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  -- lsp_highlight_document(client)
   require("nvim-navic").attach(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)

@@ -4,6 +4,7 @@ if not status_saga then
 end
 
 local colors = require "core.colors.colortheme"
+local get_hl = require "core.functions".get_hlgroup
 
 lspsaga.setup {
   lightbulb = {
@@ -32,10 +33,10 @@ lspsaga.setup {
     outgoing = " ",
     colors = {
       --float window normal bakcground color
-      normal_bg = colors.normal,
+      normal_bg = get_hl("Normal").bg,
       --title background color
-      title_bg = colors.purple,
-      red = colors.normal,
+      title_bg = get_hl("Normal").fg,
+      red = get_hl("Error").fg,
       magenta = colors.purple,
       orange = "#FF8700",
       yellow = "#f7bb3b",

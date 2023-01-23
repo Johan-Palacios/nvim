@@ -4,11 +4,9 @@ require "plugins-loader"
 
 require "lsp.init"
 
-require "core.init"
+require "core.dap"
 
 require "core.line.lualine"
-
-require "core.tools.init"
 
 require "configs.keymaps"
 

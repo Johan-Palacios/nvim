@@ -10,6 +10,27 @@
   </p>
 </p>
 
+<p align="center">
+  <a href="https://github.com/Johan-Palacios/nvim/stargazers">
+    <img
+      alt="Stargazers"
+      src="https://img.shields.io/github/stars/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
+    />
+  </a>
+  <a href="https://github.com/Johan-Palacios/nvim/issues">
+    <img
+      alt="Issues"
+      src="https://img.shields.io/github/issues/Johan-Palacios/nvim?style=for-the-badge&logo=gitbook&color=f0c062&logoColor=d9e0ee&labelColor=282a36"
+    />
+  </a>
+  <a href="https://github.com/Johan-Palacios/nvim/contributors">
+    <img
+      alt="Contributors"
+      src="https://img.shields.io/github/contributors/Johan-Palacios/nvim?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
+    />
+  </a>
+</p>
+
 # Neovim Configuration for Windows Subsystem Linux (WSL)
 
 ## Preview / Pre-visualización 🕹️

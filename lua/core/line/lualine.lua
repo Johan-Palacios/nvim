@@ -5,6 +5,7 @@ end
 
 local icons = require "core.icons"
 local get_hl = require("core.functions").get_hlgroup
+
 local colors = {
   white = "#abb2bf",
   bg = "#2E2E2E",
@@ -47,9 +48,9 @@ local colors = {
 
 local onedark_theme = {
   normal = {
-    a = { fg = colors.none, bg = colors.none },
-    b = { fg = colors.none, bg = colors.none },
-    c = { fg = colors.none, bg = colors.none },
+    a = { fg = colors.line, bg = colors.line },
+    b = { fg = colors.line, bg = colors.line },
+    c = { fg = colors.line, bg = colors.line },
   },
 }
 

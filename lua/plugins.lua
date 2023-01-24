@@ -8,6 +8,7 @@ return {
     config = function()
       require "core.colors.theme"
     end,
+
   },
 
   -- MANAGMENT PLUGINS

@@ -2,7 +2,7 @@ vim.cmd "colorscheme onedark"
 
 local colors = require "core.colors.colortheme"
 local telescope = require "core.colors.telescope"
-
+--
 local hl = vim.api.nvim_set_hl
 
 local native = require "core.colors.native"
@@ -26,11 +26,12 @@ for group, props in pairs(theme) do
   hl(0, group, props)
 end
 
--- -- TODO: Refactor in Lua
--- vim.cmd [[
---   highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
---   hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
---   hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
---   hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
---   hi def WhichKeyBorder guibg=NONE guifg=#4e545f
--- ]]
+-- TODO: Refactor in Lua
+vim.cmd [[
+  highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+  hi def IlluminatedWordText guibg=#3E4452 guifg=NONE
+  hi def IlluminatedWordRead guibg=#3E4452 guifg=NONE
+  hi def IlluminatedWordWrite guibg=#3E4452 guifg=NONE
+  hi def WhichKeyBorder guibg=NONE guifg=#4e545f
+]]
+

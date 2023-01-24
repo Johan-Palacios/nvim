@@ -3,11 +3,7 @@
     src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" 
     height="160px"/>
   </a>
-  <p align="center">Neovim Configuration/Configuracion de Neovim</p>
-  <p align="center">
-    With this configurations you can customize your Neovim for programming use / 
-    Con estas configuraciones podrás personalizar Neovim para programación 
-  </p>
+  <h1>JVIM</h1>
 </p>
 
 <p align="center">

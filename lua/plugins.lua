@@ -15,8 +15,8 @@ return {
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
   { "antoinemadec/FixCursorHold.nvim" },
   { "vim-scripts/restore_view.vim" },
-  { "moll/vim-bbye" },
-  { "rcarriga/nvim-notify" },
+  { "moll/vim-bbye", event = "VeryLazy" },
+  { "rcarriga/nvim-notify", event = "VeryLazy" },
   { "ahmedkhalf/project.nvim" },
 
   -- GIT
@@ -28,12 +28,10 @@ return {
       require "core.gitsigns"
     end,
   },
-  { "tpope/vim-fugitive", event = "BufWinEnter" },
+  { "tpope/vim-fugitive", event = "VeryLazy" },
   {
     "akinsho/git-conflict.nvim",
-    config = function()
-      require("git-conflict").setup()
-    end,
+    config = true,
     event = "VeryLazy",
   },
 
@@ -66,9 +64,7 @@ return {
   },
   {
     "anuvyklack/pretty-fold.nvim",
-    config = function()
-      require("pretty-fold").setup {}
-    end,
+    config = true,
     event = "BufReadPre",
   },
 
@@ -84,16 +80,13 @@ return {
       require "core.treesiter"
     end,
     build = ":TSUpdate",
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "mrjones2014/nvim-ts-rainbow",
-    },
   },
 
-  { "mrjones2014/nvim-ts-rainbow", lazy = true },
-  { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+  { "mrjones2014/nvim-ts-rainbow", event = "VeryLazy" },
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
   { "RRethy/vim-illuminate", event = "VeryLazy" },
 
+  { "windwp/nvim-ts-autotag", config = true },
   -- MOVEMENT TOOLS
 
   { "andymass/vim-matchup", event = "BufRead" },
@@ -106,8 +99,8 @@ return {
     end,
   },
   { "tpope/vim-surround", event = "BufRead" },
-  { "nvim-telescope/telescope.nvim" },
-  { "matbme/JABS.nvim" },
+  { "nvim-telescope/telescope.nvim", event = "VeryLazy" },
+  { "matbme/JABS.nvim", event = "VeryLazy" },
   { "Pocco81/AutoSave.nvim" },
   { "nacro90/numb.nvim", lazy = true },
   {
@@ -119,6 +112,7 @@ return {
   },
   {
     "ggandor/leap.nvim",
+    event = "VeryLazy",
     config = function()
       vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)")
       vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)")
@@ -142,8 +136,6 @@ return {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
   },
-  { "AndrewRadev/tagalong.vim" },
-  { "alvan/vim-closetag" },
   {
     "NvChad/nvim-colorizer.lua",
     event = "BufReadPre",
@@ -197,16 +189,10 @@ return {
     },
   },
 
-  { "hrsh7th/cmp-nvim-lsp", lazy = true },
-  { "hrsh7th/cmp-buffer", lazy = true },
-  { "saadparwaiz1/cmp_luasnip", lazy = true },
-  { "hrsh7th/cmp-path", lazy = true },
-  { "hrsh7th/cmp-nvim-lua", lazy = true },
-  { "f3fora/cmp-spell", lazy = true },
   { "L3MON4D3/LuaSnip", event = "InsertEnter", dependencies = {
     "friendly-snippets",
   } },
-  { "rafamadriz/friendly-snippets", lazy = true },
+  { "rafamadriz/friendly-snippets", event = "InsertEnter" },
 
   -- LSP
 
@@ -221,32 +207,22 @@ return {
       "ray-x/lsp_signature.nvim",
       "glepnir/lspsaga.nvim",
       "lvimuser/lsp-inlayhints.nvim",
-      "j-hui/fidget.nvim",
     },
   },
-  { "williamboman/mason-lspconfig.nvim", lazy = true },
-  { "williamboman/mason.nvim", lazy = true },
-  { "lvimuser/lsp-inlayhints.nvim", lazy = true },
-  { "tamago324/nlsp-settings.nvim", lazy = true },
-  { "jose-elias-alvarez/nvim-lsp-ts-utils", lazy = true },
-  { "ray-x/lsp_signature.nvim", lazy = true },
-  { "glepnir/lspsaga.nvim", lazy = true },
-  { "lvimuser/lsp-inlayhints.nvim", lazy = true },
   {
     "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup {}
-    end,
+    config = true,
+    event = "VeryLazy",
   },
 
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim"},
+  { "b0o/SchemaStore.nvim" },
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "editorconfig/editorconfig-vim", lazy = true },
+  { "editorconfig/editorconfig-vim", event = "VeryLazy" },
 
   -- WINBAR
 
@@ -261,7 +237,7 @@ return {
 
   -- LANGUAGE TOOLS
 
-  { "simrat39/rust-tools.nvim" },
-  { "mfussenegger/nvim-jdtls" },
-  { "p00f/clangd_extensions.nvim" },
+  { "simrat39/rust-tools.nvim", event = "VeryLazy" },
+  { "mfussenegger/nvim-jdtls", event = "VeryLazy" },
+  { "p00f/clangd_extensions.nvim", event = "VeryLazy" },
 }

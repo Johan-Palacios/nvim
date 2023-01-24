@@ -10,6 +10,7 @@ local colors = {
   purple = "#c678dd",
   dark = "#282c33",
   normal = "#1e2127",
+  fgnormal = "#abb2bf"
 }
 
 return colors

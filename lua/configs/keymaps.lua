@@ -64,7 +64,7 @@ local show_documentation = function()
     vim.cmd("h " .. vim.fn.expand "<cword>")
   elseif vim.tbl_contains({ "man" }, filetype) then
     vim.cmd("Man " .. vim.fn.expand "<cword>")
-  elseif vim.fn.expand "%:t" == "Cargo.toml" then
+  -- elseif vim.fn.expand "%:t" == "Cargo.toml" then
     -- Install crates
     -- require("crates").show_popup()
   else

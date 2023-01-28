@@ -49,6 +49,8 @@ for k, v in pairs(options) do
 end
 
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
+vim.opt.listchars:append "space: "
+vim.opt.listchars:append "eol: "
 vim.opt.fillchars:append {
   stl = " ",
 }

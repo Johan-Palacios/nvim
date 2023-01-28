@@ -47,4 +47,5 @@ vim.wo.colorcolumn = "99999"
 
 indent_blankline.setup({
 	show_current_context = true,
+  space_char_blankline = " "
 })

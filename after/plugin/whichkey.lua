@@ -165,8 +165,6 @@ local n_mapings = {
     name = "LSP ",
     f = { "LSP Saga Find" },
     d = { "LSP Saga Definition Preview" },
-    r = { "LSP Saga Rename" },
-    -- R = { "LSP Rename" },
   },
   s = {
     name = "Replace",

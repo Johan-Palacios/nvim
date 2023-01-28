@@ -2,19 +2,19 @@ return {
   -- COLORSCHEMA
 
   {
-    "joshdick/onedark.vim",
-    lazy = false,
+    dir = "~/onedarker",
     priority = 1000,
+    lazy = false,
     config = function()
       require "core.colors.theme"
     end,
-
   },
 
   -- MANAGMENT PLUGINS
   { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
-  { "antoinemadec/FixCursorHold.nvim" },
+  -- No more needed
+  -- { "antoinemadec/FixCursorHold.nvim" },
   { "vim-scripts/restore_view.vim" },
   { "moll/vim-bbye", event = "VeryLazy" },
   { "rcarriga/nvim-notify", event = "VeryLazy" },
@@ -71,8 +71,8 @@ return {
 
   -- DEBUGERS
 
-  { "mfussenegger/nvim-dap" },
-  { "rcarriga/nvim-dap-ui" },
+  { "mfussenegger/nvim-dap", event = "VeryLazy" },
+  { "rcarriga/nvim-dap-ui", event ="VeryLazy"},
   -- SINTAX HIGHLIGHT
 
   {
@@ -86,12 +86,13 @@ return {
   { "mrjones2014/nvim-ts-rainbow", event = "VeryLazy" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
   { "RRethy/vim-illuminate", event = "VeryLazy" },
+  { "nvim-treesitter/playground", event = "VeryLazy" },
 
   { "windwp/nvim-ts-autotag", config = true },
   -- MOVEMENT TOOLS
 
-  { "andymass/vim-matchup", event = "BufRead" },
-  { "nvim-lua/plenary.nvim" },
+  { "andymass/vim-matchup", event = "BufRead", lazy = true },
+  { "nvim-lua/plenary.nvim", event = "VeryLazy" },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -102,22 +103,20 @@ return {
   { "tpope/vim-surround", event = "BufRead" },
   { "nvim-telescope/telescope.nvim", event = "VeryLazy" },
   { "matbme/JABS.nvim", event = "VeryLazy" },
-  { "Pocco81/AutoSave.nvim" },
-  { "nacro90/numb.nvim", lazy = true },
+  { "Pocco81/AutoSave.nvim", event = "BufRead", lazy = true },
+  { "nacro90/numb.nvim", lazy = true, event = "BufRead" },
   {
     "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup()
-    end,
-    event = "BufWinEnter",
+    config = true,
+    event = "WinScrolled",
   },
   {
     "ggandor/leap.nvim",
-    event = "VeryLazy",
-    config = function()
-      vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)")
-      vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)")
-    end,
+    event = "BufRead",
+    keys = {
+      vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)"),
+      vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)"),
+    },
   },
   {
     "folke/which-key.nvim",
@@ -154,16 +153,14 @@ return {
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
+    lazy = true,
+    event = "VeryLazy",
     config = function()
       require "core.tools.trouble"
     end,
   },
 
   -- TREE
-  {
-    "NvChad/base46",
-  },
-
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -206,9 +203,12 @@ return {
       "tamago324/nlsp-settings.nvim",
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       "ray-x/lsp_signature.nvim",
-      "glepnir/lspsaga.nvim",
-      "lvimuser/lsp-inlayhints.nvim",
     },
+  },
+  {
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   {
     "j-hui/fidget.nvim",

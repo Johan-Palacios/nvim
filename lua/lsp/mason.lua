@@ -25,7 +25,8 @@ local servers = {
   "clangd",
   "tsserver",
   "tailwindcss",
-  "lemminx"
+  "lemminx",
+  "taplo"
 }
 
 local settings = {

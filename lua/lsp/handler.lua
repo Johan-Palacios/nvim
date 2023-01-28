@@ -16,7 +16,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = false,
+    virtual_text = true,
     signs = {
       active = signs,
     },
@@ -38,7 +38,7 @@ M.setup = function()
         return d.message
       end,
     },
-    document_highlight = false,
+    document_highlight = true,
     code_lens_refresh = true,
   }
 
@@ -58,8 +58,30 @@ M.setup = function()
   })
 end
 
+local function lsp_highlight_document(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.document_highlight()
+      end,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.clear_references()
+      end,
+    })
+  end
+end
+
 local function lsp_keymaps(bufnr)
   local keymap = require("core.functions").keymap_buf
+  local saga_diagnostic = require "lspsaga.diagnostic"
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd> lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -70,15 +92,19 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+  keymap("n", "gn", function()
+    saga_diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+  end, "Go Next", bufnr)
+  keymap("n", "gp", function()
+    saga_diagnostic:goto_prev { severity = vim.diagnostic.severity.ERROR }
+  end, "Go Next", bufnr)
   vim.api.nvim_create_user_command("Format", function()
     vim.lsp.buf.format { async = true, bufnr = bufnr }
   end, {})
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true })
   keymap("n", "R", function()
     vim.lsp.buf.rename()
   end, "Rename", bufnr)
@@ -96,7 +122,7 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  -- lsp_highlight_document(client)
+  lsp_highlight_document(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)

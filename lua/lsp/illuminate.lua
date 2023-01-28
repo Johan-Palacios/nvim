@@ -26,6 +26,7 @@ require("illuminate").configure {
     "sagacodeaction",
     "lspsagafinder",
     "JABSwindow",
+    "lspsagaoutline",
     "lazy",
     ""
   },

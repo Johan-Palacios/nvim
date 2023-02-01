@@ -13,6 +13,9 @@ configs.setup {
   autopairs = {
     enable = true,
   },
+  autotag = {
+    enable = true
+  },
   highlight = {
     enable = true,
     disable = { "" },
@@ -32,14 +35,6 @@ configs.setup {
   rainbow = {
     enable = true,
     extended_mode = false,
-    colors = {
-      "#d19a66",
-      "#c678dd",
-      "#56b6c2",
-      "#d19a66",
-      "#c678dd",
-      "#56b6c2",
-    },
-    disable = { "html" },
+    disable = { "html", "xml" },
   },
 }

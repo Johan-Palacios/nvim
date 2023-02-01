@@ -2,7 +2,7 @@ return {
   -- COLORSCHEMA
 
   {
-    dir = "~/onedarker",
+    "Johan-Palacios/onedarker",
     priority = 1000,
     lazy = false,
     config = function()
@@ -13,8 +13,6 @@ return {
   -- MANAGMENT PLUGINS
   { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
-  -- No more needed
-  -- { "antoinemadec/FixCursorHold.nvim" },
   { "vim-scripts/restore_view.vim" },
   { "moll/vim-bbye", event = "VeryLazy" },
   { "rcarriga/nvim-notify", event = "VeryLazy" },
@@ -44,7 +42,7 @@ return {
       require "core.tools.webicons"
     end,
   },
-  { "goolord/alpha-nvim" },
+  { "goolord/alpha-nvim", event = "VimEnter" },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -72,7 +70,7 @@ return {
   -- DEBUGERS
 
   { "mfussenegger/nvim-dap", event = "VeryLazy" },
-  { "rcarriga/nvim-dap-ui", event ="VeryLazy"},
+  { "rcarriga/nvim-dap-ui", event = "VeryLazy" },
   -- SINTAX HIGHLIGHT
 
   {
@@ -88,7 +86,7 @@ return {
   { "RRethy/vim-illuminate", event = "VeryLazy" },
   { "nvim-treesitter/playground", event = "VeryLazy" },
 
-  { "windwp/nvim-ts-autotag", config = true },
+  { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
   -- MOVEMENT TOOLS
 
   { "andymass/vim-matchup", event = "BufRead", lazy = true },
@@ -164,6 +162,7 @@ return {
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
+    event = "VimEnter",
     config = function()
       require "core.tree"
     end,
@@ -203,12 +202,14 @@ return {
       "tamago324/nlsp-settings.nvim",
       "jose-elias-alvarez/nvim-lsp-ts-utils",
       "ray-x/lsp_signature.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+      "b0o/SchemaStore.nvim",
     },
   },
   {
     "glepnir/lspsaga.nvim",
     event = "BufRead",
-    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "j-hui/fidget.nvim",
@@ -216,12 +217,14 @@ return {
     event = "VeryLazy",
   },
 
+  { "folke/neodev.nvim", config = true},
+
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim" },
+  { "b0o/SchemaStore.nvim", dependencies = "jose-elias-alvarez/null-ls.nvim" },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "b0o/SchemaStore.nvim" },
   },
   { "editorconfig/editorconfig-vim", event = "VeryLazy" },
 

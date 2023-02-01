@@ -74,3 +74,14 @@ end
 
 vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Git Terminal
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+
+local function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.keymap.set("n", "<leader>tg", function()
+  _lazygit_toggle()
+end, { noremap = true, silent = true })

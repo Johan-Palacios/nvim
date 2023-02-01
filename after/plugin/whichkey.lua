@@ -138,6 +138,7 @@ local n_mapings = {
       '<cmd>ToggleTerm size=10 direction="horizontal"<cr>',
       "Terminal Horizontal",
     },
+    g = { "Lazy Git" },
     t = {
       '<cmd>ToggleTerm direction="tab"<cr>',
       "Terminal Horizontal",

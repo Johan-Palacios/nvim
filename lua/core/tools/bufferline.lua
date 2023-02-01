@@ -58,16 +58,6 @@ bufferline.setup {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
-    -- tab_selected = {
-    --   fg = "#1e2127",
-    --   bg = "#569cd6",
-    -- },
-    -- tab = {
-    --   bg = "#1e2127",
-    --   fg = "#569cd6",
-    --   -- fg = { attribute = "fg", highlight = "TabLineSel" },
-    --   -- bg = { attribute = "bg", highlight = "Normal" },
-    -- },
     tab_close = {
       fg = { attribute = "fg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "Normal" },
@@ -110,7 +100,7 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "Normal" },
     },
     indicator_selected = {
-      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
+      fg = { attribute = "fg", highlight = "Keyword" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
   },

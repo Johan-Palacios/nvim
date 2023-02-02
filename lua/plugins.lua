@@ -6,7 +6,7 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-      require "core.colors.theme"
+      vim.cmd "colorscheme onedarker"
     end,
   },
 
@@ -38,6 +38,7 @@ return {
 
   {
     "nvim-tree/nvim-web-devicons",
+    lazy = true,
     config = function()
       require "core.tools.webicons"
     end,
@@ -49,6 +50,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    event = "VimEnter",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "core.tools.bufferline"
@@ -85,7 +87,6 @@ return {
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
   { "RRethy/vim-illuminate", event = "VeryLazy" },
   { "nvim-treesitter/playground", event = "VeryLazy" },
-
   { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
   -- MOVEMENT TOOLS
 
@@ -110,7 +111,7 @@ return {
   },
   {
     "ggandor/leap.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     keys = {
       vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)"),
       vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)"),
@@ -133,6 +134,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+    event = "BufReadPre",
   },
   {
     "NvChad/nvim-colorizer.lua",
@@ -195,6 +197,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    event = "BufReadPre",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "williamboman/mason.nvim",
@@ -204,6 +207,8 @@ return {
       "ray-x/lsp_signature.nvim",
       "jose-elias-alvarez/null-ls.nvim",
       "b0o/SchemaStore.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+      { "folke/neodev.nvim", config = true },
     },
   },
   {
@@ -217,26 +222,26 @@ return {
     event = "VeryLazy",
   },
 
-  { "folke/neodev.nvim", config = true},
-
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim", dependencies = "jose-elias-alvarez/null-ls.nvim" },
+  { "b0o/SchemaStore.nvim", dependencies = { "jose-elias-alvarez/null-ls.nvim" }, lazy = false },
   {
     "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim", "b0o/SchemaStore.nvim" },
   },
-  { "editorconfig/editorconfig-vim", event = "VeryLazy" },
+  { "editorconfig/editorconfig-vim", lazy = false },
 
   -- WINBAR
 
   {
     "SmiteshP/nvim-navic",
     event = { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+    lazy = true,
     config = function()
       require "core.navic"
     end,
-    dependencies = "neovim/nvim-lspconfig",
+    dependencies = { "neovim/nvim-lspconfig" },
   },
 
   -- LANGUAGE TOOLS

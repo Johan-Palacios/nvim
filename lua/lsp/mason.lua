@@ -26,7 +26,7 @@ local servers = {
   "tsserver",
   "tailwindcss",
   "lemminx",
-  "taplo"
+  "taplo",
 }
 
 local settings = {

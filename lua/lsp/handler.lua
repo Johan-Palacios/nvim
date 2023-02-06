@@ -44,7 +44,6 @@ M.setup = function()
 
   vim.diagnostic.config(config)
 
-
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
   })
@@ -97,13 +96,13 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
   keymap("n", "gn", function()
-    require("lspsaga.diagnostic"):goto_next { severity = vim.diagnostic.severity.ERROR }
+    require("lspsaga.diagnostic"):goto_next()
   end, "Go Next", bufnr)
   keymap("n", "gp", function()
-    require("lspsaga.diagnostic"):goto_prev { severity = vim.diagnostic.severity.ERROR }
-  end, "Go Next", bufnr)
+    require("lspsaga.diagnostic"):goto_prev()
+  end, "Go Prev", bufnr)
   vim.api.nvim_create_user_command("Format", function()
-    vim.lsp.buf.format { async = true, bufnr = bufnr }
+    vim.lsp.buf.format { async = true }
   end, {})
   keymap("n", "R", function()
     vim.lsp.buf.rename()

@@ -118,7 +118,8 @@ cmp.setup {
     documentation = false,
     -- documentation = {
     --   border = "rounded",
-    --   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+      -- winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+      -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
     -- },
     completion = {
       border = "rounded",

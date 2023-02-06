@@ -8,8 +8,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- Disable winbar of matchup
-vim.cmd "let g:matchup_matchparen_offscreen = {}"
 
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",

@@ -16,7 +16,7 @@ return {
   { "vim-scripts/restore_view.vim" },
   { "moll/vim-bbye", event = "VeryLazy" },
   { "rcarriga/nvim-notify", event = "VeryLazy" },
-  { "ahmedkhalf/project.nvim" },
+  { "ahmedkhalf/project.nvim", event = "VeryLazy" },
 
   -- GIT
 
@@ -71,8 +71,8 @@ return {
 
   -- DEBUGERS
 
-  { "mfussenegger/nvim-dap", event = "VeryLazy" },
-  { "rcarriga/nvim-dap-ui", event = "VeryLazy" },
+  { "mfussenegger/nvim-dap", event = "VeryLazy", lazy = true },
+  { "rcarriga/nvim-dap-ui", event = "VeryLazy", lazy = true },
   -- SINTAX HIGHLIGHT
 
   {
@@ -90,7 +90,13 @@ return {
   { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
   -- MOVEMENT TOOLS
 
-  { "andymass/vim-matchup", event = "BufRead", lazy = true },
+  {
+    "andymass/vim-matchup",
+    event = "BufRead",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = {}
+    end,
+  },
   { "nvim-lua/plenary.nvim", event = "VeryLazy" },
   {
     "windwp/nvim-autopairs",
@@ -194,21 +200,17 @@ return {
   { "rafamadriz/friendly-snippets", event = "InsertEnter" },
 
   -- LSP
+  { "williamboman/mason.nvim" },
+  { "lvimuser/lsp-inlayhints.nvim" },
+  { "ray-x/lsp_signature.nvim" },
+  { "folke/neodev.nvim", config = true },
 
   {
     "neovim/nvim-lspconfig",
-    event = "BufReadPre",
+    lazy = true,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "williamboman/mason.nvim",
-      "lvimuser/lsp-inlayhints.nvim",
       "tamago324/nlsp-settings.nvim",
-      "jose-elias-alvarez/nvim-lsp-ts-utils",
-      "ray-x/lsp_signature.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-      "b0o/SchemaStore.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
-      { "folke/neodev.nvim", config = true },
     },
   },
   {
@@ -222,13 +224,19 @@ return {
     event = "VeryLazy",
   },
 
+  {
+    "LunarVim/bigfile.nvim",
+    config = true,
+    event = {"BufReadPre", "FileReadPre"}
+  },
+
   -- FORMAT
 
-  { "b0o/SchemaStore.nvim", dependencies = { "jose-elias-alvarez/null-ls.nvim" }, lazy = false },
+  { "tamago324/nlsp-settings.nvim", lazy = true },
+  { "b0o/SchemaStore.nvim", lazy = true },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    lazy = false,
-    dependencies = { "nvim-lua/plenary.nvim", "b0o/SchemaStore.nvim" },
+    lazy = true,
   },
   { "editorconfig/editorconfig-vim", lazy = false },
 

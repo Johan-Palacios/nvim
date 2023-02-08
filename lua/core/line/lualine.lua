@@ -125,7 +125,7 @@ local branch = {
   "branch",
   icons_enabled = true,
   icon = "%#SLGitIcon#" .. "" .. "%*" .. "%#SLBranchName#",
-  separator = { left = "", right = "" },
+  separator = { right = " " },
   colored = false,
 }
 

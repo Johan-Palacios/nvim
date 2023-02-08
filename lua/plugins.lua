@@ -6,7 +6,10 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd "colorscheme onedarker"
+      vim.cmd.colorscheme "onedarker"
+      -- Transparent
+      -- vim.api.nvim_set_hl(0, "Normal", {bg = "none", fg ="#ABB2BF"})
+      -- vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
     end,
   },
 
@@ -15,8 +18,20 @@ return {
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
   { "vim-scripts/restore_view.vim" },
   { "moll/vim-bbye", event = "VeryLazy" },
-  { "rcarriga/nvim-notify", event = "VeryLazy" },
-  { "ahmedkhalf/project.nvim", event = "VeryLazy" },
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    config = function()
+      require "core.notify"
+    end,
+  },
+  {
+    "ahmedkhalf/project.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "core.session"
+    end,
+  },
 
   -- GIT
 
@@ -43,14 +58,18 @@ return {
       require "core.tools.webicons"
     end,
   },
-  { "goolord/alpha-nvim", event = "VimEnter" },
+  {
+    "goolord/alpha-nvim",
+    config = function()
+      require "core.alpha"
+    end,
+  },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "akinsho/bufferline.nvim",
-    event = "VimEnter",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "core.tools.bufferline"
@@ -92,6 +111,7 @@ return {
 
   {
     "andymass/vim-matchup",
+    lazy = true,
     event = "BufRead",
     config = function()
       vim.g.matchup_matchparen_offscreen = {}
@@ -101,15 +121,34 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    lazy = true,
     config = function()
       require "core.tools.autopairs"
     end,
   },
-  { "tpope/vim-surround", event = "BufRead" },
-  { "nvim-telescope/telescope.nvim", event = "VeryLazy" },
-  { "matbme/JABS.nvim", event = "VeryLazy" },
-  { "Pocco81/AutoSave.nvim", event = "BufRead", lazy = true },
-  { "nacro90/numb.nvim", lazy = true, event = "BufRead" },
+  { "tpope/vim-surround", event = { "BufRead" } },
+  {
+    "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
+    config = function()
+      require "core.telescope"
+    end,
+  },
+  {
+    "matbme/JABS.nvim",
+    config = function()
+      require "core.jabs"
+    end,
+  },
+  {
+    "Pocco81/AutoSave.nvim",
+    event = "InsertLeave",
+    lazy = true,
+    config = function()
+      require "core.autosave"
+    end,
+  },
+  { "nacro90/numb.nvim", lazy = true, event = "BufRead", config = true },
   {
     "karb94/neoscroll.nvim",
     config = true,
@@ -117,14 +156,17 @@ return {
   },
   {
     "ggandor/leap.nvim",
-    event = "VeryLazy",
     keys = {
-      vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)"),
-      vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)"),
+      { "s", "<Plug>(leap-forward-to)", mode = { "n" } },
+      { "S", "<Plug>(leap-backward-to)", mode = { "n" } },
     },
   },
   {
     "folke/which-key.nvim",
+    lazy = true,
+    config = function()
+      require "core.whichkey"
+    end,
     event = "VeryLazy",
   },
 
@@ -140,10 +182,16 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require "core.todocomments"
+    end,
     event = "BufReadPre",
   },
   {
     "NvChad/nvim-colorizer.lua",
+    config = function()
+      require "core.colorizer"
+    end,
     event = "BufReadPre",
   },
 
@@ -151,6 +199,10 @@ return {
 
   {
     "akinsho/nvim-toggleterm.lua",
+    lazy = true,
+    config = function()
+      require "core.terminal"
+    end,
     event = "VeryLazy",
   },
 
@@ -227,18 +279,17 @@ return {
   {
     "LunarVim/bigfile.nvim",
     config = true,
-    event = {"BufReadPre", "FileReadPre"}
+    event = { "BufReadPre", "FileReadPre" },
   },
 
   -- FORMAT
 
-  { "tamago324/nlsp-settings.nvim", lazy = true },
-  { "b0o/SchemaStore.nvim", lazy = true },
+  { "tamago324/nlsp-settings.nvim" },
+  { "b0o/SchemaStore.nvim" },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    lazy = true,
   },
-  { "editorconfig/editorconfig-vim", lazy = false },
+  { "editorconfig/editorconfig-vim" },
 
   -- WINBAR
 

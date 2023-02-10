@@ -1,7 +1,7 @@
 local M = {}
 
 -- Extra Plugins
-local builtin = require "telescope.builtin"
+-- local builtin = require "telescope.builtin"
 
 M.setup = function()
   local signs = {
@@ -110,13 +110,6 @@ local function lsp_keymaps(bufnr)
   keymap({ "v", "n" }, "ga", function()
     vim.lsp.buf.code_action()
   end, "Code Action", bufnr)
-  -- telescope
-  keymap("n", "<leader>fr", function()
-    builtin.lsp_references()
-  end, "Find References", bufnr)
-  keymap("n", "<leader>fi", function()
-    builtin.lsp_implementations()
-  end, "Find Implementations", bufnr)
 end
 
 M.on_attach = function(client, bufnr)

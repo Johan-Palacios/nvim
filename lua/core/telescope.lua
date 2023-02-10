@@ -63,16 +63,13 @@ telescope.setup {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms"},
 }
+
+telescope.load_extension "projects"
 
 local status_builtin, builtin = pcall(require, "telescope.builtin")
 if not status_builtin then
-  return
-end
-
-local status_theme, theme = pcall(require, "telescope.themes")
-if not status_theme then
   return
 end
 
@@ -103,3 +100,9 @@ end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(props)
 end, "Find Command")
+keymap("n", "<leader>fr", function()
+  builtin.lsp_references()
+end, "Find References")
+keymap("n", "<leader>fi", function()
+  builtin.lsp_implementations()
+end, "Find Implementations")

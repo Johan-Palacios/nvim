@@ -54,9 +54,6 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Terminal
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
-keymap("n", "<Leader>tf", ":ToggleTerm<CR>", {})
-keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', opts)
-keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', opts)
 
 local show_documentation = function()
   local filetype = vim.bo.filetype
@@ -75,13 +72,3 @@ end
 vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- Git Terminal
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
-
-local function _lazygit_toggle()
-  lazygit:toggle()
-end
-
-vim.keymap.set("n", "<leader>tg", function()
-  _lazygit_toggle()
-end, { noremap = true, silent = true })

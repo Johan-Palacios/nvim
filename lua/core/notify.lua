@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 notify.setup {
-  background_colour = "Normal",
+  background_colour = "#1e2127",
   timeout = 175,
   stages = "fade_in_slide_out",
   render = "default",

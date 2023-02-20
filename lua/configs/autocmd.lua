@@ -8,7 +8,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-
 vim.api.nvim_create_autocmd("BufEnter", {
   command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
   nested = true,
@@ -19,6 +18,21 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function(data)
+    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+    local directory = vim.fn.isdirectory(data.file) == 1
+    if not no_name and not directory then
+      return
+    end
+    if directory then
+      vim.cmd.cd(data.file)
+    end
+
+    require("nvim-tree.api").tree.open()
   end,
 })
 
@@ -47,6 +61,22 @@ local create_winbar = function()
 end
 
 create_winbar()
+
+local wsl_clip = function()
+  if vim.fn.has "wsl" == 1 then
+    vim.cmd [[
+    let s:clip = '/mnt/c/Windows/System32/clip.exe'
+    if executable(s:clip)
+        augroup WSLYank
+            autocmd!
+            autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+        augroup END
+    endif
+  ]]
+  end
+end
+
+wsl_clip()
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()

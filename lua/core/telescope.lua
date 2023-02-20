@@ -3,6 +3,19 @@ if not status_ok then
   return
 end
 
+local props = {
+  layout_config = {
+    width = function(_, max_columns, _)
+      return math.min(max_columns, 80)
+    end,
+
+    height = function(_, _, max_lines)
+      return math.min(max_lines, 15)
+    end,
+  },
+  previewer = false,
+}
+
 local actions = require "telescope.actions"
 telescope.setup {
   defaults = {
@@ -63,28 +76,21 @@ telescope.setup {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-  extensions_list = { "themes", "terms"},
+  extensions_list = { "themes", "terms", "projects"},
+  extensions = {
+    ["ui-select"] = props,
+    "projects"
+  },
 }
 
 telescope.load_extension "projects"
+telescope.load_extension "ui-select"
 
 local status_builtin, builtin = pcall(require, "telescope.builtin")
 if not status_builtin then
   return
 end
 
-local props = {
-  layout_config = {
-    width = function(_, max_columns, _)
-      return math.min(max_columns, 80)
-    end,
-
-    height = function(_, _, max_lines)
-      return math.min(max_lines, 15)
-    end,
-  },
-  previewer = false,
-}
 
 local keymap = require("core.functions").keymap
 
@@ -100,7 +106,7 @@ end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(props)
 end, "Find Command")
-keymap("n", "<leader>fr", function()
+keymap("n", "<leader>lf", function()
   builtin.lsp_references()
 end, "Find References")
 keymap("n", "<leader>fi", function()

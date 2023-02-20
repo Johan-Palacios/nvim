@@ -8,8 +8,8 @@ return {
     config = function()
       vim.cmd.colorscheme "onedarker"
       -- Transparent
-      -- vim.api.nvim_set_hl(0, "Normal", {bg = "none", fg ="#ABB2BF"})
-      -- vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#ABB2BF" })
+      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
   },
 
@@ -45,7 +45,6 @@ return {
   { "tpope/vim-fugitive", event = "VeryLazy" },
   {
     "akinsho/git-conflict.nvim",
-    config = true,
     event = "VeryLazy",
   },
 
@@ -66,6 +65,9 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    config = function()
+      require "core.line.lualine"
+    end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
@@ -90,23 +92,39 @@ return {
 
   -- DEBUGERS
 
-  { "mfussenegger/nvim-dap", event = "VeryLazy", lazy = true },
-  { "rcarriga/nvim-dap-ui", event = "VeryLazy", lazy = true },
+  {
+    "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+    lazy = true,
+    config = function()
+      require "core.dap"
+    end,
+    dependencies = { "rcarriga/nvim-dap-ui" },
+  },
   -- SINTAX HIGHLIGHT
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     config = function()
       require "core.treesiter"
     end,
     build = ":TSUpdate",
   },
 
-  { "mrjones2014/nvim-ts-rainbow", event = "VeryLazy" },
+  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
-  { "RRethy/vim-illuminate", event = "VeryLazy" },
+  {
+    "RRethy/vim-illuminate",
+    event = "VeryLazy",
+    config = function()
+      require "lsp.illuminate"
+    end,
+  },
   { "nvim-treesitter/playground", event = "VeryLazy" },
-  { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
+  { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   -- MOVEMENT TOOLS
 
   {
@@ -133,6 +151,20 @@ return {
     config = function()
       require "core.telescope"
     end,
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {
+      input = {
+        win_options = {
+          winblend = 0,
+          wrap = false,
+        },
+      },
+    },
   },
   {
     "matbme/JABS.nvim",
@@ -174,9 +206,7 @@ return {
 
   {
     "numToStr/Comment.nvim",
-    config = function()
-      require "core.comment"
-    end,
+    config = true,
     event = "BufRead",
   },
   {
@@ -255,7 +285,6 @@ return {
   { "williamboman/mason.nvim" },
   { "lvimuser/lsp-inlayhints.nvim" },
   { "ray-x/lsp_signature.nvim" },
-  { "folke/neodev.nvim", config = true },
 
   {
     "neovim/nvim-lspconfig",
@@ -265,14 +294,17 @@ return {
       "tamago324/nlsp-settings.nvim",
     },
   },
-  {
-    "glepnir/lspsaga.nvim",
-    event = "BufRead",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  { "folke/neodev.nvim", config = true },
   {
     "j-hui/fidget.nvim",
-    config = true,
+    opts = {
+      text = {
+        spinner = "dots",
+      },
+      window = {
+        blend = 0,
+      },
+    },
     event = "VeryLazy",
   },
 
@@ -308,4 +340,5 @@ return {
   { "simrat39/rust-tools.nvim", event = "VeryLazy" },
   { "mfussenegger/nvim-jdtls", event = "VeryLazy" },
   { "p00f/clangd_extensions.nvim", event = "VeryLazy" },
+  { "jose-elias-alvarez/typescript.nvim", event = "VeryLazy" },
 }

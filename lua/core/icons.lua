@@ -82,9 +82,9 @@ return {
   diagnostics = {
     Error = "",
     Warning = "",
-    Information = "",
+    Information = "󰌶",
     Question = "",
-    Hint = "",
+    Hint = "󰌶",
   },
   misc = {
     Robot = "ﮧ",

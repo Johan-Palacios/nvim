@@ -28,6 +28,7 @@ require("illuminate").configure {
     "JABSwindow",
     "lspsagaoutline",
     "lazy",
+    "DressingInput",
     ""
   },
   -- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist

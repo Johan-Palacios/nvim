@@ -22,6 +22,7 @@ hints.setup {
     parameter_hints = {
       show = true,
       separator = ", ",
+      prefix = ": "
     },
     type_hints = {
       show = true,

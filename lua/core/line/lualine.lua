@@ -48,9 +48,9 @@ local colors = {
 
 local onedark_theme = {
   normal = {
-    a = { fg = colors.line, bg = colors.line },
-    b = { fg = colors.line, bg = colors.line },
-    c = { fg = colors.line, bg = colors.line },
+    a = { fg = colors.none, bg = colors.none },
+    b = { fg = colors.none, bg = colors.none },
+    c = { fg = colors.none, bg = colors.none },
   },
 }
 

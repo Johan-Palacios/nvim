@@ -6,9 +6,9 @@ local M = {}
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignWarn",  text = "" },
+    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignInfo",  text = "" },
   }
 
   for _, sign in ipairs(signs) do
@@ -16,7 +16,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = true,
+    virtual_text = false,
     signs = {
       active = signs,
     },
@@ -35,10 +35,10 @@ M.setup = function()
         if code then
           return string.format("%s [%s]", d.message, code):gsub("1. ", "")
         end
-        return d.message
+        return d.messagehan
       end,
     },
-    document_highlight = true,
+    document_highlight = false,
     code_lens_refresh = true,
   }
 
@@ -89,17 +89,16 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+  keymap("n", "gl", function()
+    vim.diagnostic.open_float()
+  end, "Show Diagnostic")
   keymap("n", "gn", function()
-    require("lspsaga.diagnostic"):goto_next()
+    vim.diagnostic.goto_next()
   end, "Go Next", bufnr)
   keymap("n", "gp", function()
-    require("lspsaga.diagnostic"):goto_prev()
+    vim.diagnostic.goto_next()
   end, "Go Prev", bufnr)
   vim.api.nvim_create_user_command("Format", function()
     vim.lsp.buf.format { async = true }
@@ -116,10 +115,11 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
+  client.server_capabilities.semanticTokensProvider = nil
+
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
-
   buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false

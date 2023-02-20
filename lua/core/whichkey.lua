@@ -172,13 +172,6 @@ local n_mapings = {
   },
 }
 
-local s_mappings = {
-  name = "Search",
-  ["/"] = {
-    name = "Searching",
-  },
-}
-
 local g_mappings = {
   d = "Go definition",
   a = "Go Action",
@@ -190,5 +183,4 @@ local g_mappings = {
 
 which_key.setup(setup)
 which_key.register(n_mapings, opts)
-which_key.register(s_mappings, s_opts)
 which_key.register(g_mappings, g_opts)

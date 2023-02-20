@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local get_hl = require("core.functions").get_hlgroup
+local keymap = require("core.functions").keymap
 
 term.setup {
   size = 50,
@@ -24,7 +25,7 @@ term.setup {
       guibg = get_hl("Normal").bg,
     },
     NormalFloat = {
-      link = 'Normal'
+      link = "Normal",
     },
     FloatBorder = {
       guibg = get_hl("Normal").bg,
@@ -33,3 +34,15 @@ term.setup {
   },
 }
 
+keymap("n", "<Leader>tf", ":ToggleTerm<CR>", "Terminal")
+keymap("n", "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', "Terminal Vertical")
+keymap("n", "<Leader>th", ':ToggleTerm direction="horizontal"<CR>', "Terminal")
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new { cmd = "lazygit", hidden = true }
+local function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.keymap.set("n", "<leader>tg", function()
+  _lazygit_toggle()
+end, { noremap = true, silent = true })

@@ -7,9 +7,6 @@ return {
     lazy = false,
     config = function()
       vim.cmd.colorscheme "onedarker"
-      -- Transparent
-      -- vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "#ABB2BF" })
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
   },
 
@@ -33,20 +30,6 @@ return {
     end,
   },
 
-  -- GIT
-
-  {
-    "lewis6991/gitsigns.nvim",
-    event = "BufRead",
-    config = function()
-      require "core.gitsigns"
-    end,
-  },
-  { "tpope/vim-fugitive", event = "VeryLazy" },
-  {
-    "akinsho/git-conflict.nvim",
-    event = "VeryLazy",
-  },
 
   -- COSTMETICS
 
@@ -227,14 +210,6 @@ return {
 
   -- TERMINAL
 
-  {
-    "akinsho/nvim-toggleterm.lua",
-    lazy = true,
-    config = function()
-      require "core.terminal"
-    end,
-    event = "VeryLazy",
-  },
 
   -- PROBLEMS NVIM
 
@@ -258,69 +233,12 @@ return {
     end,
   },
 
-  -- AUTOCOMPLETE
-
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    config = function()
-      require "core.cmp"
-    end,
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "f3fora/cmp-spell",
-    },
-  },
-
-  { "L3MON4D3/LuaSnip", event = "InsertEnter", dependencies = {
-    "friendly-snippets",
-  } },
-  { "rafamadriz/friendly-snippets", event = "InsertEnter" },
-
-  -- LSP
-  { "williamboman/mason.nvim" },
-  { "lvimuser/lsp-inlayhints.nvim" },
-  { "ray-x/lsp_signature.nvim" },
-
-  {
-    "neovim/nvim-lspconfig",
-    lazy = true,
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "tamago324/nlsp-settings.nvim",
-    },
-  },
-  { "folke/neodev.nvim", config = true },
-  {
-    "j-hui/fidget.nvim",
-    opts = {
-      text = {
-        spinner = "dots",
-      },
-      window = {
-        blend = 0,
-      },
-    },
-    event = "VeryLazy",
-  },
-
   {
     "LunarVim/bigfile.nvim",
     config = true,
     event = { "BufReadPre", "FileReadPre" },
   },
 
-  -- FORMAT
-
-  { "tamago324/nlsp-settings.nvim" },
-  { "b0o/SchemaStore.nvim" },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-  },
   { "editorconfig/editorconfig-vim" },
 
   -- WINBAR

@@ -23,8 +23,6 @@ local setup = {
   },
   key_labels = {
     ["<leader>"] = "SPC ",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
   },
   icons = {
     breadcrumb = "»",
@@ -80,15 +78,6 @@ local opts = {
   nowait = true,
 }
 
-local s_opts = {
-  mode = "n",
-  prefix = "/",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-}
-
 local g_opts = {
   mode = "n",
   prefix = "g",
@@ -132,16 +121,14 @@ local n_mapings = {
   },
   t = {
     name = "Terminal ",
-    f = { '<cmd>ToggleTerm direction="float"<cr>', "Floating Terminal" },
-    v = { '<cmd>ToggleTerm direction="vertical"<cr>', "Terminal Vertial" },
+    f = { "Floating Terminal" },
+    v = { "Terminal Vertial" },
     h = {
-      '<cmd>ToggleTerm size=10 direction="horizontal"<cr>',
       "Terminal Horizontal",
     },
-    g = { "Lazy Git" },
+    g = { "Terminal Lazy Git" },
     t = {
-      '<cmd>ToggleTerm direction="tab"<cr>',
-      "Terminal Horizontal",
+      "Terminal Tab",
     },
   },
   b = {
@@ -164,8 +151,6 @@ local n_mapings = {
   },
   l = {
     name = "LSP ",
-    f = { "LSP Saga Find" },
-    d = { "LSP Saga Definition Preview" },
   },
   s = {
     name = "Replace",

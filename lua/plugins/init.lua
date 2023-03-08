@@ -34,19 +34,6 @@ return {
   -- COSTMETICS
 
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true,
-    config = function()
-      require "core.tools.webicons"
-    end,
-  },
-  {
-    "goolord/alpha-nvim",
-    config = function()
-      require "core.alpha"
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     config = function()
       require "core.line.lualine"
@@ -67,23 +54,9 @@ return {
     end,
     event = "BufRead",
   },
-  {
-    "anuvyklack/pretty-fold.nvim",
-    config = true,
-    event = "BufReadPre",
-  },
 
   -- DEBUGERS
 
-  {
-    "mfussenegger/nvim-dap",
-    event = "VeryLazy",
-    lazy = true,
-    config = function()
-      require "core.dap"
-    end,
-    dependencies = { "rcarriga/nvim-dap-ui" },
-  },
   -- SINTAX HIGHLIGHT
 
   {
@@ -208,8 +181,6 @@ return {
     event = "BufReadPre",
   },
 
-  -- TERMINAL
-
 
   -- PROBLEMS NVIM
 
@@ -253,10 +224,4 @@ return {
     dependencies = { "neovim/nvim-lspconfig" },
   },
 
-  -- LANGUAGE TOOLS
-
-  { "simrat39/rust-tools.nvim", event = "VeryLazy" },
-  { "mfussenegger/nvim-jdtls", event = "VeryLazy" },
-  { "p00f/clangd_extensions.nvim", event = "VeryLazy" },
-  { "jose-elias-alvarez/typescript.nvim", event = "VeryLazy" },
 }

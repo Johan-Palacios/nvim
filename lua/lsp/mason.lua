@@ -27,6 +27,7 @@ local servers = {
   "tailwindcss",
   "lemminx",
   "taplo",
+  "texlab",
 }
 
 local settings = {

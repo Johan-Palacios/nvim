@@ -8,7 +8,6 @@ local props = {
     width = function(_, max_columns, _)
       return math.min(max_columns, 80)
     end,
-
     height = function(_, _, max_lines)
       return math.min(max_lines, 15)
     end,
@@ -76,10 +75,10 @@ telescope.setup {
       n = { ["q"] = require("telescope.actions").close },
     },
   },
-  extensions_list = { "themes", "terms", "projects"},
+  extensions_list = { "themes", "terms", "projects" },
   extensions = {
     ["ui-select"] = props,
-    "projects"
+    "projects",
   },
 }
 
@@ -90,7 +89,6 @@ local status_builtin, builtin = pcall(require, "telescope.builtin")
 if not status_builtin then
   return
 end
-
 
 local keymap = require("core.functions").keymap
 
@@ -106,9 +104,9 @@ end, "Find Files")
 keymap("n", "<leader>fc", function()
   builtin.commands(props)
 end, "Find Command")
-keymap("n", "<leader>lf", function()
+keymap("n", "gr", function()
   builtin.lsp_references()
 end, "Find References")
-keymap("n", "<leader>fi", function()
+keymap("n", "gi", function()
   builtin.lsp_implementations()
 end, "Find Implementations")

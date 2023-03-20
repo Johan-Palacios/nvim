@@ -32,7 +32,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
   },
-  { "folke/neodev.nvim", config = true },
+  { "folke/neodev.nvim", config = true, ft = "lua"},
   {
     "j-hui/fidget.nvim",
     opts = {

@@ -1,9 +1,26 @@
 return {
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy",
     lazy = true,
+    keys = {
+      { "<leader>d" },
+    },
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
     config = function()
+      local opts = {
+        noremap = true,
+        silent = true,
+      }
+      vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+      vim.keymap.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+      vim.keymap.set("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+      vim.keymap.set("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+      vim.keymap.set("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+      vim.keymap.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+      vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+      vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
       local dap_status_ok, dap = pcall(require, "dap")
       if not dap_status_ok then
         return
@@ -13,8 +30,6 @@ return {
       if not dap_ui_status_ok then
         return
       end
-
-      vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -29,7 +44,15 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        silent = true,
+      },
+    },
     opts = {
       icons = { expanded = "", collapsed = "", circular = "" },
       mappings = {
@@ -43,10 +66,10 @@ return {
       layouts = {
         {
           elements = {
-            { id = "repl", size = 0.45 },
-            { id = "console", size = 0.55 },
+            { id = "repl", size = 0.30 },
+            { id = "console", size = 0.70 },
           },
-          size = 0.27,
+          size = 0.19,
           position = "bottom",
         },
         {
@@ -56,7 +79,7 @@ return {
             { id = "stacks", size = 0.10 },
             { id = "watches", size = 0.30 },
           },
-          size = 0.33,
+          size = 0.20,
           position = "right",
         },
       },
@@ -67,10 +90,10 @@ return {
           pause = "",
           play = "",
           step_into = "",
-          step_over = "",
+          step_over = " ",
           step_out = "",
-          step_back = "",
-          run_last = "",
+          step_back = " ",
+          run_last = " ",
           terminate = " ",
         },
       },

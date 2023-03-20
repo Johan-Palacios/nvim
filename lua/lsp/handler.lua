@@ -1,13 +1,10 @@
 local M = {}
 
--- Extra Plugins
--- local builtin = require "telescope.builtin"
-
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
     { name = "DiagnosticSignWarn",  text = "" },
-    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignHint",  text = "󰌶" },
     { name = "DiagnosticSignInfo",  text = "" },
   }
 
@@ -16,7 +13,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = false,
+    virtual_text = true,
     signs = {
       active = signs,
     },
@@ -33,7 +30,7 @@ M.setup = function()
       format = function(d)
         local code = d.code or (d.user_data and d.user_data.lsp.code)
         if code then
-          return string.format("%s [%s]", d.message, code):gsub("1. ", "")
+          return string.format("%s", d.message):gsub("1. ", "")
         end
         return d.messagehan
       end,
@@ -88,7 +85,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   keymap("n", "gl", function()

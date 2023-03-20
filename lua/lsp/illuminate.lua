@@ -28,6 +28,7 @@ require("illuminate").configure {
     "JABSwindow",
     "lspsagaoutline",
     "lazy",
+    "help",
     "DressingInput",
     ""
   },

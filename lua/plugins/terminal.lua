@@ -10,10 +10,34 @@ return {
       "ToggleTermToggleAll",
     },
     keys = {
-      { "<Leader>tf", ":ToggleTerm<CR>", mode = { "n" } },
-      { "<Leader>tv", ':ToggleTerm direction="vertical"<CR>', mode = { "n" } },
-      { "<Leader>th", ':ToggleTerm direction="horizontal" size=10<CR>', mode = { "n" } },
-      { "<Leader>tt", ':ToggleTerm direction="tab" size=10<CR>', mode = { "n" } },
+      {
+        "<Leader>tf",
+        ':ToggleTerm direction="float"<CR>',
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+      },
+      {
+        "<Leader>tv",
+        ':ToggleTerm direction="vertical"<CR>',
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+      },
+      {
+        "<Leader>th",
+        ':ToggleTerm direction="horizontal" size=10<CR>',
+        silent = true,
+        noremap = true,
+        mode = { "n" },
+      },
+      {
+        "<Leader>tt",
+        ':ToggleTerm direction="tab" size=10<CR>',
+        mode = { "n" },
+        silent = true,
+        noremap = true,
+      },
       {
         "<leader>tg",
         function()
@@ -22,6 +46,8 @@ return {
           lazygit:toggle()
         end,
         mode = { "n" },
+        silent = true,
+        noremap = true,
       },
     },
     config = function()

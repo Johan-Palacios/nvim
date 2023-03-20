@@ -55,8 +55,6 @@ return {
     event = "BufRead",
   },
 
-  -- DEBUGERS
-
   -- SINTAX HIGHLIGHT
 
   {
@@ -70,16 +68,16 @@ return {
     build = ":TSUpdate",
   },
 
-  { "p00f/nvim-ts-rainbow", event = "VeryLazy" },
-  { "JoosepAlviste/nvim-ts-context-commentstring", event = "VeryLazy" },
+  { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
+  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
   {
     "RRethy/vim-illuminate",
-    event = "VeryLazy",
+    event = "BufReadPre",
     config = function()
       require "lsp.illuminate"
     end,
   },
-  { "nvim-treesitter/playground", event = "VeryLazy" },
+  { "nvim-treesitter/playground", event = "BufReadPre" },
   { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   -- MOVEMENT TOOLS
 
@@ -121,12 +119,6 @@ return {
         },
       },
     },
-  },
-  {
-    "matbme/JABS.nvim",
-    config = function()
-      require "core.jabs"
-    end,
   },
   {
     "Pocco81/AutoSave.nvim",

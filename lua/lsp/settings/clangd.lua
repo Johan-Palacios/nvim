@@ -33,9 +33,11 @@ if status_ok then
 end
 
 return {
+  ---@diagnostic disable-next-line: deprecated
   cmd = { "clangd", unpack(clangd_flags) },
   filetype = { "c", "cpp", "objc", "objcpp", "cuda" },
   root_dir = {
+    ---@diagnostic disable-next-line: undefined-global
     root_pattern(
       ".clangd",
       ".clang-tidy",

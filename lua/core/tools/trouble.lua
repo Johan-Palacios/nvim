@@ -35,12 +35,5 @@ trouble.setup {
   auto_close = false,
   auto_preview = true,
   auto_fold = false,
-  signs = {
-    error = "",
-    warning = "",
-    hint = "",
-    information = "",
-    other = "﫠"
-  },
-  use_lsp_diagnostic_signs = false
+  use_diagnostic_signs = true
 }

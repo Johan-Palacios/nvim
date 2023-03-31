@@ -2,6 +2,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 local notify_filter = vim.notify
 
+---@diagnostic disable-next-line: duplicate-set-field
 vim.notify = function(msg, ...)
   if msg:match "warning: multiple different client offset_encodings detected for buffer, this is not supported yet" then
     return
@@ -38,6 +39,7 @@ local vertical_term = Terminal:new {
       { noremap = true, silent = true }
     )
   end,
+---@diagnostic disable-next-line: unused-local
   on_close = function(term)
     vim.cmd "startinsert"
   end,

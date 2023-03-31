@@ -9,6 +9,7 @@ require("illuminate").configure {
   delay = 120,
   -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
   filetypes_denylist = {
+    "gitcommit",
     "dirvish",
     "fugitive",
     "alpha",

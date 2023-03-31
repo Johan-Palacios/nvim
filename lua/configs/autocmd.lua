@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     if directory then
       vim.cmd.cd(data.file)
     end
-
     require("nvim-tree.api").tree.open()
   end,
 })

@@ -38,6 +38,8 @@ local options = {
   ruler = false,
   title = true,
   showcmd = false,
+  guifont = "monospace:h17",
+  whichwrap = "bs<>[]hl",
 }
 
 vim.opt.shortmess:append "c"

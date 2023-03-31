@@ -30,7 +30,6 @@ return {
     end,
   },
 
-
   -- COSTMETICS
 
   {
@@ -61,11 +60,16 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "p00f/nvim-ts-rainbow",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "nvim-treesitter/playground",
+      "windwp/nvim-ts-autotag",
     },
     config = function()
       require "core.treesiter"
     end,
     build = ":TSUpdate",
+    event = "BufReadPre",
   },
 
   { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
@@ -173,7 +177,6 @@ return {
     event = "BufReadPre",
   },
 
-
   -- PROBLEMS NVIM
 
   {
@@ -190,7 +193,7 @@ return {
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
-    event = "VimEnter",
+    event = { "VimEnter" },
     config = function()
       require "core.tree"
     end,
@@ -215,5 +218,4 @@ return {
     end,
     dependencies = { "neovim/nvim-lspconfig" },
   },
-
 }

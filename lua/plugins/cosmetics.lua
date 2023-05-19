@@ -6,29 +6,24 @@ return {
   },
   {
     "nvim-tree/nvim-web-devicons",
-    lazy = true,
     config = function()
       local status_webicons, webicons = pcall(require, "nvim-web-devicons")
       if not status_webicons then
         return
       end
 
-      local colors = {
-        grey = "#42464e",
-        blue = "#61afef",
-      }
-
-      webicons.set_icon {
-        ino = {
-          icon = "",
-          color = colors.blue,
-          name = "ino",
+      webicons.setup {
+        override = {
+          js = {
+            icon = "󰌞",
+            name = "js",
+          },
+          toml = {
+            icon = "",
+            name = "toml",
+          },
         },
-        editorconfig = {
-          icon = "e",
-          color = colors.grey,
-          name = "editorconfig",
-        },
+        color_icons = true,
       }
     end,
   },

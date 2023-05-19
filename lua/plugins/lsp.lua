@@ -15,9 +15,13 @@ return {
     },
   },
 
-  { "L3MON4D3/LuaSnip", event = "InsertEnter", dependencies = {
-    "friendly-snippets",
-  } },
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    dependencies = {
+      "friendly-snippets",
+    },
+  },
   { "rafamadriz/friendly-snippets", event = "InsertEnter" },
 
   -- LSP
@@ -32,7 +36,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
   },
-  { "folke/neodev.nvim", config = true, ft = "lua"},
+  { "folke/neodev.nvim", config = true },
   {
     "j-hui/fidget.nvim",
     opts = {

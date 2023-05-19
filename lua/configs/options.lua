@@ -29,7 +29,7 @@ local options = {
   cursorline = true,
   number = false,
   relativenumber = true,
-  numberwidth = 3,
+  numberwidth = 4,
   signcolumn = "yes",
   wrap = false,
   scrolloff = 9,
@@ -37,6 +37,7 @@ local options = {
   laststatus = 3,
   ruler = false,
   title = true,
+  colorcolumn = "+0",
   showcmd = false,
   guifont = "monospace:h17",
   whichwrap = "bs<>[]hl",
@@ -45,6 +46,7 @@ local options = {
 vim.opt.shortmess:append "c"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "//"
+vim.g.editorconfig = true
 
 for k, v in pairs(options) do
   vim.opt[k] = v

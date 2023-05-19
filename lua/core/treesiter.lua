@@ -11,10 +11,11 @@ configs.setup {
     enable = true,
   },
   autotag = {
-    enable = true
+    enable = true,
   },
   highlight = {
     enable = true,
+    use_languagetree = true,
     disable = { "" },
   },
   indent = { enable = true, disable = { "yaml" } },
@@ -34,3 +35,4 @@ configs.setup {
     disable = { "html", "xml" },
   },
 }
+vim.treesitter.language.register("bash", "zsh")

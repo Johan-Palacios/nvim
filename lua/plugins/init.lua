@@ -13,7 +13,7 @@ return {
   -- MANAGMENT PLUGINS
   { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
-  { "vim-scripts/restore_view.vim" },
+  { "vim-scripts/restore_view.vim", lazy = false, event = "VimEnter", priority = 100 },
   { "moll/vim-bbye", event = "VeryLazy" },
   {
     "rcarriga/nvim-notify",
@@ -37,11 +37,9 @@ return {
     config = function()
       require "core.line.lualine"
     end,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "akinsho/bufferline.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require "core.tools.bufferline"
     end,
@@ -192,7 +190,7 @@ return {
   -- TREE
   {
     "kyazdani42/nvim-tree.lua",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    -- dependencies = "nvim-tree/nvim-web-devicons",
     event = { "VimEnter" },
     config = function()
       require "core.tree"
@@ -205,8 +203,6 @@ return {
     event = { "BufReadPre", "FileReadPre" },
   },
 
-  { "editorconfig/editorconfig-vim" },
-
   -- WINBAR
 
   {
@@ -215,6 +211,25 @@ return {
     lazy = true,
     config = function()
       require "core.navic"
+      local create_winbar = function()
+        vim.api.nvim_create_augroup("_winbar", {})
+        if vim.fn.has "nvim-0.8" == 1 then
+          vim.api.nvim_create_autocmd(
+            { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+            {
+              group = "_winbar",
+              callback = function()
+                local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
+                if not status_ok then
+                  require("core.winbar").get_winbar()
+                end
+              end,
+            }
+          )
+        end
+      end
+
+      create_winbar()
     end,
     dependencies = { "neovim/nvim-lspconfig" },
   },

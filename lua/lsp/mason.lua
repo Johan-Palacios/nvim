@@ -15,6 +15,7 @@ end
 
 local servers = {
   "jsonls",
+  "bashls",
   "lua_ls",
   "pyright",
   "html",

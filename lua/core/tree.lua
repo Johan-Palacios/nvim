@@ -3,10 +3,20 @@ if not status_ok then
   return
 end
 
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
+local function on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
+end
 
 tree.setup {
+  on_attach = on_attach,
   renderer = {
+    root_folder_label = false,
     icons = {
       webdev_colors = true,
       git_placement = "before",
@@ -47,6 +57,7 @@ tree.setup {
       "package.json",
       ".gitignore",
       ".editorconfig",
+      ".env",
     },
   },
   disable_netrw = true,
@@ -68,16 +79,12 @@ tree.setup {
     timeout = 500,
   },
   view = {
-    width = 26,
-    hide_root_folder = true,
+    width = 30,
     side = "left",
     number = false,
     relativenumber = false,
     mappings = {
       custom_only = false,
-      list = {
-        { key = "v", cb = tree_cb "vsplit" },
-      },
     },
   },
   trash = {

@@ -62,6 +62,7 @@ which_key.register(mappings, opts)
 
 -- Filter Notify
 local notify_filter = vim.notify
+---@diagnostic disable-next-line: duplicate-set-field
 vim.notify = function(msg, ...)
   if msg:match "message with no corresponding" then
     return

@@ -28,20 +28,49 @@ M.winbar_filetype_exclude = {
 }
 
 local get_filename = function()
+  local icons = require("core.icons")
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
   local f = require "core.functions"
 
   if not f.isempty(filename) then
-    local file_icon, file_icon_color = require("nvim-web-devicons").get_icon_color(filename, extension)
+    local file_icon, hl_group
+    local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
+    if devicons_ok then
+      file_icon, hl_group = devicons.get_icon(filename, extension, { default = true })
 
-    local hl_group = "FileIconColor" .. extension
-
-    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    if f.isempty(file_icon) then
-      file_icon = ""
-      file_icon_color = ""
+      if f.isempty(file_icon) then
+        file_icon = icons.kind.File
+      end
+    else
+      file_icon = ""
+      hl_group = "Normal"
     end
+
+    local buf_ft = vim.bo.filetype
+
+    if buf_ft == "dapui_breakpoints" then
+      file_icon = icons.ui.Bug
+    end
+
+    if buf_ft == "dapui_stacks" then
+      file_icon = icons.ui.Stacks
+    end
+
+    if buf_ft == "dapui_scopes" then
+      file_icon = icons.ui.Scopes
+    end
+
+    if buf_ft == "dapui_watches" then
+      file_icon = icons.ui.Watches
+    end
+
+    -- if buf_ft == "dapui_console" then
+    --   file_icon = lvim.icons.ui.DebugConsole
+    -- end
+
+    local navic_text = vim.api.nvim_get_hl_by_name("Normal", true)
+    vim.api.nvim_set_hl(0, "Winbar", { fg = navic_text.foreground })
 
     return " " .. "%#" .. hl_group .. "#" .. file_icon .. " " .. "%*" .. " " .. "%#9095a2#" .. filename .. "%*"
   end

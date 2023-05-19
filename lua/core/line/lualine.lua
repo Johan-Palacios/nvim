@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local icons = require "core.icons"
-local get_hl = require("core.functions").get_hlgroup
+-- local get_hl = require("core.functions").get_hlgroup
 
 local colors = {
   white = "#abb2bf",
@@ -102,7 +102,7 @@ local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
-  symbols = { error = icons.diagnostics.Error .. " ", warn = icons.diagnostics.Warning .. " " },
+  symbols = { error = icons.ui.BigCircle, warn = icons.ui.BigCircle },
   colored = true,
   update_in_insert = false,
 }
@@ -123,9 +123,9 @@ local filetype = {
 local branch = {
   "branch",
   icons_enabled = true,
-  icon = "%#SLGitIcon#" .. "" .. "%*" .. "%#SLBranchName#",
+  icon = "%#SLGitIcon#" .. " " .. "%*" .. "%#SLBranchName#",
   separator = { right = " " },
-  colored = false,
+  colored = true,
 }
 
 local progress = {

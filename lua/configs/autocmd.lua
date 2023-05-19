@@ -21,45 +21,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-  callback = function(data)
-    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-    local directory = vim.fn.isdirectory(data.file) == 1
-    if not no_name and not directory then
-      return
-    end
-    if directory then
-      vim.cmd.cd(data.file)
-    end
-    require("nvim-tree.api").tree.open()
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
   end,
 })
 
-local create_winbar = function()
-  vim.api.nvim_create_augroup("_winbar", {})
-  if vim.fn.has "nvim-0.8" == 1 then
-    vim.api.nvim_create_autocmd(
-      { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-      {
-        group = "_winbar",
-        callback = function()
-          local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
-          if not status_ok then
-            require("core.winbar").get_winbar()
-          end
-        end,
-      }
-    )
-  end
-end
-
-create_winbar()
 
 local wsl_clip = function()
   if vim.fn.has "wsl" == 1 then
@@ -92,12 +59,5 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.java" },
-  callback = function()
-    vim.lsp.codelens.refresh()
   end,
 })

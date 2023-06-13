@@ -54,7 +54,7 @@ local onedark_theme = {
   },
 }
 
-vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.line })
+vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.branch_cover })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.branch_cover, bold = false })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.line })
 

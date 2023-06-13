@@ -2,7 +2,8 @@ return {
   {
     "matbme/JABS.nvim",
     opts = {
-      position = "center",
+      position = {"center", "top"},
+      use_devicons = true,
       width = 50,
       height = 10,
       border = "rounded",
@@ -19,7 +20,7 @@ return {
         v_split = "v",
         preview = "p",
       },
-      use_devicons = true,
+
     },
   },
 }

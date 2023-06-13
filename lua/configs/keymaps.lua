@@ -6,7 +6,9 @@ local opts = {
 --Explorer
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 --Bufers management
-keymap("n", "<Leader>bd", ":Bdelete<CR>", opts)
+vim.keymap.set("n", "<leader>bd", function()
+  vim.cmd ":bdelete"
+end, opts)
 keymap("n", "<C-s>", ":vsp<CR>", {})
 keymap("n", "<Leader>bh", ":split<CR>", {})
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -50,7 +52,7 @@ local show_documentation = function()
     vim.cmd("h " .. vim.fn.expand "<cword>")
   elseif vim.tbl_contains({ "man" }, filetype) then
     vim.cmd("Man " .. vim.fn.expand "<cword>")
-  -- elseif vim.fn.expand "%:t" == "Cargo.toml" then
+    -- elseif vim.fn.expand "%:t" == "Cargo.toml" then
     -- Install crates
     -- require("crates").show_popup()
   else

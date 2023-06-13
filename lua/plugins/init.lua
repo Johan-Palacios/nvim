@@ -3,6 +3,8 @@ return {
 
   {
     "Johan-Palacios/onedarker",
+    dev = false,
+    -- dir = "~/colorines",
     priority = 1000,
     lazy = false,
     config = function()
@@ -14,7 +16,14 @@ return {
   { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
   { "vim-scripts/restore_view.vim", lazy = false, event = "VimEnter", priority = 100 },
-  { "moll/vim-bbye", event = "VeryLazy" },
+  {
+    "echasnovski/mini.bufremove",
+    version = false,
+    opts = {
+      silent = false,
+    },
+    config = true,
+  },
   {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
@@ -58,7 +67,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "p00f/nvim-ts-rainbow",
+      "mrjones2014/nvim-ts-rainbow",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/playground",
       "windwp/nvim-ts-autotag",
@@ -70,7 +79,7 @@ return {
     event = "BufReadPre",
   },
 
-  { "p00f/nvim-ts-rainbow", event = "BufReadPre" },
+  { "mrjones2014/nvim-ts-rainbow", event = "BufReadPre" },
   { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
   {
     "RRethy/vim-illuminate",

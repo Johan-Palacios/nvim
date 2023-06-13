@@ -57,7 +57,9 @@ tree.setup {
       "package.json",
       ".gitignore",
       ".editorconfig",
+      ".env.example",
       ".env",
+      "LICENCE"
     },
   },
   disable_netrw = true,

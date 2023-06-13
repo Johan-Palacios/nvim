@@ -3,9 +3,9 @@ local M = {}
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn",  text = "" },
-    { name = "DiagnosticSignHint",  text = "󰌶" },
-    { name = "DiagnosticSignInfo",  text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "󰌶" },
+    { name = "DiagnosticSignInfo", text = "" },
   }
 
   for _, sign in ipairs(signs) do
@@ -55,27 +55,6 @@ M.setup = function()
   })
 end
 
-local function lsp_highlight_document(client, bufnr)
-  if client.server_capabilities.documentHighlightProvider then
-    local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
-
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      buffer = bufnr,
-      group = group,
-      callback = function()
-        vim.lsp.buf.document_highlight()
-      end,
-    })
-    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-      buffer = bufnr,
-      group = group,
-      callback = function()
-        vim.lsp.buf.clear_references()
-      end,
-    })
-  end
-end
-
 local function lsp_keymaps(bufnr)
   local keymap = require("core.functions").keymap_buf
   local opts = { noremap = true, silent = true }
@@ -110,9 +89,10 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
-  client.server_capabilities.semanticTokensProvider = nil
+  for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    vim.api.nvim_set_hl(0, group, {})
+  end
 
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)

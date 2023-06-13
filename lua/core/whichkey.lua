@@ -133,7 +133,7 @@ local n_mapings = {
   },
   b = {
     name = "Buffers ",
-    d = { "<cmd>Bdelete<cr>", "Delete Buffer" },
+    d = { "Delete Buffer" },
     v = { "<cmd>vsp<cr>", "Vertical Split" },
     h = { "<cmd>split<cr>", "Horizontal Split" },
   },

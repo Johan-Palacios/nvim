@@ -41,6 +41,10 @@
 
 </p>
 
+  <p align="center">
+    <img src="https://stars.medv.io/Johan-Palacios/nvim.svg", title="commits"/>
+  </p>
+
 # Neovim Configuration for Windows Subsystem Linux (WSL)
 
 ## Preview / Pre-visualización 🕹️

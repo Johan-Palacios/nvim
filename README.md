@@ -7,6 +7,12 @@
 </p>
 
 <p align="center">
+  <!-- <a href="https://github.com/Johan-Palacios/nvim/releases/latest"> -->
+  <!--   <img alt="Latest release" src="https://img.shields.io/github/v/release/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41" /> -->
+  <!-- </a> -->
+  <a href="https://github.com/Johan-Palacios/nvim/pulse">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+  </a>
   <a href="https://github.com/Johan-Palacios/nvim/stargazers">
     <img
       alt="Stargazers"
@@ -25,6 +31,14 @@
       src="https://img.shields.io/github/contributors/Johan-Palacios/nvim?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
+  <a href="https://github.com/Johan-Palacios/nvim">
+    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/Johan-Palacios/nvim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
+  </a>
+  <a href="https://github.com/Johan-Palacios/nvim/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/lunarvim/lunarvim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+  </a>
+
+
 </p>
 
 # Neovim Configuration for Windows Subsystem Linux (WSL)

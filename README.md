@@ -43,12 +43,13 @@
 
 # Neovim Configuration for Windows Subsystem Linux (WSL)
 
-## Preview / Pre-visualización 🕹️
+## ShowCase
 
-![image](https://user-images.githubusercontent.com/77251405/214324222-972a5175-9dc0-4c6d-aaa3-4c918eac3eea.png)
-![image](https://user-images.githubusercontent.com/77251405/214324715-1ccd89a5-21ca-40d0-a5aa-9388f53f8d9c.png)
-![image](https://user-images.githubusercontent.com/77251405/214324330-9c7f4ff4-0242-4094-a059-a6c8e5bdd77f.png)
-![image](https://user-images.githubusercontent.com/77251405/214324386-a1e11082-bb1f-469b-af22-ef03282b6643.png)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/0adf691e-5485-4edd-a3cb-bcb291c92060)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/3d3e5a0e-8b91-4b3e-b0e1-608111913d83)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/aae50157-c8a0-481e-b13b-87c689407b30)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/50de295e-ebd9-4456-8373-7beee6f72175)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/172014de-3a7f-4ea9-b3f6-295edc3ef968)
 
 ---
 

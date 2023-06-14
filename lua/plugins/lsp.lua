@@ -39,6 +39,7 @@ return {
   { "folke/neodev.nvim", config = true },
   {
     "j-hui/fidget.nvim",
+    branch = "legacy",
     opts = {
       text = {
         spinner = "dots",

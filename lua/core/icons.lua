@@ -101,4 +101,11 @@ return {
     Tag = "",
     Watch = "",
   },
+  dap = {
+    Stopped = "󰁕 ",
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = " ",
+    LogPoint = ".>",
+  },
 }

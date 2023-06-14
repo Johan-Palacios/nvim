@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 local M = {}
 
 M.setup = function()

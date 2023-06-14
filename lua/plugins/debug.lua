@@ -106,5 +106,12 @@ return {
         },
       },
     },
+    config = function()
+      local icons = require("core.icons").dap
+      for name, sign in pairs(icons) do
+        sign = type(sign) == "table" and sign or { sign }
+        vim.fn.sign_define("Dap" .. name, { text = sign[1] })
+      end
+    end,
   },
 }

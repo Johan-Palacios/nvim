@@ -16,6 +16,7 @@ null_ls.setup {
     formatting.stylua,
     formatting.clang_format.with { filetypes = { "c", "cpp", "cuda", "cs" } },
     formatting.google_java_format.with { filetypes = { "java" } },
+    formatting.markdownlint,
     -- diagnostics
     diagnostics.flake8,
     diagnostics.eslint,

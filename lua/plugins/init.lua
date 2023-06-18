@@ -66,9 +66,11 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
+      { "nvim-treesitter/playground", event = "BufReadPre" },
+      { "HiPhish/nvim-ts-rainbow2", event = "BufReadPre" },
+      { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
+      { "windwp/nvim-ts-autotag", event = "InsertEnter" },
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "mrjones2014/nvim-ts-rainbow",
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "nvim-treesitter/playground",
       "windwp/nvim-ts-autotag",
     },
@@ -79,8 +81,6 @@ return {
     event = "BufReadPre",
   },
 
-  { "mrjones2014/nvim-ts-rainbow", event = "BufReadPre" },
-  { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
   {
     "RRethy/vim-illuminate",
     event = "BufReadPre",
@@ -88,8 +88,6 @@ return {
       require "lsp.illuminate"
     end,
   },
-  { "nvim-treesitter/playground", event = "BufReadPre" },
-  { "windwp/nvim-ts-autotag", event = "InsertEnter" },
   -- MOVEMENT TOOLS
 
   {

@@ -17,12 +17,17 @@ return {
 
   {
     "L3MON4D3/LuaSnip",
+    build = (not jit.os:find "Windows")
+        and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
+      or nil,
     event = "InsertEnter",
     dependencies = {
-      "friendly-snippets",
+      { "rafamadriz/friendly-snippets",  event = "InsertEnter" },
     },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
   },
-  { "rafamadriz/friendly-snippets", event = "InsertEnter" },
 
   -- LSP
   { "williamboman/mason.nvim" },

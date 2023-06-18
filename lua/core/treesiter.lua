@@ -31,7 +31,6 @@ configs.setup {
   },
   rainbow = {
     enable = true,
-    extended_mode = false,
     disable = { "html", "xml" },
   },
 }

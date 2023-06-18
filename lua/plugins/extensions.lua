@@ -3,7 +3,12 @@ return {
   { "simrat39/rust-tools.nvim", ft = "rust" },
   { "mfussenegger/nvim-jdtls", ft = "java" },
   { "p00f/clangd_extensions.nvim", ft = { "cpp", "c", "objc", "objcpp", "cuda" } },
-  { "jose-elias-alvarez/typescript.nvim", event = "VeryLazy"},
+  {
+    "jose-elias-alvarez/typescript.nvim",
+    config = function()
+      require("typescript").setup({})
+    end,
+  },
   {
     "lervag/vimtex",
     ft = "tex",

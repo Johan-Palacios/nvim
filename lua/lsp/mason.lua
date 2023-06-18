@@ -24,7 +24,6 @@ local servers = {
   "rust_analyzer",
   "cmake",
   "clangd",
-  -- "tsserver",
   "tailwindcss",
   "lemminx",
   "taplo",

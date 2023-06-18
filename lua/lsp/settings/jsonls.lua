@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 return {
-  init_options = {
-    provideFormatter = false,
-  },
+  -- init_options = {
+  --   provideFormatter = false,
+  -- },
   settings = {
     json = {
       schemas = schemastore.json.schemas(),

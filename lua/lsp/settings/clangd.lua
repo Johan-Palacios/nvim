@@ -10,7 +10,7 @@ local clangd_flags = {
   "--pch-storage=memory", -- could also be disk
   "--folding-ranges",
   "--enable-config", -- clangd 11+ supports reading from .clangd configuration file
-  -- "--offset-encoding=utf-16", --temporary fix for null-ls
+  "--offset-encoding=utf-16", --temporary fix for null-ls
   -- "--limit-references=1000",
   -- "--limit-resutls=1000",
   -- "--malloc-trim",

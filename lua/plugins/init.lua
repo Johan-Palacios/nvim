@@ -197,7 +197,6 @@ return {
   -- TREE
   {
     "kyazdani42/nvim-tree.lua",
-    -- dependencies = "nvim-tree/nvim-web-devicons",
     event = { "VimEnter" },
     config = function()
       require "core.tree"

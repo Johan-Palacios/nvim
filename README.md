@@ -1,8 +1,7 @@
 <p align="center">
-    <img alt="Johan Logo" 
-    src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png" 
+    <img alt="Johan Logo"
+    src="https://user-images.githubusercontent.com/77251405/120911904-37bcd800-c648-11eb-9358-e62e4e16ac1c.png"
     height="160px"/>
-  </a>
   <h1 align="center">Neovim Config</h1>
 </p>
 
@@ -11,7 +10,10 @@
   <!--   <img alt="Latest release" src="https://img.shields.io/github/v/release/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41" /> -->
   <!-- </a> -->
   <a href="https://github.com/Johan-Palacios/nvim/pulse">
-    <img alt="Last commit" src="https://img.shields.io/github/last-commit/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    <img
+      alt="Last commit"
+      src="https://img.shields.io/github/last-commit/Johan-Palacios/nvim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"
+    />
   </a>
   <a href="https://github.com/Johan-Palacios/nvim/stargazers">
     <img
@@ -32,12 +34,17 @@
     />
   </a>
   <a href="https://github.com/Johan-Palacios/nvim">
-    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/Johan-Palacios/nvim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
+    <img
+      alt="Repo Size"
+      src="https://img.shields.io/github/repo-size/Johan-Palacios/nvim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41"
+    />
   </a>
   <a href="https://github.com/Johan-Palacios/nvim/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/lunarvim/lunarvim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    <img
+      alt="License"
+      src="https://img.shields.io/github/license/lunarvim/lunarvim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41"
+    />
   </a>
-
 
 </p>
 
@@ -138,7 +145,8 @@ Esta configuración tiene :
 
 ## Instalación 🔧
 
-Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio cambiandole el nombre a la carpeta a nvim
+Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio
+cambiandole el nombre a la carpeta a nvim
 
 Luego abre Neovim
 

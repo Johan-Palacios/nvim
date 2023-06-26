@@ -25,13 +25,6 @@ return {
     config = true,
   },
   {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy",
-    config = function()
-      require "core.notify"
-    end,
-  },
-  {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
     config = function()
@@ -45,47 +38,6 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
       require "core.line.lualine"
-    end,
-  },
-  {
-    "akinsho/bufferline.nvim",
-    config = function()
-      require "core.tools.bufferline"
-    end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require "core.tools.indent"
-    end,
-    event = "BufRead",
-  },
-
-  -- SINTAX HIGHLIGHT
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      { "nvim-treesitter/playground", event = "BufReadPre" },
-      { "HiPhish/nvim-ts-rainbow2", event = "BufReadPre" },
-      { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
-      { "windwp/nvim-ts-autotag", event = "InsertEnter" },
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "nvim-treesitter/playground",
-      "windwp/nvim-ts-autotag",
-    },
-    config = function()
-      require "core.treesiter"
-    end,
-    build = ":TSUpdate",
-    event = "BufReadPre",
-  },
-
-  {
-    "RRethy/vim-illuminate",
-    event = "BufReadPre",
-    config = function()
-      require "lsp.illuminate"
     end,
   },
   -- MOVEMENT TOOLS
@@ -116,17 +68,6 @@ return {
     end,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
-  {
-    "stevearc/dressing.nvim",
-    opts = {
-      input = {
-        win_options = {
-          winblend = 0,
-          wrap = false,
-        },
-      },
     },
   },
   {
@@ -171,13 +112,6 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require "core.todocomments"
-    end,
-    event = "BufReadPre",
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require "core.colorizer"
     end,
     event = "BufReadPre",
   },

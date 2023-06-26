@@ -40,7 +40,6 @@ M.setup = function()
     code_lens_refresh = true,
   }
 
-
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -91,6 +90,7 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  vim.lsp.buf.inlay_hint(bufnr, true)
   require("nvim-navic").attach(client, bufnr)
   -- Disable LSP TOKENS
   -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do

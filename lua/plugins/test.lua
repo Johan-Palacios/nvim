@@ -1,6 +1,7 @@
 return {
   {
     "nvim-neotest/neotest",
+    event = {"VeryLazy"},
     opts = {
       adapters = {},
       status = { virtual_text = true },

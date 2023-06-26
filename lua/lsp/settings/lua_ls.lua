@@ -11,7 +11,7 @@ return {
         setType = true,
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim" , "jit"},
       },
       workspace = {
         library = {

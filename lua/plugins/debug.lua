@@ -106,12 +106,14 @@ return {
         },
       },
     },
-    config = function()
+    config = function(_, opts)
       local icons = require("core.icons").dap
       for name, sign in pairs(icons) do
+        ---@diagnostic disable-next-line: cast-local-type
         sign = type(sign) == "table" and sign or { sign }
         vim.fn.sign_define("Dap" .. name, { text = sign[1] })
       end
+      require("dapui").setup(opts)
     end,
   },
 }

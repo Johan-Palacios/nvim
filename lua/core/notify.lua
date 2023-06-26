@@ -32,6 +32,9 @@ vim.notify = function(msg, level, opts)
   if msg:match "method textDocument" then
     return
   end
+  if msg:match "warning: multiple different client offset_encodings detected for buffer, this is not supported yet" then
+    return
+  end
   if msg:match "documentSymbols" then
     return
   end

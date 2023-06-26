@@ -1,5 +1,12 @@
 return {
   {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require "core.tools.indent"
+    end,
+    event = "BufRead",
+  },
+  {
     "anuvyklack/pretty-fold.nvim",
     config = true,
     event = "BufReadPre",
@@ -84,5 +91,30 @@ return {
 
       alpha.setup(dashboard.opts)
     end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    config = function()
+      require "core.notify"
+    end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {
+      input = {
+        win_options = {
+          winblend = 0,
+          wrap = false,
+        },
+      },
+    },
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require "core.colorizer"
+    end,
+    event = "BufReadPre",
   },
 }

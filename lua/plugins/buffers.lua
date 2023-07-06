@@ -1,4 +1,14 @@
 return {
+
+  {
+    "echasnovski/mini.bufremove",
+    version = false,
+    opts = {
+      silent = false,
+    },
+    config = true,
+  },
+
   {
     "matbme/JABS.nvim",
     opts = {

@@ -1,29 +1,8 @@
 return {
-  -- COLORSCHEMA
-
-  {
-    "Johan-Palacios/onedarker",
-    dev = false,
-    -- dir = "~/colorines",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      vim.cmd.colorscheme "onedarker"
-    end,
-  },
-
   -- MANAGMENT PLUGINS
   { "folke/lazy.nvim", tag = "stable" },
   { "tweekmonster/startuptime.vim", cmd = "StartupTime", event = "VeryLazy" },
   { "vim-scripts/restore_view.vim", lazy = false, event = "VimEnter", priority = 100 },
-  {
-    "echasnovski/mini.bufremove",
-    version = false,
-    opts = {
-      silent = false,
-    },
-    config = true,
-  },
   {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
@@ -141,36 +120,5 @@ return {
     "LunarVim/bigfile.nvim",
     config = true,
     event = { "BufReadPre", "FileReadPre" },
-  },
-
-  -- WINBAR
-
-  {
-    "SmiteshP/nvim-navic",
-    event = { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-    lazy = true,
-    config = function()
-      require "core.navic"
-      local create_winbar = function()
-        vim.api.nvim_create_augroup("_winbar", {})
-        if vim.fn.has "nvim-0.8" == 1 then
-          vim.api.nvim_create_autocmd(
-            { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-            {
-              group = "_winbar",
-              callback = function()
-                local status_ok, _ = pcall(vim.api.nvim_buf_get_var, 0, "lsp_floating_window")
-                if not status_ok then
-                  require("core.winbar").get_winbar()
-                end
-              end,
-            }
-          )
-        end
-      end
-
-      create_winbar()
-    end,
-    dependencies = { "neovim/nvim-lspconfig" },
   },
 }

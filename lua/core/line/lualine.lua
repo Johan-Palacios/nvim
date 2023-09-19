@@ -7,8 +7,9 @@ local icons = require "core.icons"
 -- local get_hl = require("core.functions").get_hlgroup
 
 local colors = {
+  fg = "#21252a",
   white = "#abb2bf",
-  bg = "#2E2E2E",
+  bg = "#23272e",
   yellow = "#DCDCAA",
   dark_yellow = "#D7BA7D",
   cyan = "#4EC9B0",
@@ -40,27 +41,28 @@ local colors = {
   newpurple = "#C678DD",
   replacecolor = "#E06C75",
   status_text = "#4e545f",
-  branch_name = "#a4abb7",
-  branch_cover = "#21242B",
-  line = "#1e2127",
+  branch_name = "#5c6370",
+  branch_cover = "#21252a",
+  line = "#1e2227",
   none = "none",
 }
 
 local onedark_theme = {
   normal = {
-    a = { fg = colors.none, bg = colors.none },
-    b = { fg = colors.none, bg = colors.none },
-    c = { fg = colors.none, bg = colors.none },
+    a = { fg = colors.none, bg = colors.line },
+    b = { fg = colors.none, bg = colors.line },
+    c = { fg = colors.none, bg = colors.line },
   },
 }
 
-vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.branch_cover })
-vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.branch_cover, bold = false })
-vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.line })
+vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.bg })
+vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.bg, bold = false })
+vim.api.nvim_set_hl(0, "SLSeparator", { fg = colors.branch_cover, bg = colors.bg, bold = false })
+vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.none })
 
 local mode_color = {
-  n = "#569cd6",
-  i = "#6a9955",
+  n = "#4d78cc",
+  i = "#98c379",
   v = "#c586c0",
   -- [""] = "#c586c0",
   V = "#c586c0",
@@ -68,15 +70,15 @@ local mode_color = {
   -- c = '#B5CEA8',
   -- c = '#D7BA7D',
   c = "#4EC9B0",
-  no = "#569cd6",
+  no = "#4d78cc",
   s = "#ce9178",
   [""] = "#ce9178",
   S = "#ce9178",
   ic = "#dcdcaa",
   R = "#d16969",
   Rv = "#d16969",
-  cv = "#569cd6",
-  ce = "#569cd6",
+  cv = "#4d78cc",
+  ce = "#4d78cc",
   r = "#d16969",
   rm = "#4EC9B0",
   ["r?"] = "#4EC9B0",
@@ -86,10 +88,10 @@ local mode_color = {
 
 local mode = {
   function()
-    return "▊"
+    return "    "
   end,
   color = function()
-    return { fg = mode_color[vim.fn.mode()], bg = mode_color[vim.fn.mode()] }
+    return { fg = colors.fg , bg = mode_color[vim.fn.mode()] }
   end,
   padding = 0,
 }
@@ -109,22 +111,24 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = true,
+  colored = false,
+  color = {fg = colors.branch_name, bg = colors.bg},
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
+  separator = { left = " %#SLSeparator#" .. "  " },
   cond = hide_in_width,
 }
 
 local filetype = {
   "filetype",
   icons_enabled = true,
-  color = { bg = colors.l, fg = colors.branch_name },
+  color = { bg = colors.bg, fg = colors.branch_name },
 }
 
 local branch = {
   "branch",
   icons_enabled = true,
-  icon = "%#SLGitIcon#" .. " " .. "%*" .. "%#SLBranchName#",
-  separator = { right = " " },
+  icon = "%#SLGitIcon#" .. "  " .. "%*" .. "%#SLBranchName#",
+  separator = { right = "%#SLSeparator#" .. "  " },
   colored = true,
 }
 
@@ -135,17 +139,17 @@ local progress = {
     return "%P"
   end,
   color = function()
-    return { bg = colors.branch_cover, fg = colors.white }
+    return { bg = colors.bg, fg = colors.branch_name }
   end,
-  separator = { left = " ", right = "" },
+  separator = { left = " ", right = "" },
 }
 
 local spaces = {
   function()
     return "Spaces " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  color = { fg = colors.white },
-  padding = 0,
+  color = { fg = colors.branch_name, bg = colors.bg},
+  separator = { left = "  ", right = "" },
 }
 
 local location = {

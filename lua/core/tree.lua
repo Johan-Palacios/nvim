@@ -59,7 +59,7 @@ tree.setup {
       ".editorconfig",
       ".env.example",
       ".env",
-      "LICENCE"
+      "LICENSE"
     },
   },
   disable_netrw = true,
@@ -85,9 +85,6 @@ tree.setup {
     side = "left",
     number = false,
     relativenumber = false,
-    mappings = {
-      custom_only = false,
-    },
   },
   trash = {
     cmd = "trash",

@@ -211,5 +211,4 @@ keymap("v", "<leader>lm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<C
 --
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-require("jdtls.setup").add_commands()
 jdtls.start_or_attach(config)

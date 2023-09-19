@@ -1,5 +1,4 @@
 return {
-
   {
     "Johan-Palacios/onedarker",
     dev = false,

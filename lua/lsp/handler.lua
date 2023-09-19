@@ -88,7 +88,29 @@ local function lsp_keymaps(bufnr)
   end, "Code Action", bufnr)
 end
 
+local function lsp_highlight_document(client, bufnr)
+  if client.server_capabilities.documentHighlightProvider then
+    local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.document_highlight()
+      end,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.clear_references()
+      end,
+    })
+  end
+end
+
 M.on_attach = function(client, bufnr)
+  lsp_highlight_document(client, bufnr)
   lsp_keymaps(bufnr)
   vim.lsp.buf.inlay_hint(bufnr, true)
   require("nvim-navic").attach(client, bufnr)

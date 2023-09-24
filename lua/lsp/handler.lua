@@ -112,24 +112,28 @@ end
 M.on_attach = function(client, bufnr)
   lsp_highlight_document(client, bufnr)
   lsp_keymaps(bufnr)
-  vim.lsp.buf.inlay_hint(bufnr, true)
+
   require("nvim-navic").attach(client, bufnr)
-  -- Disable LSP TOKENS
-  -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-  --   vim.api.nvim_set_hl(0, group, {})
-  -- end
+
+  if client.name ~= "jdtls" then
+    vim.lsp.buf.inlay_hint(bufnr, true)
+  end
 
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
+
   buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
-  if client.name == "jdtls" then
-    client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
-  end
+
+  -- if client.name == "jdtls" then
+  --   client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
+  -- end
+
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

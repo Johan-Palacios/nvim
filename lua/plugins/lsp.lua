@@ -169,6 +169,7 @@ return {
         },
         delay = 120,
         filetypes_denylist = {
+          "markdown",
           "gitcommit",
           "dirvish",
           "fugitive",

@@ -1,7 +1,9 @@
 return {
   -- LANGUAGE TOOL
   { "simrat39/rust-tools.nvim", ft = "rust" },
-  { "mfussenegger/nvim-jdtls", ft = "java" },
+  { "mfussenegger/nvim-jdtls", ft = "java", config = function ()
+    require("lsp.tools.java")
+  end },
   {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp", "objc", "objcpp", "cuda" },

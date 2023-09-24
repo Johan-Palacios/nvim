@@ -3,9 +3,15 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       { "nvim-treesitter/playground", event = "BufReadPre" },
-      { "HiPhish/nvim-ts-rainbow2", event = "BufReadPre" },
+      {
+        "hiphish/rainbow-delimiters.nvim",
+        event = "BufReadPre",
+        config = function()
+          vim.g.rainbow_delimiters = { blacklist = { "html", "xml", "markdown" } }
+        end,
+      },
       { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
-      { "windwp/nvim-ts-autotag", event = "InsertEnter" },
+      { "windwp/nvim-ts-autotag",                      event = "InsertEnter" },
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/playground",
       "windwp/nvim-ts-autotag",
@@ -16,6 +22,7 @@ return {
         return
       end
 
+      ---@diagnostic disable-next-line: missing-fields
       configs.setup {
         ensure_installed = {},
         sync_install = false,
@@ -44,8 +51,16 @@ return {
         },
         rainbow = {
           enable = true,
-          disable = { "html", "xml" },
+          disable = { "html", "xml", "markdown" },
         },
+        ---@diagnostic disable-next-line: unused-local
+        disable = function(lang, buf)
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            return true
+          end
+        end,
       }
       vim.treesitter.language.register("bash", "zsh")
     end,

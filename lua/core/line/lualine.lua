@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 local icons = require "core.icons"
--- local get_hl = require("core.functions").get_hlgroup
 
 local colors = {
   fg = "#21252a",
@@ -57,7 +56,7 @@ local onedark_theme = {
 
 vim.api.nvim_set_hl(0, "SLGitIcon", { fg = colors.git, bg = colors.bg })
 vim.api.nvim_set_hl(0, "SLBranchName", { fg = colors.branch_name, bg = colors.bg, bold = false })
-vim.api.nvim_set_hl(0, "SLSeparator", { fg = colors.branch_cover, bg = colors.bg, bold = false })
+vim.api.nvim_set_hl(0, "SLSeparator", { fg = colors.line, bg = colors.bg, bold = false })
 vim.api.nvim_set_hl(0, "SLProgress", { fg = colors.blue, bg = colors.none })
 
 local mode_color = {
@@ -91,7 +90,7 @@ local mode = {
     return "    "
   end,
   color = function()
-    return { fg = colors.fg , bg = mode_color[vim.fn.mode()] }
+    return { fg = colors.fg, bg = mode_color[vim.fn.mode()] }
   end,
   padding = 0,
 }
@@ -112,7 +111,7 @@ local diagnostics = {
 local diff = {
   "diff",
   colored = false,
-  color = {fg = colors.branch_name, bg = colors.bg},
+  color = { fg = colors.branch_name, bg = colors.line },
   symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " },
   separator = { left = " %#SLSeparator#" .. "  " },
   cond = hide_in_width,
@@ -121,7 +120,7 @@ local diff = {
 local filetype = {
   "filetype",
   icons_enabled = true,
-  color = { bg = colors.bg, fg = colors.branch_name },
+  color = { bg = colors.line, fg = colors.branch_name },
 }
 
 local branch = {
@@ -139,7 +138,7 @@ local progress = {
     return "%P"
   end,
   color = function()
-    return { bg = colors.bg, fg = colors.branch_name }
+    return { bg = colors.line, fg = colors.branch_name }
   end,
   separator = { left = " ", right = "" },
 }
@@ -148,8 +147,7 @@ local spaces = {
   function()
     return "Spaces " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
   end,
-  color = { fg = colors.branch_name, bg = colors.bg},
-  separator = { left = "  ", right = "" },
+  color = { fg = colors.branch_name, bg = colors.line },
 }
 
 local location = {
@@ -159,7 +157,7 @@ local location = {
   end,
 }
 
-lualine.setup {
+lualine.setup{
   options = {
     globalstatus = true,
     icons_enabled = true,
@@ -172,7 +170,7 @@ lualine.setup {
   sections = {
     lualine_a = { mode, branch },
     lualine_b = { diagnostics },
-    lualine_c = { { cond = hide_in_width } },
+    lualine_c = { { cond = hide_in_width }},
     lualine_x = { diff, spaces, filetype },
     lualine_y = { progress },
     lualine_z = { location },
@@ -188,3 +186,9 @@ lualine.setup {
   tabline = {},
   extensions = {},
 }
+-- Inserts a component in lualine_c at left section
+-- local function ins_left(component)
+--   table.insert(config.sections.lualine_c, component)
+-- end
+
+

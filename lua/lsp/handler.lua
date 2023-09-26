@@ -115,10 +115,6 @@ M.on_attach = function(client, bufnr)
 
   require("nvim-navic").attach(client, bufnr)
 
-  if client.name ~= "jdtls" then
-    vim.lsp.buf.inlay_hint(bufnr, true)
-  end
-
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
@@ -130,10 +126,13 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
-  -- if client.name == "jdtls" then
-  --   client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
-  -- end
+  if client.supports_method "textDocument/inlayHint" then
+    vim.lsp.inlay_hint(bufnr, true)
+  end
 
+  -- if client.server_capabilities.inlayHintProvider then
+  --   vim.lsp.inlay_hint(bufnr, true)
+  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

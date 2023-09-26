@@ -52,11 +52,10 @@
 
 ## ShowCase
 
-![image](https://github.com/Johan-Palacios/nvim/assets/77251405/0adf691e-5485-4edd-a3cb-bcb291c92060)
-![image](https://github.com/Johan-Palacios/nvim/assets/77251405/3d3e5a0e-8b91-4b3e-b0e1-608111913d83)
-![image](https://github.com/Johan-Palacios/nvim/assets/77251405/aae50157-c8a0-481e-b13b-87c689407b30)
-![image](https://github.com/Johan-Palacios/nvim/assets/77251405/50de295e-ebd9-4456-8373-7beee6f72175)
-![image](https://github.com/Johan-Palacios/nvim/assets/77251405/172014de-3a7f-4ea9-b3f6-295edc3ef968)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/7219b7cf-3f63-4951-b2ab-f38839fedf7f)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/33a286b5-8234-4dc0-9124-026dec83cdcc)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/d0af3518-4e85-44f2-b5ca-161017850724)
+![image](https://github.com/Johan-Palacios/nvim/assets/77251405/8df49c0f-10cc-445e-82ab-6aea8e0680bc)
 
 ---
 
@@ -64,98 +63,48 @@
 
 ### Starting 🚀
 
-This configuration have:
-
-- Autocomplete with LSP - You can install more servers with [LSP](https://github.com/neovim/nvim-lspconfig "LSP") Install
+- Autocomplete with [LSP](https://neovim.io/doc/user/lsp.html) 
+- Preconfigured Neovim
 
 ## Plugins
 
-- One dark Theme
-- Easy move in buffers
+- Personal [One Dark](https://github.com/Johan-Palacios/onedarker) Theme
 - Smooth scroll
-- File navigation with nvim-tree.lua
-- Managing tabs, buffers with bufferline.nvim
-- Great icons provided by nvim-web-devicons
-- A great Lsp configuration with nvim-lspconfig and lsp-installer
-- Autocompletion provided by nvim-cmp
-- File words, files and recent files with telescope.nvim
-- Syntax highlighting with nvim-treesitter
-- Autoclosing braces and html tags
-- Indentlines
-- Friendly snippets
-- Popup mappings provided by whichkey.nvim
-- Excelent winbar provided by nvim-gps
-- A great statusline provided by galaxyline
-- Formating with null-ls
-- And more interesting plugins :D
+- File navigation with [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) 
+- Managing tabs and buffers with [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) 
+- Nerd Font icons provided by [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- Native LSP configuration
+- Completion plugin provided by [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- highly extendable fuzzy finder over lists [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- Syntax highlighting with [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) 
+- Display key bindings [whichkey.nvim](https://github.com/folke/which-key.nvim)
+- Winbar [nvim-navic](https://github.com/SmiteshP/nvim-navic) 
+- Statusline [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 
 ### Requirements
 
-- Neovim > 0.7
+- Neovim >= 0.8
 
 ## Instalation 🔧
 
-First you need to the source of the nvim configurations
-
-You can create that with this command in $HOME
-
-`mkdir ~/.config/`
-
-Later clone the repo and open Neovim
+### Linux/Macos 🐧
 
 ```bash
-nvim
+
+git clone https://github.com/Johan-Palacios/nvim ~/.config/nvim --depth 1 && nvim
 
 ```
 
-## Español 🇪🇸
-
-### Comenzando 🚀
-
-Esta configuración tiene :
-
-- Autocompletado con LSP Nativo
-
-  - Esposible instalar más servers de autocompletado por [LSP](https://github.com/neovim/nvim-lspconfig "LSP")
-
-## Plugins
-
-- Tema de OneDark
-- Movimiento fácil entre los buffers
-- Un Scroll suave
-- Navegación de archivos por medio de Nvim-treee
-- Manejo de tabs y buffers
-- Excelentes iconos provistos por nvim-web-devicons
-- Una gran configuración de lsp dada por mason
-- Autocompletado por cmp
-- Búsqueda de palabras, ficheros y ficheros recientes con telescope.nvim
-- Subrayado de sintaxis por treesitter
-- Cierre automático de tags de html
-- Linead de indentación
-- Snippets amigables
-- Una ventana flotante con los comandos por which-key
-- Una excelente winbar por nvim-gps
-- Una muy buena linea de estado por galaxyline
-- Formateo de código por null-ls
-- Y muchos más plugins interesantes :D
-
-### Requisitos
-
-- Neovim > 0.7
-
-## Instalación 🔧
-
-Primero en tu directorio raiz debes crear la carpeta para las configuraciones de NVIM y luego clona este repositorio
-cambiandole el nombre a la carpeta a nvim
-
-Luego abre Neovim
+#### Docker 🐋
 
 ```bash
-nvim
+docker run -w /root -it --rm alpine:latest sh -uelic '
+  apk add git nodejs neovim ripgrep build-base wget --update
+  git clone https://github.com/Johan-Palacios/nvim ~/.config/nvim
+  nvim
+  '
 
 ```
-
-Luego de esto puedes disfrutar de tu Neovim
 
 ## Autor ✒️
 

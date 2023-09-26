@@ -32,6 +32,7 @@ end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+extendedClientCapabilities.onCompletionItemSelectedCommand = "editor.action.triggerParameterHints"
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
@@ -134,11 +135,7 @@ local config = {
       references = {
         includeDecompiledSources = true,
       },
-      inlayHints = {
-        parameterNames = {
-          enabled = "all", -- literals, all, none
-        },
-      },
+      inlayHints = { parameterNames = { enabled = "all" } },
       format = {
         enabled = false,
       },
@@ -190,6 +187,7 @@ local config = {
 config.on_attach = function(client, bufnr)
   require("lsp.handler").on_attach(client, bufnr)
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    buffer = bufnr,
     pattern = { "*.java" },
     callback = function()
       local _, _ = pcall(vim.lsp.codelens.refresh)

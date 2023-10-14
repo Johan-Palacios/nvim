@@ -62,4 +62,14 @@ vim.opt.fillchars:append {
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+
+
+vim.cmd [[
+  let s:clip = '/mnt/c/Windows/System32/clip.exe'
+  if executable(s:clip)
+      augroup WSLYank
+          autocmd!
+          autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+      augroup END
+  endif
+]]

@@ -27,23 +27,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-
-local wsl_clip = function()
-  if vim.fn.has "wsl" == 1 then
-    vim.cmd [[
-    let s:clip = '/mnt/c/Windows/System32/clip.exe'
-    if executable(s:clip)
-        augroup WSLYank
-            autocmd!
-            autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-        augroup END
-    endif
-  ]]
-  end
-end
-
-wsl_clip()
-
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd "tabdo wincmd ="

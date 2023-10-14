@@ -16,7 +16,6 @@ return {
       null.setup {
         debug = false,
         sources = {
-          require "typescript.extensions.null-ls.code-actions",
           -- formatting
           formatting.prettier,
           formatting.black.with { extra_args = { "--fast" } },

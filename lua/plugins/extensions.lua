@@ -28,14 +28,6 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/typescript.nvim",
-    lazy = true,
-    ft = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-    config = function()
-      require("typescript").setup {}
-    end,
-  },
-  {
     "lervag/vimtex",
     ft = "tex",
     config = function()

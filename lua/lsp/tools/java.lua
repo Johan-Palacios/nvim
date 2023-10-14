@@ -186,22 +186,15 @@ local config = {
 
 config.on_attach = function(client, bufnr)
   require("lsp.handler").on_attach(client, bufnr)
-  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    buffer = bufnr,
-    pattern = { "*.java" },
-    callback = function()
-      local _, _ = pcall(vim.lsp.codelens.refresh)
-    end,
-  })
+  local _, _ = pcall(vim.lsp.codelens.refresh)
+  require("jdtls.dap").setup_dap_main_class_configs()
+  jdtls.setup_dap { hotcodereplace = "auto" }
   vim.api.nvim_create_autocmd("BufWritePost", {
     buffer = bufnr,
     callback = function()
       client.request_sync("java/buildWorkspace", false, 5000, bufnr)
     end,
   })
-  local _, _ = pcall(vim.lsp.codelens.refresh)
-  require("jdtls.dap").setup_dap_main_class_configs()
-  jdtls.setup_dap { hotcodereplace = "auto" }
 end
 
 local keymap = require("core.functions").keymap
@@ -215,6 +208,13 @@ keymap("n", "<leader>lu", "<Esc><Cmd>JdtUpdateConfig<CR>", "Update Config")
 keymap("v", "<leader>lv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable")
 keymap("v", "<leader>lc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Cosntant")
 keymap("v", "<leader>lm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method")
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.java" },
+  callback = function()
+    local _, _ = pcall(vim.lsp.codelens.refresh)
+  end,
+})
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.

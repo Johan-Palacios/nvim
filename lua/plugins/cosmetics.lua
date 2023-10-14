@@ -1,8 +1,49 @@
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require "core.tools.indent"
+    opts = {
+      whitespace = {
+        remove_blankline_trail = true,
+      },
+      scope = { highlight = { "RainbowDelimiterViolet" } },
+      indent = {
+        char = "▏",
+      },
+      exclude = {
+        filetypes = {
+          "lspinfo",
+          "checkhealth",
+          "help",
+          "startify",
+          "dashboard",
+          "packer",
+          "neogitstatus",
+          "NvimTree",
+          "Trouble",
+          "dapui_watches",
+          "lspinfo",
+          "checkhealth",
+          "help",
+          "man",
+          "gitcommit",
+          "TelescopePrompt",
+          "TelescopeResults",
+          "''",
+        },
+        buftypes = {
+          "terminal",
+          "nofile",
+          "quickfix",
+          "prompt",
+        },
+      },
+    },
+    config = function(_, opts)
+      local status_ok, ibl = pcall(require, "ibl")
+      if not status_ok then
+        return
+      end
+      ibl.setup(opts)
     end,
     event = "BufRead",
   },

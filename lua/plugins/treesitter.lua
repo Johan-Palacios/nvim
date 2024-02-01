@@ -10,8 +10,12 @@ return {
           vim.g.rainbow_delimiters = { blacklist = { "html", "xml", "markdown" } }
         end,
       },
-      { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPre" },
-      { "windwp/nvim-ts-autotag",                      event = "InsertEnter" },
+      {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        event = "BufReadPre",
+        config = true,
+      },
+      { "windwp/nvim-ts-autotag", event = "InsertEnter" },
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/playground",
       "windwp/nvim-ts-autotag",
@@ -39,10 +43,6 @@ return {
           disable = { "" },
         },
         indent = { enable = true, disable = { "yaml" } },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-        },
         matchup = {
           enable = true,
         },
@@ -53,8 +53,7 @@ return {
           enable = true,
           disable = { "html", "xml", "markdown" },
         },
-        ---@diagnostic disable-next-line: unused-local
-        disable = function(lang, buf)
+        disable = function(_, buf)
           local max_filesize = 100 * 1024
           local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
           if ok and stats and stats.size > max_filesize then
@@ -63,6 +62,7 @@ return {
         end,
       }
       vim.treesitter.language.register("bash", "zsh")
+      vim.g.skip_ts_context_commentstring_module = true
     end,
     build = ":TSUpdate",
     event = "BufReadPre",

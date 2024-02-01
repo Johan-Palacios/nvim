@@ -4,9 +4,6 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = "java",
-    config = function()
-      require "lsp.tools.java"
-    end,
   },
   {
     "p00f/clangd_extensions.nvim",

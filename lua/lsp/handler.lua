@@ -116,7 +116,7 @@ M.on_attach = function(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
 
   local function buf_set_option(...)
-    vim.api.nvim_buf_set_option(bufnr, ...)
+    vim.api.nvim_set_option_value(bufnr, ...)
   end
 
   buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")

@@ -1,8 +1,7 @@
 return {
   {
     "Johan-Palacios/onedarker",
-    dev = false,
-    -- dir = "~/colorines",
+    -- dir = "~/onedarker",
     priority = 1000,
     lazy = false,
     config = function()

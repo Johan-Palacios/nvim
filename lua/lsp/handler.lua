@@ -126,13 +126,10 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
-  if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint(bufnr, true)
+  if client.supports_method "textDocument/inlayHint" and (vim.fn.has("nvim-0.10") == 1) then
+    vim.lsp.inlay_hint.enable()
   end
 
-  -- if client.server_capabilities.inlayHintProvider then
-  --   vim.lsp.inlay_hint(bufnr, true)
-  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

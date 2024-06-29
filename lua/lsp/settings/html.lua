@@ -1,5 +1,5 @@
 return {
   settings = {
-    filetypes = { "html", "htmldjango" }
-  }
+    filetypes = { "html", "htmldjango" },
+  },
 }

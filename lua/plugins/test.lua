@@ -1,7 +1,8 @@
 return {
   {
     "nvim-neotest/neotest",
-    event = {"VeryLazy"},
+    event = { "VeryLazy" },
+    dependencies = { "nvim-neotest/nvim-nio" },
     opts = {
       adapters = {},
       status = { virtual_text = true },

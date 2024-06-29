@@ -73,6 +73,7 @@ return {
         },
         color_icons = true,
       }
+
     end,
   },
   {

@@ -51,6 +51,30 @@ return {
           right_mouse_command = function(n)
             require("mini.bufremove").delete(n, true)
           end,
+
+          get_element_icon = function(element)
+            local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
+            local fname = vim.fn.fnamemodify(element.path, ":t")
+            -- local f = require "core.functions"
+            -- local icons = require "core.icons"
+            local icon, hl
+
+            if devicons_ok then
+              icon, hl = devicons.get_icon(fname, element.extension)
+              if icon == nil then
+                icon, hl = devicons.get_icon_by_filetype(element.filetype)
+              end
+
+            --   if f.isempty(icon) then
+            --     icon = icons.kind.File
+            --   end
+            -- else
+            --   icon = ""
+            --   hl = "Normal"
+            end
+
+            return icon, hl
+          end,
           left_mouse_command = "buffer %d",
           middle_mouse_command = nil,
           icon = "▎",

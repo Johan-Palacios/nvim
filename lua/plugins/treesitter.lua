@@ -7,13 +7,30 @@ return {
         "hiphish/rainbow-delimiters.nvim",
         event = "BufReadPre",
         config = function()
-          vim.g.rainbow_delimiters = { blacklist = { "html", "xml", "markdown" } }
+          ---@type rainbow_delimiters.config
+          vim.g.rainbow_delimiters = {
+            blacklist = { "html", "xml", "markdown" },
+            query = {
+              javascript = "rainbow-parens",
+            },
+            highlight = {
+              "RainbowDelimiterOrange",
+              "RainbowDelimiterViolet",
+              "RainbowDelimiterBlue",
+              "RainbowDelimiterCyan",
+              "RainbowDelimiterYellow",
+              -- "RainbowDelimiterRed",
+              -- "RainbowDelimiterGreen",
+            },
+          }
         end,
       },
       {
         "JoosepAlviste/nvim-ts-context-commentstring",
         event = "BufReadPre",
-        config = true,
+        opts = {
+          enable_autocmd = false,
+        },
       },
       { "windwp/nvim-ts-autotag", event = "InsertEnter" },
       "nvim-treesitter/nvim-treesitter-textobjects",
@@ -62,6 +79,7 @@ return {
         end,
       }
       vim.treesitter.language.register("bash", "zsh")
+      vim.treesitter.language.register("Dockerfile", "Dockerfile.dev")
       vim.g.skip_ts_context_commentstring_module = true
     end,
     build = ":TSUpdate",

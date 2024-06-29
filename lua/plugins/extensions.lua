@@ -1,6 +1,22 @@
 return {
   -- LANGUAGE TOOL
   { "simrat39/rust-tools.nvim", ft = "rust" },
+
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    config = function ()
+      require("typescript-tools").setup {
+      on_attach = function(client, bufnr)
+        require("lsp.handler").on_attach(client, bufnr)
+      end
+
+      }
+
+
+
+    end,
+  },
   {
     "mfussenegger/nvim-jdtls",
     ft = "java",
@@ -9,19 +25,7 @@ return {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp", "objc", "objcpp", "cuda" },
     config = function()
-      require("clangd_extensions.config").setup {}
-      require("clangd_extensions.ast").init()
-      vim.cmd [[
-        command ClangdToggleInlayHints lua require('clangd_extensions.inlay_hints').toggle_inlay_hints()
-        command -range ClangdAST lua require('clangd_extensions.ast').display_ast(<line1>, <line2>)
-        command ClangdTypeHierarchy lua require('clangd_extensions.type_hierarchy').show_hierarchy()
-        command ClangdSymbolInfo lua require('clangd_extensions.symbol_info').show_symbol_info()
-        command -nargs=? -complete=customlist,s:memuse_compl ClangdMemoryUsage lua require('clangd_extensions.memory_usage').show_memory_usage('<args>' == 'expand_preamble')
-      ]]
-      --   local status_ok, project_config = pcall(require, "rhel.clangd_wrl")
-      --   if status_ok then
-      --     clangd_flags = vim.tbl_deep_extend("keep", project_config, clangd_flags)
-      --   end
+      require("clangd_extensions").setup()
     end,
   },
   {

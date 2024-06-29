@@ -108,23 +108,27 @@ M.on_attach = function(client, bufnr)
   lsp_highlight_document(client, bufnr)
   lsp_keymaps(bufnr)
 
-  require("nvim-navic").attach(client, bufnr)
-
-  local function buf_set_option(...)
-    vim.api.nvim_set_option_value(bufnr, ...)
+  if client.supports_method "textDocument/documentSymbol" then
+    require("nvim-navic").attach(client, bufnr)
   end
 
-  buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+
+  -- Range Formating
+  -- local function buf_set_option(...)
+  --   vim.api.nvim_set_option_value(bufnr, ...)
+  -- end
+  --
+  -- buf_set_option("formatexpr", "v:lua.vim.lsp.formatexpr(#{timeout_ms:250})")
+  --
 
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
-  if client.supports_method "textDocument/inlayHint" and (vim.fn.has("nvim-0.10") == 1) then
+  if client.supports_method "textDocument/inlayHint" and (vim.fn.has "nvim-0.10" == 1) then
     vim.lsp.inlay_hint.enable()
   end
-
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -137,5 +141,17 @@ end
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  },
+}
+
+M.capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 
 return M

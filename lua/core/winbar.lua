@@ -28,16 +28,19 @@ M.winbar_filetype_exclude = {
 }
 
 local get_filename = function()
-  local icons = require("core.icons")
+  local icons = require "core.icons"
   local filename = vim.fn.expand "%:t"
-  local extension = vim.fn.expand "%:e"
   local f = require "core.functions"
 
   if not f.isempty(filename) then
     local file_icon, hl_group
     local devicons_ok, devicons = pcall(require, "nvim-web-devicons")
     if devicons_ok then
-      file_icon, hl_group = devicons.get_icon(filename, extension, { default = true })
+      file_icon, hl_group = devicons.get_icon(vim.fn.expand "%:t")
+
+      if file_icon == nil then
+        file_icon, hl_group = devicons.get_icon_by_filetype(vim.bo.filetype)
+      end
 
       if f.isempty(file_icon) then
         file_icon = icons.kind.File

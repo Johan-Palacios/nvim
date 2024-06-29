@@ -43,6 +43,7 @@ return {
     Object = " ",
   },
   documents = {
+    defautl = "󰈙",
     File = " ",
     Files = " ",
     Folder = " ",

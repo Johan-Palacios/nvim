@@ -79,7 +79,7 @@ return {
           middle_mouse_command = nil,
           icon = "▎",
           color_icons = true,
-          buffer_close_icon = "",
+          buffer_close_icon = "󰅖",
           modified_icon = "●",
           close_icon = "󰅖",
           left_trunc_marker = "",

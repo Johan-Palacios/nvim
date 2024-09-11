@@ -97,7 +97,7 @@ return {
         "cssls",
         "vimls",
         "rust_analyzer",
-        "cmake",
+        -- "cmake",
         "clangd",
         "tailwindcss",
         "lemminx",

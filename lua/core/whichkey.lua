@@ -21,20 +21,31 @@ local setup = {
       g = true,
     },
   },
-  key_labels = {
-    ["<leader>"] = "SPC ",
+  replace = {
+    key = {
+      function(key)
+        return require("which-key.view").format(key)
+      end,
+
+      { "<leader>", "SPC " },
+    },
   },
   icons = {
     breadcrumb = "»",
     separator = "➜",
     group = "+",
   },
-  window = {
+  win = {
     border = "rounded",
-    position = "bottom",
-    margin = { 1, 0, 1, 0 },
+    no_overlap = true,
     padding = { 2, 2, 2, 2 },
-    winblend = 0,
+    title = true,
+    title_pos = "center",
+    zindex = 1000,
+    bo = {},
+    wo = {
+      winblend = 0,
+    },
   },
   layout = {
     height = {
@@ -48,124 +59,75 @@ local setup = {
     spacing = 10,
     align = "center",
   },
-  ignore_missing = false,
-  hidden = {
-    "<silent>",
-    "<cmd>",
-    "<Cmd>",
-    "<CR>",
-    "call",
-    "lua",
-    "^:",
-    "^ ",
-    "<C>",
-  },
   show_help = false,
   show_hColorelp = true,
-  triggers = "auto",
-  triggers_blacklist = {
-    i = { "j", "k" },
-    v = { "j", "k" },
+  triggers = {
+    { "<auto>", mode = "nixsotc" },
+    { "j", mode = { "i", "v" } },
+    { "k", mode = { "i", "v" } },
   },
-}
-
-local opts = {
-  mode = "n",
-  prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-}
-
-local g_opts = {
-  mode = "n",
-  prefix = "g",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-}
-
-local n_mapings = {
-  d = {
-    name = "Debugger ",
-    b = "Break Point ",
-    c = "Continue ",
-    r = "Repl Toggle ",
-    i = "Step Into 樂",
-    l = "Run last ",
-    O = "Step Out ﬀ",
-    o = "Step Over",
-    t = "Terminate Debugger 栗",
-    u = "Toggle ",
-  },
-  c = {
-    name = "Conflict Manager ",
-    o = "Conflict Ours",
-    t = "Conflict Theirs",
-    b = "Conflict Both",
-    ["0"] = "Conflict None",
-  },
-  f = {
-    name = "Files ",
-    f = { "<cmd>Telescope find_files<cr>", "Find Files 🔎" },
-    w = { "<cmd>Telescope live_grep<cr>", "Find Words 📖" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find tags 📋" },
-  },
-  n = {
-    name = "Clean Search ",
-  },
-  e = {
-    name = "Explorer פּ",
-  },
-  t = {
-    name = "Terminal ",
-    f = { "Floating Terminal" },
-    v = { "Terminal Vertial" },
-    h = {
-      "Terminal Horizontal",
-    },
-    g = { "Terminal Lazy Git" },
-    t = {
-      "Terminal Tab",
-    },
-  },
-  b = {
-    name = "Buffers ",
-    d = { "Delete Buffer" },
-    v = { "<cmd>vsp<cr>", "Vertical Split" },
-    h = { "<cmd>split<cr>", "Horizontal Split" },
-  },
-  g = {
-    name = "Git ",
-    o = { "Conflict Ours" },
-    b = { "Conflict Both" },
-    t = { "Conflict Theirs" },
-    ["0"] = { "Confict none" },
-    p = { "Conflict Prev" },
-    n = { "Confict Next" },
-  },
-  j = {
-    name = "Jabs ",
-  },
-  l = {
-    name = "LSP ",
-  },
-  s = {
-    name = "Replace",
-  },
-}
-
-local g_mappings = {
-  d = "Go definition",
-  a = "Go Action",
-  I = "Go Implementations",
-  D = "Go Declaration",
-  r = "Go References",
-  q = "Go Diagnostigcs List",
 }
 
 which_key.setup(setup)
-which_key.register(n_mapings, opts)
-which_key.register(g_mappings, g_opts)
+which_key.add {
+  mode = { "n" },
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+  { "<leader>b", group = "Buffers", nowait = true, remap = false },
+  { "<leader>bd", desc = "Delete Buffer", nowait = true, remap = false },
+  { "<leader>bh", "<cmd>split<cr>", desc = "Horizontal Split", nowait = true, remap = false },
+  { "<leader>bv", "<cmd>vsp<cr>", desc = "Vertical Split", nowait = true, remap = false },
+  { "<leader>c", group = "Conflict Manager ", nowait = true, remap = false },
+  { "<leader>c0", desc = "Conflict None", nowait = true, remap = false },
+  { "<leader>cb", desc = "Conflict Both", nowait = true, remap = false },
+  { "<leader>co", desc = "Conflict Ours", nowait = true, remap = false },
+  { "<leader>ct", desc = "Conflict Theirs", nowait = true, remap = false },
+  { "<leader>d", group = "Debugger", nowait = true, remap = false },
+  { "<leader>dO", desc = "Step Out", nowait = true, remap = false },
+  { "<leader>db", desc = "Break Point  ", nowait = true, remap = false },
+  { "<leader>dc", desc = "Continue ", nowait = true, remap = false },
+  { "<leader>di", desc = "Step Into", nowait = true, remap = false },
+  { "<leader>dl", desc = "Run last", nowait = true, remap = false },
+  { "<leader>do", desc = "Step Over", nowait = true, remap = false },
+  { "<leader>dr", desc = " Repl Toggle  ", nowait = true, remap = false },
+  { "<leader>dt", desc = "Terminate Debugger ", nowait = true, remap = false },
+  { "<leader>du", desc = " Toggle", nowait = true, remap = false },
+  { "<leader>e", group = "Explorer", nowait = true, remap = false },
+  { "<leader>f", group = "Files", nowait = true, remap = false },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files 🔎", nowait = true, remap = false },
+  { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find tags 📋", nowait = true, remap = false },
+  { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Words 📖", nowait = true, remap = false },
+  { "<leader>g", group = "Git", nowait = true, remap = false },
+  { "<leader>g0", desc = "Confict none", nowait = true, remap = false },
+  { "<leader>gb", desc = "Conflict Both", nowait = true, remap = false },
+  { "<leader>gn", desc = "Confict Next", nowait = true, remap = false },
+  { "<leader>go", desc = "Conflict Ours", nowait = true, remap = false },
+  { "<leader>gp", desc = "Conflict Prev", nowait = true, remap = false },
+  { "<leader>gt", desc = "Conflict Theirs", nowait = true, remap = false },
+  { "<leader>j", group = "Jabs ", nowait = true, remap = false },
+  { "<leader>l", group = "LSP", nowait = true, remap = false },
+  { "<leader>n", group = " Clean Search", nowait = true, remap = false },
+  { "<leader>s", group = "Replace", nowait = true, remap = false },
+  { "<leader>t", group = "Terminal", nowait = true, remap = false },
+  { "<leader>tf", desc = "Floating Terminal", nowait = true, remap = false },
+  { "<leader>tg", desc = "Terminal Lazy Git", nowait = true, remap = false },
+  { "<leader>th", desc = "Terminal Horizontal", nowait = true, remap = false },
+  { "<leader>tt", desc = "Terminal Tab", nowait = true, remap = false },
+  { "<leader>tv", desc = "Terminal Vertial", nowait = true, remap = false },
+}
+
+which_key.add {
+  mode = { "n" },
+  buffer = nil,
+  silent = true,
+  noremap = true,
+  nowait = true,
+  { "gD", desc = "Go Declaration", nowait = true, remap = false },
+  { "gI", desc = "Go Implementations", nowait = true, remap = false },
+  { "ga", desc = "Go Action", nowait = true, remap = false },
+  { "gd", desc = "Go definition", nowait = true, remap = false },
+  { "gq", desc = "Go Diagnostigcs List", nowait = true, remap = false },
+  { "gr", desc = "Go References", nowait = true, remap = false },
+}

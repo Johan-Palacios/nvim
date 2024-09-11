@@ -85,6 +85,8 @@ return {
         return
       end
 
+      local icons = require "core.icons"
+
       local dashboard = require "alpha.themes.dashboard"
       dashboard.section.header.val = {
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣤⣤⣤⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -107,13 +109,13 @@ return {
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠋⠫⢏⣟⢻⢿⣿⣯⣯⣯⣯⣯⣯⠿⠟⠛⠉⠀⠀⠀⠀⠀⠀",
       }
       dashboard.section.buttons.val = {
-        dashboard.button("SPC f", "  Find file", ":Telescope find_files <CR>"),
+        dashboard.button("SPC f", icons.ui.Search .. "  Find file", ":Telescope find_files <CR>"),
         dashboard.button("SPC e", "  New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("SPC p", "  Find project", ":Telescope projects <CR>"),
-        dashboard.button("SPC r", "  Recently used files", ":Telescope oldfiles <CR>"),
-        dashboard.button("SPC g", "  Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("SPC r", icons.ui.History .. "  Recently used files", ":Telescope oldfiles <CR>"),
+        dashboard.button("SPC g", icons.kind.TypeParameter .. "  Find text", ":Telescope live_grep <CR>"),
         dashboard.button("SPC c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
-        dashboard.button("SPC q", "  Quit Neovim", ":qa<CR>"),
+        dashboard.button("SPC q", icons.ui.Close .. "  Quit Neovim", ":qa<CR>"),
       }
 
       local function footer()

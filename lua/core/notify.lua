@@ -12,7 +12,7 @@ notify.setup {
   icons = {
     ERROR = "",
     WARN = "",
-    INFO = "",
+    INFO = "",
     DEBUG = "",
     TRACE = "✎",
   },

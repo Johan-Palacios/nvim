@@ -118,9 +118,8 @@ local config = {
         updateBuildConfiguration = "interactive",
         runtimes = {
           {
-            name = "Java Temurin OpenJdk - 17",
-
-            path = "~/.sdkman/candidates/java/17.0.12-tem",
+            name = "JavaSE-22",
+            path = "~/.sdkman/candidates/java/22.0.2-tem",
           },
         },
       },

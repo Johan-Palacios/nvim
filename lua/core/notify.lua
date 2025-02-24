@@ -17,7 +17,6 @@ notify.setup {
     TRACE = "✎",
   },
 }
-
 local log = require("plenary.log").new {
   plugin = "notify",
   level = "error",

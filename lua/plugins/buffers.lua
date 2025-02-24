@@ -12,6 +12,18 @@ return {
   {
     "matbme/JABS.nvim",
     opts = {
+      symbols = {
+        hidden = "H",
+        current = "C",
+        split = "S",
+        alternate = "A",
+        edited = "E",
+        locked = "L",
+        ro = "RO",
+        terminal = "T",
+        default_file = "D",
+        terminal_symbol = "T"
+      },
       position = { "center", "top" },
       use_devicons = true,
       width = 50,
@@ -65,12 +77,12 @@ return {
                 icon, hl = devicons.get_icon_by_filetype(element.filetype)
               end
 
-            --   if f.isempty(icon) then
-            --     icon = icons.kind.File
-            --   end
-            -- else
-            --   icon = ""
-            --   hl = "Normal"
+              --   if f.isempty(icon) then
+              --     icon = icons.kind.File
+              --   end
+              -- else
+              --   icon = ""
+              --   hl = "Normal"
             end
 
             return icon, hl

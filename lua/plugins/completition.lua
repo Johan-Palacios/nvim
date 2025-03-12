@@ -221,6 +221,10 @@ return {
               if kind == "Snippet" and ctx.prev_context.filetype == "java" then
                 return false
               end
+              local source_name = entry.source:get_debug_name()
+              if source_name == "nvim_lsp:emmet_language_server" then
+                return true
+              end
               if kind == "Text" then
                 return false
               end

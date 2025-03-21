@@ -87,6 +87,7 @@ return {
       local servers = {
         "eslint",
         "emmet_language_server",
+        "astro",
         -- "tsserver",
         "dockerls",
         "jsonls",

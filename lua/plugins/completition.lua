@@ -114,10 +114,12 @@ return {
       }
 
       cmp.setup {
+
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         },
+
         formatting = {
           fields = { "kind", "abbr", "menu" },
           expandable_indicator = true,
@@ -155,6 +157,7 @@ return {
             return vim_item
           end,
         },
+
         window = {
           ---@diagnostic disable-next-line: assign-type-mismatch
           documentation = false,
@@ -163,14 +166,17 @@ return {
             winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
           },
         },
+
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
         },
+
         experimental = {
           ghost_text = false,
         },
+
         mapping = {
           ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-j>"] = cmp.mapping.select_next_item(),

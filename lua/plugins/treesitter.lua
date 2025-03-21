@@ -12,6 +12,7 @@ return {
             blacklist = { "html", "xml", "markdown" },
             query = {
               javascript = "rainbow-parens",
+              astro = "raibow-parens"
             },
             highlight = {
               "RainbowDelimiterOrange",
@@ -58,6 +59,7 @@ return {
           enable = true,
           use_languagetree = true,
           disable = { "" },
+          additional_vim_regex_highlighting = { 'ruby', 'astro' },
         },
         indent = { enable = true, disable = { "yaml" } },
         matchup = {

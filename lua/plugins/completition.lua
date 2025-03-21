@@ -218,6 +218,7 @@ return {
             "s",
           }),
         },
+
         sources = {
           {
             name = "nvim_lsp",
@@ -252,6 +253,7 @@ return {
         },
       }
     end,
+
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",

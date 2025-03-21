@@ -38,7 +38,7 @@ return {
 
       ---Enriched Menu with path and classes
       ---@param menu string (`vim_item.menu`)
-      ---@param entry table (`entry`)
+      ---@param entry table (`cmp.entry`)
       ---@param lsptext string
       ---@return string
       local improved_menu = function(menu, entry, lsptext)

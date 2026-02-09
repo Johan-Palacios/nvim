@@ -164,7 +164,7 @@ lualine.setup{
     theme = onedark_theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
-    disabled_filetypes = { "alpha", "dashboard", "NvimTree", "packer", "Outline", "toggleterm", "TelescopePrompt" },
+    disabled_filetypes = { "alpha", "dashboard", "NvimTree", "packer", "Outline", "toggleterm", "TelescopePrompt", "copilot-chat" },
     always_divide_middle = true,
   },
   sections = {

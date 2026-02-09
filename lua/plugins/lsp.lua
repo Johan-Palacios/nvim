@@ -53,11 +53,6 @@ return {
       },
     },
     config = function()
-      local status_ok, _ = pcall(require, "lspconfig")
-      if not status_ok then
-        return
-      end
-
       require("lsp.handler").setup()
     end,
   },
@@ -76,11 +71,6 @@ return {
 
       local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
       if not status_ok_1 then
-        return
-      end
-
-      local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-      if not lspconfig_status_ok then
         return
       end
 
@@ -135,7 +125,7 @@ return {
         if has_custom_opts then
           opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
         end
-        lspconfig[server].setup(opts)
+        vim.lsp.config(server, opts)
       end
     end,
   },

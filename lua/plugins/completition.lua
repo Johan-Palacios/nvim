@@ -275,6 +275,7 @@ return {
         config = function()
           -- require'luasnip'.filetype_extend("Dockerfile", {"Dockerfile.dev"})
           require("luasnip").filetype_extend("astro", { "typescript", "html" })
+          require("luasnip").filetype_extend("mdx", { "markdown", "typescript", "html" })
           require("luasnip.loaders.from_vscode").lazy_load()
         end,
       },

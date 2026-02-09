@@ -12,7 +12,8 @@ return {
             blacklist = { "html", "xml", "markdown" },
             query = {
               javascript = "rainbow-parens",
-              astro = "raibow-parens"
+              typescript = "rainbow-parens",
+              astro = "raibow-parens",
             },
             highlight = {
               "RainbowDelimiterOrange",
@@ -82,6 +83,7 @@ return {
       }
       vim.treesitter.language.register("bash", "zsh")
       vim.treesitter.language.register("Dockerfile", "Dockerfile.dev")
+      vim.treesitter.language.register("markdown", "mdx")
       vim.g.skip_ts_context_commentstring_module = true
     end,
     build = ":TSUpdate",

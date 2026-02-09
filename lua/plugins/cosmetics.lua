@@ -51,6 +51,9 @@ return {
     "anuvyklack/pretty-fold.nvim",
     config = true,
     event = "BufReadPre",
+    opts = {
+      ft_ignore = { "CopilotChat", "copilot-chat" },
+    },
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -73,7 +76,6 @@ return {
         },
         color_icons = true,
       }
-
     end,
   },
   {

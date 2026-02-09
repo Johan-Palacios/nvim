@@ -4,6 +4,7 @@ M.winbar_filetype_exclude = {
   "help",
   "startify",
   "dashboard",
+  "CopilotChat",
   "packer",
   "neogitstatus",
   "NvimTree",
@@ -38,15 +39,19 @@ local get_filename = function()
     if devicons_ok then
       file_icon, hl_group = devicons.get_icon(vim.fn.expand "%:t")
 
-      if file_icon == nil then
+      if f.isempty(file_icon) or f.isempty(hl_group) then
         file_icon, hl_group = devicons.get_icon_by_filetype(vim.bo.filetype)
       end
 
       if f.isempty(file_icon) then
         file_icon = icons.kind.File
       end
+
+      if f.isempty(hl_group) then
+        hl_group = "Normal"
+      end
     else
-      file_icon = ""
+      file_icon = icons.kind.File
       hl_group = "Normal"
     end
 
